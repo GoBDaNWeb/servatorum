@@ -14,7 +14,7 @@ import s from './donation.module.scss';
 
 export const Donation = () => {
 	const [swiper, setSwiper] = useState<SwiperType>();
-	const [activeSlideIndex, setActiveSlideIndex] = useState<number>(1);
+	// const [activeSlideIndex, setActiveSlideIndex] = useState<number>(1);
 
 	const prev = useRef<HTMLDivElement>(null);
 	const next = useRef<HTMLDivElement>(null);
@@ -60,9 +60,9 @@ export const Donation = () => {
 				<h2>Находи и поддерживай сборы</h2>
 				<div className={s.donationContent}>
 					<Swiper
-						onSlideChange={swiper => {
-							setActiveSlideIndex(swiper.activeIndex + 1);
-						}}
+						// onSlideChange={swiper => {
+						// 	setActiveSlideIndex(swiper.activeIndex + 1);
+						// }}
 						onSwiper={swiper => {
 							setSwiper(swiper);
 						}}
@@ -113,9 +113,9 @@ export const Donation = () => {
 						>
 							<img src='/images/arrow-left.svg' alt='arrow' />
 						</Button>
-						<div className={s.pagination}>
+						{/* <div className={s.pagination}>
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
-						</div>
+						</div> */}
 						<Button
 							//@ts-expect-error исправить
 							ref={next}

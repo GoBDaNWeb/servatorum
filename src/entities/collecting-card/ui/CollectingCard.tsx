@@ -99,6 +99,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 					<Swiper
 						onSwiper={swiper => {
 							setSwiper(swiper);
+							console.log('render');
 						}}
 						slidesPerView={1}
 						modules={[Pagination]}
