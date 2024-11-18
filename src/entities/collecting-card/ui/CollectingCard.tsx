@@ -7,7 +7,7 @@ import { Pagination } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import { cropText } from '@/shared/lib';
-import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
+import { Badge, Button, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
 
