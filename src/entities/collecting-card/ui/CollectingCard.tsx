@@ -98,9 +98,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 				<Fancybox>
 					<Swiper
 						onSwiper={swiper => {
-							if (!swiper) {
-								setSwiper(swiper);
-							}
+							setSwiper(swiper);
 						}}
 						slidesPerView={1}
 						modules={[Pagination]}

@@ -64,9 +64,7 @@ export const Donation = () => {
 							setActiveSlideIndex(swiper.activeIndex + 1);
 						}}
 						onSwiper={swiper => {
-							if (!swiper) {
-								setSwiper(swiper);
-							}
+							setSwiper(swiper);
 						}}
 						breakpoints={swiperBreakpoints}
 						slidesPerView={4}
