@@ -1,9 +1,13 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect, useRef, useState } from 'react';
+import { SwiperSlide } from 'swiper/react';
 
 import clsx from 'clsx';
 
+import { Pagination } from 'swiper/modules';
+import { Swiper as SwiperType } from 'swiper/types';
+
 import { cropText } from '@/shared/lib';
-import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon } from '@/shared/ui';
+import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
 
@@ -40,17 +44,17 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	isPopular = false,
 	hasLink = false
 }) => {
-	// const [swiper, setSwiper] = useState<SwiperType>();
-	// const pagination = useRef<HTMLDivElement>(null);
+	const [swiper, setSwiper] = useState<SwiperType>();
+	const pagination = useRef<HTMLDivElement>(null);
 
-	// useEffect(() => {
-	// 	if (swiper && pagination.current) {
-	// 		swiper.pagination.destroy(); // Удаляем предыдущую пагинацию, если она была
-	// 		swiper.pagination.init(); // Инициализируем новую пагинацию
-	// 		swiper.pagination.render(); // Рендерим пагинацию
-	// 		swiper.pagination.update(); // Обновляем пагинацию
-	// 	}
-	// }, [swiper]);
+	useEffect(() => {
+		if (swiper && pagination.current) {
+			swiper.pagination.destroy(); // Удаляем предыдущую пагинацию, если она была
+			swiper.pagination.init(); // Инициализируем новую пагинацию
+			swiper.pagination.render(); // Рендерим пагинацию
+			swiper.pagination.update(); // Обновляем пагинацию
+		}
+	}, [swiper]);
 
 	const collectingCardClass = clsx(s.collectingCard, s[size], className);
 	const badgeClass = clsx(s.badge, s[badgeColor]);
@@ -92,14 +96,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 					<span className={s.date}>{date}</span>
 				</div>
 				<Fancybox className={s.swiperWrapper}>
-					<Image
-						paddingBottom='71%'
-						src={imgs[0]}
-						alt='slide'
-						className={s.image}
-						fancybox='collecting'
-					/>
-					{/* <Swiper
+					<Swiper
 						onSwiper={swiper => {
 							setSwiper(swiper);
 						}}
@@ -122,7 +119,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							</SwiperSlide>
 						))}
 					</Swiper>
-					<div ref={pagination}></div> */}
+					<div ref={pagination}></div>
 				</Fancybox>
 			</div>
 			<div className={s.collectingCardBottom}>
