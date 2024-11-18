@@ -3,7 +3,7 @@ import { FC, ReactElement } from 'react';
 import clsx from 'clsx';
 
 import { cropText } from '@/shared/lib';
-import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon } from '@/shared/ui';
+import { Button, LinkIcon, StarIcon } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
 
@@ -29,17 +29,18 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	sum,
 	total,
 	className,
-	date,
-	imgs,
-	badge,
+	// date,
+	// imgs,
+	// badge,
 	userImg,
 	userName,
 	userDate,
 	size = 's',
-	badgeColor = 'purple',
-	isPopular = false,
+	// badgeColor = 'purple',
+	// isPopular = false,
 	hasLink = false
 }) => {
+	// const [swiper, setSwiper] = useState<SwiperType>();
 	// const pagination = useRef<HTMLDivElement>(null);
 
 	// useEffect(() => {
@@ -52,34 +53,33 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	// }, [swiper]);
 
 	const collectingCardClass = clsx(s.collectingCard, s[size], className);
-	const badgeClass = clsx(s.badge, s[badgeColor]);
+	// const badgeClass = clsx(s.badge, s[badgeColor]);
 
 	return (
 		<div className={collectingCardClass}>
 			{userImg && userName ? (
 				<div className={s.collectingCardTop}>
 					<div className={s.user}>
-						<img src={userImg} alt='user' />
+						<img src={userImg} alt='' />
 						<div className={s.userInfo}>
 							<p>{userName}</p>
 							<span>{userDate}</span>
 						</div>
 					</div>
-					<div className={s.features}>
-						{hasLink ? (
-							<Button variant='clear'>
-								<LinkIcon />
-							</Button>
-						) : null}
-
+					<div className={s.features}></div>
+					{hasLink ? (
 						<Button variant='clear'>
-							<StarIcon />
+							<LinkIcon />
 						</Button>
-					</div>
+					) : null}
+
+					<Button variant='clear'>
+						<StarIcon />
+					</Button>
 				</div>
 			) : null}
 
-			<div className={s.collectingCardCenter}>
+			{/* <div className={s.collectingCardCenter}>
 				<div className={s.collectingCardCenterInfo}>
 					<Badge className={badgeClass}>{badge}</Badge>
 					{isPopular ? (
@@ -90,42 +90,33 @@ export const CollectingCard: FC<ICollectingCard> = ({
 
 					<span className={s.date}>{date}</span>
 				</div>
-
 				<Fancybox>
-					<Image
-						paddingBottom='71%'
-						src={imgs[0]}
-						alt='slide'
-						className={s.image}
-						fancybox='collecting'
-					/>
-					{/* <Swiper
-					onSwiper={swiper => {
-						setSwiper(swiper);
-						console.log('render');
-					}}
-					slidesPerView={1}
-					modules={[Pagination]}
-					pagination={{
-						el: pagination.current,
-						clickable: true
-					}}
-				>
-					{imgs.map((img, index) => (
-						<SwiperSlide key={index}>
-							<Image
-								paddingBottom='71%'
-								src={img}
-								alt='slide'
-								className={s.image}
-								fancybox='collecting'
-							/>
-						</SwiperSlide>
-					))}
-				</Swiper> */}
-					{/* <div ref={pagination}></div> */}
+					<Swiper
+						onSwiper={swiper => {
+							setSwiper(swiper);
+						}}
+						slidesPerView={1}
+						modules={[Pagination]}
+						pagination={{
+							el: pagination.current,
+							clickable: true
+						}}
+					>
+						{imgs.map((img, index) => (
+							<SwiperSlide key={index}>
+								<Image
+									paddingBottom='71%'
+									src={img}
+									alt='slide'
+									className={s.image}
+									fancybox='collecting'
+								/>
+							</SwiperSlide>
+						))}
+					</Swiper>
+					<div ref={pagination}></div>
 				</Fancybox>
-			</div>
+			</div> */}
 			<div className={s.collectingCardBottom}>
 				<a href='#' className={s.collectingCardBottomContent}>
 					<p className={s.title}>{cropText(title, 52)}</p>
