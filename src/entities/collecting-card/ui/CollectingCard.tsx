@@ -55,9 +55,6 @@ export const CollectingCard: FC<ICollectingCard> = ({
 			swiper.pagination.update(); // Обновляем пагинацию
 		}
 	}, [swiper]);
-	useEffect(() => {
-		alert('popular');
-	}, [isPopular]);
 
 	const collectingCardClass = clsx(s.collectingCard, s[size], className);
 	const badgeClass = clsx(s.badge, s[badgeColor]);
@@ -73,16 +70,17 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							<span>{userDate}</span>
 						</div>
 					</div>
-					<div className={s.features}></div>
-					{hasLink ? (
-						<Button variant='clear'>
-							<LinkIcon />
-						</Button>
-					) : null}
+					<div className={s.features}>
+						{hasLink ? (
+							<Button variant='clear'>
+								<LinkIcon />
+							</Button>
+						) : null}
 
-					<Button variant='clear'>
-						<StarIcon />
-					</Button>
+						<Button variant='clear'>
+							<StarIcon />
+						</Button>
+					</div>
 				</div>
 			) : null}
 
