@@ -55,6 +55,9 @@ export const CollectingCard: FC<ICollectingCard> = ({
 			swiper.pagination.update(); // Обновляем пагинацию
 		}
 	}, [swiper]);
+	useEffect(() => {
+		alert('popular');
+	}, [isPopular]);
 
 	const collectingCardClass = clsx(s.collectingCard, s[size], className);
 	const badgeClass = clsx(s.badge, s[badgeColor]);
@@ -97,8 +100,9 @@ export const CollectingCard: FC<ICollectingCard> = ({
 				<Fancybox>
 					<Swiper
 						onSwiper={swiper => {
-							setSwiper(swiper);
-							alert('swiper init');
+							if (!swiper) {
+								setSwiper(swiper);
+							}
 						}}
 						slidesPerView={1}
 						modules={[Pagination]}
