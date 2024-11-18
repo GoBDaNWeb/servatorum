@@ -1,0 +1,1 @@
+export { cropText } from './cropText';

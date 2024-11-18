@@ -1,0 +1,100 @@
+.footer {
+	border-radius: var(--radius-xxl) var(--radius-xxl) 0 0;
+	z-index: 2;
+	position: relative;
+	background: var(--white-color);
+	padding-top: 41px;
+	padding-bottom: 50px;
+	@media (max-width: $tab) {
+		padding-bottom: 30px;
+	}
+	.footerInner {
+		.footerTop {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@media (max-width: $tab-sm) {
+				flex-direction: column;
+				gap: 24px;
+			}
+			.links {
+				display: flex;
+				align-items: center;
+				gap: 30px;
+				@media (max-width: $tab-sm) {
+					gap: 20px;
+				}
+				a {
+					width: 199px;
+					@media (max-width: $tab) {
+						height: 60px;
+						img {
+							width: 107px;
+						}
+					}
+					@media (max-width: $mob) {
+						width: 100%;
+					}
+				}
+			}
+		}
+		.footerBottom {
+			margin-top: 42px;
+			padding-top: 57px;
+			border-top: 1px solid var(--line-color);
+			@media (max-width: $tab) {
+				padding-top: 28px;
+				margin-top: 28px;
+			}
+			.descr {
+				@include headline_32_m;
+				@media (max-width: $tab) {
+					@include title_1_24_m;
+				}
+			}
+			.info {
+				display: flex;
+				justify-content: space-between;
+				gap: 30px;
+				margin-top: 34px;
+				@media (max-width: $tab) {
+					flex-direction: column;
+					gap: 12px;
+					margin-top: 28px;
+				}
+				a {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					transition: var(--trs-300);
+					svg {
+						path {
+							transition: var(--trs-300);
+						}
+					}
+					&:hover {
+						color: var(--purple-hover-color);
+						svg {
+							path {
+								fill: var(--purple-hover-color);
+							}
+						}
+					}
+				}
+				a,
+				p {
+					@include hint_1_14_r;
+				}
+				.alert {
+					display: flex;
+					align-items: center;
+					gap: 12px;
+					img {
+						width: 25px;
+						height: 25px;
+					}
+				}
+			}
+		}
+	}
+}

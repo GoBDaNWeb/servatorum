@@ -1,0 +1,70 @@
+.requetsCard {
+	background: var(--white-color);
+	border-radius: var(--radius-xs);
+	padding: 7px;
+	box-shadow: var(--shadow);
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+
+	.requetsCardTop {
+		display: flex;
+		justify-content: space-between;
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+			p {
+				font-weight: 400;
+				font-size: 9px;
+				line-height: 10px;
+			}
+			span {
+				font-size: 8px;
+				line-height: 10px;
+				font-weight: 400;
+				color: var(--txt-gray-color);
+			}
+		}
+		.status {
+			color: var(--green-color);
+			font-size: 9px;
+			line-height: 10px;
+			font-weight: 400;
+			display: flex;
+			align-items: center;
+			gap: 2px;
+			img {
+				width: 8px;
+				height: 8px;
+			}
+		}
+	}
+	.requetsCardBottom {
+		display: flex;
+		align-items: flex-start;
+		gap: 6px;
+		img {
+			width: 37px;
+			height: 37px;
+		}
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+
+			p {
+				&:first-child {
+					font-size: 9px;
+					line-height: 10px;
+					font-weight: 500;
+				}
+				&:last-child {
+					font-size: 8px;
+					line-height: 10px;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}

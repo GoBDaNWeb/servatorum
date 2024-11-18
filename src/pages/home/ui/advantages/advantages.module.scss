@@ -1,0 +1,144 @@
+.advantages {
+	margin-top: 128px;
+
+	h2 {
+		@include h2;
+	}
+	.advantagesContent {
+		display: grid;
+		grid-template-columns: 0.65fr 1fr;
+		align-items: flex-start;
+		gap: 69px;
+		@media (max-width: $desktop-sm) {
+			grid-template-columns: 0.72fr 1fr;
+		}
+		@media (max-width: $tab) {
+			margin-top: 95px;
+			grid-template-columns: 1fr;
+			gap: 82px;
+			margin-top: 28px;
+		}
+		.textblock {
+			@media (max-width: $tab) {
+				order: 1;
+			}
+			.advantageList {
+				margin-top: 48px;
+				@media (max-width: $tab) {
+					margin-top: 28px;
+				}
+				.advantageItem {
+					display: flex;
+					gap: 30px;
+					margin-top: 48px;
+					padding-top: 48px;
+					border-top: 1px solid var(--line-color);
+					@media (max-width: $tab) {
+						gap: 21px;
+						margin-top: 28px;
+						padding-top: 28px;
+					}
+					&:first-child {
+						border-top: none;
+						margin-top: 0;
+						padding-top: 0;
+					}
+					img {
+						width: 84px;
+						height: 84px;
+						@media (max-width: $tab) {
+							width: 64px;
+							height: 64px;
+						}
+					}
+					.advantageItemContent {
+						p {
+							@include title_1_24_m;
+							@media (max-width: $tab) {
+								@include title_2_20_m;
+							}
+						}
+						ul {
+							margin-top: 20px;
+							gap: 12px;
+							@media (max-width: $tab) {
+								margin-top: 12px;
+								gap: 8px;
+							}
+							li {
+								@include text_1_16_r;
+								padding-left: 32px;
+								@media (max-width: $tab) {
+									font-size: 14px;
+									line-height: 16px;
+								}
+								&:before {
+									width: 20px;
+									height: 20px;
+									background-position: center;
+									background-size: contain;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.imageBlock {
+			position: relative;
+			margin-top: -46px;
+			@media (max-width: $desktop-sm) {
+				margin-top: 48px;
+			}
+			@media (max-width: $tab) {
+				margin-top: 0;
+				order: 0;
+			}
+			.phone {
+				z-index: 2;
+				position: absolute;
+				top: 61px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 39%;
+			}
+			.collecting {
+				position: absolute;
+				top: 31px;
+				left: 30px;
+				max-width: 193px;
+				@media (max-width: $tab-sm) {
+					transform: scale(0.7);
+				}
+				@media (max-width: $pre-mob) {
+					top: 0px;
+					left: 0px;
+				}
+				@media (max-width: $mob) {
+					transform: scale(0.5);
+					top: -40px;
+					left: -40px;
+				}
+			}
+			.alert {
+				position: absolute;
+				max-width: 150px;
+				right: 30px;
+				bottom: 28px;
+				@media (max-width: $tab-sm) {
+					transform: scale(0.7);
+				}
+				@media (max-width: $pre-mob) {
+					right: 0px;
+					bottom: 0px;
+				}
+				@media (max-width: $mob) {
+					transform: scale(0.5);
+					right: -30px;
+					bottom: -30px;
+				}
+			}
+		}
+	}
+}

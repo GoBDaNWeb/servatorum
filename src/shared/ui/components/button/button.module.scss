@@ -1,0 +1,95 @@
+.button {
+	background: none;
+	outline: none;
+	cursor: pointer;
+	border: none;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: var(--trs-300);
+	&.s {
+		height: 48px;
+	}
+	&.sm {
+		height: 60px;
+	}
+	&.m {
+		height: 64px;
+		@media (max-width: $tab-sm) {
+			height: 60px;
+		}
+	}
+	&.l {
+		height: 80px;
+	}
+	&.clear {
+		background: none;
+		height: fit-content;
+		padding: 0;
+		width: fit-content;
+	}
+	&.default {
+		background: var(--gray-color);
+		padding: 0 24px;
+		border-radius: var(--radius-s);
+		@include title_3_16_m;
+		&:hover {
+			background: var(--line-color);
+		}
+		&:active {
+			background: var(--txt-gray-color);
+		}
+	}
+	&.primary {
+		background: var(--purple-color);
+		padding: 0 24px;
+		color: var(--white-color);
+		border-radius: var(--radius-s);
+		@include button_1_16_r;
+		&:hover {
+			background: var(--purple-hover-color);
+		}
+		&:active {
+			background: var(--purple-active-color);
+		}
+	}
+	&.outline {
+		padding: 0 24px;
+		color: var(--purple-color);
+		border: 1px solid var(--purple-color);
+		border-radius: var(--radius-s);
+		@include button_1_16_r;
+		&:hover {
+			border-color: var(--purple-hover-color);
+			color: var(--purple-hover-color);
+		}
+		&:active {
+			border-color: var(--purple-active-color);
+			color: var(--purple-active-color);
+		}
+	}
+	&.circle {
+		width: 45px;
+		height: 45px;
+		padding: 0;
+		border-radius: 999px;
+		background: var(--purple-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:hover {
+			background: var(--purple-hover-color);
+		}
+		&:active {
+			background: var(--purple-active-color);
+		}
+	}
+	&.secondary {
+		background: var(--dark-color);
+		padding: 0 24px;
+		color: var(--white-color);
+		border-radius: var(--radius-s);
+		@include button_1_16_r;
+	}
+}

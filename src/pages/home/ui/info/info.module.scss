@@ -1,0 +1,100 @@
+.info {
+	background: var(--gray-bg-color);
+	border-radius: var(--radius-xxl);
+	margin-top: 128px;
+	padding-top: 128px;
+	z-index: 2;
+	position: relative;
+	overflow: hidden;
+
+	@media (max-width: $tab) {
+		padding-top: 96px;
+		margin-top: 96px;
+		border-radius: 20px;
+	}
+	.infoInner {
+		position: relative;
+		h2 {
+			@include h2;
+		}
+		.directionsList {
+			margin-top: 48px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			z-index: 2;
+			position: relative;
+			@media (max-width: $tab) {
+				margin-top: 28px;
+				gap: 5px;
+			}
+			.direction {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				@media (max-width: $tab) {
+					gap: 10px;
+				}
+				img {
+					width: 50px;
+					height: 50px;
+					@media (max-width: $tab) {
+						width: 30px;
+						height: 30px;
+					}
+				}
+			}
+		}
+		.help {
+			margin-top: 128px;
+			z-index: 2;
+			position: relative;
+			padding-bottom: 128px;
+			@media (max-width: $tab) {
+				margin-top: 96px;
+				padding-bottom: 313px;
+			}
+			.helpList {
+				margin-top: 48px;
+				// display: grid;
+				// grid-template-columns: repeat(4, 1fr);
+				gap: 30px;
+				@media (max-width: $tab) {
+					margin-top: 28px;
+				}
+				& > div {
+					overflow: visible;
+				}
+				.swiper-slide {
+					height: auto;
+				}
+			}
+			.naviagtion {
+				display: none;
+				@media (max-width: $mob) {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin-top: 28px;
+				}
+				.pagination {
+					@include title_3_16_m;
+					span {
+						color: var(--purple-color);
+					}
+				}
+			}
+		}
+		.bgImage {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			margin: auto;
+			max-width: 1115px;
+			@media (max-width: $mob) {
+				padding-bottom: 47% !important;
+			}
+		}
+	}
+}

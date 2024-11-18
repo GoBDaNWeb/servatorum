@@ -1,0 +1,44 @@
+.fondCard {
+	padding: 9px;
+	background: var(--white-color);
+	box-shadow: var(--shadow);
+	border-radius: var(--radius-xs);
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	.fondCardTop {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		.fondCardTopContent {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			img {
+				width: 27px;
+				height: 27px;
+				border-radius: 999px;
+				object-fit: cover;
+			}
+			.text {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				p {
+					font-size: 8px;
+					line-height: 9px;
+					font-weight: 500;
+				}
+			}
+		}
+		button {
+			height: fit-content;
+			padding: 0;
+		}
+	}
+	.fondCardBottom {
+		display: flex;
+		gap: 2px;
+		flex-wrap: wrap;
+	}
+}

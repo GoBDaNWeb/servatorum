@@ -1,0 +1,21 @@
+.who {
+	margin-top: 203px;
+	@media (max-width: $tab) {
+		margin-top: 95px;
+	}
+	h2 {
+		@include h2;
+	}
+	.whoContent {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 30px;
+		margin-top: 48px;
+		overflow: auto;
+		padding-bottom: 10px;
+		@media (max-width: $tab) {
+			margin-top: 28px;
+			gap: 20px;
+		}
+	}
+}

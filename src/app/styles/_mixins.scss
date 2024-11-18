@@ -1,0 +1,68 @@
+@mixin caption_2_12_r {
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 16px;
+}
+@mixin title_4_14_m {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+}
+@mixin title_3_16_m {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+}
+@mixin title_5_12_m {
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 14px;
+}
+@mixin title_2_20_m {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+}
+@mixin title_1_24_m {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+}
+@mixin button_1_16_r {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+@mixin headline_32_m {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 36px;
+}
+@mixin h2 {
+	font-weight: 500;
+	font-size: 64px;
+	line-height: 100%;
+	@media (max-width: 1024px) {
+		font-size: 40px;
+	}
+}
+@mixin text_1_16_r {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 20px;
+}
+@mixin text_2_14_r {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+}
+@mixin button_1_16_r {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+@mixin hint_1_14_r {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+}

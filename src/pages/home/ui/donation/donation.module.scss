@@ -1,0 +1,68 @@
+.donation {
+	padding-top: 151px;
+	overflow: hidden;
+	margin-top: -23px;
+	z-index: 1;
+	position: relative;
+	@media (max-width: $tab) {
+		padding-top: 118px;
+	}
+	.donationInner {
+		h2 {
+			@include h2;
+		}
+		.donationContent {
+			margin-top: 48px;
+			position: relative;
+			@media (max-width: $tab) {
+				margin-top: 40px;
+			}
+			& > div {
+				overflow: visible;
+			}
+			.navigation {
+				position: absolute;
+				top: 145px;
+				left: -20px;
+				right: -20px;
+				margin: auto;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				pointer-events: none;
+				@media (max-width: $mob) {
+					position: relative;
+					top: auto;
+					left: 0;
+					right: 0;
+					margin-top: 20px;
+				}
+				button {
+					pointer-events: all;
+				}
+				.pagination {
+					display: none;
+					@include title_3_16_m;
+					span {
+						color: var(--purple-color);
+					}
+					@media (max-width: $mob) {
+						display: block;
+					}
+				}
+			}
+		}
+		.loadBtn {
+			@include title_2_20_m;
+			margin: 50px auto 0;
+			width: 280px;
+			@media (max-width: $tab) {
+				margin: 30px auto 0;
+			}
+			@media (max-width: $mob) {
+				width: 100%;
+			}
+		}
+	}
+}

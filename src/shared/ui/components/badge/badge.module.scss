@@ -1,0 +1,48 @@
+.badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	&.alert {
+		border-radius: 999px;
+		background: var(--purple-color) !important;
+		@include title_5_12_m;
+		color: var(--white-color);
+	}
+	&.s {
+		border-radius: var(--radius-xxs);
+		font-size: 7px;
+		line-height: 9px;
+		font-weight: 400;
+		padding: 0 5px;
+		height: 14px;
+	}
+	&.m {
+		height: 30px;
+		padding: 0 16px;
+	}
+	&.xl {
+		height: 82px;
+		@include title_3_16_m;
+		border-radius: var(--radius-m);
+		padding: 0 20px;
+		@media (max-width: $tab) {
+			height: 40px;
+			padding: 0 10px;
+		}
+	}
+	&.white {
+		background: var(--white-color);
+	}
+	&.purple {
+		background: #f3f1fb;
+		color: var(--purple-color);
+	}
+	&.gray {
+		background: var(--gray-color);
+	}
+	&.green {
+		background: var(--green-color);
+		color: var(--white-color);
+	}
+}

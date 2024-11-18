@@ -1,0 +1,131 @@
+.hero {
+	display: grid;
+	grid-template-columns: 0.57fr 1fr;
+	gap: 139px;
+	@media (max-width: $tab) {
+		grid-template-columns: 1fr;
+		gap: 48px;
+	}
+	.textBlock {
+		margin-top: 60px;
+		@media (max-width: $tab) {
+			order: 1;
+		}
+		h2 {
+			color: var(--purple-color);
+			@include h2;
+		}
+		p {
+			margin-top: 24px;
+			@include headline_32_m;
+			margin-bottom: 20px;
+			@media (max-width: $tab) {
+				@include title_2_20_m;
+				margin-top: 12px;
+				margin-bottom: 12px;
+			}
+		}
+		ul {
+			li {
+				@media (max-width: $tab) {
+					@include title_3_16_m;
+				}
+			}
+		}
+		.btns {
+			margin-top: 48px;
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			@media (max-width: $tab) {
+				margin-top: 28px;
+			}
+			@media (max-width: $tab-sm) {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 20px;
+			}
+			button {
+				padding: 0 40px;
+				@include title_2_20_m;
+				@media (max-width: $tab) {
+					@include title_4_14_m;
+				}
+			}
+		}
+	}
+	.imageBlock {
+		@media (max-width: $tab) {
+			order: 0;
+		}
+		.imageBlockContent {
+			position: relative;
+			.news {
+				position: absolute;
+				left: -53px;
+				top: 60px;
+				max-width: 215px;
+				@media (max-width: $tab) {
+					left: -10px;
+				}
+				@media (max-width: $tab-sm) {
+					transform: scale(0.7);
+				}
+				@media (max-width: $pre-mob) {
+					left: -53px;
+					top: 0;
+				}
+				@media (max-width: $mob) {
+					transform: scale(0.45);
+				}
+			}
+			.fond {
+				position: absolute;
+				bottom: 38px;
+				right: 39px;
+				max-width: 205px;
+				@media (max-width: $desktop-sm) {
+					right: -10px;
+					bottom: -10px;
+				}
+				@media (max-width: $tab-sm) {
+					transform: scale(0.6);
+				}
+				@media (max-width: $pre-mob) {
+					right: -43px;
+					bottom: 0;
+				}
+				@media (max-width: $mob) {
+					transform: scale(0.45);
+				}
+			}
+			.phone {
+				z-index: 2;
+				position: absolute;
+				top: 61px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 39%;
+			}
+		}
+
+		.links {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			justify-content: center;
+			margin-top: 81px;
+			@media (max-width: $tab) {
+				display: none;
+			}
+			a {
+				width: 198px;
+			}
+			img {
+				height: 45px;
+				width: 145px;
+			}
+		}
+	}
+}

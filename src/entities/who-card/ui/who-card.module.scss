@@ -1,0 +1,55 @@
+.whoCard {
+	padding: 10px;
+	border-radius: var(--radius-xxl);
+	background: var(--gray-color);
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	min-width: 263px;
+	&.disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+	.imageBlock {
+		position: relative;
+		.image {
+			border-radius: var(--radius-xxl);
+		}
+		.badge {
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
+			z-index: 2;
+		}
+	}
+
+	.whoCardContent {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-right: 20px;
+		padding-left: 20px;
+		padding-bottom: 20px;
+		flex: 1;
+		@media (max-width: $tab) {
+			padding-right: 10px;
+			padding-left: 10px;
+			padding-bottom: 10px;
+		}
+		p {
+			@include title_1_24_m;
+			@media (max-width: $tab) {
+				@include title_2_20_m;
+			}
+		}
+		button {
+			margin-top: 24px;
+			width: 100%;
+			@media (max-width: $tab) {
+				margin-top: 20px;
+				@include title_3_16_m;
+				padding: 0 10px;
+			}
+		}
+	}
+}

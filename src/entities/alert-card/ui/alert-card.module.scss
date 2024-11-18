@@ -1,0 +1,62 @@
+.alertCard {
+	background: var(--white-color);
+	box-shadow: var(--shadow);
+
+	&.s {
+		padding: 7px;
+		border-radius: var(--radius-xs);
+		.alertCardTop {
+			img {
+				width: 55px;
+				height: 55px;
+			}
+		}
+		.alertCardCenter {
+			margin-top: 14px;
+			p {
+				&:first-child {
+					font-weight: 500;
+					font-size: 7px;
+					line-height: 9px;
+					margin-bottom: 2px;
+				}
+				&:last-child {
+					font-size: 6px;
+					font-weight: 400;
+					line-height: 7px;
+					color: var(--txt-gray-color);
+				}
+			}
+		}
+		.alertCardBottom {
+			gap: 4px;
+			margin-top: 14px;
+			button {
+				height: 21px;
+				border-radius: var(--radius-xxs);
+				font-size: 7px;
+				line-height: 10px;
+				padding: 0;
+			}
+		}
+	}
+	.alertCardTop {
+		display: flex;
+		justify-content: center;
+		img {
+			margin: auto;
+		}
+	}
+	.alertCardCenter {
+		p {
+			text-align: center;
+		}
+	}
+	.alertCardBottom {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		button {
+			width: 100%;
+		}
+	}
+}

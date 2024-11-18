@@ -1,0 +1,46 @@
+.logoWrapper {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	cursor: pointer;
+	@media (max-width: $tab) {
+		gap: 14px;
+	}
+	img {
+		width: 62px;
+		height: 62px;
+		@media (max-width: $tab) {
+			width: 42px;
+			height: 42px;
+		}
+	}
+	.logoText {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		@media (max-width: $tab) {
+			gap: 6px;
+		}
+		p {
+			user-select: none;
+			color: var(--purple-color);
+			&:first-child {
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 100%;
+				text-transform: uppercase;
+				@media (max-width: $tab) {
+					font-size: 14px;
+				}
+			}
+			&:last-child {
+				font-size: 12px;
+				font-weight: 400;
+				line-height: 100%;
+				@media (max-width: $tab) {
+					font-size: 8px;
+				}
+			}
+		}
+	}
+}

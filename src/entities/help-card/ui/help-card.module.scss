@@ -1,0 +1,44 @@
+.helpCard {
+	background: var(--white-color);
+	border-radius: var(--radius-xl);
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 50px;
+	height: 100%;
+	@media (max-width: $tab) {
+		padding: 30px;
+	}
+	&.disabled {
+		p {
+			opacity: 0.5;
+		}
+	}
+	.imageBlock {
+		position: relative;
+		.badge {
+			position: absolute;
+			top: -15px;
+			right: -30px;
+			z-index: 2;
+			background: var(--purple-disabled-color) !important;
+		}
+		.image {
+			max-width: 140px;
+			width: 100%;
+			@media (max-width: $tab) {
+				padding-bottom: 85% !important;
+			}
+			@media (max-width: $pre-mob) {
+				padding-bottom: 150% !important;
+			}
+			@media (max-width: $mob) {
+				padding-bottom: 110% !important;
+			}
+		}
+	}
+
+	p {
+		@include title_1_24_m;
+	}
+}
