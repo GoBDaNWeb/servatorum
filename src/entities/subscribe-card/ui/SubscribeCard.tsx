@@ -39,7 +39,7 @@ export const SubscribeCard: FC<ISubscribeCard> = ({ imgs, logo, title, tags, des
 				<div className={s.logo}>
 					<img src={logo} alt='logo' />
 				</div>
-				<Fancybox>
+				<Fancybox className={s.swiperWrapper}>
 					<Swiper
 						onSwiper={swiper => {
 							setSwiper(swiper);

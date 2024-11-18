@@ -22,6 +22,9 @@
 				height: 80%;
 			}
 		}
+		.swiperWrapper > div {
+			border-radius: var(--radius-xl);
+		}
 		.image {
 			border-radius: var(--radius-m);
 		}

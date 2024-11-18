@@ -95,7 +95,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 
 					<span className={s.date}>{date}</span>
 				</div>
-				<Fancybox>
+				<Fancybox className={s.swiperWrapper}>
 					<Swiper
 						onSwiper={swiper => {
 							setSwiper(swiper);
