@@ -95,33 +95,34 @@ export const CollectingCard: FC<ICollectingCard> = ({
 
 					<span className={s.date}>{date}</span>
 				</div>
-				<Fancybox>
-					<Swiper
-						onSwiper={swiper => {
-							setSwiper(swiper);
-							console.log('render');
-						}}
-						slidesPerView={1}
-						modules={[Pagination]}
-						pagination={{
-							el: pagination.current,
-							clickable: true
-						}}
-					>
-						{imgs.map((img, index) => (
-							<SwiperSlide key={index}>
-								<Image
-									paddingBottom='71%'
-									src={img}
-									alt='slide'
-									className={s.image}
-									fancybox='collecting'
-								/>
-							</SwiperSlide>
-						))}
-					</Swiper>
-					<div ref={pagination}></div>
-				</Fancybox>
+
+				{/* <Fancybox> */}
+				<Swiper
+					onSwiper={swiper => {
+						setSwiper(swiper);
+						console.log('render');
+					}}
+					slidesPerView={1}
+					modules={[Pagination]}
+					pagination={{
+						el: pagination.current,
+						clickable: true
+					}}
+				>
+					{imgs.map((img, index) => (
+						<SwiperSlide key={index}>
+							<Image
+								paddingBottom='71%'
+								src={img}
+								alt='slide'
+								className={s.image}
+								fancybox='collecting'
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
+				<div ref={pagination}></div>
+				{/* </Fancybox> */}
 			</div>
 			<div className={s.collectingCardBottom}>
 				<a href='#' className={s.collectingCardBottomContent}>
