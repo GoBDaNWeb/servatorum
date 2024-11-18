@@ -98,13 +98,21 @@ export const Info = () => {
 						</Swiper>
 					</div>
 					<div className={s.naviagtion}>
-						<Button ref={prev} variant='circle'>
+						<Button
+							//@ts-expect-error исправить
+							ref={prev}
+							variant='circle'
+						>
 							<img src='/images/arrow-left.svg' alt='arrow' />
 						</Button>
 						<div className={s.pagination}>
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
 						</div>
-						<Button ref={next} variant='circle'>
+						<Button
+							//@ts-expect-error исправить
+							ref={next}
+							variant='circle'
+						>
 							<img src='/images/arrow-right.svg' alt='arrow' />
 						</Button>
 					</div>
