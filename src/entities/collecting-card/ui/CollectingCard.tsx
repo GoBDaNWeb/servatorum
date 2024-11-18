@@ -7,7 +7,7 @@ import { Pagination } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import { cropText } from '@/shared/lib';
-import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
+import { Badge, Button, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
 
@@ -95,32 +95,32 @@ export const CollectingCard: FC<ICollectingCard> = ({
 
 					<span className={s.date}>{date}</span>
 				</div>
-				<Fancybox className={s.swiperWrapper}>
-					<Swiper
-						onSwiper={swiper => {
-							setSwiper(swiper);
-						}}
-						slidesPerView={1}
-						modules={[Pagination]}
-						pagination={{
-							el: pagination.current,
-							clickable: true
-						}}
-					>
-						{imgs.map((img, index) => (
-							<SwiperSlide key={index}>
-								<Image
-									paddingBottom='71%'
-									src={img}
-									alt='slide'
-									className={s.image}
-									fancybox='collecting'
-								/>
-							</SwiperSlide>
-						))}
-					</Swiper>
-					<div ref={pagination}></div>
-				</Fancybox>
+				{/* <Fancybox className={s.swiperWrapper}> */}
+				<Swiper
+					onSwiper={swiper => {
+						setSwiper(swiper);
+					}}
+					slidesPerView={1}
+					modules={[Pagination]}
+					pagination={{
+						el: pagination.current,
+						clickable: true
+					}}
+				>
+					{imgs.map((img, index) => (
+						<SwiperSlide key={index}>
+							<Image
+								paddingBottom='71%'
+								src={img}
+								alt='slide'
+								className={s.image}
+								fancybox='collecting'
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
+				<div ref={pagination}></div>
+				{/* </Fancybox> */}
 			</div>
 			<div className={s.collectingCardBottom}>
 				<a href='#' className={s.collectingCardBottomContent}>
