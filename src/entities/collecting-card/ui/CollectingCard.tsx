@@ -3,7 +3,7 @@ import { SwiperSlide } from 'swiper/react';
 
 import clsx from 'clsx';
 
-import { Pagination } from 'swiper/modules';
+import { Pagination, Virtual } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import { cropText } from '@/shared/lib';
@@ -101,14 +101,15 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							setSwiper(swiper);
 						}}
 						slidesPerView={1}
-						modules={[Pagination]}
+						modules={[Pagination, Virtual]}
 						pagination={{
 							el: pagination.current,
 							clickable: true
 						}}
+						virtual
 					>
 						{imgs.map((img, index) => (
-							<SwiperSlide key={index}>
+							<SwiperSlide key={index} virtualIndex={index}>
 								<Image
 									paddingBottom='71%'
 									src={img}

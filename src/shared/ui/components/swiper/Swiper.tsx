@@ -6,7 +6,8 @@ import {
 	PaginationOptions,
 	SwiperModule,
 	SwiperOptions,
-	Swiper as SwiperType
+	Swiper as SwiperType,
+	VirtualOptions
 } from 'swiper/types';
 
 interface ISwiper {
@@ -23,6 +24,7 @@ interface ISwiper {
 		  }
 		| undefined;
 	onSlideChange?: ((swiper: SwiperType) => void) | undefined;
+	virtual?: boolean | VirtualOptions<unknown> | undefined;
 }
 
 export const Swiper: FC<PropsWithChildren<ISwiper>> = ({
@@ -34,7 +36,8 @@ export const Swiper: FC<PropsWithChildren<ISwiper>> = ({
 	onSwiper,
 	navigation,
 	breakpoints,
-	onSlideChange
+	onSlideChange,
+	virtual
 }) => {
 	return (
 		<Carousel
@@ -46,6 +49,7 @@ export const Swiper: FC<PropsWithChildren<ISwiper>> = ({
 			pagination={pagination}
 			navigation={navigation}
 			spaceBetween={spaceBetween}
+			virtual={virtual}
 		>
 			{children}
 		</Carousel>
