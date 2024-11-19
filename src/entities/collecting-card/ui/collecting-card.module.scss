@@ -248,7 +248,7 @@
 	}
 	.collectingCardCenter {
 		position: relative;
-
+		display: block !important;
 		.collectingCardCenterInfo {
 			position: absolute;
 			display: flex;
