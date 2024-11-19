@@ -172,7 +172,11 @@
 			}
 			.swiperWrapper > div {
 				border-radius: var(--radius-xl);
+				img {
+					height: 250px;
+				}
 			}
+
 			.image {
 				border-radius: var(--radius-xl);
 				overflow: hidden;
