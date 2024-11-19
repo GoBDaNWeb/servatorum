@@ -7,7 +7,7 @@ import { Pagination } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import { cropText } from '@/shared/lib';
-import { Badge, Button, Fancybox, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
+import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
 
@@ -109,14 +109,13 @@ export const CollectingCard: FC<ICollectingCard> = ({
 					>
 						{imgs.map((img, index) => (
 							<SwiperSlide key={index}>
-								<img src={img} alt='' data-fancybox='collecting' />
-								{/* <Image
+								<Image
 									paddingBottom='71%'
 									src={img}
 									alt='slide'
 									className={s.image}
 									fancybox='collecting'
-								/> */}
+								/>
 							</SwiperSlide>
 						))}
 					</Swiper>
