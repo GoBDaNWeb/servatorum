@@ -50,6 +50,7 @@ export const Swiper: FC<PropsWithChildren<ISwiper>> = ({
 			navigation={navigation}
 			spaceBetween={spaceBetween}
 			virtual={virtual}
+			// allowTouchMove={false}
 		>
 			{children}
 		</Carousel>

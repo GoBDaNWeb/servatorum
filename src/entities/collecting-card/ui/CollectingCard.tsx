@@ -1,15 +1,14 @@
-import { FC, ReactElement, useEffect, useRef, useState } from 'react';
-import { SwiperSlide } from 'swiper/react';
+import { FC, ReactElement, useEffect, useRef } from 'react';
 
 import clsx from 'clsx';
 
-import { Pagination, Virtual } from 'swiper/modules';
-import { Swiper as SwiperType } from 'swiper/types';
-
 import { cropText } from '@/shared/lib';
-import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
+import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
+
+import Glide from '@glidejs/glide';
+import '@glidejs/glide/dist/css/glide.core.min.css';
 
 interface ICollectingCard {
 	className?: string;
@@ -44,17 +43,29 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	isPopular = false,
 	hasLink = false
 }) => {
-	const [swiper, setSwiper] = useState<SwiperType>();
-	const pagination = useRef<HTMLDivElement>(null);
+	const glideRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (swiper && pagination.current) {
-			swiper.pagination.destroy(); // Удаляем предыдущую пагинацию, если она была
-			swiper.pagination.init(); // Инициализируем новую пагинацию
-			swiper.pagination.render(); // Рендерим пагинацию
-			swiper.pagination.update(); // Обновляем пагинацию
+		if (glideRef.current) {
+			new Glide(glideRef.current, {
+				type: 'carousel',
+				perView: 1,
+				gap: 10,
+				dragThreshold: 10,
+				swipeThreshold: 80,
+				touchRatio: 0.5,
+				touchAngle: 45,
+				animationDuration: 400,
+				rewind: true,
+				rewindDuration: 800,
+				hoverpause: true,
+				keyboard: true,
+				bound: false,
+				focusAt: 'center',
+				startAt: 0
+			}).mount();
 		}
-	}, [swiper]);
+	}, []);
 
 	const collectingCardClass = clsx(s.collectingCard, s[size], className);
 	const badgeClass = clsx(s.badge, s[badgeColor]);
@@ -96,31 +107,28 @@ export const CollectingCard: FC<ICollectingCard> = ({
 					<span className={s.date}>{date}</span>
 				</div>
 				<Fancybox className={s.swiperWrapper}>
-					<Swiper
-						onSwiper={swiper => {
-							setSwiper(swiper);
-						}}
-						slidesPerView={1}
-						modules={[Pagination, Virtual]}
-						pagination={{
-							el: pagination.current,
-							clickable: true
-						}}
-						virtual
-					>
-						{imgs.map((img, index) => (
-							<SwiperSlide key={index} virtualIndex={index}>
-								<Image
-									paddingBottom='71%'
-									src={img}
-									alt='slide'
-									className={s.image}
-									fancybox='collecting'
-								/>
-							</SwiperSlide>
-						))}
-					</Swiper>
-					<div ref={pagination}></div>
+					<div ref={glideRef} className='glide'>
+						<div className='glide__track' data-glide-el='track'>
+							<ul className='glide__slides'>
+								{imgs.map((img, index) => (
+									<li className='glide__slide' key={index}>
+										<Image
+											paddingBottom='71%'
+											src={img}
+											alt='slide'
+											className={s.image}
+											fancybox='collecting'
+										/>
+									</li>
+								))}
+							</ul>
+						</div>
+						<div className='glide__bullets' data-glide-el='controls[nav]'>
+							{imgs.map((_, index) => (
+								<button key={index} className='glide__bullet' data-glide-dir={`=${index}`}></button>
+							))}
+						</div>
+					</div>
 				</Fancybox>
 			</div>
 			<div className={s.collectingCardBottom}>

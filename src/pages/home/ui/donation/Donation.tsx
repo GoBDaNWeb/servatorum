@@ -24,6 +24,23 @@ export const Donation = () => {
 			swiper.navigation.destroy(); // Удаляем предыдущую пагинацию, если она была
 			swiper.navigation.init(); // Инициализируем новую пагинацию
 			swiper.navigation.update(); // Обновляем пагинацию
+			console.log(swiper);
+			window.addEventListener('mouseover', e => {
+				const target = e.target as HTMLElement;
+				if (target?.tagName === 'IMG') {
+					swiper.allowTouchMove = false;
+				} else {
+					swiper.allowTouchMove = true;
+				}
+			});
+			window.addEventListener('touchstart', e => {
+				const target = e.target as HTMLElement;
+				if (target?.tagName === 'IMG') {
+					swiper.allowTouchMove = false;
+				} else {
+					swiper.allowTouchMove = true;
+				}
+			});
 		}
 	}, [swiper]);
 
@@ -61,6 +78,7 @@ export const Donation = () => {
 				<div className={s.donationContent}>
 					<Swiper
 						onSlideChange={swiper => {
+							console.log(swiper);
 							setActiveSlideIndex(swiper.activeIndex + 1);
 						}}
 						onSwiper={swiper => {

@@ -56,6 +56,53 @@ html {
 .swiper-button-disabled {
 	opacity: 0;
 }
+.glide__bullets {
+	position: absolute;
+	bottom: 12px;
+	right: 0;
+	left: 0;
+	margin: auto;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	.glide__bullet {
+		opacity: 1;
+		background: var(--white-color);
+		border-radius: 999px;
+		position: relative;
+		width: 8px;
+		height: 8px;
+		margin: 0 !important;
+		border: none;
+		outline: none;
+		display: flex;
+		justify-content: center;
+		cursor: pointer;
+		&:before {
+			content: '';
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			border: 1px solid var(--white-color);
+			border-radius: 999px;
+			top: 0;
+			left: -5px;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			transition: var(--trs-300);
+			opacity: 0;
+		}
+	}
+	.glide__bullet--active {
+		&:before {
+			opacity: 1 !important;
+		}
+	}
+}
+
 .swiper-pagination-bullets {
 	position: absolute;
 	bottom: 12px;
