@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
+import { setOpenMenu } from '@/entities/mobile-menu';
+
+import { handleScroll } from '@/shared/lib';
 import { Button, Logo } from '@/shared/ui';
 
 import s from './header.module.scss';
 
 export const Header = () => {
 	const [active, setActive] = useState(false);
+	const dispatch = useDispatch();
 
 	const controlNavbar = () => {
 		if (typeof window !== 'undefined') {
@@ -28,15 +33,8 @@ export const Header = () => {
 		}
 	}, []);
 
-	const handleScroll = (id: string) => {
-		const currentLink = document.querySelector(id) as HTMLElement | null;
-		if (currentLink) {
-			window.scrollTo({
-				top: currentLink.offsetTop,
-				left: 0,
-				behavior: 'smooth'
-			});
-		}
+	const handleOpenMobileMenu = () => {
+		dispatch(setOpenMenu(true));
 	};
 
 	const headerClass = clsx(s.header, {
@@ -57,7 +55,7 @@ export const Header = () => {
 					Войти
 				</Button>
 				<div className={s.mobileBtns}>
-					<Button variant='secondary' className={s.burger}>
+					<Button onClick={handleOpenMobileMenu} variant='secondary' className={s.burger}>
 						<img src='/images/burger.svg' alt='burger' />
 					</Button>
 					<Button variant='primary' className={s.authBtn}>
