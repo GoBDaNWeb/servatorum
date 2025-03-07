@@ -1,0 +1,47 @@
+.photo {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	position: relative;
+	.imageWrapper {
+		width: 96px;
+		height: 96px;
+		border-radius: 999px; /* Делаем элемент круглым */
+		position: relative;
+		margin-left: 2px;
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 999px; /* Делаем элемент круглым */
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: -2px; /* Смещение для границы */
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+			border-radius: 999px; /* Скругление, как у изображения */
+			background: linear-gradient(to right, #c83ca5, #683aff); /* Градиент */
+			z-index: -1; /* Помещаем псевдоэлемент под изображение */
+		}
+	}
+
+	p {
+		color: var(--purple-color);
+		@include title_3_16_m;
+	}
+	input {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		cursor: pointer;
+	}
+}

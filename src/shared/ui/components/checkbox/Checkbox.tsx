@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, ReactNode, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -13,6 +13,7 @@ interface ICheckbox {
 	icon2?: ReactElement;
 	title?: string;
 	onChange?: () => void;
+	children?: ReactNode;
 }
 
 export const Checkbox: FC<ICheckbox> = ({
@@ -23,7 +24,8 @@ export const Checkbox: FC<ICheckbox> = ({
 	value2,
 	icon1,
 	icon2,
-	title
+	title,
+	children
 }) => {
 	const [currentSelectCheckbox, setCurrentSelectChecbox] = useState(0);
 
@@ -58,6 +60,11 @@ export const Checkbox: FC<ICheckbox> = ({
 						</label>
 					</div>
 				</div>
+			) : children ? (
+				<label className={s.checkboxLabel}>
+					<input type='checkbox' name={name} />
+					<p>{children}</p>
+				</label>
 			) : (
 				<input type='checkbox' name={name} />
 			)}
