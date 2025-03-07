@@ -9,7 +9,9 @@
 	--gray-bg-color: #ebeef3;
 	--green-color: #34c759;
 	--gold-color: #ff9500;
+	--danger-color: #ff3b30;
 	--txt-gray-color: #dcdcdc;
+	--txt-gray-color2: #9d9d9d;
 	--line-color: #e9e9e9;
 	--gradient-color: linear-gradient(90deg, rgba(104, 58, 255, 1) 0%, rgba(200, 60, 165, 1) 100%);
 
@@ -26,6 +28,7 @@
 
 	--z-header: 100;
 	--z-mobile: 120;
+	--z-modal: 120;
 }
 $desktop-xl: 2000px;
 $desktop-lg: 1920px;

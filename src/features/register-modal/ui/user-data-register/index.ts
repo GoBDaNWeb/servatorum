@@ -1,0 +1,1 @@
+export { UserDataRegister } from './UserDataRegister';

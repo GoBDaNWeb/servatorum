@@ -1,0 +1,17 @@
+.userDataRegister {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	.title {
+		@include headline_32_m;
+	}
+	.inputs {
+		margin-top: 32px;
+		width: 100%;
+		.inputsCol {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+		}
+	}
+}

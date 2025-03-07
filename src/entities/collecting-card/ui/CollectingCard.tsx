@@ -109,7 +109,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 						virtual
 					>
 						{imgs.map((img, index) => (
-							<SwiperSlide key={index} virtualIndex={index}>
+							<SwiperSlide key={index}>
 								<Image
 									paddingBottom='71%'
 									src={img}

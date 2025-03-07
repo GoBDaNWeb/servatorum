@@ -1,0 +1,35 @@
+.registerModal {
+	.modalContentWrapper {
+		background: var(--white-color);
+		border-radius: var(--radius-s) 0 0 var(--radius-s);
+		width: 572px;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		.modalContentTop {
+			.backBtn,
+			.closeBtn {
+				width: 48px;
+				height: 48px;
+				padding: 0;
+				top: 20px;
+
+				position: absolute;
+			}
+			.backBtn {
+				left: 20px;
+			}
+			.closeBtn {
+				right: 20px;
+			}
+		}
+		.modalContent {
+			display: flex;
+			align-items: center;
+			padding: 50px;
+			height: 100%;
+		}
+	}
+}

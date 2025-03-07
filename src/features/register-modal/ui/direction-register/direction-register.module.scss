@@ -1,0 +1,38 @@
+.directionRegister {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	.title {
+		@include headline_32_m;
+		text-align: center;
+		margin-top: 48px;
+	}
+	.userDirectionList {
+		margin-top: 26px;
+		width: 100%;
+		.userTypeBtn {
+			padding-top: 16px;
+			padding-bottom: 16px;
+			border-top: 1px solid var(--gray-color);
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			.typeBtnLeft {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				img {
+					width: 48px;
+					height: 48px;
+				}
+				p {
+					@include text_1_16_r;
+				}
+			}
+			&:last-child {
+				border-bottom: 1px solid var(--gray-color);
+			}
+		}
+	}
+}

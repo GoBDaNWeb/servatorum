@@ -1,0 +1,32 @@
+.inputWrapper {
+	.title {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		margin-bottom: 8px;
+		span {
+			color: var(--danger-color);
+		}
+	}
+	.input {
+		height: 48px;
+		border-radius: var(--radius-m);
+		background: var(--gray-color);
+		padding: 0 16px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		gap: 10px;
+		cursor: text;
+		input {
+			width: 100%;
+			background: none;
+			border: none;
+			outline: none;
+			background: var(--gray-color);
+			@include text_1_16_r;
+			position: relative;
+		}
+	}
+}

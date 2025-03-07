@@ -6,7 +6,9 @@
 	left: 0;
 	right: 0;
 	z-index: var(--z-header);
-	transition: var(--trs-300);
+	transition:
+		background var(--trs-300),
+		box-shadow var(--trs-300);
 	@media (max-width: $tab) {
 		padding-top: 10px;
 		padding-bottom: 10px;
@@ -24,6 +26,12 @@
 		}
 		@media (max-width: $tab) {
 			justify-content: space-between;
+		}
+		.headerFeature {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			flex: 1;
 		}
 		.navigation {
 			flex: 1;

@@ -1,0 +1,72 @@
+.checkboxWrapper {
+	&.isToggler {
+		.checkbox {
+			.title {
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 16px;
+				margin-bottom: 8px;
+				span {
+					color: var(--danger-color);
+				}
+			}
+			.checkboxToggler {
+				width: 100%;
+				display: flex;
+				background: var(--gray-color);
+				position: relative;
+				height: 48px;
+				border-radius: var(--radius-m);
+				gap: 4px;
+				label {
+					width: 50%;
+					position: relative;
+					z-index: 2;
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					input {
+						display: none;
+						&:checked ~ p {
+							svg {
+								path {
+									fill: var(--purple-color);
+								}
+							}
+						}
+					}
+					p {
+						svg {
+							path {
+								transition: var(--trs-300);
+								fill: var(--txt-gray-color2);
+							}
+						}
+						display: flex;
+						align-items: center;
+						gap: 8px;
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 24px;
+					}
+				}
+				.toggler {
+					position: absolute;
+					background: var(--white-color);
+					top: 4px;
+					left: 4px;
+					bottom: 4px;
+					right: 4px;
+					width: 49%;
+					transition: var(--trs-300);
+					border-radius: var(--radius-s);
+
+					&.rtl {
+						transform: translateX(100%);
+					}
+				}
+			}
+		}
+	}
+}

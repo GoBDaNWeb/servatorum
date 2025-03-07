@@ -1,0 +1,68 @@
+.phoneRegister {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	.title {
+		@include headline_32_m;
+		text-align: center;
+		margin-top: 48px;
+	}
+	.descr {
+		@include title_3_16_m;
+		margin-top: 12px;
+		text-align: center;
+	}
+	.inputs {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-top: 28px;
+		width: 100%;
+		button {
+			border-radius: var(--radius-m);
+			width: 100%;
+		}
+	}
+	.phoneRegisterBottom {
+		margin-top: 36px;
+		width: 100%;
+		.separator {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			@include text_2_14_r;
+			color: var(--txt-gray-color2);
+			position: relative;
+			margin-bottom: 16px;
+			&:after,
+			&:before {
+				content: '';
+				height: 1px;
+				width: 210px;
+				top: 8px;
+				background: var(--txt-gray-color);
+				position: absolute;
+			}
+			&:before {
+				left: 0;
+			}
+			&:after {
+				right: 0;
+			}
+		}
+		.socials {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 16px;
+			gap: 8px;
+			button {
+				width: 48px;
+				background: var(--whitte);
+				box-shadow: var(--shadow);
+			}
+		}
+	}
+}

@@ -8,6 +8,12 @@
 	align-items: center;
 	justify-content: center;
 	transition: var(--trs-300);
+	&:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+		background: var(--gray-color) !important;
+		color: var(--dark-color) !important;
+	}
 	&.s {
 		height: 48px;
 	}
@@ -34,6 +40,10 @@
 		padding: 0 24px;
 		border-radius: var(--radius-s);
 		@include title_3_16_m;
+		&.white {
+			background: var(--white-color);
+			box-shadow: var(--shadow);
+		}
 		&:hover {
 			background: var(--line-color);
 		}
@@ -60,6 +70,10 @@
 		border: 1px solid var(--purple-color);
 		border-radius: var(--radius-s);
 		@include button_1_16_r;
+		&.gray {
+			border-color: var(--txt-gray-color);
+			color: var(--dark-color);
+		}
 		&:hover {
 			border-color: var(--purple-hover-color);
 			color: var(--purple-hover-color);

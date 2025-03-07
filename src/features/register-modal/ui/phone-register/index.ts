@@ -1,0 +1,1 @@
+export { PhoneRegister } from './PhoneRegister';
