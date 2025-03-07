@@ -12,19 +12,12 @@ interface IUserDataRegister {
 	nextStep: () => void;
 }
 
-export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
+export const UserDataRegister: FC<IUserDataRegister> = () => {
 	const {
 		registerInfo: { phone }
 	} = useTypedSelector(store => store.registerModal);
 
-	const {
-		register,
-		handleSubmit,
-		watch,
-		control,
-		setError,
-		formState: { errors }
-	} = useForm<FieldValues>({
+	const { handleSubmit, control } = useForm<FieldValues>({
 		defaultValues: {
 			firstName: '',
 			middleName: '',

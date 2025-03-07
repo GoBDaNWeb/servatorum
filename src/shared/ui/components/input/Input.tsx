@@ -1,15 +1,6 @@
-import {
-	FC,
-	ReactElement,
-	forwardRef,
-	useEffect,
-	useImperativeHandle,
-	useRef,
-	useState
-} from 'react';
+import { ReactElement, forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import { IMaskInput } from 'react-imask';
 
-import AirDatepicker from 'air-datepicker';
 import clsx from 'clsx';
 
 import s from './input.module.scss';
@@ -115,10 +106,12 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
 							type='text'
 							ref={datepickerRef}
 							value={value}
+							//@ts-ignore
 							onChange={onChange}
 							placeholder={placeholder}
 						/>
 					) : (
+						//@ts-ignore
 						<input type='text' value={value} onChange={onChange} placeholder={placeholder} />
 					)}
 					{icon ? icon : null}

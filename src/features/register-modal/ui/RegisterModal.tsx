@@ -53,8 +53,8 @@ export const RegisterModal = () => {
 		<PhoneRegister nextStep={() => handleChangeStep('next')} />,
 		<CodeRegister nextStep={() => handleChangeStep('next')} />,
 		<UserTypeRegister nextStep={() => handleChangeStep('next')} />,
-		<DirectionRegister nextStep={() => handleChangeStep('next')} />
-		// <UserDataRegister nextStep={() => handleChangeStep('next')} />
+		<DirectionRegister nextStep={() => handleChangeStep('next')} />,
+		<UserDataRegister nextStep={() => handleChangeStep('next')} />
 	];
 
 	const modalContentClass = clsx(s.modalContentWrapper, 'modal-content');
