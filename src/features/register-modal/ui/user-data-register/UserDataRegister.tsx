@@ -19,13 +19,13 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 		registerInfo: { phone }
 	} = useTypedSelector(store => store.registerModal);
 
-	const { watch, handleSubmit, control } = useForm<FieldValues>({
+	const { watch, setValue, handleSubmit, control } = useForm<FieldValues>({
 		defaultValues: {
 			firstName: '',
 			middleName: '',
 			lastName: '',
 			address: '',
-			gender: '',
+			gender: '0',
 			date: '',
 			phone,
 			email: ''
@@ -35,13 +35,16 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 		nextStep();
 		console.log(data);
 	};
+
+	const handleClearAddress = () => {
+		setValue('address', '');
+	};
+
 	useEffect(() => {
 		const { unsubscribe } = watch(value => {
 			const emptyValues = Object.values(value).filter(val => {
 				return val.length === 0;
 			});
-			console.log('value', value);
-			console.log('emptyValue', emptyValues);
 			if (emptyValues) {
 				if (!emptyValues.length) {
 					setButtonIsDisabled(false);
@@ -165,9 +168,17 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 						control={control}
 						name='address'
 						rules={{ required: true }}
-						render={({ field: { onChange } }) => {
+						render={({ field: { value, onChange } }) => {
 							return (
-								<Input placeholder='Введите' title='Адрес регистрации' req onChange={onChange} />
+								<Input
+									placeholder='Введите'
+									title='Адрес регистрации'
+									isСleaned
+									req
+									onChange={onChange}
+									value={value}
+									clear={handleClearAddress}
+								/>
 							);
 						}}
 					/>

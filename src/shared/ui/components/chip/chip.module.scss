@@ -1,0 +1,38 @@
+.chip {
+	background: var(--gray-color);
+	border-radius: var(--radius-s);
+	height: 40px;
+	padding: 0 16px;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	cursor: pointer;
+	border: 1px solid rgba(0, 0, 0, 0);
+	transition: var(--trs-300);
+
+	&.active {
+		border-color: var(--purple-color);
+		background: var(--white-color);
+		p {
+			color: var(--purple-color);
+		}
+		.iconWrapper {
+			display: flex;
+		}
+	}
+	input {
+		display: none;
+	}
+	p {
+		@include text_1_16_r;
+		transition: var(--trs-300);
+	}
+	.iconWrapper {
+		width: 24px;
+		height: 24px;
+		align-items: center;
+		justify-content: center;
+		display: none;
+	}
+}

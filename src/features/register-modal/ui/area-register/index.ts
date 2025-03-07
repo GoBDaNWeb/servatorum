@@ -1,0 +1,1 @@
+export { AreaRegister } from './AreaRegister';

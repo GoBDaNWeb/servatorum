@@ -1,0 +1,38 @@
+.areaRegister {
+	margin-top: 100px;
+	margin-bottom: 50px;
+	scrollbar-width: thin;
+	scrollbar-color: var(--purple-color) #ffffff;
+	padding-right: 20px;
+	margin-right: -20px;
+	box-sizing: content-box;
+	overflow: auto;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	.title {
+		@include headline_32_m;
+	}
+	.descr {
+		@include text_2_14_r;
+		color: var(--txt-gray-color2);
+		margin-top: 12px;
+	}
+	.chipListWrapper {
+		flex: 1;
+		align-items: flex-start;
+		.chipList {
+			margin-top: 28px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 4px;
+		}
+	}
+
+	.submitBtn {
+		width: 100%;
+		margin-top: 58px;
+		min-height: 48px;
+	}
+}

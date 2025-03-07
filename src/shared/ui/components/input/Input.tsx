@@ -3,6 +3,9 @@ import { IMaskInput } from 'react-imask';
 
 import clsx from 'clsx';
 
+import { ClearIcon } from '../../icons';
+import { Button } from '../button';
+
 import s from './input.module.scss';
 
 import 'air-datepicker/air-datepicker.css';
@@ -22,6 +25,8 @@ interface IInput {
 	req?: boolean;
 	maskOptions?: object;
 	icon?: ReactElement;
+	isСleaned?: boolean;
+	clear?: () => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, IInput>(
@@ -40,7 +45,9 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
 			title,
 			className,
 			req,
-			icon
+			icon,
+			isСleaned,
+			clear
 		},
 		ref
 	) => {
@@ -51,27 +58,13 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
 		//@ts-ignore
 		useImperativeHandle(ref, () => (inputRef.current ? inputRef.current : null), []);
 
-		// useEffect(() => {
-		// 	if (isCalendar) {
-		// 		console.log(datepickerRef.current);
-		// 		const datepicker = new AirDatepicker(datepickerRef.current, {
-		// 			// Опции datepicker
-		// 			dateFormat: 'yyyy-MM-dd',
-		// 			onSelect: ({ date }) => {
-		// 				console.log('Selected date:', date);
-		// 			}
-		// 		});
-
-		// 		// Очистка при размонтировании компонента
-		// 		return () => {
-		// 			datepicker.destroy();
-		// 		};
-		// 	}
-		// }, [isCalendar]);
-
 		const inputWrapperClass = clsx(s.inputWrapper, className, {
 			[s.active]: isActive
 		});
+
+		const handleCrearValue = () => {
+			setInternalValue('');
+		};
 
 		return (
 			<div className={inputWrapperClass}>
@@ -115,6 +108,15 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
 						<input type='text' value={value} onChange={onChange} placeholder={placeholder} />
 					)}
 					{icon ? icon : null}
+					{isСleaned && !clear ? (
+						<Button onClick={handleCrearValue} className={s.clearBtn} variant='clear'>
+							<ClearIcon />
+						</Button>
+					) : isСleaned && clear ? (
+						<Button onClick={clear} className={s.clearBtn} variant='clear'>
+							<ClearIcon />
+						</Button>
+					) : null}
 				</label>
 			</div>
 		);

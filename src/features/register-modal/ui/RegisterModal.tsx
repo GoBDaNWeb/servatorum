@@ -8,6 +8,7 @@ import { BackArrow, Button, CloseIcon, Modal } from '@/shared/ui';
 
 import { clearRegisterInfo, setOpenModal, setPhone } from '../model';
 
+import { AreaRegister } from './area-register';
 import { CodeRegister } from './code-register';
 import { DirectionRegister } from './direction-register';
 import { PhoneRegister } from './phone-register';
@@ -54,7 +55,8 @@ export const RegisterModal = () => {
 		<CodeRegister nextStep={() => handleChangeStep('next')} />,
 		<UserTypeRegister nextStep={() => handleChangeStep('next')} />,
 		<DirectionRegister nextStep={() => handleChangeStep('next')} />,
-		<UserDataRegister nextStep={() => handleChangeStep('next')} />
+		<UserDataRegister nextStep={() => handleChangeStep('next')} />,
+		<AreaRegister closeModal={handleCloseModal} />
 	];
 
 	const modalContentClass = clsx(s.modalContentWrapper, 'modal-content');

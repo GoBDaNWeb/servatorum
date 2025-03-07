@@ -5,3 +5,5 @@ export { CloseIcon } from './CloseIcon';
 export { BackArrow } from './BackArrow';
 export { MaleIcon } from './MaleIcon';
 export { FemaleIcon } from './FemaleIcon';
+export { ClearIcon } from './ClearIcon';
+export { CheckIcon } from './CheckIcon';

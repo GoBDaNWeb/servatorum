@@ -32,6 +32,7 @@ export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep }) => {
 					onChange={setPhoneValue}
 					mask='+{7} (000) 000-00-00'
 					placeholder='+7'
+					isСleaned
 				/>
 				<Button onClick={handleNextStep} isDisabled={phoneValue.length < 11} variant='primary'>
 					Получить код
