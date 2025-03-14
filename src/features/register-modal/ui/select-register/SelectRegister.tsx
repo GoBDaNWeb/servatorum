@@ -12,7 +12,7 @@ interface ISelectRegister {
 export const SelectRegister: FC<ISelectRegister> = ({ closeModal, nextStep }) => {
 	return (
 		<div className={s.selectRegister}>
-			<img src='/images/logo.svg' alt='logo' />
+			<img src='/images/icons/logo.svg' alt='logo' />
 			<div className={s.btns}>
 				<Button onClick={nextStep} variant='primary'>
 					Войти

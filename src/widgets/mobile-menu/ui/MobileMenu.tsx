@@ -31,7 +31,7 @@ export const MobileMenu = () => {
 	return (
 		<div className={mobileMenuClass} onClick={handleCloseMobileMenu}>
 			<Button onClick={handleCloseMobileMenu} className={s.closeBtn} variant='clear'>
-				<img src='/images/close.svg' alt='close' />
+				<img src='/images/icons/close.svg' alt='close' />
 			</Button>
 			<div className={s.mobileMenuContent} onClick={e => e.stopPropagation()}>
 				<div className={s.mobileMenuContentTop}>

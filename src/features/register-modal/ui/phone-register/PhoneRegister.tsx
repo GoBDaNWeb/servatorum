@@ -15,6 +15,10 @@ export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep }) => {
 	const inputRef = useRef(null);
 	const dispatch = useDispatch();
 
+	const handlePhoneValue = (value: string) => {
+		setPhoneValue(value);
+	};
+
 	const handleNextStep = () => {
 		nextStep();
 		dispatch(setPhone(phoneValue));
@@ -22,14 +26,15 @@ export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep }) => {
 
 	return (
 		<div className={s.phoneRegister}>
-			<img src='/images/logo.svg' alt='logo' />
+			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Введите номер телефона</p>
 			<p className={s.descr}>Чтобы войти или зарегистрироваться</p>
 			<div className={s.inputs}>
 				<Input
 					ref={inputRef}
 					value={phoneValue}
-					onChange={setPhoneValue}
+					//@ts-ignore
+					onChange={handlePhoneValue}
 					mask='+{7} (000) 000-00-00'
 					placeholder='+7'
 					isСleaned
@@ -46,10 +51,10 @@ export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep }) => {
 				</p>
 				<div className={s.socials}>
 					<Button>
-						<img src='/images/vk.svg' alt='vk' />
+						<img src='/images/icons/vk.svg' alt='vk' />
 					</Button>
 					<Button>
-						<img src='/images/yandex.svg' alt='yandex' />
+						<img src='/images/icons/yandex.svg' alt='yandex' />
 					</Button>
 				</div>
 			</div>

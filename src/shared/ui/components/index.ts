@@ -10,3 +10,5 @@ export * from './input';
 export * from './chip';
 export * from './checkbox';
 export * from './photo';
+export * from './pagination';
+export * from './crumbs';

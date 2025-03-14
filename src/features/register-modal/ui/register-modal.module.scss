@@ -17,6 +17,14 @@
 				top: 20px;
 
 				position: absolute;
+				&:hover {
+					background: var(--purple-hover-color);
+					svg {
+						path {
+							stroke: var(--white-color);
+						}
+					}
+				}
 			}
 			.backBtn {
 				left: 20px;

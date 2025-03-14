@@ -5,9 +5,9 @@ import clsx from 'clsx';
 import s from './button.module.scss';
 
 interface IButton {
-	variant?: 'default' | 'primary' | 'secondary' | 'outline' | 'circle' | 'clear';
+	variant?: 'default' | 'primary' | 'secondary' | 'outline' | 'circle' | 'clear' | 'text';
 	color?: 'transparent' | 'gray';
-	size?: 's' | 'sm' | 'm' | 'l';
+	size?: 'xs' | 's' | 'sm' | 'm' | 'l';
 	isLink?: boolean;
 	href?: string;
 	className?: string;

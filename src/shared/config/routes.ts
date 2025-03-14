@@ -1,3 +1,5 @@
 export const PATH_PAGE = {
-  home: "/",
+	home: '/',
+	collections: '/collections',
+	collection: '/collection/:id'
 };

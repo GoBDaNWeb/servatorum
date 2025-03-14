@@ -1,4 +1,5 @@
 import { FC, ReactElement, useEffect, useRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
 import clsx from 'clsx';
@@ -6,7 +7,8 @@ import clsx from 'clsx';
 import { Pagination, Virtual } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
-import { cropText } from '@/shared/lib';
+import { PATH_PAGE } from '@/shared/config';
+import { cropLink, cropText } from '@/shared/lib';
 import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
@@ -26,6 +28,7 @@ interface ICollectingCard {
 	badgeColor?: 'gold' | 'purple';
 	isPopular?: boolean;
 	hasLink?: boolean;
+	buttonText?: string;
 }
 
 export const CollectingCard: FC<ICollectingCard> = ({
@@ -42,7 +45,8 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	size = 's',
 	badgeColor = 'purple',
 	isPopular = false,
-	hasLink = false
+	hasLink = false,
+	buttonText = 'Помочь'
 }) => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const pagination = useRef<HTMLDivElement>(null);
@@ -56,7 +60,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 		}
 	}, [swiper]);
 
-	const collectingCardClass = clsx(s.collectingCard, s[size], className);
+	const collectingCardClass = clsx(s.collectingCard, 'collection-card', s[size], className);
 	const badgeClass = clsx(s.badge, s[badgeColor]);
 
 	return (
@@ -124,7 +128,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 				</Fancybox>
 			</div>
 			<div className={s.collectingCardBottom}>
-				<a href='#' className={s.collectingCardBottomContent}>
+				<NavLink to={cropLink(PATH_PAGE.collection, 10)} className={s.collectingCardBottomContent}>
 					<p className={s.title}>{cropText(title, 52)}</p>
 					{total && sum ? (
 						<>
@@ -143,8 +147,8 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							</div>
 						</>
 					) : null}
-				</a>
-				{total && sum ? <Button variant='primary'>Завершить</Button> : null}
+				</NavLink>
+				{total && sum ? <Button variant='primary'>{buttonText}</Button> : null}
 			</div>
 		</div>
 	);

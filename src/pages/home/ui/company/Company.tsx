@@ -95,7 +95,7 @@ export const Company = () => {
 							ref={prev}
 							variant='circle'
 						>
-							<img src='/images/arrow-left.svg' alt='arrow' />
+							<img src='/images/icons/arrow-left.svg' alt='arrow' />
 						</Button>
 						<div className={s.pagination}>
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
@@ -105,7 +105,7 @@ export const Company = () => {
 							ref={next}
 							variant='circle'
 						>
-							<img src='/images/arrow-right.svg' alt='arrow' />
+							<img src='/images/icons/arrow-right.svg' alt='arrow' />
 						</Button>
 					</div>
 				</div>

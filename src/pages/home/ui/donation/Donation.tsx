@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
 import clsx from 'clsx';
@@ -8,6 +9,7 @@ import { Swiper as SwiperType } from 'swiper/types';
 
 import { CollectingCard } from '@/entities/collecting-card';
 
+import { PATH_PAGE } from '@/shared/config';
 import { Button, Swiper } from '@/shared/ui';
 
 import s from './donation.module.scss';
@@ -18,6 +20,8 @@ export const Donation = () => {
 
 	const prev = useRef<HTMLDivElement>(null);
 	const next = useRef<HTMLDivElement>(null);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (swiper && prev.current && next.current) {
@@ -95,7 +99,7 @@ export const Donation = () => {
 									badgeColor='gold'
 									badge={
 										<>
-											<img src='/images/clock-gold.svg' alt='' />
+											<img src='/images/icons/clock-gold.svg' alt='' />
 											<span>31 день</span>
 											<p>до завершения</p>
 										</>
@@ -112,7 +116,7 @@ export const Donation = () => {
 							ref={prev}
 							variant='circle'
 						>
-							<img src='/images/arrow-left.svg' alt='arrow' />
+							<img src='/images/icons/arrow-left.svg' alt='arrow' />
 						</Button>
 						<div className={s.pagination}>
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
@@ -122,11 +126,16 @@ export const Donation = () => {
 							ref={next}
 							variant='circle'
 						>
-							<img src='/images/arrow-right.svg' alt='arrow' />
+							<img src='/images/icons/arrow-right.svg' alt='arrow' />
 						</Button>
 					</div>
 				</div>
-				<Button variant='outline' className={s.loadBtn} size='m'>
+				<Button
+					onClick={() => navigate(PATH_PAGE.collections)}
+					variant='outline'
+					className={s.loadBtn}
+					size='m'
+				>
 					Смотреть все сборы
 				</Button>
 			</div>

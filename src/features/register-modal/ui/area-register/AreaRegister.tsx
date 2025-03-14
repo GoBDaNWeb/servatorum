@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
+import { chips } from '@/shared/config';
 import { Button, Chip } from '@/shared/ui';
 
 import s from './area-register.module.scss';
@@ -8,27 +9,14 @@ interface IAreaRegister {
 	closeModal: () => void;
 }
 
-const chips = [
-	'Доступная среда',
-	'Лечение',
-	'Безопасная среда',
-	'Психология и психотерапия',
-	'Гуманитарная помощь',
-	'Социальная поддержка',
-	'Наука и искусство',
-	'Животные',
-	'Pro-bono',
-	'ESG',
-	'Профилактика и физеотерапия',
-	'Религиозные организации',
-	'Волонтеры',
-	'Паллиативная помощь',
-	'Поисковый отряд',
-	'Сообщество волонтеров',
-	'Мероприятия фондов'
-];
-
 export const AreaRegister: FC<IAreaRegister> = ({ closeModal }) => {
+	const [selectedAreas, setSelectedAreas] = useState<string[]>([]); // Для checkbox
+
+	const handleCheckboxChange = (value: string) => {
+		setSelectedAreas(prev =>
+			prev.includes(value) ? prev.filter(item => item !== value) : [...prev, value]
+		);
+	};
 	return (
 		<div className={s.areaRegister}>
 			<p className={s.title}>Выберите сферу</p>
@@ -38,7 +26,14 @@ export const AreaRegister: FC<IAreaRegister> = ({ closeModal }) => {
 			<div className={s.chipListWrapper}>
 				<div className={s.chipList}>
 					{chips.map(chip => (
-						<Chip name='area' key={chip}>
+						<Chip
+							type='checkbox'
+							name='filters'
+							key={chip}
+							value={chip}
+							checked={selectedAreas.includes(chip)}
+							onChange={handleCheckboxChange}
+						>
 							{chip}
 						</Chip>
 					))}

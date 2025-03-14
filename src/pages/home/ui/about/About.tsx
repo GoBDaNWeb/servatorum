@@ -37,7 +37,7 @@ export const About = () => {
 						]}
 						badge={
 							<>
-								<img src='/images/clock.svg' alt='' />
+								<img src='/images/icons/clock.svg' alt='' />
 								<span>64 дня</span>
 								<p>до завершения</p>
 							</>

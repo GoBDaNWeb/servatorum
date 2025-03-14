@@ -10,7 +10,10 @@
 	cursor: pointer;
 	border: 1px solid rgba(0, 0, 0, 0);
 	transition: var(--trs-300);
-
+	&.s {
+		height: 32px;
+		padding: 0 12px;
+	}
 	&.active {
 		border-color: var(--purple-color);
 		background: var(--white-color);

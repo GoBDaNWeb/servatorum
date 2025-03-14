@@ -6,6 +6,8 @@
 	left: 0;
 	right: 0;
 	z-index: var(--z-header);
+	background: var(--white-color);
+
 	transition:
 		background var(--trs-300),
 		box-shadow var(--trs-300);

@@ -19,7 +19,7 @@ export const AlertCard: FC<IAlertCard> = ({ className, size = 's', title, descr 
 	return (
 		<div className={alerCardClass}>
 			<div className={s.alertCardTop}>
-				<img src='/images/check.svg' alt='check' />
+				<img src='/images/icons/check.svg' alt='check' />
 			</div>
 			<div className={s.alertCardCenter}>
 				<p>{title}</p>

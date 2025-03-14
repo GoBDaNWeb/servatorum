@@ -69,16 +69,11 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 							render={({ field: { onChange } }) => {
 								return (
 									<Input
-										mask='******************************'
+										mask={/^[A-Za-zА-Яа-яЁё]*$/}
 										placeholder='Введите'
 										title='Фамилия'
 										req
 										onChange={onChange}
-										maskOptions={{
-											definitions: {
-												'*': /[A-Za-zА-Яа-яЁё]/ // Разрешаем только буквы
-											}
-										}}
 									/>
 								);
 							}}
@@ -90,16 +85,11 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 							render={({ field: { onChange } }) => {
 								return (
 									<Input
-										mask='******************************'
+										mask={/^[A-Za-zА-Яа-яЁё]*$/}
 										placeholder='Введите'
 										title='Имя'
 										req
 										onChange={onChange}
-										maskOptions={{
-											definitions: {
-												'*': /[A-Za-zА-Яа-яЁё]/ // Разрешаем только буквы
-											}
-										}}
 									/>
 								);
 							}}
@@ -111,16 +101,11 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 							render={({ field: { onChange } }) => {
 								return (
 									<Input
-										mask='******************************'
+										mask={/^[A-Za-zА-Яа-яЁё]*$/}
 										placeholder='Введите'
 										title='Отчество'
 										req
 										onChange={onChange}
-										maskOptions={{
-											definitions: {
-												'*': /[A-Za-zА-Яа-яЁё]/ // Разрешаем только буквы
-											}
-										}}
 									/>
 								);
 							}}
@@ -134,12 +119,12 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 							render={({ field: { onChange } }) => {
 								return (
 									<Input
-										mask='00.00.0000'
 										placeholder='Введите'
 										title='Дата рождения'
 										req
 										onChange={onChange}
-										icon={<img src='/images/calendar.svg' alt='' />}
+										isCalendar
+										icon={<img src='/images/icons/calendar.svg' alt='' />}
 									/>
 								);
 							}}
@@ -223,7 +208,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 									render={({ field: { value, onChange } }) => {
 										return (
 											<Input
-												mask='******************************'
+												mask={/^\S*@?\S*$/}
 												title='Электронная почта'
 												req
 												value={value}

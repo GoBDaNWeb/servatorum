@@ -21,7 +21,7 @@ export const DirectionRegister: FC<IDirectionRegister> = ({ nextStep }) => {
 
 	return (
 		<div className={s.directionRegister}>
-			<img src='/images/logo.svg' alt='logo' />
+			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Что вы хотите?</p>
 			<div className={s.userDirectionList}>
 				<Button
@@ -30,10 +30,10 @@ export const DirectionRegister: FC<IDirectionRegister> = ({ nextStep }) => {
 					onClick={() => handleSetUserDirection('to-help')}
 				>
 					<div className={s.typeBtnLeft}>
-						<img src='/images/to-help-icon.svg' alt='to-help' />
+						<img src='/images/icons/to-help-icon.svg' alt='to-help' />
 						<p>Помочь</p>
 					</div>
-					<img src='/images/next-arrow.svg' alt='arrow' />
+					<img src='/images/icons/next-arrow.svg' alt='arrow' />
 				</Button>
 				<Button
 					className={s.userTypeBtn}
@@ -41,10 +41,10 @@ export const DirectionRegister: FC<IDirectionRegister> = ({ nextStep }) => {
 					onClick={() => handleSetUserDirection('ask-help')}
 				>
 					<div className={s.typeBtnLeft}>
-						<img src='/images/ask-help-icon.svg' alt='ask-help' />
+						<img src='/images/icons/ask-help-icon.svg' alt='ask-help' />
 						<p>Попросить помощь</p>
 					</div>
-					<img src='/images/next-arrow.svg' alt='arrow' />
+					<img src='/images/icons/next-arrow.svg' alt='arrow' />
 				</Button>
 			</div>
 		</div>

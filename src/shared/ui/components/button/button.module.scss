@@ -13,27 +13,28 @@
 		pointer-events: none;
 		background: var(--gray-color) !important;
 		color: var(--dark-color) !important;
-	}
-	&.s {
-		height: 48px;
-	}
-	&.sm {
-		height: 60px;
-	}
-	&.m {
-		height: 64px;
-		@media (max-width: $tab-sm) {
-			height: 60px;
+		svg {
+			path {
+				stroke: var(--dark-color) !important;
+			}
 		}
 	}
-	&.l {
-		height: 80px;
-	}
+
 	&.clear {
 		background: none;
 		height: fit-content;
 		padding: 0;
 		width: fit-content;
+	}
+	&.text {
+		background: none;
+		height: fit-content !important;
+		padding: 0;
+		width: fit-content;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		color: var(--txt-gray-color2);
 	}
 	&.default {
 		background: var(--gray-color);
@@ -105,5 +106,25 @@
 		color: var(--white-color);
 		border-radius: var(--radius-s);
 		@include button_1_16_r;
+	}
+	&.xs {
+		height: 32px;
+		padding: 0 10px !important;
+		@include title_4_14_m;
+	}
+	&.s {
+		height: 48px;
+	}
+	&.sm {
+		height: 60px;
+	}
+	&.m {
+		height: 64px;
+		@media (max-width: $tab-sm) {
+			height: 60px;
+		}
+	}
+	&.l {
+		height: 80px;
 	}
 }

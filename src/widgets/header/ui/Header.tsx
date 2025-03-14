@@ -72,10 +72,10 @@ export const Header = () => {
 
 				<div className={s.mobileBtns}>
 					<Button onClick={handleOpenMobileMenu} variant='secondary' className={s.burger}>
-						<img src='/images/burger.svg' alt='burger' />
+						<img src='/images/icons/burger.svg' alt='burger' />
 					</Button>
 					<Button variant='primary' className={s.authBtn}>
-						<img src='/images/user.svg' alt='user' />
+						<img src='/images/icons/user.svg' alt='user' />
 					</Button>
 				</div>
 			</div>

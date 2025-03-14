@@ -1,4 +1,6 @@
 .checkboxWrapper {
+	cursor: pointer;
+
 	&.isToggler {
 		.checkbox {
 			.title {
@@ -85,6 +87,8 @@
 			margin: 0;
 			padding: 0;
 			border-radius: 8px;
+			cursor: pointer !important;
+
 			&:before {
 				content: '';
 				background-image: url('/images/check-icon.svg');
@@ -99,6 +103,7 @@
 				margin: auto;
 				opacity: 0;
 				transition: var(--trs-300);
+				cursor: pointer !important;
 			}
 			&:checked {
 				&:before {

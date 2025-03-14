@@ -14,10 +14,10 @@ export const Footer = () => {
 					<Logo />
 					<div className={s.links}>
 						<Button variant='secondary' isLink href='#' size='l'>
-							<img src='/images/app-store.svg' alt='' />
+							<img src='/images/icons/app-store.svg' alt='' />
 						</Button>
 						<Button variant='secondary' isLink href='#' size='l'>
-							<img src='/images/google-store.svg' alt='' />
+							<img src='/images/icons/google-store.svg' alt='' />
 						</Button>
 					</div>
 				</div>
@@ -28,7 +28,7 @@ export const Footer = () => {
 					<div className={s.info}>
 						<p>© 2024. Servatorum — свобода делать больше.</p>
 						<div className={s.alert}>
-							<img src='/images/cat.png' alt='' />
+							<img src='/images/icons/cat.png' alt='' />
 							<p>Памагити построить прекрасное будущее вместе с Servatorum! </p>
 						</div>
 						<a href='#' target='_blank'>

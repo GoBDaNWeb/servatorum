@@ -25,11 +25,11 @@ export const NewsCard: FC<INewsCard> = ({ className, img, date, title, views, hr
 				<p>{title}</p>
 				<div className={s.newsCardContentInfo}>
 					<div className={s.views}>
-						<img src='/images/eye.svg' alt='eye' />
+						<img src='/images/icons/eye.svg' alt='eye' />
 						<span>{views}</span>
 					</div>
 					<Button variant='clear'>
-						<img src='/images/link.svg' alt='eye' />
+						<img src='/images/icons/link.svg' alt='eye' />
 					</Button>
 				</div>
 			</div>

@@ -25,7 +25,7 @@ export const RequetsCard: FC<IRequetsCard> = ({ order, title, date, descr, img, 
 					<span>{date}</span>
 				</div>
 				<div className={s.status}>
-					<img src='/images/success.svg' alt='success' />
+					<img src='/images/icons/success.svg' alt='success' />
 					Опубликован
 				</div>
 			</div>

@@ -1,0 +1,31 @@
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.pages {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+	.navBtn {
+		background: var(--white-color);
+		width: 64px;
+		height: 64px;
+		border-radius: 24px;
+		&:disabled {
+			background: var(--white-color) !important;
+			opacity: 1 !important;
+			svg {
+				opacity: 0.5;
+			}
+		}
+		&:hover {
+			background: var(--purple-hover-color);
+			svg {
+				path {
+					stroke: var(--white-color);
+				}
+			}
+		}
+	}
+}

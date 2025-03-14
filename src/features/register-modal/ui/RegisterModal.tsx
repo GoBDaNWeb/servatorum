@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
 import { useTypedSelector } from '@/shared/lib';
-import { BackArrow, Button, CloseIcon, Modal } from '@/shared/ui';
+import { BackOutlineArrow, Button, CloseIcon, Modal } from '@/shared/ui';
 
 import { clearRegisterInfo, setOpenModal, setPhone } from '../model';
 
@@ -67,7 +67,7 @@ export const RegisterModal = () => {
 				<div className={s.modalContentTop}>
 					{step !== 0 ? (
 						<Button className={s.backBtn} onClick={() => handleChangeStep('prev')}>
-							<BackArrow />
+							<BackOutlineArrow />
 						</Button>
 					) : null}
 

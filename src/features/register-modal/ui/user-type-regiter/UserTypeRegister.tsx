@@ -21,22 +21,22 @@ export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep }) => {
 
 	return (
 		<div className={s.userTypeRegister}>
-			<img src='/images/logo.svg' alt='logo' />
+			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Кем вы являетесь?</p>
 			<div className={s.userTypeList}>
 				<Button className={s.userTypeBtn} variant='clear' onClick={() => handleSetUserType('user')}>
 					<div className={s.typeBtnLeft}>
-						<img src='/images/user-icon.svg' alt='user' />
+						<img src='/images/icons/user-icon.svg' alt='user' />
 						<p>Пользователь</p>
 					</div>
-					<img src='/images/next-arrow.svg' alt='arrow' />
+					<img src='/images/icons/next-arrow.svg' alt='arrow' />
 				</Button>
 				<Button className={s.userTypeBtn} variant='clear' onClick={() => handleSetUserType('fond')}>
 					<div className={s.typeBtnLeft}>
-						<img src='/images/fond-icon.svg' alt='fond' />
+						<img src='/images/icons/fond-icon.svg' alt='fond' />
 						<p>Фонд</p>
 					</div>
-					<img src='/images/next-arrow.svg' alt='arrow' />
+					<img src='/images/icons/next-arrow.svg' alt='arrow' />
 				</Button>
 				<Button
 					className={s.userTypeBtn}
@@ -44,10 +44,10 @@ export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep }) => {
 					onClick={() => handleSetUserType('company')}
 				>
 					<div className={s.typeBtnLeft}>
-						<img src='/images/company-icon.svg' alt='company' />
+						<img src='/images/icons/company-icon.svg' alt='company' />
 						<p>Компания</p>
 					</div>
-					<img src='/images/next-arrow.svg' alt='arrow' />
+					<img src='/images/icons/next-arrow.svg' alt='arrow' />
 				</Button>
 			</div>
 		</div>

@@ -1,0 +1,15 @@
+.crumbs {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	.crumbItem {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		p {
+			@include caption_2_12_r;
+			color: var(--txt-gray-color2);
+			text-transform: capitalize;
+		}
+	}
+}

@@ -189,3 +189,22 @@ html {
 	transform: translateX(100%);
 	transition: var(--trs-300);
 }
+.air-datepicker {
+	&.-active- {
+		z-index: 200;
+	}
+}
+
+.collection-card {
+	.swiper {
+		padding-bottom: 71%;
+	}
+	.swiper-wrapper {
+		position: absolute;
+	}
+}
+svg {
+	path {
+		transition: var(--trs-300);
+	}
+}

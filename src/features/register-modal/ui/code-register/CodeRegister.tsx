@@ -74,7 +74,7 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
 
 	return (
 		<div className={s.codeRegister}>
-			<img src='/images/logo.svg' alt='logo' />
+			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Код отправлен на номер</p>
 			<p className={s.phone}>{formattedPhone}</p>
 			<p className={s.subtitle}>СМС-код</p>
@@ -87,7 +87,9 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
 						key={index}
 						ref={el => (inputRefs.current[index] = el)}
 						value={code[index]}
+						//@ts-ignore
 						onChange={val => handleChange(val, index)}
+						//@ts-ignore
 						onKeyDown={e => handleKeyDown(e, index)}
 						onFocus={() => handleFocus()}
 						className={s.code}
