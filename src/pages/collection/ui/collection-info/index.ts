@@ -1,0 +1,1 @@
+export { CollectionMainInfo } from './CollectionMainInfo';

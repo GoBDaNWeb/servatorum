@@ -18,8 +18,15 @@
 		height: 14px;
 	}
 	&.m {
+		height: 24px;
+		padding: 0 16px;
+		border-radius: var(--radius-xs);
+		@include caption_2_12_r;
+	}
+	&.l {
 		height: 30px;
 		padding: 0 16px;
+		@include title_5_12_m;
 	}
 	&.xl {
 		height: 82px;

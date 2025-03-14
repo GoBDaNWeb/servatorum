@@ -1,0 +1,131 @@
+.collectingInfo {
+	box-shadow: var(--shadow);
+	background: var(--white-color);
+	border-radius: 24px;
+	padding: 16px 24px 24px;
+	.collectingInfoTop {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 10px;
+		border-bottom: 1px solid var(--txt-gray-color);
+		p {
+			@include text_2_14_r;
+		}
+		.features {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			button {
+				width: 24px;
+				height: 24px;
+				svg {
+					width: 18px;
+					height: 15px;
+				}
+			}
+		}
+	}
+	.collectingInfoCenter {
+		margin-top: 20px;
+		.fond {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			.imageWrapper {
+				width: 56px;
+				height: 56px;
+				border-radius: 999px; /* Делаем элемент круглым */
+				position: relative;
+				margin-left: 2px;
+				img {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					border-radius: 999px; /* Делаем элемент круглым */
+				}
+				&:before {
+					content: '';
+					position: absolute;
+					top: -2px; /* Смещение для границы */
+					left: -2px;
+					right: -2px;
+					bottom: -2px;
+					border-radius: 999px; /* Скругление, как у изображения */
+					background: linear-gradient(to right, #c83ca5, #683aff); /* Градиент */
+				}
+			}
+			.fondInfo {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				span {
+					@include text_2_14_r;
+					color: var(--txt-gray-color2);
+				}
+				p {
+					@include title_3_16_m;
+				}
+			}
+		}
+		.donationLine {
+			width: 100%;
+			height: 4px;
+			margin-top: 20px;
+			background: var(--gray-color);
+			border-radius: 999px;
+			position: relative;
+			overflow: hidden;
+			.line {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 50%;
+				background: var(--gradient-color);
+			}
+		}
+		.donationInfo {
+			margin-top: 8px;
+			display: flex;
+			justify-content: space-between;
+			.total {
+				justify-content: flex-end;
+				p {
+					color: var(--purple-color);
+				}
+				span {
+					text-align: right;
+				}
+			}
+			p {
+				@include title_3_16_m;
+			}
+			span {
+				@include text_2_14_r;
+			}
+			.total,
+			.sum {
+				gap: 1px;
+			}
+		}
+		button {
+			width: 100%;
+			margin-top: 20px;
+		}
+		.time {
+			margin-top: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 4px;
+			span {
+				color: var(--gold-color);
+			}
+			span,
+			p {
+				@include text_2_14_r;
+			}
+		}
+	}
+}

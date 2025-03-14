@@ -58,10 +58,10 @@ export const Hero = () => {
 				</div>
 				<div className={s.links}>
 					<Button variant='secondary' isLink href='#' size='l'>
-						<img src='/images/app-store.svg' alt='' />
+						<img src='/images/icons/app-store.svg' alt='' />
 					</Button>
 					<Button variant='secondary' isLink href='#' size='l'>
-						<img src='/images/google-store.svg' alt='' />
+						<img src='/images/icons/google-store.svg' alt='' />
 					</Button>
 				</div>
 			</div>

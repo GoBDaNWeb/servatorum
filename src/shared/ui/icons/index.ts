@@ -9,3 +9,4 @@ export { FemaleIcon } from './FemaleIcon';
 export { ClearIcon } from './ClearIcon';
 export { CheckIcon } from './CheckIcon';
 export { CrumbsLogo } from './CrumbsLogo';
+export { DocumentIcon } from './DocumentIcon';

@@ -23,7 +23,7 @@ export const WhoCard: FC<IWhoCard> = ({ img, title, isDisabled = false, btnTitle
 			<div className={s.imageBlock}>
 				<Image paddingBottom='70%' src={img} alt='who' className={s.image} />
 				{isDisabled ? (
-					<Badge variant='alert' size='m' className={s.badge}>
+					<Badge variant='alert' size='l' className={s.badge}>
 						В следующем этапе
 					</Badge>
 				) : null}

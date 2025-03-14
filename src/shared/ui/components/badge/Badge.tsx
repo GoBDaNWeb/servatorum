@@ -6,7 +6,7 @@ import s from './badge.module.scss';
 
 interface IBadge {
 	className?: string;
-	size?: 's' | 'm' | 'xl';
+	size?: 's' | 'm' | 'l' | 'xl';
 	color?: 'gray' | 'white' | 'purple' | 'alert' | 'green';
 	variant?: 'default' | 'alert';
 }

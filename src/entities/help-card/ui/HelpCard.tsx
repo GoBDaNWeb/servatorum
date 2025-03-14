@@ -21,7 +21,7 @@ export const HelpCard: FC<IHelpCard> = ({ img, title, isDisabled }) => {
 		<div className={helpCardClass}>
 			<div className={s.imageBlock}>
 				{isDisabled ? (
-					<Badge variant='alert' size='m' className={s.badge}>
+					<Badge variant='alert' size='l' className={s.badge}>
 						В следующем этапе
 					</Badge>
 				) : null}
