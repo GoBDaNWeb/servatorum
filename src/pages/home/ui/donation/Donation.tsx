@@ -65,7 +65,6 @@ export const Donation = () => {
 				<div className={s.donationContent}>
 					<Swiper
 						onSlideChange={swiper => {
-							console.log(swiper);
 							setActiveSlideIndex(swiper.activeIndex + 1);
 						}}
 						onSwiper={swiper => {

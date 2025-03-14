@@ -63,6 +63,7 @@ export const Checkbox: FC<ICheckbox> = ({
 			) : children ? (
 				<label className={s.checkboxLabel}>
 					<input type='checkbox' name={name} />
+					<span></span>
 					<p>{children}</p>
 				</label>
 			) : (

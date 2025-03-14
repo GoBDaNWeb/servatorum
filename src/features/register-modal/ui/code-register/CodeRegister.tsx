@@ -15,6 +15,7 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
 	const inputRefs = useRef<(HTMLInputElement | null)[]>(Array(4).fill(null));
+
 	const {
 		registerInfo: { phone }
 	} = useTypedSelector(store => store.registerModal);
@@ -46,7 +47,7 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
 		}
 	};
 
-	const formattedPhone = `+${phone[0]} (${phone.slice(1, 4)}) ${phone.slice(4, 7)}-${phone.slice(7, 9)}-${phone.slice(9)}`;
+	// const formattedPhone = `+${phone[0]} (${phone.slice(1, 4)}) ${phone.slice(4, 7)}-${phone.slice(7, 9)}-${phone.slice(9)}`;
 
 	useEffect(() => {
 		if (timer > 0) {
@@ -76,11 +77,24 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
 		<div className={s.codeRegister}>
 			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Код отправлен на номер</p>
-			<p className={s.phone}>{formattedPhone}</p>
+			<p className={s.phone}>{phone}</p>
 			<p className={s.subtitle}>СМС-код</p>
 
 			<div className={s.codeInputs}>
 				{[...Array(4)].map((_, index) => (
+					<Input
+						key={index}
+						mask='0'
+						placeholder='_'
+						onAccept={(value: string) => handleChange(value, index)}
+						inputRef={(el: HTMLInputElement | null) => (inputRefs.current[index] = el)}
+						onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => handleKeyDown(e, index)}
+						onFocus={() => handleFocus()}
+						className={s.code}
+					/>
+				))}
+
+				{/* {[...Array(4)].map((_, index) => (
 					<Input
 						mask='0'
 						placeholder='_'
@@ -94,7 +108,7 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
 						onFocus={() => handleFocus()}
 						className={s.code}
 					/>
-				))}
+				))} */}
 			</div>
 			<Button onClick={handleResendCode} variant='primary' isDisabled={isButtonDisabled}>
 				{isButtonDisabled

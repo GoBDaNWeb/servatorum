@@ -71,7 +71,6 @@ export const CollectingSwiper: FC<ICollectingSwiper> = ({ title, titleSize = 'm'
 				<div className={s.collectingSwiperContent}>
 					<Swiper
 						onSlideChange={swiper => {
-							console.log(swiper);
 							setActiveSlideIndex(swiper.activeIndex + 1);
 						}}
 						onSwiper={swiper => {

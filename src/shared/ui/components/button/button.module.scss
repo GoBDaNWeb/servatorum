@@ -22,7 +22,7 @@
 
 	&.clear {
 		background: none;
-		height: fit-content;
+		height: fit-content !important;
 		padding: 0;
 		width: fit-content;
 	}

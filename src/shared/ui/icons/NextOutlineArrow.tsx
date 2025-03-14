@@ -4,9 +4,9 @@ export const NextOutlineArrow = () => {
 			<path
 				d='M1 1L7 7L1 13'
 				stroke='#0B0B0B'
-				stroke-width='1.5'
-				stroke-linecap='round'
-				stroke-linejoin='round'
+				strokeWidth='1.5'
+				strokeLinecap='round'
+				strokeLinejoin='round'
 			/>
 		</svg>
 	);

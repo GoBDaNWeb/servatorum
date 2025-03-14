@@ -18,7 +18,7 @@ import { UserDataRegister } from './user-data-register';
 import { UserTypeRegister } from './user-type-regiter';
 
 export const RegisterModal = () => {
-	const [step, setStep] = useState(0);
+	const [step, setStep] = useState(4);
 	const { isOpen } = useTypedSelector(store => store.registerModal);
 	const dispatch = useDispatch();
 

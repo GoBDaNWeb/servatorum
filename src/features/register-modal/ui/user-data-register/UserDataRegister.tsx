@@ -1,5 +1,7 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { Controller, FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+
+import AirDatepicker from 'air-datepicker';
 
 import { useTypedSelector } from '@/shared/lib';
 import { Button, Checkbox, FemaleIcon, Input, MaleIcon, Photo } from '@/shared/ui';
@@ -14,6 +16,7 @@ interface IUserDataRegister {
 
 export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 	const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
+	const datepickerRef = useRef(null);
 
 	const {
 		registerInfo: { phone }
@@ -39,6 +42,21 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 	const handleClearAddress = () => {
 		setValue('address', '');
 	};
+
+	useEffect(() => {
+		if (datepickerRef?.current) {
+			const datepicker = new AirDatepicker(datepickerRef.current, {
+				dateFormat: 'dd.MM.yyyy',
+				autoClose: true,
+				onSelect: data => {
+					setValue('date', data.formattedDate);
+				}
+			});
+			return () => {
+				datepicker.destroy();
+			};
+		}
+	}, []);
 
 	useEffect(() => {
 		const { unsubscribe } = watch(value => {
@@ -73,7 +91,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 										placeholder='Введите'
 										title='Фамилия'
 										req
-										onChange={onChange}
+										onAccept={(value: string) => onChange(value)}
 									/>
 								);
 							}}
@@ -89,7 +107,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 										placeholder='Введите'
 										title='Имя'
 										req
-										onChange={onChange}
+										onAccept={(value: string) => onChange(value)}
 									/>
 								);
 							}}
@@ -105,7 +123,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 										placeholder='Введите'
 										title='Отчество'
 										req
-										onChange={onChange}
+										onAccept={(value: string) => onChange(value)}
 									/>
 								);
 							}}
@@ -116,14 +134,18 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 							control={control}
 							name='date'
 							rules={{ required: true }}
-							render={({ field: { onChange } }) => {
+							render={({ field: { onChange, value } }) => {
 								return (
 									<Input
 										placeholder='Введите'
 										title='Дата рождения'
 										req
-										onChange={onChange}
-										isCalendar
+										value={value}
+										onAccept={(value: string) => onChange(value)}
+										mask={Date}
+										inputRef={datepickerRef}
+										min={new Date(1900, 0, 1)}
+										max={new Date(2026, 0, 1)}
 										icon={<img src='/images/icons/calendar.svg' alt='' />}
 									/>
 								);
@@ -156,12 +178,12 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 						render={({ field: { value, onChange } }) => {
 							return (
 								<Input
+									mask={/^[A-Za-zА-Яа-яЁё]*$/}
 									placeholder='Введите'
 									title='Адрес регистрации'
-									isСleaned
 									req
-									onChange={onChange}
 									value={value}
+									onAccept={(value: string) => onChange(value)}
 									clear={handleClearAddress}
 								/>
 							);
@@ -180,7 +202,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 												title='Номер телефона'
 												req
 												value={value}
-												onChange={onChange}
+												onAccept={(value: string) => onChange(value)}
 												mask='+{7} (000) 000-00-00'
 												placeholder='+7'
 											/>
@@ -212,13 +234,8 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 												title='Электронная почта'
 												req
 												value={value}
-												onChange={onChange}
+												onAccept={(value: string) => onChange(value)}
 												placeholder='Введите'
-												maskOptions={{
-													definitions: {
-														'*': /^\S*@?\S*$/ // Разрешаем только буквы
-													}
-												}}
 											/>
 										);
 									}}

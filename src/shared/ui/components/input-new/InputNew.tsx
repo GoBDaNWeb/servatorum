@@ -9,7 +9,7 @@ import s from './input.module.scss';
 
 import 'air-datepicker/air-datepicker.css';
 
-export const Input = IMaskMixin(({ inputRef, className, clear, req, ...props }) => {
+export const InputNew = IMaskMixin(({ inputRef, className, clear, req, ...props }) => {
 	const { isActive, title } = props;
 
 	const inputWrapperClass = clsx(s.inputWrapper, className, {

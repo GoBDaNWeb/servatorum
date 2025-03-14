@@ -1,0 +1,1 @@
+export { InputNew } from './InputNew';
