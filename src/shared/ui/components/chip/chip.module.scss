@@ -14,16 +14,27 @@
 		height: 32px;
 		padding: 0 12px;
 	}
-	&.active {
-		border-color: var(--purple-color);
-		background: var(--white-color);
-		p {
-			color: var(--purple-color);
-		}
-		.iconWrapper {
-			display: flex;
+	&.outline {
+		&.active {
+			border-color: var(--purple-color);
+			background: var(--white-color);
+			p {
+				color: var(--purple-color);
+			}
+			.iconWrapper {
+				display: flex;
+			}
 		}
 	}
+	&.fill {
+		&.active {
+			background: var(--purple-color);
+			p {
+				color: var(--white-color);
+			}
+		}
+	}
+
 	input {
 		display: none;
 	}

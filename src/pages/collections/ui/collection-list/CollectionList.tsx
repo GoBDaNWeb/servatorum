@@ -1,3 +1,8 @@
+import { useDispatch } from 'react-redux';
+
+import { DonationInfo } from '@/features/donation-info';
+import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
+
 import { CollectingCard } from '@/entities/collecting-card';
 
 import { Pagination } from '@/shared/ui';
@@ -5,6 +10,12 @@ import { Pagination } from '@/shared/ui';
 import s from './collection-list.module.scss';
 
 export const CollectionList = () => {
+	const dispatch = useDispatch();
+
+	const handleOpenDonationModal = () => {
+		dispatch(setOpenDonationModal(true));
+	};
+
 	return (
 		<div className={s.collectionListWrapper}>
 			<p className={s.total}>1896 сборов</p>
@@ -35,6 +46,8 @@ export const CollectionList = () => {
 						}
 						isPopular
 						hasLink
+						donationInfo={<DonationInfo />}
+						openDonationModal={handleOpenDonationModal}
 					/>
 				))}
 			</div>

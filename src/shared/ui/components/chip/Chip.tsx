@@ -14,6 +14,7 @@ interface IChip {
 	onChange: (value: string) => void;
 	value: string;
 	size?: 'm' | 's';
+	variant?: 'outline' | 'fill';
 }
 
 export const Chip: FC<IChip> = ({
@@ -23,9 +24,10 @@ export const Chip: FC<IChip> = ({
 	checked,
 	onChange,
 	value,
-	size = 'm'
+	size = 'm',
+	variant = 'outline'
 }) => {
-	const chipClass = clsx(s.chip, s[size], { [s.active]: checked });
+	const chipClass = clsx(s.chip, s[size], s[variant], { [s.active]: checked });
 
 	return (
 		<label className={chipClass}>
@@ -37,9 +39,11 @@ export const Chip: FC<IChip> = ({
 				onChange={() => onChange(value)}
 			/>
 			<p>{children}</p>
-			<div className={s.iconWrapper}>
-				<CheckIcon />
-			</div>
+			{variant === 'outline' ? (
+				<div className={s.iconWrapper}>
+					<CheckIcon />
+				</div>
+			) : null}
 		</label>
 	);
 };

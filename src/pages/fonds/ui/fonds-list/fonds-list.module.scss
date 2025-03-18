@@ -1,0 +1,13 @@
+.fondsListWrapper {
+	.total {
+		margin-bottom: 12px;
+		@include text_1_16_r;
+		color: var(--txt-gray-color2);
+	}
+	.fondsList {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		margin-bottom: 48px;
+	}
+}

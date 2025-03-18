@@ -5,6 +5,7 @@ import { MainLayout } from '@/app/layouts';
 
 import { Collection } from '@/pages/collection';
 import { Collections } from '@/pages/collections';
+import { Fonds } from '@/pages/fonds';
 import { Home } from '@/pages/home';
 
 import { PATH_PAGE } from '@/shared/config';
@@ -36,6 +37,10 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.collection,
 					element: <Collection />
+				},
+				{
+					path: PATH_PAGE.fonds,
+					element: <Fonds />
 				}
 			]
 		}

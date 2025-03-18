@@ -26,7 +26,7 @@ export const ListFilters = () => {
 		<div className={s.listFilters}>
 			<div className={s.listFiltersItem}>
 				<p>Регион</p>
-				<Input placeholder='Введите ' />
+				<Input placeholder='Введите' prefIcon='/images/icons/search.svg' />
 			</div>
 			<div className={s.listFiltersItem}>
 				<p>Сортировать</p>

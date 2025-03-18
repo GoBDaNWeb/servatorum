@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
@@ -6,6 +7,9 @@ import clsx from 'clsx';
 
 import { Navigation } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
+
+import { DonationInfo } from '@/features/donation-info';
+import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
 
 import { CollectingCard } from '@/entities/collecting-card';
 
@@ -22,6 +26,12 @@ export const Donation = () => {
 	const next = useRef<HTMLDivElement>(null);
 
 	const navigate = useNavigate();
+
+	const dispatch = useDispatch();
+
+	const handleOpenDonationModal = () => {
+		dispatch(setOpenDonationModal(true));
+	};
 
 	useEffect(() => {
 		if (swiper && prev.current && next.current) {
@@ -105,6 +115,8 @@ export const Donation = () => {
 									}
 									isPopular
 									hasLink
+									donationInfo={<DonationInfo />}
+									openDonationModal={handleOpenDonationModal}
 								/>
 							</SwiperSlide>
 						))}

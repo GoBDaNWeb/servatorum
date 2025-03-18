@@ -12,10 +12,18 @@ interface IFondCard {
 	statusBadge: string;
 	badges: string[];
 	img: string;
+	size?: 'default' | 'sm';
 }
 
-export const FondCard: FC<IFondCard> = ({ title, statusBadge, badges, img, className }) => {
-	const fondCardClass = clsx(s.fondCard, className);
+export const FondCard: FC<IFondCard> = ({
+	title,
+	statusBadge,
+	badges,
+	img,
+	className,
+	size = 'default'
+}) => {
+	const fondCardClass = clsx(s.fondCard, s[size], className);
 
 	return (
 		<div className={fondCardClass}>

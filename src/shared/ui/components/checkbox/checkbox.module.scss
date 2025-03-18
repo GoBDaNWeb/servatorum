@@ -1,6 +1,4 @@
 .checkboxWrapper {
-	cursor: pointer;
-
 	&.isToggler {
 		.checkbox {
 			.title {
@@ -119,6 +117,35 @@
 			a {
 				color: var(--purple-color);
 			}
+		}
+	}
+	.defaultCheckbox {
+		width: 44px;
+		height: 24px;
+		border-radius: 999px;
+		background: var(--txt-gray-color);
+		appearance: none;
+		position: relative;
+		cursor: pointer;
+		transition: var(--trs-300);
+
+		&:checked {
+			background: var(--green-color);
+			&:before {
+				transform: translateX(100%);
+			}
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border-radius: 999px;
+			background: var(--white-color);
+			top: 2px;
+			bottom: 2px;
+			left: 2px;
+			transition: var(--trs-300);
 		}
 	}
 }

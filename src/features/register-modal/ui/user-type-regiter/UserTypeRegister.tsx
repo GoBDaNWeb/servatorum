@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { Button } from '@/shared/ui';
+import { TypeButton } from '@/shared/ui';
 
 import { setUserType } from '../../model';
 
@@ -24,31 +24,21 @@ export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep }) => {
 			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Кем вы являетесь?</p>
 			<div className={s.userTypeList}>
-				<Button className={s.userTypeBtn} variant='clear' onClick={() => handleSetUserType('user')}>
-					<div className={s.typeBtnLeft}>
-						<img src='/images/icons/user-icon.svg' alt='user' />
-						<p>Пользователь</p>
-					</div>
-					<img src='/images/icons/next-arrow.svg' alt='arrow' />
-				</Button>
-				<Button className={s.userTypeBtn} variant='clear' onClick={() => handleSetUserType('fond')}>
-					<div className={s.typeBtnLeft}>
-						<img src='/images/icons/fond-icon.svg' alt='fond' />
-						<p>Фонд</p>
-					</div>
-					<img src='/images/icons/next-arrow.svg' alt='arrow' />
-				</Button>
-				<Button
-					className={s.userTypeBtn}
-					variant='clear'
+				<TypeButton
+					title='Пользователь'
+					img='/images/icons/user-icon.svg'
+					onClick={() => handleSetUserType('user')}
+				/>
+				<TypeButton
+					title='Фонд'
+					img='/images/icons/fond-icon.svg'
+					onClick={() => handleSetUserType('fond')}
+				/>
+				<TypeButton
+					title='Компания'
+					img='/images/icons/company-icon.svg'
 					onClick={() => handleSetUserType('company')}
-				>
-					<div className={s.typeBtnLeft}>
-						<img src='/images/icons/company-icon.svg' alt='company' />
-						<p>Компания</p>
-					</div>
-					<img src='/images/icons/next-arrow.svg' alt='arrow' />
-				</Button>
+				/>
 			</div>
 		</div>
 	);

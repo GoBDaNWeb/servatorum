@@ -1,0 +1,51 @@
+.donationModal {
+	.modalContentWrapper {
+		background: var(--white-color);
+		border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+		width: 572px;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		overflow: auto;
+		scrollbar-width: thin;
+		scrollbar-color: var(--purple-color) #ffffff;
+		display: flex;
+		flex-direction: column;
+		.modalContentTop {
+			position: sticky;
+			top: 0;
+			.backBtn,
+			.closeBtn {
+				width: 48px;
+				height: 48px;
+				padding: 0;
+				top: 20px;
+
+				position: absolute;
+				&:hover {
+					background: var(--purple-hover-color);
+					svg {
+						path {
+							stroke: var(--white-color);
+						}
+					}
+				}
+			}
+			.backBtn {
+				left: 20px;
+			}
+			.closeBtn {
+				right: 20px;
+			}
+		}
+		.modalContent {
+			display: flex;
+			align-items: center;
+			padding: 50px;
+			width: 100%;
+			flex: 1;
+		}
+	}
+}

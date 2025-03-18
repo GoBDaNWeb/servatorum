@@ -1,0 +1,32 @@
+.typeBtn {
+	padding: 16px 0 !important;
+	border-top: 1px solid var(--gray-color);
+	display: flex;
+	justify-content: space-between;
+	width: 100% !important;
+
+	.typeBtnLeft {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		img {
+			width: 48px;
+			height: 48px;
+		}
+		.titleWrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			span {
+				@include text_2_14_r;
+				color: var(--txt-gray-color2);
+			}
+			p {
+				@include text_1_16_r;
+			}
+		}
+	}
+	&:last-child {
+		border-bottom: 1px solid var(--gray-color);
+	}
+}

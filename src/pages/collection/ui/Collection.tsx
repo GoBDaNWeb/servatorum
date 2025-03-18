@@ -1,6 +1,12 @@
+import { useDispatch } from 'react-redux';
+
 import clsx from 'clsx';
 
 import { CollectingSwiper } from '@/entities/collecting-swiper';
+
+import { setOpenModal as setOpenDocumentsModal } from '@/features/documents-modal';
+import { DonationInfo } from '@/features/donation-info';
+import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
 
 import { CollectingInfo } from '@/entities/collecting-info';
 
@@ -8,10 +14,18 @@ import { Button, Crumbs, DocumentIcon, NextOutlineArrow } from '@/shared/ui';
 
 import { crumbs } from '../config';
 
-import { CollectionMainInfo } from './collection-info';
+import { CollectionMainInfo } from './collection-main-info';
 import s from './collection.module.scss';
 
 export const Collection = () => {
+	const dispatch = useDispatch();
+	const handleOpenDocumentsModal = () => {
+		dispatch(setOpenDocumentsModal(true));
+	};
+	const handleOpenDonationModal = () => {
+		dispatch(setOpenDonationModal(true));
+	};
+
 	const collectionMainClass = clsx(s.collectionMain, 'container');
 
 	return (
@@ -21,8 +35,11 @@ export const Collection = () => {
 				<CollectionMainInfo />
 				<div className={s.collectionInfoWrapper}>
 					<div className='sticky-block'>
-						<CollectingInfo />
-						<Button variant='clear' className={s.documentsBtn}>
+						<CollectingInfo
+							donationInfo={<DonationInfo />}
+							openDonationModal={handleOpenDonationModal}
+						/>
+						<Button variant='clear' className={s.documentsBtn} onClick={handleOpenDocumentsModal}>
 							<div className={s.icon}>
 								<DocumentIcon />
 							</div>
@@ -32,7 +49,11 @@ export const Collection = () => {
 					</div>
 				</div>
 			</div>
-			<CollectingSwiper title='Смотрите также' />
+			<CollectingSwiper
+				openDonationModal={handleOpenDonationModal}
+				title='Смотрите также'
+				donationInfo={<DonationInfo />}
+			/>
 		</main>
 	);
 };

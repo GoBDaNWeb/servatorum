@@ -29,6 +29,8 @@ interface ICollectingCard {
 	isPopular?: boolean;
 	hasLink?: boolean;
 	buttonText?: string;
+	donationInfo?: ReactElement;
+	openDonationModal?: () => void;
 }
 
 export const CollectingCard: FC<ICollectingCard> = ({
@@ -46,7 +48,9 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	badgeColor = 'purple',
 	isPopular = false,
 	hasLink = false,
-	buttonText = 'Помочь'
+	buttonText = 'Помочь',
+	donationInfo,
+	openDonationModal
 }) => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const pagination = useRef<HTMLDivElement>(null);
@@ -130,25 +134,13 @@ export const CollectingCard: FC<ICollectingCard> = ({
 			<div className={s.collectingCardBottom}>
 				<NavLink to={cropLink(PATH_PAGE.collection, 10)} className={s.collectingCardBottomContent}>
 					<p className={s.title}>{cropText(title, 52)}</p>
-					{total && sum ? (
-						<>
-							<div className={s.donationLine}>
-								<div className={s.line}></div>
-							</div>
-							<div className={s.donationInfo}>
-								<div className={s.sum}>
-									<p>{sum} ₽</p>
-									<span>Сумма сбора</span>
-								</div>
-								<div className={s.total}>
-									<p>{total} ₽</p>
-									<span>Осталось</span>
-								</div>
-							</div>
-						</>
-					) : null}
+					{total && sum ? <>{donationInfo}</> : null}
 				</NavLink>
-				{total && sum ? <Button variant='primary'>{buttonText}</Button> : null}
+				{total && sum ? (
+					<Button variant='primary' onClick={openDonationModal}>
+						{buttonText}
+					</Button>
+				) : null}
 			</div>
 		</div>
 	);

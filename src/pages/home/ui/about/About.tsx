@@ -1,4 +1,9 @@
+import { useDispatch } from 'react-redux';
+
 import clsx from 'clsx';
+
+import { DonationInfo } from '@/features/donation-info';
+import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
 
 import { CollectingCard } from '@/entities/collecting-card';
 import { RequetsCard } from '@/entities/request-card';
@@ -8,6 +13,12 @@ import { Image } from '@/shared/ui';
 import s from './about.module.scss';
 
 export const About = () => {
+	const dispatch = useDispatch();
+
+	const handleOpenDonationModal = () => {
+		dispatch(setOpenDonationModal(true));
+	};
+
 	const aboutClass = clsx(s.about, 'container');
 
 	return (
@@ -42,6 +53,8 @@ export const About = () => {
 								<p>до завершения</p>
 							</>
 						}
+						donationInfo={<DonationInfo />}
+						openDonationModal={handleOpenDonationModal}
 					/>
 					<Image
 						paddingBottom='65%'

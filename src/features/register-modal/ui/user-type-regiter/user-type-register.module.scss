@@ -11,28 +11,5 @@
 	.userTypeList {
 		margin-top: 26px;
 		width: 100%;
-		.userTypeBtn {
-			padding-top: 16px;
-			padding-bottom: 16px;
-			border-top: 1px solid var(--gray-color);
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
-			.typeBtnLeft {
-				display: flex;
-				align-items: center;
-				gap: 20px;
-				img {
-					width: 48px;
-					height: 48px;
-				}
-				p {
-					@include text_1_16_r;
-				}
-			}
-			&:last-child {
-				border-bottom: 1px solid var(--gray-color);
-			}
-		}
 	}
 }

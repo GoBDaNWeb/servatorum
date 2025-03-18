@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, ReactElement, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
@@ -17,9 +17,17 @@ interface ICollectingSwiper {
 	title: string;
 	titleSize?: 'm' | 'l';
 	hasLinkBtn?: boolean;
+	donationInfo: ReactElement;
+	openDonationModal: () => void;
 }
 
-export const CollectingSwiper: FC<ICollectingSwiper> = ({ title, titleSize = 'm', hasLinkBtn }) => {
+export const CollectingSwiper: FC<ICollectingSwiper> = ({
+	title,
+	titleSize = 'm',
+	hasLinkBtn,
+	donationInfo,
+	openDonationModal
+}) => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const [activeSlideIndex, setActiveSlideIndex] = useState<number>(1);
 
@@ -111,6 +119,8 @@ export const CollectingSwiper: FC<ICollectingSwiper> = ({ title, titleSize = 'm'
 									}
 									isPopular
 									hasLink
+									donationInfo={donationInfo}
+									openDonationModal={openDonationModal}
 								/>
 							</SwiperSlide>
 						))}

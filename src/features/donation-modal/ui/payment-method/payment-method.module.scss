@@ -1,0 +1,29 @@
+.paymentMethod {
+	width: 100%;
+	.title {
+		@include headline_32_m;
+	}
+	.methodList {
+		margin-top: 28px;
+	}
+	.qrWrapper {
+		margin-top: 48px;
+		p {
+			@include title_2_20_m;
+		}
+		.image {
+			margin-top: 16px;
+			border: 1px solid var(--line-color);
+			border-radius: var(--radius-s);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 22px 0;
+			img {
+				width: 180px;
+				height: 180px;
+				object-fit: contain;
+			}
+		}
+	}
+}

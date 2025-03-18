@@ -32,21 +32,12 @@ export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep }) => {
 				<Input
 					ref={inputRef}
 					value={phoneValue}
-					// onChange={handlePhoneValue}
 					mask='+{7} (000) 000-00-00'
 					placeholder='+7'
 					onAccept={(value: string) => handlePhoneValue(value)}
 					clear={() => handlePhoneValue('')}
 				/>
-				{/* <Input
-					ref={inputRef}
-					value={phoneValue}
-					//@ts-ignore
-					onChange={handlePhoneValue}
-					mask='+{7} (000) 000-00-00'
-					placeholder='+7'
-					isСleaned
-				/> */}
+
 				<Button onClick={handleNextStep} isDisabled={phoneValue.length < 18} variant='primary'>
 					Получить код
 				</Button>

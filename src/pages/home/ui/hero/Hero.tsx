@@ -48,6 +48,7 @@ export const Hero = () => {
 						badges={badges}
 						img='/images/home/hero/fond.jpg'
 						className={s.fond}
+						size='sm'
 					/>
 					<Image
 						paddingBottom='65%'

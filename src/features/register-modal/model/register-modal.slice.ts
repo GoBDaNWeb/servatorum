@@ -1,3 +1,5 @@
+import { IModal } from '@/shared/types';
+
 import { createSlice } from '@reduxjs/toolkit';
 
 type RegisterInfoType = {
@@ -6,11 +8,10 @@ type RegisterInfoType = {
 	userDirection: string;
 };
 
-interface IMenuState {
-	isOpen: boolean;
+interface IRegisterModal extends IModal {
 	registerInfo: RegisterInfoType;
 }
-const initialState: IMenuState = {
+const initialState: IRegisterModal = {
 	isOpen: false,
 	registerInfo: {
 		phone: '',

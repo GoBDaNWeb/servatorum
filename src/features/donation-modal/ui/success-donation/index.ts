@@ -1,0 +1,1 @@
+export { SuccessDonation } from './SuccessDonation';

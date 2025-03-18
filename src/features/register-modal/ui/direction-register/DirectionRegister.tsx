@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { Button } from '@/shared/ui';
+import { TypeButton } from '@/shared/ui';
 
 import { setUserDirection } from '../../model';
 
@@ -24,28 +24,17 @@ export const DirectionRegister: FC<IDirectionRegister> = ({ nextStep }) => {
 			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Что вы хотите?</p>
 			<div className={s.userDirectionList}>
-				<Button
-					className={s.userTypeBtn}
-					variant='clear'
+				<TypeButton
+					title='Помочь'
+					img='/images/icons/to-help-icon.svg'
 					onClick={() => handleSetUserDirection('to-help')}
-				>
-					<div className={s.typeBtnLeft}>
-						<img src='/images/icons/to-help-icon.svg' alt='to-help' />
-						<p>Помочь</p>
-					</div>
-					<img src='/images/icons/next-arrow.svg' alt='arrow' />
-				</Button>
-				<Button
-					className={s.userTypeBtn}
-					variant='clear'
+				/>
+
+				<TypeButton
+					title='Попросить помощь'
+					img='/images/icons/ask-help-icon.svg'
 					onClick={() => handleSetUserDirection('ask-help')}
-				>
-					<div className={s.typeBtnLeft}>
-						<img src='/images/icons/ask-help-icon.svg' alt='ask-help' />
-						<p>Попросить помощь</p>
-					</div>
-					<img src='/images/icons/next-arrow.svg' alt='arrow' />
-				</Button>
+				/>
 			</div>
 		</div>
 	);

@@ -1,8 +1,15 @@
+import { FC, ReactElement } from 'react';
+
 import { Button, LinkIcon, StarIcon } from '@/shared/ui';
 
 import s from './collecting-info.module.scss';
 
-export const CollectingInfo = () => {
+interface ICollectingInfo {
+	donationInfo: ReactElement;
+	openDonationModal: () => void;
+}
+
+export const CollectingInfo: FC<ICollectingInfo> = ({ donationInfo, openDonationModal }) => {
 	return (
 		<div className={s.collectingInfo}>
 			<div className={s.collectingInfoTop}>
@@ -26,20 +33,10 @@ export const CollectingInfo = () => {
 						<p>Четыре лапы</p>
 					</div>
 				</div>
-				<div className={s.donationLine}>
-					<div className={s.line}></div>
-				</div>
-				<div className={s.donationInfo}>
-					<div className={s.sum}>
-						<p>300 000 ₽</p>
-						<span>Сумма сбора</span>
-					</div>
-					<div className={s.total}>
-						<p>12 000 ₽</p>
-						<span>Осталось</span>
-					</div>
-				</div>
-				<Button variant='primary'>Помочь</Button>
+				{donationInfo}
+				<Button variant='primary' onClick={openDonationModal}>
+					Помочь
+				</Button>
 				<div className={s.time}>
 					<img src='/images/icons/clock-gold.svg' alt='' />
 					<span>31 день</span>
