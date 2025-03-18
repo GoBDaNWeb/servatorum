@@ -5,9 +5,9 @@
 		color: var(--txt-gray-color2);
 	}
 	.fondsList {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 		margin-bottom: 48px;
 	}
 }

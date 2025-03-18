@@ -1,46 +1,48 @@
 .fondCard {
-	&.sm {
-		padding: 9px;
-		background: var(--white-color);
-		box-shadow: var(--shadow);
-		border-radius: var(--radius-xs);
+	background: var(--white-color);
+	padding: 30px;
+	border-radius: var(--radius-xl);
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	img {
+		min-width: 96px;
+		min-height: 96px;
+		max-width: 96px;
+		max-height: 96px;
+		border-radius: 999px;
+		object-fit: cover;
+	}
+	.fondCardContent {
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
+		gap: 12px;
+		width: 100%;
 		.fondCardTop {
 			display: flex;
-			justify-content: space-between;
-			align-items: flex-start;
-			.fondCardTopContent {
+			align-items: center;
+			gap: 20px;
+			.text {
 				display: flex;
 				align-items: center;
-				gap: 5px;
-				img {
-					width: 27px;
-					height: 27px;
-					border-radius: 999px;
-					object-fit: cover;
-				}
-				.text {
-					display: flex;
-					flex-direction: column;
-					gap: 2px;
-					p {
-						font-size: 8px;
-						line-height: 9px;
-						font-weight: 500;
-					}
+				justify-content: space-between;
+				width: 100%;
+				p {
+					@include title_1_24_m;
 				}
 			}
-			button {
-				height: fit-content;
-				padding: 0;
+			.favorButton {
+				svg {
+					width: 17px;
+					height: 17px;
+				}
 			}
 		}
 		.fondCardBottom {
 			display: flex;
-			gap: 2px;
 			flex-wrap: wrap;
+			gap: 4px;
+			max-width: 671px;
 		}
 	}
 }

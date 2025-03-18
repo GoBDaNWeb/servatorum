@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { badges } from '@/pages/home/config';
 
-import { FondCard } from '@/entities/fond-card';
+import { FondCardAlert } from '@/entities/fond-card-alert';
 import { NewsCard } from '@/entities/news-card';
 
 import { Button, Image } from '@/shared/ui';
@@ -42,13 +42,12 @@ export const Hero = () => {
 						views='999'
 						href='#'
 					/>
-					<FondCard
+					<FondCardAlert
 						title='Свет Будущего'
 						statusBadge='Новый'
 						badges={badges}
 						img='/images/home/hero/fond.jpg'
 						className={s.fond}
-						size='sm'
 					/>
 					<Image
 						paddingBottom='65%'

@@ -53,7 +53,7 @@ export const About = () => {
 								<p>до завершения</p>
 							</>
 						}
-						donationInfo={<DonationInfo />}
+						donationInfo={<DonationInfo size='sm' />}
 						openDonationModal={handleOpenDonationModal}
 					/>
 					<Image

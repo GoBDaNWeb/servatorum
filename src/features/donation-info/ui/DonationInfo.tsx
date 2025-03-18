@@ -1,8 +1,18 @@
+import { FC } from 'react';
+
+import clsx from 'clsx';
+
 import s from './donation-info.module.scss';
 
-export const DonationInfo = () => {
+interface IDonationInfo {
+	size?: 'default' | 'sm';
+}
+
+export const DonationInfo: FC<IDonationInfo> = ({ size = 'default' }) => {
+	const donationInfoWrapperClass = clsx(s.donationInfoWrapper, size ? s[size] : '');
+
 	return (
-		<div className={s.donationInfoWrapper}>
+		<div className={donationInfoWrapperClass}>
 			<div className={s.donationLine}>
 				<div className={s.line}></div>
 			</div>
