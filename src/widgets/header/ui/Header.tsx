@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import clsx from 'clsx';
 
@@ -7,14 +8,16 @@ import { setOpenModal } from '@/features/register-modal';
 
 import { setOpenMenu } from '@/entities/mobile-menu';
 
+import { PATH_PAGE } from '@/shared/config';
 import { handleScroll } from '@/shared/lib';
-import { Button, Logo } from '@/shared/ui';
+import { Button, Input, Logo } from '@/shared/ui';
 
 import s from './header.module.scss';
 
 export const Header = () => {
 	const [active, setActive] = useState(false);
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const controlNavbar = () => {
 		if (typeof window !== 'undefined') {
@@ -53,18 +56,20 @@ export const Header = () => {
 			<div className={headerInnerClass}>
 				<Logo />
 				<div className={s.headerFeature}>
+					<Input placeholder='Поиск' prefIcon='/images/icons/search.svg' />
 					<nav className={s.navigation}>
-						<Button onClick={() => handleScroll('#about')} variant='outline' color='gray'>
-							О сервисе
+						<Button onClick={() => navigate(PATH_PAGE.collections)} variant='outline' color='gray'>
+							Сборы
 						</Button>
-						<Button onClick={() => handleScroll('#who')} variant='outline' color='gray'>
-							Для кого
+						<Button onClick={() => navigate(PATH_PAGE.fonds)} variant='outline' color='gray'>
+							Фонды
 						</Button>
 						<Button onClick={() => handleScroll('#directions')} variant='outline' color='gray'>
-							Наши направления
+							Партнёры
 						</Button>
-						<Button variant='outline'>Попросить помощь</Button>
 					</nav>
+					<Button variant='outline'>Попросить помощь</Button>
+
 					<Button variant='primary' className={s.authBtn} onClick={handleOpernRegisterModal}>
 						Войти
 					</Button>

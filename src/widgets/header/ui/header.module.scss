@@ -34,13 +34,16 @@
 			align-items: center;
 			gap: 12px;
 			flex: 1;
+			label {
+				max-width: 248px;
+			}
 		}
 		.navigation {
 			flex: 1;
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
-			gap: 12px;
+			gap: 4px;
 			@media (max-width: $tab) {
 				display: none;
 			}
