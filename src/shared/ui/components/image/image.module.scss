@@ -1,9 +1,32 @@
 .imageWrapper {
 	position: relative;
-	padding-bottom: 100%;
+	// padding-bottom: 100%;
 	overflow: hidden;
 	&.pointer {
 		cursor: pointer;
+	}
+	&.gradient {
+		border-radius: 999px; /* Делаем элемент круглым */
+		position: relative;
+		overflow: visible;
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 999px; /* Делаем элемент круглым */
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: -2px; /* Смещение для границы */
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+			border-radius: 999px; /* Скругление, как у изображения */
+			background: linear-gradient(to right, #c83ca5, #683aff); /* Градиент */
+		}
 	}
 	img {
 		position: absolute;

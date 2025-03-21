@@ -1,4 +1,4 @@
-export const crumbs = [{ title: 'сборы' }];
+export const crumbs = [{ title: 'фонды' }];
 export const badges = [
 	'Доступная среда',
 	'Безопасная среда',

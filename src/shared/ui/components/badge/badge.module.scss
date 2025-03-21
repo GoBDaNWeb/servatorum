@@ -9,6 +9,10 @@
 		@include title_5_12_m;
 		color: var(--white-color);
 	}
+	&.outline {
+		border: 1px solid var(--purple-color);
+		background: none !important;
+	}
 	&.s {
 		border-radius: var(--radius-xxs);
 		font-size: 7px;
@@ -29,6 +33,18 @@
 		@include title_5_12_m;
 	}
 	&.xl {
+		height: 36px;
+		@include text_2_14_r;
+		border-radius: var(--radius-m);
+		padding: 0 16px;
+		gap: 7px;
+
+		@media (max-width: $tab) {
+			height: 40px;
+			padding: 0 10px;
+		}
+	}
+	&.xxl {
 		height: 82px;
 		@include title_3_16_m;
 		border-radius: var(--radius-m);

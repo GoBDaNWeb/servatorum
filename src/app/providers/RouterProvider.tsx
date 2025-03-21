@@ -5,8 +5,10 @@ import { MainLayout } from '@/app/layouts';
 
 import { Collection } from '@/pages/collection';
 import { Collections } from '@/pages/collections';
+import { Fond } from '@/pages/fond/ui/Fond';
 import { Fonds } from '@/pages/fonds';
 import { Home } from '@/pages/home';
+import { Navigation } from '@/pages/navigation';
 
 import { PATH_PAGE } from '@/shared/config';
 
@@ -41,6 +43,14 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.fonds,
 					element: <Fonds />
+				},
+				{
+					path: PATH_PAGE.fond,
+					element: <Fond />
+				},
+				{
+					path: PATH_PAGE.navigation,
+					element: <Navigation />
 				}
 			]
 		}

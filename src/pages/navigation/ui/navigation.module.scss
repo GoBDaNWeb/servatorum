@@ -1,0 +1,12 @@
+.navigationPage {
+	margin-top: 209px;
+	.list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		margin-top: 40px;
+		a {
+			@include title_1_24_m;
+		}
+	}
+}

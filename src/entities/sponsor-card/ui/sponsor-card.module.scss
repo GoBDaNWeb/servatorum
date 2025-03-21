@@ -1,0 +1,39 @@
+.sponsorCard {
+	padding: 20px;
+	border: 1px solid var(--line-color);
+	border-radius: var(--radius-s);
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	img {
+		width: 48px;
+		height: 48px;
+		object-fit: cover;
+		border-radius: 999px;
+	}
+	.imageWrapper {
+		width: 48px;
+		height: 48px;
+		border-radius: 999px;
+		border: 1px solid var(--line-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+	.sponsorContent {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		.title {
+			@include title_3_16_m;
+		}
+		.subTitle {
+			@include hint_1_14_r;
+			color: var(--txt-gray-color2);
+		}
+	}
+}

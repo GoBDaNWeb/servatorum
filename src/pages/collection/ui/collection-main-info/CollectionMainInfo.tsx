@@ -3,7 +3,7 @@ import { SwiperSlide } from 'swiper/react';
 
 import clsx from 'clsx';
 
-import { Pagination, Virtual } from 'swiper/modules';
+import { EffectFade, Pagination } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import { Badge, Fancybox, Image, Swiper } from '@/shared/ui';
@@ -14,7 +14,9 @@ import './collection-main-info.scss';
 export const CollectionMainInfo = () => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const pagination = useRef<HTMLDivElement>(null);
-
+	const handleSetActiveSlide = (index: number) => {
+		swiper?.slideTo(index);
+	};
 	useEffect(() => {
 		if (swiper && pagination.current) {
 			swiper.pagination.destroy(); // Удаляем предыдущую пагинацию, если она была
@@ -35,26 +37,34 @@ export const CollectionMainInfo = () => {
 							setSwiper(swiper);
 						}}
 						slidesPerView={1}
-						modules={[Pagination, Virtual]}
+						modules={[Pagination, EffectFade]}
+						effect='fade'
 						pagination={{
 							el: pagination.current,
 							clickable: true
 						}}
-						virtual
 					>
-						{[...Array(3)].map((_, index) => (
-							<SwiperSlide key={index}>
-								<Image
-									paddingBottom='75%'
-									src='/images/home/donation/slide.jpg'
-									alt='slide'
-									className={s.image}
-									fancybox='collecting'
-								/>
+						{[
+							'/images/home/donation/slide.jpg',
+							'/images/home/donation/slide2.jpg',
+							'/images/home/donation/slide3.jpg'
+						].map((img, index) => (
+							<SwiperSlide key={index} className={s.slide}>
+								<Image paddingBottom='75%' src={img} alt='slide' className={s.image} />
 							</SwiperSlide>
 						))}
 					</Swiper>
 					<div ref={pagination}></div>
+					<div className={s.hideLines}>
+						{[...Array(3)].map((_, index) => (
+							<a
+								key={index}
+								onMouseEnter={() => handleSetActiveSlide(index)}
+								data-fancybox='collecting'
+								href='/images/home/donation/slide.jpg'
+							></a>
+						))}
+					</div>
 				</Fancybox>
 				<div className={s.collectionTopInfo}>
 					<Badge color='green' size='m' className={s.popular}>

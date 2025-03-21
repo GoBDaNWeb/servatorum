@@ -1,0 +1,83 @@
+.fondInfo {
+	background: var(--white-color);
+	padding: 28px 24px 24px;
+	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow);
+	.fondInfoTop {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 16px;
+		border-bottom: 1px solid var(--txt-gray-color);
+		p {
+			@include text_2_14_r;
+		}
+		.features {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			button {
+				width: 24px;
+				height: 24px;
+				&:hover {
+					svg {
+						path {
+							fill: var(--purple-hover-color);
+						}
+					}
+				}
+				svg {
+					width: 18px;
+					height: 15px;
+				}
+			}
+		}
+	}
+	.fondInfoCenter {
+		padding-top: 24px;
+		padding-bottom: 24px;
+		border-bottom: 1px solid var(--line-color);
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		a {
+			align-items: center;
+			&:hover {
+				p {
+					color: var(--purple-hover-color);
+				}
+			}
+		}
+		p,
+		a {
+			display: flex;
+			gap: 12px;
+			@include text_1_16_r;
+			transition: var(--trs-300);
+		}
+		img {
+			width: 24px;
+			height: 24px;
+		}
+	}
+	.fondInfoBottom {
+		margin-top: 28px;
+		span {
+			color: var(--purple-color);
+			@include title_3_16_m;
+		}
+		.sum {
+			margin-top: 4px;
+			@include headline_32_m;
+			color: var(--purple-color);
+		}
+		.descr {
+			margin-top: 12px;
+			@include caption_2_12_r;
+			color: var(--txt-gray-color2);
+		}
+		.supportBtn {
+			margin-top: 12px;
+			width: 100%;
+		}
+	}
+}

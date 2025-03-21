@@ -30,6 +30,17 @@
 	--z-header: 100;
 	--z-mobile: 120;
 	--z-modal: 120;
+
+	--screensize: 1920;
+	@media (max-width: 1440px) {
+		--screensize: 1680;
+	}
+	@media (max-width: 1024px) {
+		--screensize: 1440;
+	}
+	@media (max-width: 767px) {
+		--screensize: 360;
+	}
 }
 $desktop-xl: 2000px;
 $desktop-lg: 1920px;

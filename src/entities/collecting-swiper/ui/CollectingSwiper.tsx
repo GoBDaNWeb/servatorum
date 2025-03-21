@@ -83,6 +83,7 @@ export const CollectingSwiper: FC<ICollectingSwiper> = ({
 						}}
 						onSwiper={swiper => {
 							setSwiper(swiper);
+							swiper.slideTo(4);
 						}}
 						breakpoints={swiperBreakpoints}
 						slidesPerView={4}
@@ -92,6 +93,7 @@ export const CollectingSwiper: FC<ICollectingSwiper> = ({
 							prevEl: prev.current,
 							nextEl: next.current
 						}}
+						loop
 					>
 						{[...Array(10)].map((_, index) => (
 							<SwiperSlide key={index}>
@@ -101,8 +103,8 @@ export const CollectingSwiper: FC<ICollectingSwiper> = ({
 									className={s.collecting}
 									imgs={[
 										'/images/home/donation/slide.jpg',
-										'/images/home/donation/slide.jpg',
-										'/images/home/donation/slide.jpg'
+										'/images/home/donation/slide2.jpg',
+										'/images/home/donation/slide3.jpg'
 									]}
 									userImg='/images/home/donation/user.jpg'
 									userName='Четыре лапы'

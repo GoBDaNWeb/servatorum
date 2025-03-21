@@ -6,24 +6,41 @@ import s from './image.module.scss';
 
 interface IImage {
 	className?: string;
-	paddingBottom: string;
+	paddingBottom?: string;
 	src: string;
 	alt: string;
 	fancybox?: string;
+	isGradient?: boolean;
 }
 
-export const Image: FC<IImage> = ({ paddingBottom = '100%', src, alt, className, fancybox }) => {
+export const Image: FC<IImage> = ({
+	paddingBottom = '100%',
+	src,
+	alt,
+	className,
+	fancybox,
+	isGradient
+}) => {
 	const imageClass = clsx(
 		s.imageWrapper,
 		{
-			[s.pointer]: fancybox
+			[s.pointer]: fancybox,
+			[s.gradient]: isGradient
 		},
 		className
 	);
 
 	return (
-		<div className={imageClass} style={{ paddingBottom: paddingBottom }}>
-			<img src={src} alt={alt} data-fancybox={fancybox} />
-		</div>
+		<>
+			{isGradient ? (
+				<div className={imageClass}>
+					<img src={src} alt={alt} data-fancybox={fancybox} />
+				</div>
+			) : (
+				<div className={imageClass} style={{ paddingBottom: paddingBottom }}>
+					<img src={src} alt={alt} data-fancybox={fancybox} />
+				</div>
+			)}
+		</>
 	);
 };

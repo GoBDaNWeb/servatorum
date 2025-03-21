@@ -1,0 +1,1 @@
+export { FondMainInfo } from './FondMainInfo';

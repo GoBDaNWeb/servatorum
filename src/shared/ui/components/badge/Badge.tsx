@@ -6,9 +6,9 @@ import s from './badge.module.scss';
 
 interface IBadge {
 	className?: string;
-	size?: 's' | 'm' | 'l' | 'xl';
+	size?: 's' | 'm' | 'l' | 'xl' | 'xxl';
 	color?: 'gray' | 'white' | 'purple' | 'alert' | 'green';
-	variant?: 'default' | 'alert';
+	variant?: 'default' | 'alert' | 'outline';
 }
 
 export const Badge: FC<PropsWithChildren<IBadge>> = ({

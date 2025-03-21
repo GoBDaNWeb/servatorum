@@ -1,5 +1,7 @@
 import { FondCard } from '@/entities/fond-card';
 
+import { PATH_PAGE } from '@/shared/config';
+import { cropLink } from '@/shared/lib';
 import { Pagination } from '@/shared/ui';
 
 import { badges } from '../../config';
@@ -19,6 +21,7 @@ export const FondsList = () => {
 						badges={badges}
 						img='/images/fond.jpg'
 						className={s.fond}
+						href={cropLink(PATH_PAGE.fond, 10)}
 					/>
 				))}
 			</div>

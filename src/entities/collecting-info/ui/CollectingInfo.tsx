@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 
-import { Button, LinkIcon, StarIcon } from '@/shared/ui';
+import { Button, Image, LinkIcon, StarIcon } from '@/shared/ui';
 
 import s from './collecting-info.module.scss';
 
@@ -25,9 +25,8 @@ export const CollectingInfo: FC<ICollectingInfo> = ({ donationInfo, openDonation
 			</div>
 			<div className={s.collectingInfoCenter}>
 				<div className={s.fond}>
-					<div className={s.imageWrapper}>
-						<img src='/images/fond.jpg' alt='photo' />
-					</div>
+					<Image src='/images/fond.jpg' alt='photo' isGradient className={s.image} />
+
 					<div className={s.fondInfo}>
 						<span>Фонд</span>
 						<p>Четыре лапы</p>

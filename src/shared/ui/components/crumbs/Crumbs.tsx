@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { PATH_PAGE } from '@/shared/config';
 
-import { CrumbsLogo } from '../../icons';
+import { LogoGray } from '../../icons';
 
 import s from './crumbs.module.scss';
 
@@ -23,7 +23,7 @@ export const Crumbs: FC<ICumbs> = ({ links }) => {
 		<div className={crumbsClass}>
 			<div className={s.crumbItem}>
 				<NavLink to={PATH_PAGE.home}>
-					<CrumbsLogo />
+					<LogoGray />
 				</NavLink>
 				<img src='/images/icons/crumb-arrow.svg' alt='crumb-arrow' />
 			</div>

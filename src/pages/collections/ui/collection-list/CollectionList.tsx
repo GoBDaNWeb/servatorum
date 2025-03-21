@@ -28,8 +28,8 @@ export const CollectionList = () => {
 						className={s.collecting}
 						imgs={[
 							'/images/home/donation/slide.jpg',
-							'/images/home/donation/slide.jpg',
-							'/images/home/donation/slide.jpg'
+							'/images/home/donation/slide2.jpg',
+							'/images/home/donation/slide3.jpg'
 						]}
 						userImg='/images/home/donation/user.jpg'
 						userName='Четыре лапы'

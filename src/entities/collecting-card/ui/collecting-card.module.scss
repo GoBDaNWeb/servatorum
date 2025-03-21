@@ -222,11 +222,41 @@
 			display: flex;
 			align-items: center;
 			gap: 18px;
+			button {
+				&:hover {
+					svg {
+						path {
+							fill: var(--purple-hover-color);
+						}
+					}
+				}
+			}
 		}
 	}
 	.collectingCardCenter {
 		position: relative;
-
+		.swiperWrapper {
+			.slide {
+				transition: opacity var(--trs-300);
+			}
+			.pagination {
+				z-index: 3;
+			}
+			.hideLines {
+				display: flex;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				cursor: pointer;
+				z-index: 2;
+				a {
+					height: 100%;
+					width: 100%;
+				}
+			}
+		}
 		.collectingCardCenterInfo {
 			position: absolute;
 			display: flex;

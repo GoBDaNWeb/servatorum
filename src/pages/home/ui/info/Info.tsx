@@ -64,7 +64,7 @@ export const Info = () => {
 					<h2>Наши направления</h2>
 					<div className={s.directionsList}>
 						{directions.map(direction => (
-							<Badge key={direction.title} size='xl' color='white' className={s.direction}>
+							<Badge key={direction.title} size='xxl' color='white' className={s.direction}>
 								<img src={direction.img} alt='direction' />
 								<p>{direction.title}</p>
 							</Badge>

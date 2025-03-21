@@ -1,0 +1,40 @@
+.tabsContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.tabList {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 40px;
+	background: var(--line-color);
+	border-radius: var(--radius-s);
+	gap: 4px;
+	padding: 4px;
+}
+
+.tab {
+	height: 32px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	transition: color 0.3s ease-in-out;
+	@include text_2_14_r;
+	z-index: 2;
+	width: 100%;
+	padding: 0;
+}
+
+.toggler {
+	position: absolute;
+	bottom: 4px;
+	top: 4px;
+	left: 4px;
+	height: 32px;
+	background: var(--white-color);
+	transition: all 0.3s ease-in-out;
+	border-radius: 8px;
+}

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import clsx from 'clsx';
 
@@ -12,13 +13,21 @@ interface IFondCardAlert {
 	statusBadge: string;
 	badges: string[];
 	img: string;
+	href: string;
 }
 
-export const FondCard: FC<IFondCardAlert> = ({ title, statusBadge, badges, img, className }) => {
+export const FondCard: FC<IFondCardAlert> = ({
+	title,
+	statusBadge,
+	badges,
+	img,
+	className,
+	href
+}) => {
 	const fondCardClass = clsx(s.fondCard, className);
 
 	return (
-		<div className={fondCardClass}>
+		<NavLink to={href} className={fondCardClass}>
 			<img src={img} alt='fond' />
 			<div className={s.fondCardContent}>
 				<div className={s.fondCardTop}>
@@ -40,6 +49,6 @@ export const FondCard: FC<IFondCardAlert> = ({ title, statusBadge, badges, img, 
 					))}
 				</div>
 			</div>
-		</div>
+		</NavLink>
 	);
 };

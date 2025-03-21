@@ -1,0 +1,53 @@
+.fondPage {
+	background: var(--gray-color);
+	padding-top: 122px;
+	padding-bottom: 96px;
+	.fondMain {
+		margin-top: 16px;
+		display: grid;
+		grid-template-columns: 1fr 312px;
+		gap: 30px;
+		.fondInfoWrapper {
+			.documentsBtn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 12px;
+				@include link_14_m;
+				color: var(--purple-color);
+				margin: 28px auto 0;
+				&:hover {
+					color: var(--purple-hover-color);
+					.icon {
+						background: var(--purple-hover-color);
+						svg {
+							path {
+								fill: var(--white-color);
+							}
+						}
+					}
+					& > svg {
+						path {
+							stroke: var(--purple-hover-color);
+						}
+					}
+				}
+				.icon {
+					width: 48px;
+					height: 48px;
+					border-radius: var(--radius-s);
+					background: var(--white-color);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: var(--trs-300);
+				}
+				& > svg {
+					path {
+						stroke: var(--purple-color);
+					}
+				}
+			}
+		}
+	}
+}

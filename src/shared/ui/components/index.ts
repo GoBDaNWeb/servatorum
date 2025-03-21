@@ -13,3 +13,4 @@ export * from './photo';
 export * from './pagination';
 export * from './crumbs';
 export * from './type-button';
+export * from './tabs';

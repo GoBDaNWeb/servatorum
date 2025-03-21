@@ -1,0 +1,109 @@
+.fondMainInfo {
+	background: var(--white-color);
+	border-radius: var(--radius-xl);
+	padding: 30px;
+
+	.fondMainInfoContent {
+		display: grid;
+		grid-template-columns: 168px 1fr;
+		gap: 30px;
+		.imageBlock {
+			.image {
+				width: 168px;
+				height: 168px;
+			}
+		}
+		.contentBlock {
+			.top {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				.titleWrapper {
+					display: flex;
+					align-items: center;
+					gap: 20px;
+					h3 {
+						@include headline_32_m;
+					}
+				}
+				.place {
+					@include text_2_14_r;
+					color: var(--txt-gray-color2);
+				}
+			}
+			.badges {
+				margin-top: 16px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4px;
+			}
+			.fondContent {
+				margin-top: 36px;
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+				.textWrapper {
+					.title {
+						@include title_1_24_m;
+					}
+					.titleSm {
+						@include title_2_20_m;
+					}
+					.descr {
+						margin-top: 12px;
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 148%;
+					}
+					.alert {
+						background: var(--purple-back-color);
+						padding: 20px 24px;
+						font-weight: 500;
+						font-size: 16px;
+						line-height: 148%;
+						border-radius: var(--radius-s);
+					}
+					ul {
+						margin-top: 12px;
+					}
+				}
+			}
+		}
+	}
+	.tabsContent {
+		padding-top: 36px;
+		border-top: 1px solid var(--line-color);
+		margin-top: 36px;
+		.tabWrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.title {
+				@include title_2_20_m;
+			}
+			.tabList {
+				width: 343px;
+			}
+		}
+		.sponsorsWrapper {
+			margin-top: 20px;
+			.sponsorsList {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 10px;
+			}
+			.showBtn {
+				margin-top: 20px;
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				color: var(--purple-color);
+				@include link_14_m;
+				transition: var(--trs-300);
+				&:hover {
+					color: var(--purple-hover-color);
+				}
+			}
+		}
+	}
+}

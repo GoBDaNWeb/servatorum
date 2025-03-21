@@ -4,7 +4,7 @@ import { SwiperSlide } from 'swiper/react';
 
 import clsx from 'clsx';
 
-import { Pagination, Virtual } from 'swiper/modules';
+import { EffectFade, Pagination } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import { PATH_PAGE } from '@/shared/config';
@@ -55,6 +55,10 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const pagination = useRef<HTMLDivElement>(null);
 
+	const handleSetActiveSlide = (index: number) => {
+		swiper?.slideTo(index);
+	};
+
 	useEffect(() => {
 		if (swiper && pagination.current) {
 			swiper.pagination.destroy(); // Удаляем предыдущую пагинацию, если она была
@@ -68,7 +72,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	const badgeClass = clsx(s.badge, s[badgeColor]);
 
 	return (
-		<div className={collectingCardClass}>
+		<div className={collectingCardClass} onMouseLeave={() => handleSetActiveSlide(0)}>
 			{userImg && userName ? (
 				<div className={s.collectingCardTop}>
 					<div className={s.user}>
@@ -108,27 +112,31 @@ export const CollectingCard: FC<ICollectingCard> = ({
 						onSwiper={swiper => {
 							setSwiper(swiper);
 						}}
+						effect='fade'
 						slidesPerView={1}
-						modules={[Pagination, Virtual]}
+						modules={[Pagination, EffectFade]}
 						pagination={{
 							el: pagination.current,
 							clickable: true
 						}}
-						virtual
 					>
 						{imgs.map((img, index) => (
-							<SwiperSlide key={index}>
-								<Image
-									paddingBottom='71%'
-									src={img}
-									alt='slide'
-									className={s.image}
-									fancybox='collecting'
-								/>
+							<SwiperSlide key={index} className={s.slide}>
+								<Image paddingBottom='71%' src={img} alt='slide' className={s.image} />
 							</SwiperSlide>
 						))}
 					</Swiper>
-					<div ref={pagination}></div>
+					<div ref={pagination} className={s.pagination}></div>
+					<div className={s.hideLines}>
+						{imgs.map((img, index) => (
+							<a
+								key={index}
+								onMouseEnter={() => handleSetActiveSlide(index)}
+								data-fancybox='collecting'
+								href={img}
+							></a>
+						))}
+					</div>
 				</Fancybox>
 			</div>
 			<div className={s.collectingCardBottom}>

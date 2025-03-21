@@ -13,13 +13,13 @@ export const Fonds = () => {
 	const fondsContentClass = clsx(s.fondsContent, 'container');
 
 	return (
-		<div className={s.fondsPage}>
+		<main className={s.fondsPage}>
 			<Crumbs links={crumbs} />
 			<h1 className='container'>Фонды</h1>
 			<div className={fondsContentClass}>
 				<ListFilters />
 				<FondsList />
 			</div>
-		</div>
+		</main>
 	);
 };

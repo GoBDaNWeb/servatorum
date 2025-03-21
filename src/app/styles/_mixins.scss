@@ -81,3 +81,42 @@
 	font-size: 14px;
 	line-height: 16px;
 }
+@mixin s($property, $value) {
+	#{$property}: calc(#{$value} / var(--screensize) * 100vw);
+}
+@mixin gtc($values...) {
+	$result: ();
+
+	@each $value in $values {
+		$result: append($result, calc(#{$value} / var(--screensize) * 100vw), space);
+	}
+
+	grid-template-columns: $result;
+}
+@mixin borr($values...) {
+	$result: ();
+
+	@each $value in $values {
+		$result: append($result, calc(#{$value} / var(--screensize) * 100vw), space);
+	}
+
+	border-radius: $result;
+}
+@mixin padding($values...) {
+	$result: ();
+
+	@each $value in $values {
+		$result: append($result, calc(#{$value} / var(--screensize) * 100vw), space);
+	}
+
+	padding: $result;
+}
+@mixin margin($values...) {
+	$result: ();
+
+	@each $value in $values {
+		$result: append($result, calc(#{$value} / var(--screensize) * 100vw), space);
+	}
+
+	margin: $result;
+}

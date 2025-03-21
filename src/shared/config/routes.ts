@@ -3,5 +3,6 @@ export const PATH_PAGE = {
 	collections: '/collections',
 	collection: '/collection/:id',
 	fonds: '/fonds',
-	collectifondon: '/fond/:id'
+	fond: '/fond/:id',
+	navigation: '/navigation'
 };

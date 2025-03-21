@@ -8,5 +8,6 @@ export { MaleIcon } from './MaleIcon';
 export { FemaleIcon } from './FemaleIcon';
 export { ClearIcon } from './ClearIcon';
 export { CheckIcon } from './CheckIcon';
-export { CrumbsLogo } from './CrumbsLogo';
+export { LogoGray } from './LogoGray';
 export { DocumentIcon } from './DocumentIcon';
+export { DownOutlineArrowIcon } from './DownOutlineArrowIcon';

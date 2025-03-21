@@ -25,6 +25,8 @@ interface ISwiper {
 		| undefined;
 	onSlideChange?: ((swiper: SwiperType) => void) | undefined;
 	virtual?: boolean | VirtualOptions<unknown> | undefined;
+	effect?: 'fade';
+	loop?: boolean;
 }
 
 export const Swiper: FC<PropsWithChildren<ISwiper>> = ({
@@ -37,7 +39,9 @@ export const Swiper: FC<PropsWithChildren<ISwiper>> = ({
 	navigation,
 	breakpoints,
 	onSlideChange,
-	virtual
+	virtual,
+	effect,
+	loop
 }) => {
 	return (
 		<Carousel
@@ -50,6 +54,8 @@ export const Swiper: FC<PropsWithChildren<ISwiper>> = ({
 			navigation={navigation}
 			spaceBetween={spaceBetween}
 			virtual={virtual}
+			effect={effect}
+			loop={loop}
 			// allowTouchMove={false}
 		>
 			{children}

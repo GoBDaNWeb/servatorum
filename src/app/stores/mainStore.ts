@@ -1,6 +1,7 @@
 import { documentsModalReducer } from '@/features/documents-modal';
 import { donationModalReducer } from '@/features/donation-modal';
 import { registerModalReducer } from '@/features/register-modal';
+import { supportFondModalReducer } from '@/features/support-fond-modal';
 
 import { mobileMenuReducer } from '@/entities/mobile-menu';
 
@@ -10,7 +11,8 @@ const mainReducer = combineReducers({
 	mobileMenu: mobileMenuReducer,
 	registerModal: registerModalReducer,
 	documentsModal: documentsModalReducer,
-	donationModal: donationModalReducer
+	donationModal: donationModalReducer,
+	supportFondModal: supportFondModalReducer
 });
 
 export const mainStore = configureStore({
