@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, forwardRef, useRef } from 'react';
+import { FC, PropsWithChildren, ReactElement, forwardRef, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import clsx from 'clsx';
@@ -8,18 +8,22 @@ import { useLockedBody } from '@/shared/lib';
 import { Portal } from '../portal';
 
 import s from './modal.module.scss';
+import './modal.scss';
 
 interface IModal {
 	isOpen: boolean;
 	className?: string;
 	close: () => void;
+	contentTop: ReactElement;
 }
 
 export const Modal: FC<PropsWithChildren<IModal>> = forwardRef(
-	({ isOpen, className, children, close }, ref) => {
+	({ isOpen, className, children, close, contentTop }, ref) => {
 		useLockedBody(isOpen);
 		const nodeRef = useRef<HTMLDivElement | null>(null);
-		const modalClass = clsx(s.modal, className);
+		const modalClass = clsx(s.modal, className, 'modal');
+		const modalContentClass = clsx(s.modalContentWrapper, 'modal-content');
+
 		return (
 			<Portal rootId='#modal'>
 				<CSSTransition
@@ -44,7 +48,10 @@ export const Modal: FC<PropsWithChildren<IModal>> = forwardRef(
 							}
 						}}
 					>
-						{children}
+						<div className={modalContentClass} onClick={e => e.stopPropagation()}>
+							<div className={s.modalContentTop}>{contentTop}</div>
+							<div className={s.modalContent}>{children}</div>
+						</div>
 					</div>
 				</CSSTransition>
 			</Portal>

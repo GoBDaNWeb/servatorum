@@ -1,151 +1,147 @@
-.checkboxWrapper {
-	&.isToggler {
-		.checkbox {
-			.title {
-				font-weight: 400;
-				font-size: 14px;
-				line-height: 16px;
-				margin-bottom: 8px;
-				span {
-					color: var(--danger-color);
-				}
-			}
-			.checkboxToggler {
-				width: 100%;
-				display: flex;
-				background: var(--gray-color);
-				position: relative;
-				height: 48px;
-				border-radius: var(--radius-m);
-				gap: 4px;
-				label {
-					width: 50%;
-					position: relative;
-					z-index: 2;
-					cursor: pointer;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					input {
-						display: none;
-						&:checked ~ p {
-							svg {
-								path {
-									fill: var(--purple-color);
-								}
-							}
-						}
-					}
-					p {
-						svg {
-							path {
-								transition: var(--trs-300);
-								fill: var(--txt-gray-color2);
-							}
-						}
-						display: flex;
-						align-items: center;
-						gap: 8px;
-						font-weight: 400;
-						font-size: 16px;
-						line-height: 24px;
-					}
-				}
-				.toggler {
-					position: absolute;
-					background: var(--white-color);
-					top: 4px;
-					left: 4px;
-					bottom: 4px;
-					right: 4px;
-					width: 49%;
-					transition: var(--trs-300);
-					border-radius: var(--radius-s);
-
-					&.rtl {
-						transform: translateX(100%);
-					}
-				}
-			}
+.toggler {
+	.title {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		margin-bottom: 8px;
+		span {
+			color: var(--danger-color);
 		}
 	}
-	.checkboxLabel {
+	.checkboxToggler {
+		width: 100%;
 		display: flex;
-		cursor: pointer;
-		gap: 16px;
-		align-items: center;
-		input {
-			appearance: none;
-			min-width: 24px;
-			max-width: 24px;
-			min-height: 24px;
-			max-height: 24px;
-			border: 1px solid var(--txt-gray-color);
+		background: var(--gray-color);
+		position: relative;
+		height: 48px;
+		border-radius: var(--radius-m);
+		gap: 4px;
+		label {
+			width: 50%;
 			position: relative;
-			margin: 0;
-			padding: 0;
-			border-radius: 8px;
-			cursor: pointer !important;
-
-			&:before {
-				content: '';
-				background-image: url('/images/icons/check-icon.svg');
-				background-position: center;
-				background-size: contain;
-				background-repeat: no-repeat;
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				margin: auto;
-				opacity: 0;
-				transition: var(--trs-300);
-				cursor: pointer !important;
-				width: 100%;
-				height: 100%;
-			}
-			&:checked {
-				&:before {
-					opacity: 1 !important;
+			z-index: 2;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			input {
+				display: none;
+				&:checked ~ p {
+					svg {
+						path {
+							fill: var(--purple-color);
+						}
+					}
 				}
 			}
-		}
-		p {
-			position: relative;
-			@include text_2_14_r;
-			a {
-				color: var(--purple-color);
+			p {
+				svg {
+					path {
+						transition: var(--trs-300);
+						fill: var(--txt-gray-color2);
+					}
+				}
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 24px;
 			}
 		}
-	}
-	.defaultCheckbox {
-		width: 44px;
-		height: 24px;
-		border-radius: 999px;
-		background: var(--txt-gray-color);
-		appearance: none;
-		position: relative;
-		cursor: pointer;
-		transition: var(--trs-300);
+		.toggler {
+			position: absolute;
+			background: var(--white-color);
+			top: 4px;
+			left: 4px;
+			bottom: 4px;
+			right: 4px;
+			width: 49%;
+			transition: var(--trs-300);
+			border-radius: var(--radius-s);
 
-		&:checked {
-			background: var(--green-color);
-			&:before {
+			&.rtl {
 				transform: translateX(100%);
 			}
 		}
+	}
+}
+.checkboxLabel {
+	display: flex;
+	cursor: pointer;
+	gap: 16px;
+	align-items: center;
+	input {
+		appearance: none;
+		min-width: 24px;
+		max-width: 24px;
+		min-height: 24px;
+		max-height: 24px;
+		border: 1px solid var(--txt-gray-color);
+		position: relative;
+		margin: 0;
+		padding: 0;
+		border-radius: 8px;
+		cursor: pointer !important;
+
 		&:before {
 			content: '';
+			background-image: url('/images/icons/check-icon.svg');
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
 			position: absolute;
-			width: 20px;
-			height: 20px;
-			border-radius: 999px;
-			background: var(--white-color);
-			top: 2px;
-			bottom: 2px;
-			left: 2px;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			opacity: 0;
 			transition: var(--trs-300);
+			cursor: pointer !important;
+			width: 100%;
+			height: 100%;
 		}
+		&:checked {
+			&:before {
+				opacity: 1 !important;
+			}
+		}
+	}
+	p {
+		position: relative;
+		@include text_2_14_r;
+		a {
+			color: var(--purple-color);
+		}
+	}
+}
+.defaultCheckbox {
+	width: 44px;
+	height: 24px;
+	border-radius: 999px;
+	background: var(--txt-gray-color);
+	appearance: none;
+	position: relative;
+	cursor: pointer;
+	transition: var(--trs-300);
+	margin: 0;
+	&:checked {
+		background: var(--green-color);
+		&:before {
+			transform: translateX(100%);
+		}
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		border-radius: 999px;
+		background: var(--white-color);
+		top: 2px;
+		bottom: 2px;
+		left: 2px;
+		transition: var(--trs-300);
 	}
 }

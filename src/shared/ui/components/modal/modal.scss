@@ -1,0 +1,25 @@
+.modal {
+	.backBtn,
+	.closeBtn {
+		width: 48px;
+		height: 48px;
+		padding: 0;
+		top: 20px;
+
+		position: absolute;
+		&:hover {
+			background: var(--purple-hover-color);
+			svg {
+				path {
+					stroke: var(--white-color);
+				}
+			}
+		}
+	}
+	.backBtn {
+		left: 20px;
+	}
+	.closeBtn {
+		right: 20px;
+	}
+}

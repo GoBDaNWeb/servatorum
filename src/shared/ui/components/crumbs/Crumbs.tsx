@@ -17,7 +17,7 @@ interface ICumbs {
 }
 
 export const Crumbs: FC<ICumbs> = ({ links }) => {
-	const crumbsClass = clsx(s.crumbs, 'container');
+	const crumbsClass = clsx(s.crumbs);
 
 	return (
 		<div className={crumbsClass}>

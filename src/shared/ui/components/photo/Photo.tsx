@@ -6,14 +6,16 @@ import s from './photo.module.scss';
 
 interface IPhoto {
 	className?: string;
+	size?: 'l' | 'm';
 }
 
-export const Photo: FC<IPhoto> = ({ className }) => {
+export const Photo: FC<IPhoto> = ({ className, size = 'l' }) => {
 	const photoClass = clsx(s.photo, className);
+	const imageWrapperClass = clsx(s.imageWrapper, s[size]);
 
 	return (
 		<label className={photoClass}>
-			<div className={s.imageWrapper}>
+			<div className={imageWrapperClass}>
 				<img src='/images/photo.jpg' alt='photo' />
 			</div>
 			<p>Изменить фото</p>

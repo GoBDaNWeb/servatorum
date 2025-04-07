@@ -1,13 +1,38 @@
-import { FC, PropsWithChildren, Ref, forwardRef } from 'react';
+import { Ref, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
 import s from './button.module.scss';
 
+type Variant =
+	| 'default'
+	| 'primary'
+	| 'secondary'
+	| 'outline'
+	| 'circle'
+	| 'square'
+	| 'clear'
+	| 'text'
+	| 'alert';
+
+type Color = 'transparent' | 'gray' | 'purple';
+type Size = 'xs' | 's' | 'sm' | 'm' | 'l';
+
+// Пропсы для ссылки
+type AnchorButtonProps = IButton & {
+	isLink: true;
+	href: string;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+// Пропсы для кнопки
+type RegularButtonProps = IButton & {
+	isLink?: false;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+
 interface IButton {
-	variant?: 'default' | 'primary' | 'secondary' | 'outline' | 'circle' | 'clear' | 'text';
-	color?: 'transparent' | 'gray';
-	size?: 'xs' | 's' | 'sm' | 'm' | 'l';
+	variant?: Variant;
+	color?: Color;
+	size?: Size;
 	isLink?: boolean;
 	href?: string;
 	className?: string;
@@ -16,14 +41,15 @@ interface IButton {
 	type?: 'button' | 'submit';
 }
 
-export const Button: FC<PropsWithChildren<IButton>> = forwardRef(
+type ButtonProps = AnchorButtonProps | RegularButtonProps;
+
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
 	(
 		{
 			children,
 			variant = 'default',
 			size = 's',
 			color = 'transparent',
-			isLink,
 			href,
 			className,
 			onClick,
@@ -33,6 +59,8 @@ export const Button: FC<PropsWithChildren<IButton>> = forwardRef(
 		ref
 	) => {
 		const buttonClass = clsx(s.button, s[variant], s[size], s[color], className);
+
+		const isLink = !!href;
 
 		if (isLink) {
 			return (

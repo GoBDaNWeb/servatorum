@@ -1,7 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-import clsx from 'clsx';
-
 import { CollectingSwiper } from '@/entities/collecting-swiper';
 
 import { setOpenModal as setOpenDocumentsModal } from '@/features/documents-modal';
@@ -26,26 +24,26 @@ export const Collection = () => {
 		dispatch(setOpenDonationModal(true));
 	};
 
-	const collectionMainClass = clsx(s.collectionMain, 'container');
-
 	return (
 		<main className={s.collectionPage}>
-			<Crumbs links={crumbs} />
-			<div className={collectionMainClass}>
-				<CollectionMainInfo />
-				<div className={s.collectionInfoWrapper}>
-					<div className='sticky-block'>
-						<CollectingInfo
-							donationInfo={<DonationInfo />}
-							openDonationModal={handleOpenDonationModal}
-						/>
-						<Button variant='clear' className={s.documentsBtn} onClick={handleOpenDocumentsModal}>
-							<div className={s.icon}>
-								<DocumentIcon />
-							</div>
-							Смотреть документы
-							<NextOutlineArrow />
-						</Button>
+			<div className='container'>
+				<Crumbs links={crumbs} />
+				<div className={s.collectionMain}>
+					<CollectionMainInfo />
+					<div className={s.collectionInfoWrapper}>
+						<div className='sticky-block'>
+							<CollectingInfo
+								donationInfo={<DonationInfo />}
+								openDonationModal={handleOpenDonationModal}
+							/>
+							<Button variant='clear' className={s.documentsBtn} onClick={handleOpenDocumentsModal}>
+								<div className={s.icon}>
+									<DocumentIcon />
+								</div>
+								Смотреть документы
+								<NextOutlineArrow />
+							</Button>
+						</div>
 					</div>
 				</div>
 			</div>

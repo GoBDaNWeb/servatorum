@@ -246,8 +246,9 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 								При изменении на новый номер будет отправлен код подтверждения
 							</p>
 						</div>
+
 						<Checkbox name='phoneCheck'>
-							Можно использовать для связи администрации со мной
+							<p className={s.checboxDescr}>Можно использовать для связи администрации со мной</p>
 						</Checkbox>
 					</div>
 				</div>

@@ -1,7 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-import clsx from 'clsx';
-
 import { CollectingSwiper } from '@/entities/collecting-swiper';
 
 import { setOpenModal as setOpenDocumentsModal } from '@/features/documents-modal';
@@ -30,23 +28,23 @@ export const Fond = () => {
 		dispatch(setOpenSupportFondModal(true));
 	};
 
-	const fondMainClass = clsx(s.fondMain, 'container');
-
 	return (
 		<main className={s.fondPage}>
-			<Crumbs links={crumbs} />
-			<div className={fondMainClass}>
-				<FondMainInfo />
-				<div className={s.fondInfoWrapper}>
-					<div className='sticky-block'>
-						<FondInfo openSupportFondModal={handleOpenSupportFondModal} />
-						<Button variant='clear' className={s.documentsBtn} onClick={handleOpenDocumentsModal}>
-							<div className={s.icon}>
-								<DocumentIcon />
-							</div>
-							Отчётность
-							<NextOutlineArrow />
-						</Button>
+			<div className='container'>
+				<Crumbs links={crumbs} />
+				<div className={s.fondMain}>
+					<FondMainInfo />
+					<div className={s.fondInfoWrapper}>
+						<div className='sticky-block'>
+							<FondInfo openSupportFondModal={handleOpenSupportFondModal} />
+							<Button variant='clear' className={s.documentsBtn} onClick={handleOpenDocumentsModal}>
+								<div className={s.icon}>
+									<DocumentIcon />
+								</div>
+								Отчётность
+								<NextOutlineArrow />
+							</Button>
+						</div>
 					</div>
 				</div>
 			</div>

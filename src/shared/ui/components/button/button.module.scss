@@ -35,12 +35,31 @@
 		align-items: center;
 		gap: 12px;
 		color: var(--txt-gray-color2);
+		&:hover {
+			color: var(--purple-hover-color);
+			svg {
+				path {
+					stroke: var(--purple-hover-color);
+				}
+			}
+		}
 	}
 	&.default {
 		background: var(--gray-color);
 		padding: 0 24px;
 		border-radius: var(--radius-s);
 		@include title_3_16_m;
+		&.purple {
+			background: var(--purple-back-color);
+			color: var(--purple-color);
+			&:hover {
+				color: var(--white-color);
+
+				&:hover {
+					background: var(--purple-hover-color);
+				}
+			}
+		}
 		&.white {
 			background: var(--white-color);
 			box-shadow: var(--shadow);
@@ -54,6 +73,19 @@
 	}
 	&.primary {
 		background: var(--purple-color);
+		padding: 0 24px;
+		color: var(--white-color);
+		border-radius: var(--radius-s);
+		@include button_1_16_r;
+		&:hover {
+			background: var(--purple-hover-color);
+		}
+		&:active {
+			background: var(--purple-active-color);
+		}
+	}
+	&.alert {
+		background: var(--danger-color);
 		padding: 0 24px;
 		color: var(--white-color);
 		border-radius: var(--radius-s);
@@ -93,6 +125,28 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		&:hover {
+			background: var(--purple-hover-color);
+		}
+		&:active {
+			background: var(--purple-active-color);
+		}
+	}
+	&.square {
+		min-width: 28px;
+		min-height: 28px;
+		max-width: 28px;
+		max-height: 28px;
+		padding: 0;
+		border-radius: 8px;
+		background: var(--gray-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			width: 10px;
+			height: 10px;
+		}
 		&:hover {
 			background: var(--purple-hover-color);
 		}

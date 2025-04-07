@@ -32,6 +32,13 @@
 				}
 			}
 			.favorButton {
+				&:hover {
+					svg {
+						path {
+							fill: var(--purple-hover-color);
+						}
+					}
+				}
 				svg {
 					width: 17px;
 					height: 17px;

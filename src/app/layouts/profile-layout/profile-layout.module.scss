@@ -1,0 +1,9 @@
+.profilePage {
+	background: var(--gray-color);
+	padding-bottom: 96px;
+	.profile {
+		display: grid;
+		grid-template-columns: 1fr 312px;
+		gap: 30px;
+	}
+}

@@ -2,8 +2,11 @@ import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
+import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
+import { setOpenModal as setOpenSubscribeModal } from '@/features/subscribe-modal';
+
 import { useTypedSelector } from '@/shared/lib';
-import { Button, CloseIcon, Modal } from '@/shared/ui';
+import { Button, CloseIcon, Modal, TypeButton } from '@/shared/ui';
 
 import { setOpenModal } from '../model';
 
@@ -17,18 +20,48 @@ export const SupportFondModal = () => {
 		dispatch(setOpenModal(false));
 	};
 
-	const modalContentClass = clsx(s.modalContentWrapper, 'modal-content');
+	const handleOpenDonationModal = () => {
+		dispatch(setOpenDonationModal(true));
+		dispatch(setOpenModal(false));
+	};
+	const handleOpenSubscribeModal = () => {
+		dispatch(setOpenSubscribeModal(true));
+		dispatch(setOpenModal(false));
+	};
+
+	const contentTop = (
+		<>
+			<Button className={clsx(s.closeBtn, 'closeBtn')} onClick={handleCloseModal}>
+				<CloseIcon />
+			</Button>
+		</>
+	);
 
 	return (
-		<Modal isOpen={isOpen} close={handleCloseModal} className={s.supportFondModal}>
-			<div className={modalContentClass} onClick={e => e.stopPropagation()}>
-				<div className={s.modalContentTop}>
-					<Button className={s.closeBtn} onClick={handleCloseModal}>
-						<CloseIcon />
-					</Button>
+		<Modal
+			isOpen={isOpen}
+			close={handleCloseModal}
+			className={s.supportFondModal}
+			contentTop={contentTop}
+		>
+			<div className={s.modalContent}>
+				<p className={s.title}>Поддержать фонд</p>
+				<div className={s.paymetMethods}>
+					<TypeButton
+						title='Оформить подписку'
+						subTitle='Способ оплаты'
+						img='/images/icons/card-icon.svg'
+						onClick={() => handleOpenSubscribeModal()}
+						className={s.directionBtn}
+					/>
+					<TypeButton
+						title='Сделать перевод'
+						subTitle='Единоразовая помощь'
+						img='/images/icons/wallet-icon.svg'
+						onClick={() => handleOpenDonationModal()}
+						className={s.directionBtn}
+					/>
 				</div>
-
-				<div className={s.modalContent}></div>
 			</div>
 		</Modal>
 	);

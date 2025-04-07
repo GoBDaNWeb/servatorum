@@ -36,12 +36,11 @@ export const Checkbox: FC<ICheckbox> = ({
 	};
 
 	const togglerClass = clsx(s.toggler, { [s.rtl]: currentSelectCheckbox === 1 });
-	const checkboxWrapperClass = clsx(s.checkboxWrapper, { [s.isToggler]: isToggler });
 
 	return (
-		<div className={checkboxWrapperClass}>
+		<>
 			{isToggler ? (
-				<div className={s.checkbox}>
+				<div className={s.toggler}>
 					{title ? <p className={s.title}>{title}</p> : null}
 					<div className={s.checkboxToggler}>
 						<label onClick={() => handleChangeCurrentSelectCheckbox(0)}>
@@ -63,12 +62,11 @@ export const Checkbox: FC<ICheckbox> = ({
 			) : children ? (
 				<label className={s.checkboxLabel}>
 					<input type='checkbox' name={name} />
-					<span></span>
 					<p>{children}</p>
 				</label>
 			) : (
 				<input className={s.defaultCheckbox} type='checkbox' name={name} />
 			)}
-		</div>
+		</>
 	);
 };

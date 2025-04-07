@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { IMaskMixin } from 'react-imask';
 
 import clsx from 'clsx';
@@ -9,7 +10,7 @@ import s from './input.module.scss';
 
 import 'air-datepicker/air-datepicker.css';
 
-export const Input = IMaskMixin(({ inputRef, className, clear, req, prefIcon, ...props }) => {
+export const Input = IMaskMixin(({ inputRef, className, clear, req, prefIcon, icon, ...props }) => {
 	const { isActive, title } = props;
 
 	const inputWrapperClass = clsx(s.inputWrapper, className, {
@@ -31,6 +32,7 @@ export const Input = IMaskMixin(({ inputRef, className, clear, req, prefIcon, ..
 						<ClearIcon />
 					</Button>
 				) : null}
+				{icon ? (icon as ReactElement) : null}
 			</label>
 		</div>
 	);

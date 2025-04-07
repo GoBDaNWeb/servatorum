@@ -1,19 +1,15 @@
 import { FC } from 'react';
 
-import { useTypedSelector } from '@/shared/lib';
 import { TypeButton } from '@/shared/ui';
 
 import s from './payment-method.module.scss';
 
 interface IPaymentMethod {
 	changePaymentMethod: (method: 'card' | 'sberpay') => void;
+	paymentMethod: 'card' | 'sberpay';
 }
 
-export const PaymentMethod: FC<IPaymentMethod> = ({ changePaymentMethod }) => {
-	const {
-		donationInfo: { paymentMethod }
-	} = useTypedSelector(store => store.donationModal);
-
+export const PaymentMethod: FC<IPaymentMethod> = ({ changePaymentMethod, paymentMethod }) => {
 	return (
 		<div className={s.paymentMethod}>
 			<p className={s.title}>Способ оплаты</p>

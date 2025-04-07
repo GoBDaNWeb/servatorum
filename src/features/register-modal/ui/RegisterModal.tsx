@@ -59,25 +59,28 @@ export const RegisterModal = () => {
 		<AreaRegister closeModal={handleCloseModal} />
 	];
 
-	const modalContentClass = clsx(s.modalContentWrapper, 'modal-content');
+	const contentTop = (
+		<>
+			{step !== 0 ? (
+				<Button className={clsx(s.backBtn, 'backBtn')} onClick={() => handleChangeStep('prev')}>
+					<BackOutlineArrow />
+				</Button>
+			) : null}
+
+			<Button className={clsx(s.closeBtn, 'closeBtn')} onClick={handleCloseModal}>
+				<CloseIcon />
+			</Button>
+		</>
+	);
 
 	return (
-		<Modal isOpen={isOpen} className={s.registerModal} close={handleCloseModal}>
-			<div className={modalContentClass} onClick={e => e.stopPropagation()}>
-				<div className={s.modalContentTop}>
-					{step !== 0 ? (
-						<Button className={s.backBtn} onClick={() => handleChangeStep('prev')}>
-							<BackOutlineArrow />
-						</Button>
-					) : null}
-
-					<Button className={s.closeBtn} onClick={handleCloseModal}>
-						<CloseIcon />
-					</Button>
-				</div>
-
-				<div className={s.modalContent}>{registerSteps[step]}</div>
-			</div>
+		<Modal
+			isOpen={isOpen}
+			className={s.registerModal}
+			close={handleCloseModal}
+			contentTop={contentTop}
+		>
+			{registerSteps[step]}
 		</Modal>
 	);
 };

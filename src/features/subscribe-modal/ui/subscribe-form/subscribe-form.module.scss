@@ -1,0 +1,70 @@
+.subscribeForm {
+	width: 100%;
+	.title {
+		@include headline_32_m;
+	}
+	.descrWrapper {
+		margin-top: 28px;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		.image {
+			width: 40px;
+			height: 40px;
+		}
+		span {
+			@include text_2_14_r;
+			color: var(--txt-gray-color2);
+		}
+		p {
+			@include text_1_16_r;
+		}
+	}
+	.inputs {
+		margin-top: 28px;
+		margin-bottom: 28px;
+		.chips {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+			margin-top: 10px;
+			& > label {
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	}
+	.directionBtn {
+		border-bottom: 1px solid var(--gray-color);
+	}
+	.policy {
+		margin-top: 28px;
+		@include text_2_14_r;
+		a {
+			color: var(--purple-color);
+		}
+	}
+	.anonim {
+		margin-top: 28px;
+		margin-bottom: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			span {
+				@include text_2_14_r;
+				color: var(--txt-gray-color2);
+			}
+			p {
+				@include text_1_16_r;
+			}
+		}
+	}
+	.paymentBtn {
+		margin-top: 28px;
+		width: 100%;
+	}
+}

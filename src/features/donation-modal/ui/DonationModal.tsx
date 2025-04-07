@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
+// import { ErrorDonation } from './error-donation';
+import { PaymentMethod } from '@/features/payment-method';
+
 import { useTypedSelector } from '@/shared/lib';
 import { BackOutlineArrow, Button, CloseIcon, Modal } from '@/shared/ui';
 
@@ -10,14 +13,13 @@ import { clearDonationInfo, setOpenModal, setPaymentMethod } from '../model';
 
 import { CardDonation } from './card-donation';
 import s from './donation-modal.module.scss';
-// import { ErrorDonation } from './error-donation';
-import { PaymentMethod } from './payment-method';
 import { SuccessDonation } from './success-donation';
 import { TransferDonation } from './transfer-donation';
 
 export const DonationModal = () => {
 	const [step, setStep] = useState(0);
 	const [isSelectPaymentMethod, setSelectPaymentMethod] = useState(false);
+	const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'card' | 'sberpay'>('card');
 
 	const { isOpen } = useTypedSelector(store => store.donationModal);
 	const dispatch = useDispatch();
@@ -25,6 +27,7 @@ export const DonationModal = () => {
 	const handleChangePaymentMethod = (method: 'card' | 'sberpay') => {
 		dispatch(setPaymentMethod(method));
 		setSelectPaymentMethod(false);
+		setSelectedPaymentMethod(method);
 	};
 	const handleCloseModal = () => {
 		dispatch(setOpenModal(false));
@@ -69,32 +72,35 @@ export const DonationModal = () => {
 		<SuccessDonation handleCloseModal={handleCloseModal} />
 		// <ErrorDonation handleRepeatPayment={handleRepeatPayment} />
 	];
+	const contentTop = (
+		<>
+			{(step !== 0 && step !== donationSteps.length - 1) || isSelectPaymentMethod ? (
+				<Button className={clsx(s.backBtn, 'backBtn')} onClick={() => handleChangeStep('prev')}>
+					<BackOutlineArrow />
+				</Button>
+			) : null}
 
-	const modalContentClass = clsx(s.modalContentWrapper, 'modal-content');
+			<Button className={clsx(s.closeBtn, 'closeBtn')} onClick={handleCloseModal}>
+				<CloseIcon />
+			</Button>
+		</>
+	);
 
 	return (
-		<Modal isOpen={isOpen} close={handleCloseModal} className={s.donationModal}>
-			<div className={modalContentClass} onClick={e => e.stopPropagation()}>
-				<div className={s.modalContentTop}>
-					{(step !== 0 && step !== donationSteps.length - 1) || isSelectPaymentMethod ? (
-						<Button className={s.backBtn} onClick={() => handleChangeStep('prev')}>
-							<BackOutlineArrow />
-						</Button>
-					) : null}
-
-					<Button className={s.closeBtn} onClick={handleCloseModal}>
-						<CloseIcon />
-					</Button>
-				</div>
-
-				<div className={s.modalContent}>
-					{isSelectPaymentMethod ? (
-						<PaymentMethod changePaymentMethod={handleChangePaymentMethod} />
-					) : (
-						donationSteps[step]
-					)}
-				</div>
-			</div>
+		<Modal
+			isOpen={isOpen}
+			close={handleCloseModal}
+			className={s.donationModal}
+			contentTop={contentTop}
+		>
+			{isSelectPaymentMethod ? (
+				<PaymentMethod
+					changePaymentMethod={handleChangePaymentMethod}
+					paymentMethod={selectedPaymentMethod}
+				/>
+			) : (
+				donationSteps[step]
+			)}
 		</Modal>
 	);
 };

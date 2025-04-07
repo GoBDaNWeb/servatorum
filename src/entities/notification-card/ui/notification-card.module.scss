@@ -1,0 +1,36 @@
+.notificationCard {
+	border: 1px solid var(--line-color);
+	border-radius: 12px;
+	padding: 24px;
+	display: grid;
+	grid-template-columns: 144px 1fr 90px 28px;
+	gap: 30px;
+	&.active {
+		background: var(--purple-back-color);
+		border-color: rgba(0, 0, 0, 0);
+		.type {
+			color: var(--purple-color);
+		}
+		.deleteBtn {
+			background: var(--white-color);
+			&:hover {
+				background: var(--purple-hover-color);
+			}
+		}
+	}
+	.date {
+		@include caption_2_12_r;
+	}
+	.text {
+		.title {
+			@include title_3_16_m;
+		}
+		.descr {
+			margin-top: 6px;
+			@include text_2_14_r;
+		}
+	}
+	.type {
+		@include caption_2_12_r;
+	}
+}
