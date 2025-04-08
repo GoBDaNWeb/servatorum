@@ -99,7 +99,7 @@ export const Info = () => {
 					</div>
 					<div className={s.naviagtion}>
 						<Button
-							//@ts-expect-error исправить
+							// @ts-ignore
 							ref={prev}
 							variant='circle'
 						>
@@ -109,7 +109,7 @@ export const Info = () => {
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
 						</div>
 						<Button
-							//@ts-expect-error исправить
+							// @ts-ignore
 							ref={next}
 							variant='circle'
 						>

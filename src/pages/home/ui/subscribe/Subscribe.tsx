@@ -93,7 +93,7 @@ export const Subscribe = () => {
 					</Swiper>
 					<div className={s.navigation}>
 						<Button
-							//@ts-expect-error исправить
+							// @ts-ignore
 							ref={prev}
 							variant='circle'
 						>
@@ -103,7 +103,7 @@ export const Subscribe = () => {
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
 						</div>
 						<Button
-							//@ts-expect-error исправить
+						// @ts-ignore
 							ref={next}
 							variant='circle'
 						>
