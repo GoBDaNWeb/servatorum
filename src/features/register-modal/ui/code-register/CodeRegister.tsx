@@ -1,24 +1,20 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
-import { useTypedSelector } from '@/shared/lib';
 import { Button, Input } from '@/shared/ui';
 
 import s from './code-register.module.scss';
 
 interface ICodeRegister {
 	nextStep: () => void;
+	phoneValue: string;
 }
 
-export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
+export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue }) => {
 	const [code, setCode] = useState(['', '', '', '']);
 	const [timer, setTimer] = useState(0);
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
 	const inputRefs = useRef<(HTMLInputElement | null)[]>(Array(4).fill(null));
-
-	const {
-		registerInfo: { phone }
-	} = useTypedSelector(store => store.registerModal);
 
 	const handleResendCode = () => {
 		setIsButtonDisabled(true);
@@ -77,7 +73,7 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep }) => {
 		<div className={s.codeRegister}>
 			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Код отправлен на номер</p>
-			<p className={s.phone}>{phone}</p>
+			<p className={s.phone}>{phoneValue}</p>
 			<p className={s.subtitle}>СМС-код</p>
 
 			<div className={s.codeInputs}>

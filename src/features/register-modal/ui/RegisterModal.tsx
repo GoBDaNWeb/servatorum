@@ -3,10 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
-import { useTypedSelector } from '@/shared/lib';
-import { BackOutlineArrow, Button, CloseIcon, Modal } from '@/shared/ui';
-
-import { clearRegisterInfo, setOpenModal, setPhone } from '../model';
+import { BackOutlineArrow, Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
 import { AreaRegister } from './area-register';
 import { CodeRegister } from './code-register';
@@ -18,13 +15,23 @@ import { UserDataRegister } from './user-data-register';
 import { UserTypeRegister } from './user-type-regiter';
 
 export const RegisterModal = () => {
+	const [phoneValue, setPhoneValue] = useState('');
+	const [userType, setUserType] = useState('');
+	const [userDirection, setUserDirection] = useState('');
+
 	const [step, setStep] = useState(0);
-	const { isOpen } = useTypedSelector(store => store.registerModal);
+
+	const { close, currentModal } = useModal();
+
 	const dispatch = useDispatch();
 
 	const handleCloseModal = () => {
-		dispatch(setOpenModal(false));
-		dispatch(clearRegisterInfo());
+		close();
+		setPhoneValue('');
+		setUserType('');
+		setUserDirection('');
+		console.log('userDirection', userDirection);
+		console.log('userType', userType);
 		setTimeout(() => {
 			setStep(0);
 		}, 300);
@@ -45,17 +52,24 @@ export const RegisterModal = () => {
 
 	useEffect(() => {
 		if (step <= 1) {
-			dispatch(setPhone(''));
+			setPhoneValue('');
 		}
 	}, [dispatch, step]);
 
 	const registerSteps = [
 		<SelectRegister closeModal={handleCloseModal} nextStep={() => handleChangeStep('next')} />,
-		<PhoneRegister nextStep={() => handleChangeStep('next')} />,
-		<CodeRegister nextStep={() => handleChangeStep('next')} />,
-		<UserTypeRegister nextStep={() => handleChangeStep('next')} />,
-		<DirectionRegister nextStep={() => handleChangeStep('next')} />,
-		<UserDataRegister nextStep={() => handleChangeStep('next')} />,
+		<PhoneRegister
+			nextStep={() => handleChangeStep('next')}
+			phoneValue={phoneValue}
+			setPhoneValue={setPhoneValue}
+		/>,
+		<CodeRegister nextStep={() => handleChangeStep('next')} phoneValue={phoneValue} />,
+		<UserTypeRegister nextStep={() => handleChangeStep('next')} setUserType={setUserType} />,
+		<DirectionRegister
+			nextStep={() => handleChangeStep('next')}
+			setUserDirection={setUserDirection}
+		/>,
+		<UserDataRegister nextStep={() => handleChangeStep('next')} phoneValue={phoneValue} />,
 		<AreaRegister closeModal={handleCloseModal} />
 	];
 
@@ -75,7 +89,7 @@ export const RegisterModal = () => {
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={currentModal === 'register'}
 			className={s.registerModal}
 			close={handleCloseModal}
 			contentTop={contentTop}

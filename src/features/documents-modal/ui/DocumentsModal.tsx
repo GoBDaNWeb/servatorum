@@ -1,22 +1,16 @@
-import { useDispatch } from 'react-redux';
-
 import clsx from 'clsx';
 
 import { DocumentsDownloadCard } from '@/entities/document-download-card';
 
-import { useTypedSelector } from '@/shared/lib';
-import { Button, CloseIcon, Modal } from '@/shared/ui';
-
-import { setOpenModal } from '../model';
+import { Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
 import s from './documents-modal.module.scss';
 
 export const DocumentsModal = () => {
-	const { isOpen } = useTypedSelector(store => store.documentsModal);
-	const dispatch = useDispatch();
+	const { close, currentModal } = useModal();
 
 	const handleCloseModal = () => {
-		dispatch(setOpenModal(false));
+		close();
 	};
 
 	const contentTop = (
@@ -29,7 +23,7 @@ export const DocumentsModal = () => {
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={currentModal === 'documents'}
 			className={s.documentsModal}
 			close={handleCloseModal}
 			contentTop={contentTop}

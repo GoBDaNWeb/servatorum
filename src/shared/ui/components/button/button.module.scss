@@ -43,6 +43,9 @@
 				}
 			}
 		}
+		&.purple {
+			color: var(--purple-color);
+		}
 	}
 	&.default {
 		background: var(--gray-color);
@@ -77,8 +80,13 @@
 		color: var(--white-color);
 		border-radius: var(--radius-s);
 		@include button_1_16_r;
+		&.gray {
+			background: var(--gray-color);
+			color: var(--dark-color);
+		}
 		&:hover {
 			background: var(--purple-hover-color);
+			color: var(--white-color);
 		}
 		&:active {
 			background: var(--purple-active-color);
@@ -152,6 +160,25 @@
 		}
 		&:active {
 			background: var(--purple-active-color);
+		}
+		&.purple {
+			background: var(--purple-color);
+			&:hover {
+				background: var(--purple-hover-color);
+			}
+		}
+		&.xs {
+			min-width: 28px;
+			min-height: 28px;
+			max-width: 28px;
+			max-height: 28px;
+		}
+		&.s {
+			min-width: 48px;
+			min-height: 48px;
+			max-width: 48px;
+			max-height: 48px;
+			border-radius: 16px;
 		}
 	}
 	&.secondary {

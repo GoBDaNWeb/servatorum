@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { Navigation } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
-import { SubscribeCard } from '@/entities/subscribe-card';
+import { SubscribeAlertCard } from '@/entities/subscribe-alert-card';
 
 import { Button, Swiper } from '@/shared/ui';
 
@@ -77,7 +77,7 @@ export const Subscribe = () => {
 					>
 						{[...Array(10)].map((_, index) => (
 							<SwiperSlide key={index}>
-								<SubscribeCard
+								<SubscribeAlertCard
 									imgs={[
 										'/images/home/donation/slide.jpg',
 										'/images/home/donation/slide.jpg',
@@ -103,7 +103,7 @@ export const Subscribe = () => {
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
 						</div>
 						<Button
-						// @ts-ignore
+							// @ts-ignore
 							ref={next}
 							variant='circle'
 						>

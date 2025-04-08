@@ -1,32 +1,23 @@
-import { useDispatch } from 'react-redux';
-
 import clsx from 'clsx';
 
-import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
-import { setOpenModal as setOpenSubscribeModal } from '@/features/subscribe-modal';
-
-import { useTypedSelector } from '@/shared/lib';
-import { Button, CloseIcon, Modal, TypeButton } from '@/shared/ui';
-
-import { setOpenModal } from '../model';
+import { Button, CloseIcon, Modal, TypeButton, useModal } from '@/shared/ui';
 
 import s from './support-fond-modal.module.scss';
 
 export const SupportFondModal = () => {
-	const { isOpen } = useTypedSelector(store => store.supportFondModal);
-	const dispatch = useDispatch();
+	const { open, close, currentModal } = useModal();
 
 	const handleCloseModal = () => {
-		dispatch(setOpenModal(false));
+		close();
 	};
 
 	const handleOpenDonationModal = () => {
-		dispatch(setOpenDonationModal(true));
-		dispatch(setOpenModal(false));
+		handleCloseModal();
+		open('donation');
 	};
 	const handleOpenSubscribeModal = () => {
-		dispatch(setOpenSubscribeModal(true));
-		dispatch(setOpenModal(false));
+		handleCloseModal();
+		open('subscribe');
 	};
 
 	const contentTop = (
@@ -39,7 +30,7 @@ export const SupportFondModal = () => {
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={currentModal === 'support-fond'}
 			close={handleCloseModal}
 			className={s.supportFondModal}
 			contentTop={contentTop}

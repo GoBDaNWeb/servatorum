@@ -2,6 +2,135 @@
 	box-shadow: var(--shadow);
 
 	background: var(--white-color);
+
+	.collectingCardTop {
+		display: flex;
+		justify-content: space-between;
+		.user {
+			display: flex;
+			align-items: center;
+			.userInfo {
+				display: flex;
+				flex-direction: column;
+				span {
+					color: var(--txt-gray-color);
+				}
+			}
+		}
+		.features {
+			display: flex;
+			align-items: center;
+			gap: 18px;
+			button {
+				&:hover {
+					svg {
+						path {
+							fill: var(--purple-hover-color);
+						}
+					}
+				}
+			}
+		}
+	}
+	.collectingCardCenter {
+		position: relative;
+		.swiperWrapper {
+			.slide {
+				transition: opacity var(--trs-300);
+			}
+			.pagination {
+				z-index: 3;
+			}
+			.hideLines {
+				display: flex;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				cursor: pointer;
+				z-index: 2;
+				a {
+					height: 100%;
+					width: 100%;
+				}
+			}
+		}
+		.collectingCardCenterInfo {
+			position: absolute;
+			display: flex;
+			justify-content: space-between;
+			z-index: 2;
+			.badge {
+				display: flex;
+				align-items: center;
+				&.purple {
+					span {
+						color: var(--purple-color);
+					}
+				}
+				&.gold {
+					span {
+						color: var(--gold-color);
+					}
+				}
+			}
+			.date {
+				color: var(--white-color);
+			}
+		}
+	}
+	.collectingCardBottom {
+		.collectingCardBottomContent {
+			display: block;
+			.title {
+				transition: var(--trs-300);
+			}
+			&:hover {
+				.title {
+					color: var(--purple-hover-color);
+				}
+			}
+		}
+		.donationLine {
+			width: 100%;
+			background: var(--gray-color);
+			border-radius: 999px;
+			position: relative;
+			overflow: hidden;
+
+			.line {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 1%;
+				background: var(--gradient-color);
+			}
+		}
+		.donationInfo {
+			display: flex;
+			justify-content: space-between;
+
+			.total {
+				justify-content: flex-end;
+				p {
+					color: var(--purple-color);
+				}
+				span {
+					text-align: right;
+				}
+			}
+			.total,
+			.sum {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+		button {
+			width: 100%;
+		}
+	}
 	&.s {
 		padding: 5px;
 		border-radius: var(--radius-m);
@@ -204,132 +333,41 @@
 			}
 		}
 	}
-	.collectingCardTop {
-		display: flex;
-		justify-content: space-between;
-		.user {
-			display: flex;
-			align-items: center;
-			.userInfo {
-				display: flex;
-				flex-direction: column;
-				span {
-					color: var(--txt-gray-color);
-				}
-			}
+	&.row {
+		display: grid;
+		grid-template-columns: 273px 1fr;
+		grid-template-areas: 'center top' 'center bottom';
+		gap: 30px;
+		background: none;
+		box-shadow: none;
+		border: 1px solid var(--line-color);
+		.collectingCardTop {
+			grid-area: top;
+			padding-top: 18px;
+			margin-bottom: 0;
 		}
-		.features {
-			display: flex;
-			align-items: center;
-			gap: 18px;
-			button {
-				&:hover {
-					svg {
-						path {
-							fill: var(--purple-hover-color);
-						}
-					}
-				}
-			}
-		}
-	}
-	.collectingCardCenter {
-		position: relative;
-		.swiperWrapper {
+		.collectingCardCenter {
+			grid-area: center;
 			.slide {
-				transition: opacity var(--trs-300);
-			}
-			.pagination {
-				z-index: 3;
-			}
-			.hideLines {
-				display: flex;
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				cursor: pointer;
-				z-index: 2;
-				a {
-					height: 100%;
-					width: 100%;
+				padding-bottom: 80% !important;
+				.image {
+					padding-bottom: 80% !important;
 				}
+			}
+			.popular {
+				display: none;
 			}
 		}
-		.collectingCardCenterInfo {
-			position: absolute;
-			display: flex;
-			justify-content: space-between;
-			z-index: 2;
-			.badge {
-				display: flex;
-				align-items: center;
-				&.purple {
-					span {
-						color: var(--purple-color);
-					}
-				}
-				&.gold {
-					span {
-						color: var(--gold-color);
-					}
-				}
+		.collectingCardBottom {
+			grid-area: bottom;
+			padding-bottom: 18px;
+			margin-top: 0;
+			padding-left: 0;
+			.bottomContent {
+				display: grid;
+				grid-template-columns: 281px 1fr;
+				gap: 62px;
 			}
-			.date {
-				color: var(--white-color);
-			}
-		}
-	}
-	.collectingCardBottom {
-		.collectingCardBottomContent {
-			display: block;
-			.title {
-				transition: var(--trs-300);
-			}
-			&:hover {
-				.title {
-					color: var(--purple-hover-color);
-				}
-			}
-		}
-		.donationLine {
-			width: 100%;
-			background: var(--gray-color);
-			border-radius: 999px;
-			position: relative;
-			overflow: hidden;
-
-			.line {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				width: 1%;
-				background: var(--gradient-color);
-			}
-		}
-		.donationInfo {
-			display: flex;
-			justify-content: space-between;
-
-			.total {
-				justify-content: flex-end;
-				p {
-					color: var(--purple-color);
-				}
-				span {
-					text-align: right;
-				}
-			}
-			.total,
-			.sum {
-				display: flex;
-				flex-direction: column;
-			}
-		}
-		button {
-			width: 100%;
 		}
 	}
 }

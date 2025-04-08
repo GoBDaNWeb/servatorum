@@ -1,0 +1,131 @@
+.newsModal {
+	.newsModalContentWrapper {
+		width: 1038px;
+
+		.newsModalContent {
+			flex-direction: column;
+			align-items: flex-start;
+			.title {
+				@include headline_32_m;
+			}
+			.newsModalSwiperWrapper {
+				display: grid;
+				grid-template-columns: 1fr 0.9fr;
+				gap: 30px;
+				margin-top: 28px;
+				.swiperWrapper {
+					position: relative;
+					height: 361px !important;
+					.slide {
+						transition: opacity var(--trs-300);
+						border-radius: 16px;
+						overflow: hidden;
+					}
+					.pagination {
+						z-index: 3;
+					}
+					.hideLines {
+						display: flex;
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						right: 0;
+						cursor: pointer;
+						z-index: 2;
+						a {
+							height: 100%;
+							width: 100%;
+						}
+					}
+				}
+				.text {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					.top {
+						flex: 1;
+						display: flex;
+						flex-direction: column;
+						gap: 16px;
+						.date {
+							@include caption_2_12_r;
+							color: var(--txt-gray-color2);
+						}
+						.descr {
+							font-weight: 500;
+							font-size: 16px;
+							line-height: 148%;
+						}
+					}
+					.features {
+						padding-top: 16px;
+						border-top: 1px solid var(--line-color);
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						.views {
+							display: flex;
+							align-items: center;
+							gap: 3px;
+							img {
+								width: 22px;
+								height: 15px;
+							}
+							span {
+								@include text_2_14_r;
+								color: var(--txt-gray-color);
+							}
+						}
+						.linkBtn {
+							width: 24px;
+							height: 24px;
+							&:hover {
+								svg {
+									path {
+										fill: var(--purple-hover-color);
+									}
+								}
+							}
+							svg {
+								width: 18px;
+								height: 15px;
+							}
+						}
+					}
+				}
+			}
+			.textWrapper {
+				margin-top: 28px;
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+				p {
+					font-weight: 400;
+					font-size: 16px;
+					line-height: 148%;
+				}
+				.alert {
+					border-radius: 12px;
+					background: var(--purple-back-color);
+					padding: 20px 24px;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 148%;
+				}
+				.listWrapper {
+					.title {
+						@include title_2_20_m;
+						margin-bottom: 12px;
+					}
+				}
+			}
+			.sponsor {
+				margin-top: 48px;
+			}
+			.collecting {
+				margin-top: 48px;
+			}
+		}
+	}
+}

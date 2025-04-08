@@ -1,3 +1,18 @@
+export type ModalName =
+	| 'news'
+	| 'delete-account'
+	| 'documents'
+	| 'donation'
+	| 'register'
+	| 'subscribe'
+	| 'support-fond';
+export type ModalProps = {
+	title?: string;
+	data?: any;
+	onConfirm?: () => void;
+};
+
 export interface IModal {
-	isOpen: boolean;
+	currentModal: ModalName | null;
+	props: ModalProps;
 }

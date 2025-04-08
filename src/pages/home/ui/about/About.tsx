@@ -1,22 +1,19 @@
-import { useDispatch } from 'react-redux';
-
 import clsx from 'clsx';
 
 import { DonationInfo } from '@/features/donation-info';
-import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
 
 import { CollectingCard } from '@/entities/collecting-card';
 import { RequetsCard } from '@/entities/request-card';
 
-import { Image } from '@/shared/ui';
+import { Image, useModal } from '@/shared/ui';
 
 import s from './about.module.scss';
 
 export const About = () => {
-	const dispatch = useDispatch();
+	const { open } = useModal();
 
 	const handleOpenDonationModal = () => {
-		dispatch(setOpenDonationModal(true));
+		open('donation');
 	};
 
 	const aboutClass = clsx(s.about, 'container');

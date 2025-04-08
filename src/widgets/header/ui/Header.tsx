@@ -4,13 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 import clsx from 'clsx';
 
-import { setOpenModal } from '@/features/register-modal';
-
 import { setOpenMenu } from '@/entities/mobile-menu';
 
 import { PATH_PAGE } from '@/shared/config';
 import { handleScroll } from '@/shared/lib';
-import { Button, Input, Logo } from '@/shared/ui';
+import { Button, Input, Logo, useModal } from '@/shared/ui';
 
 import s from './header.module.scss';
 
@@ -18,6 +16,7 @@ export const Header = () => {
 	const [active, setActive] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const { open } = useModal();
 
 	const controlNavbar = () => {
 		if (typeof window !== 'undefined') {
@@ -34,7 +33,7 @@ export const Header = () => {
 	};
 
 	const handleOpernRegisterModal = () => {
-		dispatch(setOpenModal(true));
+		open('register');
 	};
 
 	useEffect(() => {
@@ -65,7 +64,7 @@ export const Header = () => {
 							Фонды
 						</Button>
 						<Button onClick={() => handleScroll('#directions')} variant='outline' color='gray'>
-							Партнёры
+							Услуги
 						</Button>
 					</nav>
 					<Button variant='outline'>Попросить помощь</Button>

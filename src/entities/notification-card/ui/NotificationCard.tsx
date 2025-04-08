@@ -26,7 +26,7 @@ export const NotificationCard: FC<INotificationCard> = ({ date, title, descr, is
 				<p className={s.descr}>{descr}</p>
 			</div>
 			<p className={s.type}>{isRead ? 'Прочитано' : 'Не прочитано'}</p>
-			<Button variant='square' className={s.deleteBtn}>
+			<Button variant='square' size='xs' className={s.deleteBtn}>
 				<CloseIcon />
 			</Button>
 		</div>

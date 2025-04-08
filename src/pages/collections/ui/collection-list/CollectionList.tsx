@@ -1,19 +1,16 @@
-import { useDispatch } from 'react-redux';
-
 import { DonationInfo } from '@/features/donation-info';
-import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
 
 import { CollectingCard } from '@/entities/collecting-card';
 
-import { Pagination } from '@/shared/ui';
+import { Pagination, useModal } from '@/shared/ui';
 
 import s from './collection-list.module.scss';
 
 export const CollectionList = () => {
-	const dispatch = useDispatch();
+	const { open } = useModal();
 
 	const handleOpenDonationModal = () => {
-		dispatch(setOpenDonationModal(true));
+		open('donation');
 	};
 
 	return (

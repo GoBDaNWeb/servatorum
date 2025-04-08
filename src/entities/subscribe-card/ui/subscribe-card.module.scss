@@ -1,72 +1,29 @@
-.subscribeCard {
-	padding: 8px;
-	border-radius: var(--radius-xl);
-	box-shadow: var(--shadow);
-	background: var(--white-color);
-	.imageBlock {
-		position: relative;
-		.logo {
-			position: absolute;
-			width: 64px;
-			height: 64px;
-			border-radius: 999px;
-			background: var(--white-color);
-			top: 16px;
-			left: 16px;
-			z-index: 2;
+.subcribeCard {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 0;
+	border-top: 1px solid var(--line-color);
+	.subscribeInfo {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		img {
+			width: 48px;
+			height: 48px;
+			border-radius: 9999px;
+		}
+		.text {
 			display: flex;
-			align-items: center;
-			justify-content: center;
-			img {
-				width: 80%;
-				height: 80%;
-			}
-		}
-		.swiperWrapper > div {
-			border-radius: var(--radius-xl);
-		}
-		.image {
-			border-radius: var(--radius-m);
-		}
-	}
-	.subscribeContent {
-		margin-top: 16px;
-		padding: 0 16px 30px 16px;
-		.title {
-			@include title_3_16_m;
-		}
-		.tags {
-			margin-top: 12px;
-			display: flex;
-			align-items: center;
-			gap: 20px;
-			flex-wrap: wrap;
-			.tag {
+			flex-direction: column;
+			gap: 4px;
+			.title {
 				@include text_2_14_r;
-				color: var(--txt-gray-color);
-				position: relative;
-				&:last-child {
-					&:after {
-						display: none;
-					}
-				}
-				&:after {
-					content: '';
-					position: absolute;
-					width: 4px;
-					height: 4px;
-					border-radius: 999px;
-					background: var(--purple-color);
-					top: 0;
-					bottom: 0;
-					right: -12px;
-					margin: auto;
-				}
 			}
-		}
-		.descr {
-			margin-top: 8px;
-			@include text_2_14_r;
+			.descr {
+				@include caption_2_12_r;
+				color: var(--txt-gray-color2);
+			}
 		}
 	}
 }

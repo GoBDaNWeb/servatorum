@@ -1,20 +1,14 @@
-import { useDispatch } from 'react-redux';
-
 import clsx from 'clsx';
 
-import { useTypedSelector } from '@/shared/lib';
-import { Button, CloseIcon, Modal } from '@/shared/ui';
-
-import { setOpenModal } from '../model';
+import { Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
 import s from './delete-account-modal.module.scss';
 
 export const DeleteAccountModal = () => {
-	const { isOpen } = useTypedSelector(store => store.deleteAccountModal);
-	const dispatch = useDispatch();
+	const { close, currentModal } = useModal();
 
 	const handleCloseModal = () => {
-		dispatch(setOpenModal(false));
+		close();
 	};
 
 	const contentTop = (
@@ -27,7 +21,7 @@ export const DeleteAccountModal = () => {
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={currentModal === 'delete-account'}
 			close={handleCloseModal}
 			className={s.deleteAccountModal}
 			contentTop={contentTop}

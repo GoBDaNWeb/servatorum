@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
@@ -9,28 +8,26 @@ import { Navigation } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import { DonationInfo } from '@/features/donation-info';
-import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
 
 import { CollectingCard } from '@/entities/collecting-card';
 
 import { PATH_PAGE } from '@/shared/config';
-import { Button, Swiper } from '@/shared/ui';
+import { Button, Swiper, useModal } from '@/shared/ui';
 
 import s from './donation.module.scss';
 
 export const Donation = () => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const [activeSlideIndex, setActiveSlideIndex] = useState<number>(1);
+	const { open } = useModal();
 
 	const prev = useRef<HTMLDivElement>(null);
 	const next = useRef<HTMLDivElement>(null);
 
 	const navigate = useNavigate();
 
-	const dispatch = useDispatch();
-
 	const handleOpenDonationModal = () => {
-		dispatch(setOpenDonationModal(true));
+		open('donation');
 	};
 
 	useEffect(() => {

@@ -1,22 +1,12 @@
-import { deleteAccountModalReducer } from '@/features/delete-account-modal';
-import { documentsModalReducer } from '@/features/documents-modal';
-import { donationModalReducer } from '@/features/donation-modal';
-import { registerModalReducer } from '@/features/register-modal';
-import { subscribeModalReducer } from '@/features/subscribe-modal';
-import { supportFondModalReducer } from '@/features/support-fond-modal';
-
 import { mobileMenuReducer } from '@/entities/mobile-menu';
+
+import { modalReducer } from '@/shared/ui';
 
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 const mainReducer = combineReducers({
 	mobileMenu: mobileMenuReducer,
-	registerModal: registerModalReducer,
-	documentsModal: documentsModalReducer,
-	donationModal: donationModalReducer,
-	supportFondModal: supportFondModalReducer,
-	subscribeModal: subscribeModalReducer,
-	deleteAccountModal: deleteAccountModalReducer
+	modals: modalReducer
 });
 
 export const mainStore = configureStore({

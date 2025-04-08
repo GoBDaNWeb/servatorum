@@ -1,42 +1,99 @@
 .newsCardAlert {
-	padding: 5px;
-	border-radius: var(--radius-m);
 	background: var(--white-color);
 	box-shadow: var(--shadow);
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
-	.image {
+	cursor: pointer;
+	&.small {
+		padding: 5px;
 		border-radius: var(--radius-m);
-	}
-	.newsCardContent {
-		margin-top: 5px;
-		padding-right: 5px;
-		padding-left: 5px;
-		padding-bottom: 5px;
-		span {
-			color: var(--txt-gray-color);
-			font-size: 8px;
-			line-height: 10px;
-			font-weight: 400;
+		.image {
+			border-radius: var(--radius-m);
 		}
-		p {
-			font-size: 9px;
-			line-height: 10px;
-			font-weight: 500;
+		.newsCardContent {
 			margin-top: 5px;
-		}
-		.newsCardContentInfo {
-			margin-top: 10px;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			.views {
+			padding-right: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			span {
+				color: var(--txt-gray-color);
+				font-size: 8px;
+				line-height: 10px;
+				font-weight: 400;
+			}
+			p {
+				font-size: 9px;
+				line-height: 10px;
+				font-weight: 500;
+				margin-top: 5px;
+			}
+			.newsCardContentInfo {
+				margin-top: 10px;
 				display: flex;
 				align-items: center;
-				gap: 3px;
-				span {
-					font-size: 9px;
+				justify-content: space-between;
+				.views {
+					display: flex;
+					align-items: center;
+					gap: 3px;
+					span {
+						font-size: 9px;
+					}
+				}
+			}
+		}
+	}
+	&.default {
+		border-radius: 24px;
+		padding: 8px;
+		.image {
+			border-radius: 16px;
+		}
+		.newsCardContent {
+			margin-top: 16px;
+			padding-right: 12px;
+			padding-left: 12px;
+			padding-bottom: 12px;
+			span {
+				color: var(--txt-gray-color);
+				@include caption_2_12_r;
+			}
+			p {
+				@include title_4_14_m;
+				margin-top: 8px;
+			}
+			.newsCardContentInfo {
+				margin-top: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				.views {
+					display: flex;
+					align-items: center;
+					gap: 3px;
+					img {
+						width: 22px;
+						height: 15px;
+					}
+					span {
+						@include text_2_14_r;
+					}
+				}
+				.linkBtn {
+					width: 24px;
+					height: 24px;
+					&:hover {
+						svg {
+							path {
+								fill: var(--purple-hover-color);
+							}
+						}
+					}
+					svg {
+						width: 18px;
+						height: 15px;
+					}
 				}
 			}
 		}

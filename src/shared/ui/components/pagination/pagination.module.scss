@@ -2,6 +2,33 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	&.inner {
+		.navBtn {
+			width: 40px;
+			height: 40px;
+			border-radius: 12px;
+			background: var(--gray-color);
+			padding: 0;
+			&:disabled {
+				background: var(--gray-color) !important;
+				svg {
+					opacity: 0.5;
+				}
+			}
+		}
+		.pages {
+			gap: 0;
+		}
+		.pageBtn {
+			background: none;
+			width: 40px;
+			height: 40px;
+			&:disabled {
+				background: var(--white-color) !important;
+				opacity: 1;
+			}
+		}
+	}
 	.pages {
 		display: flex;
 		align-items: center;

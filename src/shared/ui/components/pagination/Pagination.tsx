@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import clsx from 'clsx';
+
 import { BackOutlineArrow, NextOutlineArrow } from '../../icons';
 import { Button } from '../button';
 
@@ -9,9 +11,15 @@ interface PaginationProps {
 	currentPage: number;
 	totalPages: number;
 	onPageChange: (page: number) => void;
+	variant?: 'default' | 'inner';
 }
 
-export const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+export const Pagination: FC<PaginationProps> = ({
+	currentPage,
+	totalPages,
+	onPageChange,
+	variant = 'default'
+}) => {
 	const getPageNumbers = () => {
 		const pages: (number | string)[] = [];
 		if (totalPages <= 7) {
@@ -34,8 +42,10 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPag
 		return pages;
 	};
 
+	const paginationClass = clsx(s.pagination, s[variant]);
+
 	return (
-		<div className={s.pagination}>
+		<div className={paginationClass}>
 			<Button
 				className={s.navBtn}
 				isDisabled={currentPage === 1}
@@ -46,6 +56,7 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPag
 			<div className={s.pages}>
 				{getPageNumbers().map((page, index) => (
 					<Button
+						className={s.pageBtn}
 						key={index}
 						onClick={() => typeof page === 'number' && onPageChange(page)}
 						isDisabled={typeof page !== 'number'}

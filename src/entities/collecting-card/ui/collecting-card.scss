@@ -1,0 +1,13 @@
+.collection-card {
+	.swiper {
+		padding-bottom: 71%;
+	}
+	&.row {
+		.swiper {
+			padding-bottom: 79%;
+		}
+	}
+	.swiper-wrapper {
+		position: absolute;
+	}
+}

@@ -1,21 +1,17 @@
 import { FC } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { TypeButton } from '@/shared/ui';
-
-import { setUserType } from '../../model';
 
 import s from './user-type-register.module.scss';
 
 interface IUserTypeRegister {
 	nextStep: () => void;
+	setUserType: (value: string) => void;
 }
 
-export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep }) => {
-	const dispatch = useDispatch();
-
+export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep, setUserType }) => {
 	const handleSetUserType = (type: 'user' | 'fond' | 'company') => {
-		dispatch(setUserType(type));
+		setUserType(type);
 		nextStep();
 	};
 

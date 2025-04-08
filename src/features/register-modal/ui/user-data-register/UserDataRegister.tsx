@@ -1,21 +1,18 @@
 import { FC, useEffect, useState } from 'react';
 import { Controller, FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
-import { useAirDatePicker, useTypedSelector } from '@/shared/lib';
+import { useAirDatePicker } from '@/shared/lib';
 import { Button, Checkbox, FemaleIcon, Input, MaleIcon, Photo } from '@/shared/ui';
 
 import s from './user-data-register.module.scss';
 
 interface IUserDataRegister {
 	nextStep: () => void;
+	phoneValue: string;
 }
 
-export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
+export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }) => {
 	const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
-
-	const {
-		registerInfo: { phone }
-	} = useTypedSelector(store => store.registerModal);
 
 	const { watch, setValue, handleSubmit, control } = useForm<FieldValues>({
 		defaultValues: {
@@ -25,7 +22,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 			address: '',
 			gender: '0',
 			date: '',
-			phone,
+			phone: phoneValue,
 			email: ''
 		}
 	});

@@ -1,4 +1,6 @@
 .profileWrapper {
 	background: var(--gray-color);
 	padding-top: 122px;
+	display: flex;
+	flex-direction: column;
 }

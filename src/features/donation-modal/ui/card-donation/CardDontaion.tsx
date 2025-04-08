@@ -1,21 +1,18 @@
 import { FC, useEffect, useState } from 'react';
 import { Controller, FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
-import { useTypedSelector } from '@/shared/lib';
 import { Button, Checkbox, Input } from '@/shared/ui';
 
 import s from './card-donation.module.scss';
 
 interface ICardDonation {
 	nextStep: () => void;
+	price: string;
 }
 
-export const CardDonation: FC<ICardDonation> = ({ nextStep }) => {
+export const CardDonation: FC<ICardDonation> = ({ nextStep, price }) => {
 	const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
 
-	const {
-		donationInfo: { price }
-	} = useTypedSelector(store => store.donationModal);
 	const { watch, handleSubmit, control } = useForm<FieldValues>({
 		defaultValues: {
 			cardNumber: '',

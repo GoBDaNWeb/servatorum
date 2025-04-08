@@ -1,10 +1,7 @@
-import { FC, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { FC } from 'react';
 
-import { formatNumber, useTypedSelector } from '@/shared/lib';
+import { formatNumber } from '@/shared/lib';
 import { Button, Chip, Input, TypeButton } from '@/shared/ui';
-
-import { setPrice } from '../../model';
 
 import s from './transfer-donation.module.scss';
 
@@ -26,17 +23,19 @@ const chipsList = [
 interface ITransferDonation {
 	openSelectPaymentMethod: () => void;
 	nextStep: () => void;
+	setPriceValue: (value: string) => void;
+	paymentMethod: 'card' | 'sberpay';
+	price: string;
 }
-export const TransferDonation: FC<ITransferDonation> = ({ openSelectPaymentMethod, nextStep }) => {
-	const dispatch = useDispatch();
-	const {
-		donationInfo: { paymentMethod, price }
-	} = useTypedSelector(store => store.donationModal);
-	const [priceValue, setPriceValue] = useState(price);
-
+export const TransferDonation: FC<ITransferDonation> = ({
+	openSelectPaymentMethod,
+	nextStep,
+	paymentMethod,
+	price,
+	setPriceValue
+}) => {
 	const handleChangePriceValue = (value: string) => {
 		setPriceValue(value);
-		dispatch(setPrice(value));
 	};
 
 	return (
@@ -48,7 +47,7 @@ export const TransferDonation: FC<ITransferDonation> = ({ openSelectPaymentMetho
 			</div>
 			<div className={s.inputs}>
 				<Input
-					value={formatNumber(priceValue)}
+					value={formatNumber(price)}
 					mask={Number}
 					onAccept={(value: string) => handleChangePriceValue(formatNumber(value))}
 					thousandsSeparator={' '}
@@ -61,7 +60,7 @@ export const TransferDonation: FC<ITransferDonation> = ({ openSelectPaymentMetho
 							name='price'
 							type='radio'
 							variant='fill'
-							checked={priceValue === chip.value}
+							checked={price === chip.value}
 							value={chip.value}
 							onChange={() => handleChangePriceValue(chip.value)}
 						>
@@ -86,11 +85,11 @@ export const TransferDonation: FC<ITransferDonation> = ({ openSelectPaymentMetho
 			</p>
 			<Button
 				variant='primary'
-				isDisabled={!priceValue.length}
+				isDisabled={!price.length}
 				className={s.paymentBtn}
 				onClick={nextStep}
 			>
-				{priceValue.length ? `Перевести ${formatNumber(priceValue)} ₽` : 'Введите сумму перевода'}{' '}
+				{price.length ? `Перевести ${formatNumber(price)} ₽` : 'Введите сумму перевода'}
 			</Button>
 		</div>
 	);

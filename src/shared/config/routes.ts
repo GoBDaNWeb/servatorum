@@ -4,13 +4,16 @@ export const PATH_PAGE = {
 	collection: '/collection/:id',
 	fonds: '/fonds',
 	fond: '/fond/:id',
-	navigation: '/navigation',
+	fondNews: '/fond/:id/news',
+	company: '/company/:id',
 	profile: '/profile',
 	profileSettings: '/profile',
 	profileNotifications: '/profile/notifications',
 	profileNews: '/profile/news',
 	profileSubscriptions: '/profile/subscriptions',
 
-	// TODO - страница для показа пустой страницы, потом удалить
-	profileNotificationsEmpty: '/profile/notifications-empty'
+	// TODO - временные страницы, потом удалить
+	navigation: '/navigation',
+	profileNotificationsEmpty: '/profile/notifications-empty',
+	profileNewsEmpty: '/profile/news-empty'
 };

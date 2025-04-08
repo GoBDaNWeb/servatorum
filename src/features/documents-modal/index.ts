@@ -1,1 +1,1 @@
-export { setOpenModal, documentsModalReducer } from './model';
+export { DocumentsModal } from './ui/DocumentsModal';

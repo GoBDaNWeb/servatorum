@@ -12,6 +12,7 @@ import { cropLink, cropText } from '@/shared/lib';
 import { Badge, Button, Fancybox, Image, LinkIcon, StarIcon, Swiper } from '@/shared/ui';
 
 import s from './collecting-card.module.scss';
+import './collecting-card.scss';
 
 interface ICollectingCard {
 	className?: string;
@@ -31,6 +32,7 @@ interface ICollectingCard {
 	buttonText?: string;
 	donationInfo?: ReactElement;
 	openDonationModal?: () => void;
+	type?: 'row' | 'default';
 }
 
 export const CollectingCard: FC<ICollectingCard> = ({
@@ -50,7 +52,8 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	hasLink = false,
 	buttonText = 'Помочь',
 	donationInfo,
-	openDonationModal
+	openDonationModal,
+	type = 'default'
 }) => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const pagination = useRef<HTMLDivElement>(null);
@@ -68,7 +71,14 @@ export const CollectingCard: FC<ICollectingCard> = ({
 		}
 	}, [swiper]);
 
-	const collectingCardClass = clsx(s.collectingCard, 'collection-card', s[size], className);
+	const collectingCardClass = clsx(
+		s.collectingCard,
+		'collection-card',
+		type,
+		s[size],
+		s[type],
+		className
+	);
 	const badgeClass = clsx(s.badge, s[badgeColor]);
 
 	return (
@@ -119,6 +129,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							el: pagination.current,
 							clickable: true
 						}}
+						className='collection-swiper'
 					>
 						{imgs.map((img, index) => (
 							<SwiperSlide key={index} className={s.slide}>
@@ -140,15 +151,20 @@ export const CollectingCard: FC<ICollectingCard> = ({
 				</Fancybox>
 			</div>
 			<div className={s.collectingCardBottom}>
-				<NavLink to={cropLink(PATH_PAGE.collection, 10)} className={s.collectingCardBottomContent}>
+				<NavLink to={cropLink(PATH_PAGE.collection, 10)}>
 					<p className={s.title}>{cropText(title, 52)}</p>
-					{total && sum ? <>{donationInfo}</> : null}
 				</NavLink>
-				{total && sum ? (
-					<Button variant='primary' onClick={openDonationModal}>
-						{buttonText}
-					</Button>
-				) : null}
+				<div className={s.bottomContent}>
+					<NavLink to={cropLink(PATH_PAGE.collection, 10)}>
+						{total && sum ? <>{donationInfo}</> : null}
+					</NavLink>
+
+					{total && sum ? (
+						<Button variant='primary' onClick={openDonationModal}>
+							{buttonText}
+						</Button>
+					) : null}
+				</div>
 			</div>
 		</div>
 	);

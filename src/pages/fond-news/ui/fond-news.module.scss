@@ -1,0 +1,27 @@
+.fondsNewsPage {
+	background: var(--gray-color);
+	padding-top: 122px;
+	padding-bottom: 96px;
+	h1 {
+		font-weight: 500;
+		font-size: 48px;
+		line-height: 115%;
+		letter-spacing: -2px;
+		margin-top: 16px;
+	}
+	.top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.backBtn {
+			height: 40px;
+			@include text_2_14_r;
+			display: flex;
+			gap: 14px;
+			svg {
+				height: 10px;
+				width: 6px;
+			}
+		}
+	}
+}

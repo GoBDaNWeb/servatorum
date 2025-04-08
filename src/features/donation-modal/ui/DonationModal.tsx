@@ -1,15 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
 // import { ErrorDonation } from './error-donation';
 import { PaymentMethod } from '@/features/payment-method';
 
-import { useTypedSelector } from '@/shared/lib';
-import { BackOutlineArrow, Button, CloseIcon, Modal } from '@/shared/ui';
-
-import { clearDonationInfo, setOpenModal, setPaymentMethod } from '../model';
+import { BackOutlineArrow, Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
 import { CardDonation } from './card-donation';
 import s from './donation-modal.module.scss';
@@ -20,18 +16,18 @@ export const DonationModal = () => {
 	const [step, setStep] = useState(0);
 	const [isSelectPaymentMethod, setSelectPaymentMethod] = useState(false);
 	const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'card' | 'sberpay'>('card');
-
-	const { isOpen } = useTypedSelector(store => store.donationModal);
-	const dispatch = useDispatch();
+	const [priceValue, setPriceValue] = useState('350');
+	const { close, currentModal } = useModal();
 
 	const handleChangePaymentMethod = (method: 'card' | 'sberpay') => {
-		dispatch(setPaymentMethod(method));
 		setSelectPaymentMethod(false);
 		setSelectedPaymentMethod(method);
 	};
 	const handleCloseModal = () => {
-		dispatch(setOpenModal(false));
-		dispatch(clearDonationInfo());
+		close();
+		setPriceValue('350');
+		setSelectedPaymentMethod('card');
+		setSelectPaymentMethod(false);
 		setTimeout(() => {
 			setStep(0);
 		}, 300);
@@ -67,8 +63,11 @@ export const DonationModal = () => {
 		<TransferDonation
 			openSelectPaymentMethod={handleOpenSelectPaymentMethod}
 			nextStep={() => handleChangeStep('next')}
+			paymentMethod={selectedPaymentMethod}
+			price={priceValue}
+			setPriceValue={setPriceValue}
 		/>,
-		<CardDonation nextStep={() => handleChangeStep('next')} />,
+		<CardDonation nextStep={() => handleChangeStep('next')} price={priceValue} />,
 		<SuccessDonation handleCloseModal={handleCloseModal} />
 		// <ErrorDonation handleRepeatPayment={handleRepeatPayment} />
 	];
@@ -88,7 +87,7 @@ export const DonationModal = () => {
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={currentModal === 'donation'}
 			close={handleCloseModal}
 			className={s.donationModal}
 			contentTop={contentTop}

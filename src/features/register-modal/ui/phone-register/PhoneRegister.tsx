@@ -1,26 +1,22 @@
-import { FC, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { FC, useRef } from 'react';
 
 import { Button, Input } from '@/shared/ui';
-
-import { setPhone } from '../../model';
 
 import s from './phone-register.module.scss';
 
 interface IPhoneRegister {
 	nextStep: () => void;
+	setPhoneValue: (value: string) => void;
+	phoneValue: string;
 }
-export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep }) => {
-	const [phoneValue, setPhoneValue] = useState('');
+export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep, phoneValue, setPhoneValue }) => {
 	const inputRef = useRef(null);
-	const dispatch = useDispatch();
 	const handlePhoneValue = (value: string) => {
 		setPhoneValue(value);
 	};
 
 	const handleNextStep = () => {
 		nextStep();
-		dispatch(setPhone(phoneValue));
 	};
 
 	return (

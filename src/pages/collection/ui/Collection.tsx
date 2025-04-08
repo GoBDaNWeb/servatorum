@@ -1,14 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { SwiperSlide } from 'swiper/react';
 
-import { CollectingSwiper } from '@/entities/collecting-swiper';
+import { InfinitySwiper } from '@/widgets/infinity-swiper';
 
-import { setOpenModal as setOpenDocumentsModal } from '@/features/documents-modal';
 import { DonationInfo } from '@/features/donation-info';
-import { setOpenModal as setOpenDonationModal } from '@/features/donation-modal';
 
+import { CollectingCard } from '@/entities/collecting-card';
 import { CollectingInfo } from '@/entities/collecting-info';
 
-import { Button, Crumbs, DocumentIcon, NextOutlineArrow } from '@/shared/ui';
+import { Button, Crumbs, DocumentIcon, NextOutlineArrow, useModal } from '@/shared/ui';
 
 import { crumbs } from '../config';
 
@@ -16,12 +15,13 @@ import { CollectionMainInfo } from './collection-main-info';
 import s from './collection.module.scss';
 
 export const Collection = () => {
-	const dispatch = useDispatch();
+	const { open } = useModal();
+
 	const handleOpenDocumentsModal = () => {
-		dispatch(setOpenDocumentsModal(true));
+		open('documents');
 	};
 	const handleOpenDonationModal = () => {
-		dispatch(setOpenDonationModal(true));
+		open('donation');
 	};
 
 	return (
@@ -47,11 +47,39 @@ export const Collection = () => {
 					</div>
 				</div>
 			</div>
-			<CollectingSwiper
-				openDonationModal={handleOpenDonationModal}
-				title='Смотрите также'
-				donationInfo={<DonationInfo />}
-			/>
+			<InfinitySwiper title='Текущие сборы'>
+				{[...Array(10)].map((_, index) => (
+					<SwiperSlide key={index}>
+						<CollectingCard
+							title='Кошачьему приюту необходимо оборудование которое позволит содержать животных в чистоте и комфорте'
+							size='m'
+							className={s.collecting}
+							imgs={[
+								'/images/home/donation/slide.jpg',
+								'/images/home/donation/slide2.jpg',
+								'/images/home/donation/slide3.jpg'
+							]}
+							userImg='/images/home/donation/user.jpg'
+							userName='Четыре лапы'
+							userDate='00.00.0000'
+							sum='0'
+							total='100 000'
+							badgeColor='gold'
+							badge={
+								<>
+									<img src='/images/icons/clock-gold.svg' alt='' />
+									<span>31 день</span>
+									<p>до завершения</p>
+								</>
+							}
+							isPopular
+							hasLink
+							donationInfo={<DonationInfo />}
+							openDonationModal={handleOpenDonationModal}
+						/>
+					</SwiperSlide>
+				))}
+			</InfinitySwiper>
 		</main>
 	);
 };

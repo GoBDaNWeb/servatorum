@@ -1,7 +1,9 @@
 .profileNews {
 	.tabsContent {
-		max-width: 343px;
 		margin-top: 20px;
+		.tabWrapper {
+			max-width: 343px;
+		}
 	}
 
 	.tabPannelWrapper {
@@ -9,9 +11,37 @@
 		grid-template-columns: 264px 1fr;
 		gap: 48px;
 		margin-top: 36px;
-	}
-	.profileFilters {
-		box-shadow: none;
-		padding: 0;
+		.profileFilters {
+			box-shadow: none;
+			padding: 0;
+		}
+		.tabPanel {
+			width: 100%;
+			.blockWrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 48px;
+				.title {
+					@include title_2_20_m;
+				}
+				.list {
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					margin-bottom: 16px;
+					margin-top: 16px;
+				}
+				.moreBtn {
+					@include link_14_m;
+					svg {
+						width: 6px;
+						height: 10px;
+						path {
+							stroke: var(--purple-color);
+						}
+					}
+				}
+			}
+		}
 	}
 }

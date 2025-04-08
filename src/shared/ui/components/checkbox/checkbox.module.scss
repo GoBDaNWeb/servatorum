@@ -117,7 +117,8 @@
 	}
 }
 .defaultCheckbox {
-	width: 44px;
+	min-width: 44px;
+	max-width: 44px;
 	height: 24px;
 	border-radius: 999px;
 	background: var(--txt-gray-color);

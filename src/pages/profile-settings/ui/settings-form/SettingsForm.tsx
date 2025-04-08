@@ -1,11 +1,8 @@
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
-import { setOpenModal } from '@/features/delete-account-modal';
-
-import { Button, CloseIcon } from '@/shared/ui';
+import { Button, CloseIcon, useModal } from '@/shared/ui';
 
 import { CategoryForm } from '../category-form';
 import { ContactInfoForm } from '../contact-info-form';
@@ -15,7 +12,7 @@ import { PersonalInfoForm } from '../personal-info-form';
 import s from '../profile-settings.module.scss';
 
 export const SettingsForm = () => {
-	const dispatch = useDispatch();
+	const { open } = useModal();
 
 	const { handleSubmit, control, setValue } = useForm<FieldValues>({
 		defaultValues: {
@@ -29,7 +26,7 @@ export const SettingsForm = () => {
 		console.log(data);
 	};
 	const handleOpenDeleteAccountModal = () => {
-		dispatch(setOpenModal(true));
+		open('delete-account');
 	};
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
@@ -40,7 +37,7 @@ export const SettingsForm = () => {
 			<CategoryForm />
 
 			<div className={clsx(s.dataBlock, s.dataBlockBottom)}>
-				<Button variant='primary' size='s'>
+				<Button variant='primary' size='s' isDisabled>
 					Сохранить изменения
 				</Button>
 				<Button variant='text' className={s.deleteBtn} onClick={handleOpenDeleteAccountModal}>

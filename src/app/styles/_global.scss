@@ -179,53 +179,13 @@ html {
 // 		opacity 300ms,
 // 		transform 300ms;
 // }
-.modal-enter-done {
-	opacity: 1;
-	transition: var(--trs-300);
-	.modal-content {
-		transform: translateX(0);
-	}
-}
-.modal-exit {
-	opacity: 1;
-	transition: var(--trs-300);
-	.modal-content {
-		transform: translateX(100%);
-	}
-}
-.modal-exit-active {
-	opacity: 0;
-	.modal-content {
-		transform: translateX(100%);
-	}
-	transition: var(--trs-300);
-}
-.modal-exit-done {
-	opacity: 0;
-	transition: var(--trs-300);
-	.modal-content {
-		transform: translateX(100%);
-	}
-}
 
-.modal-content {
-	transform: translateX(100%);
-	transition: var(--trs-300);
-}
 .air-datepicker {
 	&.-active- {
 		z-index: 200;
 	}
 }
 
-.collection-card {
-	.swiper {
-		padding-bottom: 71%;
-	}
-	.swiper-wrapper {
-		position: absolute;
-	}
-}
 svg {
 	path {
 		transition: var(--trs-300);

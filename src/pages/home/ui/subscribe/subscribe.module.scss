@@ -8,6 +8,8 @@
 	.subscribeInner {
 		h2 {
 			@include h2;
+			position: relative;
+			z-index: 2;
 		}
 		.subscribeContent {
 			margin-top: 48px;

@@ -13,16 +13,26 @@ import './modal.scss';
 interface IModal {
 	isOpen: boolean;
 	className?: string;
+	contentClassName?: string;
+	contentWrapperClassName?: string;
 	close: () => void;
 	contentTop: ReactElement;
 }
 
 export const Modal: FC<PropsWithChildren<IModal>> = forwardRef(
-	({ isOpen, className, children, close, contentTop }, ref) => {
+	(
+		{ isOpen, className, children, close, contentTop, contentClassName, contentWrapperClassName },
+		ref
+	) => {
 		useLockedBody(isOpen);
 		const nodeRef = useRef<HTMLDivElement | null>(null);
 		const modalClass = clsx(s.modal, className, 'modal');
-		const modalContentClass = clsx(s.modalContentWrapper, 'modal-content');
+		const modalContentWrapperClass = clsx(
+			s.modalContentWrapper,
+			contentWrapperClassName,
+			'modal-content-wrapper'
+		);
+		const modalContentClass = clsx(s.modalContent, contentClassName, 'modal-content');
 
 		return (
 			<Portal rootId='#modal'>
@@ -48,9 +58,9 @@ export const Modal: FC<PropsWithChildren<IModal>> = forwardRef(
 							}
 						}}
 					>
-						<div className={modalContentClass} onClick={e => e.stopPropagation()}>
+						<div className={modalContentWrapperClass} onClick={e => e.stopPropagation()}>
 							<div className={s.modalContentTop}>{contentTop}</div>
-							<div className={s.modalContent}>{children}</div>
+							<div className={modalContentClass}>{children}</div>
 						</div>
 					</div>
 				</CSSTransition>

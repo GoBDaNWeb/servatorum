@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import clsx from 'clsx';
+
 import { LogoGray } from '@/shared/ui';
 
 import s from './sponsor-card.module.scss';
@@ -8,11 +10,14 @@ interface ISponsorCard {
 	img?: string;
 	title: string;
 	subTitle: string;
+	className?: string;
 }
 
-export const SponsorCard: FC<ISponsorCard> = ({ img, title, subTitle }) => {
+export const SponsorCard: FC<ISponsorCard> = ({ img, title, subTitle, className }) => {
+	const sponsorCardClass = clsx(s.sponsorCard, className);
+
 	return (
-		<div className={s.sponsorCard}>
+		<div className={sponsorCardClass}>
 			{img ? (
 				<img src={img} alt='sponsor' />
 			) : (

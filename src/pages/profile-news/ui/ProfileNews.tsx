@@ -4,7 +4,10 @@ import { ProfileWrapper } from '@/widgets/profile-wrapper';
 
 import { ListFilters } from '@/features/list-filters';
 
-import { Pagination, Tab, TabList, TabPanel, Tabs } from '@/shared/ui';
+import { NewsCard } from '@/entities/news-card';
+import { SubscribeCard } from '@/entities/subscribe-card';
+
+import { Button, NextOutlineArrow, Pagination, Tab, TabList, TabPanel, Tabs } from '@/shared/ui';
 
 import { crumbs } from '../config';
 
@@ -27,25 +30,59 @@ export const ProfileNews = () => {
 						<div className={s.blockWrapper}>
 							<div className={s.block}>
 								<p className={s.title}>По подписке</p>
-								<div className={s.list}></div>
+								<div className={s.list}>
+									{[...new Array(5)].map((_, index) => (
+										<NewsCard img='/images/fond.jpg' key={index} />
+									))}
+								</div>
 								<Pagination
 									currentPage={1}
 									totalPages={34}
 									onPageChange={page => console.log(page)}
+									variant='inner'
+								/>
+							</div>
+							<div className={s.block}>
+								<p className={s.title}>Рекомендации</p>
+								<div className={s.list}>
+									{[...new Array(5)].map((_, index) => (
+										<NewsCard img='/images/fond.jpg' key={index} />
+									))}
+								</div>
+								<Pagination
+									currentPage={1}
+									totalPages={34}
+									onPageChange={page => console.log(page)}
+									variant='inner'
 								/>
 							</div>
 						</div>
 					</TabPanel>
 					<TabPanel index={1} className={s.tabPanel}>
-					<div className={s.blockWrapper}>
+						<div className={s.blockWrapper}>
 							<div className={s.block}>
 								<p className={s.title}>902 подписки</p>
-								<div className={s.list}></div>
-								<Pagination
-									currentPage={1}
-									totalPages={34}
-									onPageChange={page => console.log(page)}
-								/>
+								<div className={s.list}>
+									{[...new Array(5)].map((_, index) => (
+										<SubscribeCard isSubscribed key={index} />
+									))}
+								</div>
+								<Button variant='text' color='purple' className={s.moreBtn}>
+									Открыть все 897
+									<NextOutlineArrow />
+								</Button>
+							</div>
+							<div className={s.block}>
+								<p className={s.title}>Рекомендуем</p>
+								<div className={s.list}>
+									{[...new Array(5)].map((_, index) => (
+										<SubscribeCard key={index} />
+									))}
+								</div>
+								<Button variant='text' color='purple' className={s.moreBtn}>
+									Открыть все 897
+									<NextOutlineArrow />
+								</Button>
 							</div>
 						</div>
 					</TabPanel>

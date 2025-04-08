@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import clsx from 'clsx';
 
-import { Button, Image } from '@/shared/ui';
+import { Button, Image, LinkIcon, useModal } from '@/shared/ui';
 
 import s from './news-card-alert.module.scss';
 
@@ -12,13 +12,27 @@ interface INewsCard {
 	date: string;
 	title: string;
 	views: string;
-	href: string;
+	size?: 'default' | 'small';
 }
 
-export const NewsCardAlert: FC<INewsCard> = ({ className, img, date, title, views, href }) => {
-	const newsCardClass = clsx(s.newsCardAlert, className);
+export const NewsCardAlert: FC<INewsCard> = ({
+	className,
+	img,
+	date,
+	title,
+	views,
+	size = 'default'
+}) => {
+	const { open } = useModal();
+
+	const hadleOpenNewsModal = () => {
+		open('news');
+	};
+
+	const newsCardClass = clsx(s.newsCardAlert, className, s[size]);
+
 	return (
-		<a className={newsCardClass} href={href}>
+		<div onClick={hadleOpenNewsModal} className={newsCardClass}>
 			<Image paddingBottom='51%' src={img} alt='news' className={s.image} />
 			<div className={s.newsCardContent}>
 				<span>{date}</span>
@@ -28,11 +42,11 @@ export const NewsCardAlert: FC<INewsCard> = ({ className, img, date, title, view
 						<img src='/images/icons/eye.svg' alt='eye' />
 						<span>{views}</span>
 					</div>
-					<Button variant='clear'>
-						<img src='/images/icons/link.svg' alt='eye' />
+					<Button variant='clear' className={s.linkBtn}>
+						<LinkIcon />
 					</Button>
 				</div>
 			</div>
-		</a>
+		</div>
 	);
 };

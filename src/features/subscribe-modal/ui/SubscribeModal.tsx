@@ -1,14 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
 import { PaymentMethod } from '@/features/payment-method';
 
-import { useTypedSelector } from '@/shared/lib';
-import { BackOutlineArrow, Button, CloseIcon, Modal } from '@/shared/ui';
-
-import { setOpenModal } from '../model/subscribe-modal.slice';
+import { BackOutlineArrow, Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
 import { SubscribeForm } from './subscribe-form';
 import s from './subscribe-modal.module.scss';
@@ -16,9 +12,7 @@ import s from './subscribe-modal.module.scss';
 export const SubscribeModal = () => {
 	const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'card' | 'sberpay'>('card');
 	const [isSelectPaymentMethod, setSelectPaymentMethod] = useState(false);
-
-	const { isOpen } = useTypedSelector(store => store.subscribeModal);
-	const dispatch = useDispatch();
+	const { open, close, currentModal } = useModal();
 
 	const handleChangePaymentMethod = (method: 'card' | 'sberpay') => {
 		setSelectPaymentMethod(false);
@@ -27,11 +21,12 @@ export const SubscribeModal = () => {
 	};
 
 	const handleOpenSelectPaymentMethod = () => {
+		open('subscribe');
 		setSelectPaymentMethod(true);
 	};
 
 	const handleCloseModal = () => {
-		dispatch(setOpenModal(false));
+		close();
 	};
 
 	const handleChangeStep = (type: 'prev' | 'next') => {
@@ -58,7 +53,7 @@ export const SubscribeModal = () => {
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={currentModal === 'subscribe'}
 			close={handleCloseModal}
 			className={s.donationModal}
 			contentTop={contentTop}

@@ -40,7 +40,6 @@ export const Hero = () => {
 						date='22.07.2023'
 						title='Корм для животных в рамках акции “Не все равно”'
 						views='999'
-						href='#'
 					/>
 					<FondCardAlert
 						title='Свет Будущего'

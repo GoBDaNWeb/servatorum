@@ -1,21 +1,17 @@
 import { FC } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { TypeButton } from '@/shared/ui';
-
-import { setUserDirection } from '../../model';
 
 import s from './direction-register.module.scss';
 
 interface IDirectionRegister {
 	nextStep: () => void;
+	setUserDirection: (value: string) => void;
 }
 
-export const DirectionRegister: FC<IDirectionRegister> = ({ nextStep }) => {
-	const dispatch = useDispatch();
-
+export const DirectionRegister: FC<IDirectionRegister> = ({ nextStep, setUserDirection }) => {
 	const handleSetUserDirection = (dir: 'to-help' | 'ask-help') => {
-		dispatch(setUserDirection(dir));
+		setUserDirection(dir);
 		nextStep();
 	};
 
