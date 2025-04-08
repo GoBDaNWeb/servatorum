@@ -27,8 +27,6 @@ export const FondMainInfo = () => {
 	};
 
 	useEffect(() => {
-		console.log('Активный таб:', activeTab);
-
 		setSponsorsList(activeTab === 0 ? sponsors.slice(0, 4) : sponsors2.slice(0, 4));
 	}, [activeTab]);
 

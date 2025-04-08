@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { badges } from '@/pages/home/config';
 
 import { FondCardAlert } from '@/entities/fond-card-alert';
-import { NewsCard } from '@/entities/news-card';
+import { NewsCardAlert } from '@/entities/news-card-alert';
 
 import { Button, Image } from '@/shared/ui';
 
@@ -34,7 +34,7 @@ export const Hero = () => {
 			<div className={s.imageBlock}>
 				<div className={s.imageBlockContent}>
 					<Image paddingBottom='65%' src='/images/home/hero/bg.jpg' alt='bg' />
-					<NewsCard
+					<NewsCardAlert
 						className={s.news}
 						img='/images/home/hero/cat.jpg'
 						date='22.07.2023'

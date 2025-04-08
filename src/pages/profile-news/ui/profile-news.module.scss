@@ -1,6 +1,17 @@
-.profileNewsWrapper {
-	background: var(--gray-color);
-	padding-top: 122px;
-	display: flex;
-	flex-direction: column;
+.profileNews {
+	.tabsContent {
+		max-width: 343px;
+		margin-top: 20px;
+	}
+
+	.tabPannelWrapper {
+		display: grid;
+		grid-template-columns: 264px 1fr;
+		gap: 48px;
+		margin-top: 36px;
+	}
+	.profileFilters {
+		box-shadow: none;
+		padding: 0;
+	}
 }

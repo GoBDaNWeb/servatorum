@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
+
+import clsx from 'clsx';
 
 import { sortChipList } from '@/shared/config';
 import { Button, Chip, CloseIcon, Input } from '@/shared/ui';
@@ -7,7 +9,11 @@ import { chips, chipsTime } from '../config';
 
 import s from './list-filters.module.scss';
 
-export const ListFilters = () => {
+interface IListFilters {
+	className?: string;
+}
+
+export const ListFilters: FC<IListFilters> = ({ className }) => {
 	const [selectedSort, setSelectedSort] = useState(sortChipList[0]);
 	const [selectedTime, setSelectedTime] = useState(chipsTime[0]);
 	const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
@@ -22,8 +28,10 @@ export const ListFilters = () => {
 		setSelectedCategory([]);
 	};
 
+	const listFiltersClass = clsx(s.listFilters, className);
+
 	return (
-		<div className={s.listFilters}>
+		<div className={listFiltersClass}>
 			<div className={s.listFiltersItem}>
 				<p>Регион</p>
 				<Input placeholder='Введите' prefIcon='/images/icons/search.svg' />

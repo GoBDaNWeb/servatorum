@@ -2,7 +2,6 @@ import { FC, ReactNode, createContext, useContext, useEffect, useRef, useState }
 
 import clsx from 'clsx';
 
-// Удобная библиотека для объединения классов
 import s from './tabs.module.scss';
 
 const TabsContext = createContext<{

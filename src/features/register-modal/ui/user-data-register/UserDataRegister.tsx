@@ -1,14 +1,10 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Controller, FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
-import AirDatepicker from 'air-datepicker';
-
-import { useTypedSelector } from '@/shared/lib';
+import { useAirDatePicker, useTypedSelector } from '@/shared/lib';
 import { Button, Checkbox, FemaleIcon, Input, MaleIcon, Photo } from '@/shared/ui';
 
 import s from './user-data-register.module.scss';
-
-import 'air-datepicker/air-datepicker.css';
 
 interface IUserDataRegister {
 	nextStep: () => void;
@@ -16,7 +12,6 @@ interface IUserDataRegister {
 
 export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 	const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
-	const datepickerRef = useRef(null);
 
 	const {
 		registerInfo: { phone }
@@ -34,6 +29,8 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 			email: ''
 		}
 	});
+	const datepickerRef = useAirDatePicker({ setValue });
+
 	const onSubmit: SubmitHandler<FieldValues> = data => {
 		nextStep();
 		console.log(data);
@@ -42,21 +39,6 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep }) => {
 	const handleClearAddress = () => {
 		setValue('address', '');
 	};
-
-	useEffect(() => {
-		if (datepickerRef?.current) {
-			const datepicker = new AirDatepicker(datepickerRef.current, {
-				dateFormat: 'dd.MM.yyyy',
-				autoClose: true,
-				onSelect: data => {
-					setValue('date', data.formattedDate);
-				}
-			});
-			return () => {
-				datepicker.destroy();
-			};
-		}
-	}, []);
 
 	useEffect(() => {
 		const { unsubscribe } = watch(value => {

@@ -1,119 +1,115 @@
-.profileSettings {
-	form {
-		.dataBlock {
+.dataBlock {
+	display: grid;
+	grid-template-columns: 282px 1fr;
+	gap: 31px;
+	padding-top: 36px;
+	margin-top: 36px;
+	border-top: 1px solid var(--line-color);
+	&:first-child {
+		margin-top: 20px;
+	}
+	&.dataBlockBottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.titleBlock {
+		.title {
+			@include title_2_20_m;
+		}
+		.photoSelect {
+			margin-top: 20px;
+		}
+	}
+	.inputsBlock {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		.inputHintWrapper {
+			margin-bottom: 10px;
+			.success {
+				color: var(--green-color);
+				@include link_2_12_m;
+				margin-top: 10px;
+			}
+			.hint {
+				@include caption_2_12_r;
+				color: var(--txt-gray-color2);
+				margin-top: 4px;
+				margin-bottom: 10px;
+			}
+		}
+		.inputWrapper {
 			display: grid;
-			grid-template-columns: 282px 1fr;
-			gap: 31px;
-			padding-top: 36px;
-			margin-top: 36px;
-			border-top: 1px solid var(--line-color);
-			&:first-child {
-				margin-top: 20px;
-			}
-			&.dataBlockBottom {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-			.titleBlock {
-				.title {
-					@include title_2_20_m;
-				}
-				.photoSelect {
-					margin-top: 20px;
-				}
-			}
-			.inputsBlock {
-				display: flex;
-				flex-direction: column;
-				gap: 12px;
-				.inputHintWrapper {
-					margin-bottom: 10px;
-					.success {
-						color: var(--green-color);
-						@include link_2_12_m;
-						margin-top: 10px;
-					}
-					.hint {
-						@include caption_2_12_r;
-						color: var(--txt-gray-color2);
-						margin-top: 4px;
-						margin-bottom: 10px;
-					}
-				}
-				.inputWrapper {
-					display: grid;
-					grid-template-columns: 168px 1fr;
-					gap: 30px;
-					& > p {
-						font-weight: 400;
-						font-size: 14px;
-						line-height: 16px;
-						color: var(--txt-gray-color2);
-						margin-top: 16px;
-					}
-				}
-				.genderInput {
-					max-width: 260px;
-				}
-				.dateInput {
-					max-width: 160px;
-				}
-			}
-			.checkboxesBlock {
-				display: grid;
-				grid-template-columns: 168px 1fr;
-				gap: 30px;
-				& > p {
-					font-weight: 400;
-					font-size: 14px;
-					line-height: 16px;
-					color: var(--txt-gray-color2);
-				}
-				.checkboxesWrapper {
-					display: flex;
-					flex-direction: column;
-					gap: 8px;
-					label {
-						cursor: pointer;
-						display: flex;
-						align-items: center;
-						gap: 20px;
-						p {
-							@include text_1_16_r;
-						}
-					}
-				}
-			}
-			.chipsBlock {
-				.chipsList {
-					display: flex;
-					flex-wrap: wrap;
-					gap: 4px;
-					margin-bottom: 4px;
-				}
-			}
-			.resetBtn {
-				color: var(--purple-color);
-				display: flex;
-				align-items: center;
-				gap: 12px;
+			grid-template-columns: 168px 1fr;
+			gap: 30px;
+			& > p {
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 16px;
+				color: var(--txt-gray-color2);
 				margin-top: 16px;
-				svg {
-					width: 10px;
-					height: 10px;
-					path {
-						stroke: var(--purple-color);
-					}
+			}
+		}
+		.genderInput {
+			max-width: 260px;
+		}
+		.dateInput {
+			max-width: 160px;
+		}
+	}
+	.checkboxesBlock {
+		display: grid;
+		grid-template-columns: 168px 1fr;
+		gap: 30px;
+		& > p {
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 16px;
+			color: var(--txt-gray-color2);
+		}
+		.checkboxesWrapper {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			label {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				p {
+					@include text_1_16_r;
 				}
 			}
+		}
+	}
+	.chipsBlock {
+		.chipsList {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 4px;
+			margin-bottom: 4px;
+		}
+	}
+	.resetBtn {
+		color: var(--purple-color);
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-top: 16px;
+		svg {
+			width: 10px;
+			height: 10px;
+			path {
+				stroke: var(--purple-color);
+			}
+		}
+	}
 
-			.deleteBtn {
-				svg {
-					width: 10px;
-					height: 10px;
-				}
-			}
+	.deleteBtn {
+		svg {
+			width: 10px;
+			height: 10px;
 		}
 	}
 }

@@ -13,6 +13,7 @@ import { ProfileNews } from '@/pages/profile-news';
 import { ProfileNotifications } from '@/pages/profile-notifications';
 import { ProfileNotificationsEmpty } from '@/pages/profile-notifications-empty';
 import { ProfileSettings } from '@/pages/profile-settings';
+import { ProfileSubscriptions } from '@/pages/profile-subscriptions';
 
 import { PATH_PAGE } from '@/shared/config';
 
@@ -76,6 +77,10 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.profileNews,
 					element: <ProfileNews />
+				},
+				{
+					path: PATH_PAGE.profileSubscriptions,
+					element: <ProfileSubscriptions />
 				}
 			]
 		}

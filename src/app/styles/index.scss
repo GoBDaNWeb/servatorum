@@ -1,6 +1,6 @@
-@use './mixins';
-@use './variables';
-@use './global';
-@use './normalize';
+@import './mixins';
+@import './variables';
+@import './global';
+@import './normalize';
 // @use './picker.css';
-@use './swiper-bundle.min.scss';
+@import './swiper-bundle.min.scss';
