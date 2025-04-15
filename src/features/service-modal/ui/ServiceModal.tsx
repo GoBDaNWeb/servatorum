@@ -9,7 +9,6 @@ import { Swiper as SwiperType } from 'swiper/types';
 import { DonationInfo } from '@/features/donation-info';
 
 import { CollectingCard } from '@/entities/collecting-card';
-import { SponsorCard } from '@/entities/sponsor-card';
 
 import {
 	Badge,
@@ -17,7 +16,6 @@ import {
 	CloseIcon,
 	Fancybox,
 	Image,
-	LinkIcon,
 	Modal,
 	StarIcon,
 	Swiper,

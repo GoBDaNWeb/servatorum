@@ -1,18 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { ReviewCard } from '@/entities/review-card';
-import { SponsorCard } from '@/entities/sponsor-card';
 
-import {
-	Badge,
-	Button,
-	CheckIcon,
-	CirclePlusIcon,
-	DownOutlineArrowIcon,
-	Image,
-	StarIcon,
-	Tabs
-} from '@/shared/ui';
+import { Button, CirclePlusIcon, DownOutlineArrowIcon, Image, StarIcon } from '@/shared/ui';
 
 import { reviews } from '../../config';
 
