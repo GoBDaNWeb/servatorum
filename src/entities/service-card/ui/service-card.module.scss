@@ -1,0 +1,67 @@
+.serviceCard {
+	padding: 8px;
+	border-radius: 24px;
+	background: var(--white-color);
+	cursor: pointer;
+	.imageWrapper {
+		position: relative;
+		.badge {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			z-index: 2;
+		}
+		.image {
+			border-radius: 16px;
+			overflow: hidden;
+		}
+	}
+	.content {
+		margin-top: 18px;
+		padding: 0 12px 12px;
+		.top {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.price {
+				@include title_3_16_m;
+			}
+			.favorBtn {
+				&:hover {
+					path {
+						fill: var(--gold-color);
+					}
+				}
+				svg {
+					width: 17px;
+					height: 17px;
+				}
+			}
+		}
+		.title {
+			@include title_4_14_m;
+			margin-top: 8px;
+		}
+		.info {
+			margin-top: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.date {
+				color: var(--txt-gray-color2);
+				@include caption_2_12_r;
+			}
+			.rating {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+				@include caption_2_12_r;
+				svg {
+					path {
+						fill: var(--gold-color);
+					}
+				}
+			}
+		}
+	}
+}

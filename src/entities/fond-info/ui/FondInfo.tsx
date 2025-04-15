@@ -5,7 +5,7 @@ import { Button, LinkIcon, StarIcon } from '@/shared/ui';
 import s from './fond-info.module.scss';
 
 interface IFondInfo {
-	openSupportFondModal: () => void;
+	openSupportFondModal?: () => void;
 }
 
 export const FondInfo: FC<IFondInfo> = ({ openSupportFondModal }) => {
@@ -32,16 +32,18 @@ export const FondInfo: FC<IFondInfo> = ({ openSupportFondModal }) => {
 					Московская область, г. Селичи, ул. Дворовая, 18 стр.2
 				</p>
 			</div>
-			<div className={s.fondInfoBottom}>
-				<span>Пожертвований в фонд</span>
-				<p className={s.sum}>99 000 000 ₽</p>
-				<p className={s.descr}>
-					Вы можете помочь фонду оформив подписку или сделать единоразовый перевод
-				</p>
-				<Button variant='primary' className={s.supportBtn} onClick={openSupportFondModal}>
-					Поддержать фонд
-				</Button>
-			</div>
+			{openSupportFondModal ? (
+				<div className={s.fondInfoBottom}>
+					<span>Пожертвований в фонд</span>
+					<p className={s.sum}>99 000 000 ₽</p>
+					<p className={s.descr}>
+						Вы можете помочь фонду оформив подписку или сделать единоразовый перевод
+					</p>
+					<Button variant='primary' className={s.supportBtn} onClick={openSupportFondModal}>
+						Поддержать фонд
+					</Button>
+				</div>
+			) : null}
 		</div>
 	);
 };

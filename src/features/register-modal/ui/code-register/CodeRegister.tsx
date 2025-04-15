@@ -89,22 +89,6 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue }) => {
 						className={s.code}
 					/>
 				))}
-
-				{/* {[...Array(4)].map((_, index) => (
-					<Input
-						mask='0'
-						placeholder='_'
-						key={index}
-						ref={el => (inputRefs.current[index] = el)}
-						value={code[index]}
-						//@ts-ignore
-						onChange={val => handleChange(val, index)}
-						//@ts-ignore
-						onKeyDown={e => handleKeyDown(e, index)}
-						onFocus={() => handleFocus()}
-						className={s.code}
-					/>
-				))} */}
 			</div>
 			<Button onClick={handleResendCode} variant='primary' isDisabled={isButtonDisabled}>
 				{isButtonDisabled

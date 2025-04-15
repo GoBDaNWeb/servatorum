@@ -5,7 +5,8 @@ export type ModalName =
 	| 'donation'
 	| 'register'
 	| 'subscribe'
-	| 'support-fond';
+	| 'support-fond'
+	| 'service';
 export type ModalProps = {
 	title?: string;
 	data?: any;

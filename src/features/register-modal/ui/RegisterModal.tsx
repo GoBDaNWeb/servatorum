@@ -30,8 +30,6 @@ export const RegisterModal = () => {
 		setPhoneValue('');
 		setUserType('');
 		setUserDirection('');
-		console.log('userDirection', userDirection);
-		console.log('userType', userType);
 		setTimeout(() => {
 			setStep(0);
 		}, 300);

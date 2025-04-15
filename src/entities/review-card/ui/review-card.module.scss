@@ -1,0 +1,51 @@
+.reviewCard {
+	display: grid;
+	grid-template-columns: 145px 1fr;
+	gap: 30px;
+	padding: 24px;
+	border-radius: 12px;
+	border: 1px solid var(--line-color);
+	.infoBlock {
+		display: flex;
+		flex-direction: column;
+		img {
+			border-radius: 999px;
+			width: 40px;
+			height: 40px;
+			object-fit: cover;
+		}
+		.name {
+			margin-top: 8px;
+			@include title_5_12_m;
+		}
+		.rating {
+			margin-top: 4px;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			.icon {
+				&.active {
+					svg {
+						path {
+							fill: var(--gold-color);
+						}
+					}
+				}
+				svg {
+					width: 11px;
+					height: 11px;
+				}
+			}
+		}
+	}
+	.textBlock {
+		p {
+			font: 400px;
+			font-size: 16px;
+			line-height: 148%;
+		}
+		button {
+			margin-top: 12px;
+		}
+	}
+}

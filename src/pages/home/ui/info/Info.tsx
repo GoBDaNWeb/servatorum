@@ -18,8 +18,8 @@ import s from './info.module.scss';
 export const Info = () => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const [activeSlideIndex, setActiveSlideIndex] = useState<number>(1);
-	const prev = useRef<HTMLDivElement>(null);
-	const next = useRef<HTMLDivElement>(null);
+	const prev = useRef<HTMLButtonElement>(null);
+	const next = useRef<HTMLButtonElement>(null);
 
 	useEffect(() => {
 		if (swiper && prev.current && next.current) {
@@ -98,21 +98,13 @@ export const Info = () => {
 						</Swiper>
 					</div>
 					<div className={s.naviagtion}>
-						<Button
-							// @ts-ignore
-							ref={prev}
-							variant='circle'
-						>
+						<Button ref={prev} variant='circle'>
 							<img src='/images/icons/arrow-left.svg' alt='arrow' />
 						</Button>
 						<div className={s.pagination}>
 							<span>{activeSlideIndex}</span> / {swiper?.slides.length}
 						</div>
-						<Button
-							// @ts-ignore
-							ref={next}
-							variant='circle'
-						>
+						<Button ref={next} variant='circle'>
 							<img src='/images/icons/arrow-right.svg' alt='arrow' />
 						</Button>
 					</div>

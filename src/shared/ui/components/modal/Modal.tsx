@@ -26,13 +26,18 @@ export const Modal: FC<PropsWithChildren<IModal>> = forwardRef(
 	) => {
 		useLockedBody(isOpen);
 		const nodeRef = useRef<HTMLDivElement | null>(null);
-		const modalClass = clsx(s.modal, className, 'modal');
-		const modalContentWrapperClass = clsx(
-			s.modalContentWrapper,
-			contentWrapperClassName,
-			'modal-content-wrapper'
-		);
-		const modalContentClass = clsx(s.modalContent, contentClassName, 'modal-content');
+
+		const classes = {
+			modal: clsx(s.modal, className, 'modal'),
+			wrapper: clsx(s.modalContentWrapper, contentWrapperClassName, 'modal-content-wrapper'),
+			content: clsx(s.modalContent, contentClassName, 'modal-content')
+		};
+
+		const handleRef = (el: HTMLDivElement | null) => {
+			nodeRef.current = el;
+			if (typeof ref === 'function') ref(el);
+			else if (ref) ref.current = el;
+		};
 
 		return (
 			<Portal rootId='#modal'>
@@ -40,27 +45,13 @@ export const Modal: FC<PropsWithChildren<IModal>> = forwardRef(
 					classNames='modal'
 					unmountOnExit
 					in={isOpen}
-					timeout={{
-						exit: 300,
-						enter: 0
-					}}
+					timeout={{ exit: 300, enter: 0 }}
 					nodeRef={nodeRef}
 				>
-					<div
-						className={modalClass}
-						onClick={close}
-						ref={el => {
-							nodeRef.current = el; // Присваиваем ref элементу
-							if (typeof ref === 'function') {
-								ref(el); // Передаем ref в родительский компонент
-							} else if (ref) {
-								ref.current = el;
-							}
-						}}
-					>
-						<div className={modalContentWrapperClass} onClick={e => e.stopPropagation()}>
+					<div className={classes.modal} onClick={close} ref={handleRef}>
+						<div className={classes.wrapper} onClick={e => e.stopPropagation()}>
 							<div className={s.modalContentTop}>{contentTop}</div>
-							<div className={modalContentClass}>{children}</div>
+							<div className={classes.content}>{children}</div>
 						</div>
 					</div>
 				</CSSTransition>

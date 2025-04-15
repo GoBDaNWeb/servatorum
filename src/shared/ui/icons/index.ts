@@ -22,3 +22,5 @@ export { UserIcon } from './UserIcon';
 export { WalletIcon } from './WalletIcon';
 export { SupportIcon } from './SupportIcon';
 export { PlusIcon } from './PlusIcon';
+export { CirclePlusIcon } from './CirclePlusIcon';
+export { WebIcon } from './WebIcon';

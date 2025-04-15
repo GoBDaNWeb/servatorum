@@ -7,7 +7,7 @@ import s from './badge.module.scss';
 interface IBadge {
 	className?: string;
 	size?: 's' | 'm' | 'l' | 'xl' | 'xxl';
-	color?: 'gray' | 'white' | 'purple' | 'alert' | 'green';
+	color?: 'gray' | 'white' | 'purple' | 'alert' | 'green' | 'gold';
 	variant?: 'default' | 'alert' | 'outline';
 }
 
