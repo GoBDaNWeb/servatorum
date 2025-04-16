@@ -17,6 +17,7 @@ import { ProfileNotifications } from '@/pages/profile-notifications';
 import { ProfileNotificationsEmpty } from '@/pages/profile-notifications-empty';
 import { ProfileSettings } from '@/pages/profile-settings';
 import { ProfileSubscriptions } from '@/pages/profile-subscriptions';
+import { Services } from '@/pages/services';
 
 import { PATH_PAGE } from '@/shared/config';
 
@@ -32,6 +33,7 @@ export const Router = () => {
 			});
 		}, 0);
 	}, [location]);
+
 	return useRoutes([
 		{
 			element: <MainLayout />,
@@ -67,6 +69,10 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.navigation,
 					element: <Navigation />
+				},
+				{
+					path: PATH_PAGE.services,
+					element: <Services />
 				}
 			]
 		},

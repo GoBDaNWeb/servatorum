@@ -1,8 +1,14 @@
-import { Badge, Button, Image, StarIcon, useModal } from '@/shared/ui';
+import { FC } from 'react';
+
+import { Badge, Button, Image, LinkIcon, StarIcon, useModal } from '@/shared/ui';
 
 import s from './service-card.module.scss';
 
-export const ServiceCard = () => {
+interface IServiceCard {
+	hasAuthor?: boolean;
+}
+
+export const ServiceCard: FC<IServiceCard> = ({ hasAuthor }) => {
 	const { open } = useModal();
 
 	const handleOpenServiceModal = () => {
@@ -10,6 +16,27 @@ export const ServiceCard = () => {
 	};
 	return (
 		<div className={s.serviceCard} onClick={handleOpenServiceModal}>
+			{hasAuthor ? (
+				<div className={s.serviceCardTop}>
+					<div className={s.user}>
+						<Image className={s.image} src='/images/fond.jpg' alt='fond' isGradient />
+						<div className={s.userInfo}>
+							<p>Четыре лапы</p>
+							<span>00.00.0000</span>
+						</div>
+					</div>
+					<div className={s.features}>
+						<Button variant='clear'>
+							<LinkIcon />
+						</Button>
+
+						<Button variant='clear'>
+							<StarIcon />
+						</Button>
+					</div>
+				</div>
+			) : null}
+
 			<div className={s.imageWrapper}>
 				<Badge size='m' color='green' className={s.badge}>
 					Новая

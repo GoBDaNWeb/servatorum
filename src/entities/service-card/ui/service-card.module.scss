@@ -3,6 +3,49 @@
 	border-radius: 24px;
 	background: var(--white-color);
 	cursor: pointer;
+	.serviceCardTop {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 8px;
+		.user {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			.image {
+				width: 40px;
+				height: 40px;
+			}
+			.userInfo {
+				display: flex;
+				flex-direction: column;
+				p {
+					@include title_4_14_m;
+				}
+				span {
+					@include caption_2_12_r;
+					color: var(--txt-gray-color);
+				}
+			}
+		}
+		.features {
+			display: flex;
+			align-items: center;
+			gap: 18px;
+			button {
+				svg {
+					width: 17px;
+					height: 17px;
+				}
+				&:hover {
+					svg {
+						path {
+							fill: var(--purple-hover-color);
+						}
+					}
+				}
+			}
+		}
+	}
 	.imageWrapper {
 		position: relative;
 		.badge {

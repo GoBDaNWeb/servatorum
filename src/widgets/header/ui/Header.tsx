@@ -63,7 +63,7 @@ export const Header = () => {
 						<Button onClick={() => navigate(PATH_PAGE.fonds)} variant='outline' color='gray'>
 							Фонды
 						</Button>
-						<Button onClick={() => handleScroll('#directions')} variant='outline' color='gray'>
+						<Button onClick={() => navigate(PATH_PAGE.services)} variant='outline' color='gray'>
 							Услуги
 						</Button>
 					</nav>

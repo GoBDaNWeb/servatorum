@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import clsx from 'clsx';
-
 import { Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
-import s from './leave-review-modal.module.scss';
 import { ReviewForm } from './review-form';
 import { SuccessLeaveReview } from './succes-leave-review';
 
@@ -20,7 +17,9 @@ export const LeaveReviewModal = () => {
 	};
 
 	useEffect(() => {
-		setStep(0);
+		setTimeout(() => {
+			setStep(0);
+		}, 300);
 	}, [currentModal]);
 
 	const leaveReviewSteps = [
@@ -30,19 +29,14 @@ export const LeaveReviewModal = () => {
 
 	const contentTop = (
 		<>
-			<Button className={clsx(s.closeBtn, 'closeBtn')} onClick={close}>
+			<Button className={'closeBtn'} onClick={close}>
 				<CloseIcon />
 			</Button>
 		</>
 	);
 
 	return (
-		<Modal
-			close={close}
-			isOpen={isOpen('leave-modal')}
-			contentTop={contentTop}
-			className={s.leaveReviewModal}
-		>
+		<Modal close={close} isOpen={isOpen('leave-modal')} contentTop={contentTop}>
 			{leaveReviewSteps[step]}
 		</Modal>
 	);

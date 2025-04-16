@@ -11,6 +11,7 @@ export const PATH_PAGE = {
 	profileNotifications: '/profile/notifications',
 	profileNews: '/profile/news',
 	profileSubscriptions: '/profile/subscriptions',
+	services: '/services',
 
 	// TODO - временные страницы, потом удалить
 	navigation: '/navigation',
