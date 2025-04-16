@@ -2,7 +2,14 @@ import { useState } from 'react';
 
 import { ReviewCard } from '@/entities/review-card';
 
-import { Button, CirclePlusIcon, DownOutlineArrowIcon, Image, StarIcon } from '@/shared/ui';
+import {
+	Button,
+	CirclePlusIcon,
+	DownOutlineArrowIcon,
+	Image,
+	StarIcon,
+	useModal
+} from '@/shared/ui';
 
 import { reviews } from '../../config';
 
@@ -10,9 +17,17 @@ import s from './company-main-ifno.module.scss';
 
 export const CompanyMainInfo = () => {
 	const [reviewsList, setReviewsList] = useState(reviews.slice(0, 2));
+
+	const { open } = useModal();
+
 	const handleShowAllReviews = () => {
 		setReviewsList(reviews);
 	};
+
+	const handleOpenLeaveReviewModal = () => {
+		open('leave-modal');
+	};
+
 	return (
 		<div className={s.companyMainInfo}>
 			<div className={s.companyMainInfoContent}>
@@ -57,7 +72,7 @@ export const CompanyMainInfo = () => {
 			<div className={s.reviews}>
 				<div className={s.top}>
 					<p className={s.title}>Отзывы (12)</p>
-					<Button variant='primary'>
+					<Button variant='primary' onClick={handleOpenLeaveReviewModal}>
 						<CirclePlusIcon />
 						Добавить отзыв
 					</Button>

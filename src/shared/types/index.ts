@@ -6,7 +6,8 @@ export type ModalName =
 	| 'register'
 	| 'subscribe'
 	| 'support-fond'
-	| 'service';
+	| 'service'
+	| 'leave-modal';
 export type ModalProps = {
 	title?: string;
 	data?: any;

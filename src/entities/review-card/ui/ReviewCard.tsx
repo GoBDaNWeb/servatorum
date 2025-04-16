@@ -14,13 +14,8 @@ interface IReviewCard {
 }
 
 export const ReviewCard: FC<IReviewCard> = ({ img, name, rating, text }) => {
-	const [isLoadText, setLoadText] = useState(false);
-	const [visibleText, setVisibletext] = useState(text.slice(0, 400));
-
-	const handleShowText = () => {
-		setVisibletext(text);
-		setLoadText(true);
-	};
+	const [isExpanded, setIsExpanded] = useState(false);
+	const isLongText = text.length > 400;
 
 	return (
 		<div className={s.reviewCard}>
@@ -28,26 +23,21 @@ export const ReviewCard: FC<IReviewCard> = ({ img, name, rating, text }) => {
 				<img src={img} alt='review' />
 				<p className={s.name}>{name}</p>
 				<div className={s.rating}>
-					{[...new Array(5)].map((_, index) => {
-						const iconClass = clsx(s.icon, {
-							[s.active]: index < rating
-						});
-						return (
-							<div className={iconClass}>
-								<StarIcon key={index} />
-							</div>
-						);
-					})}
+					{[...new Array(5)].map((_, index) => (
+						<div className={clsx(s.icon, { [s.active]: index < rating })} key={index}>
+							<StarIcon />
+						</div>
+					))}
 				</div>
 			</div>
 			<div className={s.textBlock}>
-				{text.length > 400 && !isLoadText ? `${visibleText}...` : text}
-				{text.length > 400 && !isLoadText ? (
-					<Button variant='text' color='purple' onClick={handleShowText}>
+				{isLongText && !isExpanded ? `${text.slice(0, 400)}...` : text}
+				{isLongText && !isExpanded && (
+					<Button variant='text' color='purple' onClick={() => setIsExpanded(true)}>
 						Читать весь отзыв
 						<DownOutlineArrowIcon />
 					</Button>
-				) : null}
+				)}
 			</div>
 		</div>
 	);

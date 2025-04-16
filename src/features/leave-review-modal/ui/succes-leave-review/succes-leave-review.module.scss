@@ -1,0 +1,19 @@
+.successLeaveReview {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.title {
+		margin-top: 32px;
+		@include title_2_20_m;
+	}
+	.descr {
+		margin-top: 8px;
+		@include text_2_14_r;
+	}
+	button {
+		width: 100%;
+		justify-content: center;
+		margin-top: 40px;
+	}
+}

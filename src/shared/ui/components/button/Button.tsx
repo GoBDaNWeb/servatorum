@@ -37,6 +37,7 @@ interface IButton {
 	href?: string;
 	className?: string;
 	onClick?: () => void;
+	onMouseEnter?: () => void;
 	isDisabled?: boolean;
 	type?: 'button' | 'submit';
 }
@@ -53,6 +54,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 			href,
 			className,
 			onClick,
+			onMouseEnter,
 			isDisabled = false,
 			type = 'button'
 		},
@@ -76,6 +78,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 				className={buttonClass}
 				ref={ref as Ref<HTMLButtonElement>}
 				onClick={onClick}
+				onMouseEnter={onMouseEnter}
 				type={type}
 			>
 				{children}

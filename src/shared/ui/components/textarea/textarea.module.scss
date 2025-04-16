@@ -1,0 +1,10 @@
+.textarea {
+	background: var(--gray-color);
+	border-radius: 16px;
+	padding: 24px;
+	@include text_1_16_r;
+	resize: none;
+	border: none;
+	outline: none;
+	width: 100%;
+}
