@@ -1,0 +1,1 @@
+export { SuccessAddCard } from './SuccessAddCard';

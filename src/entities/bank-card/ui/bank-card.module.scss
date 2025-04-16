@@ -1,0 +1,56 @@
+.bankCard {
+	border: 1px solid var(--line-color);
+	border-radius: 12px;
+	padding: 30px;
+	position: relative;
+	height: 215px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	.deleteCard {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		width: 28px;
+		height: 28px;
+		padding: 0;
+		border-radius: 8px;
+		svg {
+			width: 8px;
+			height: 8px;
+		}
+	}
+	.top {
+		.titleWrapper {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			.icon {
+				width: 48px;
+				height: 48px;
+				background: var(--gray-color);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 999px;
+			}
+			.title {
+				@include title_2_20_m;
+			}
+		}
+	}
+	.bottom {
+		display: flex;
+		justify-content: space-between;
+		.addBtn {
+			padding: 0 63px;
+		}
+		.mainCard {
+			@include caption_2_12_r;
+			color: var(--txt-gray-color2);
+		}
+		.number {
+			@include text_1_16_r;
+		}
+	}
+}

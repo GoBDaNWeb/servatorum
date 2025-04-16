@@ -1,0 +1,57 @@
+.cardForm {
+	.title {
+		@include headline_32_m;
+	}
+	.inputs {
+		margin-top: 28px;
+		.row {
+			margin-top: 16px;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 30px;
+		}
+	}
+	.descr {
+		margin-top: 16px;
+		color: var(--txt-gray-color2);
+		@include caption_2_12_r;
+	}
+	.saveCard {
+		margin-top: 16px;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		.title {
+			@include text_1_16_r;
+		}
+		.descr {
+			margin-top: 4px;
+		}
+	}
+	.policyWrapper {
+		margin-top: 28px;
+		.price {
+			@include title_2_20_m;
+		}
+		.policy {
+			margin-top: 4px;
+			@include text_2_14_r;
+			a {
+				color: var(--purple-color);
+			}
+		}
+	}
+	.submitBtn {
+		margin-top: 28px;
+		width: 100%;
+		justify-content: center;
+	}
+	.btns {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		button {
+			width: 100%;
+		}
+	}
+}

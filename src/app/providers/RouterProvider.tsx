@@ -11,6 +11,7 @@ import { Fond } from '@/pages/fond/ui/Fond';
 import { Fonds } from '@/pages/fonds';
 import { Home } from '@/pages/home';
 import { Navigation } from '@/pages/navigation';
+import { ProfileCards } from '@/pages/profile-cards';
 import { ProfileFavourites } from '@/pages/profile-favourites';
 import { ProfileFavouritesEmpty } from '@/pages/profile-favourites-empty';
 import { ProfileHistory } from '@/pages/profile-history';
@@ -117,6 +118,10 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.profileHistory,
 					element: <ProfileHistory />
+				},
+				{
+					path: PATH_PAGE.profileCards,
+					element: <ProfileCards />
 				}
 			]
 		}

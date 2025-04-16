@@ -8,7 +8,9 @@ export type ModalName =
 	| 'support-fond'
 	| 'service'
 	| 'leave-review'
-	| 'change-subscribe';
+	| 'change-subscribe'
+	| 'delete-card'
+	| 'new-card';
 export type ModalProps = {
 	title?: string;
 	data?: any;

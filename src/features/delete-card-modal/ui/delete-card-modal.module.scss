@@ -1,0 +1,29 @@
+.deleteCardModal {
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		padding-top: 33px;
+		.text {
+			.title {
+				@include title_2_20_m;
+				text-align: center;
+			}
+			.descr {
+				margin-top: 12px;
+				@include text_2_14_r;
+				text-align: center;
+			}
+		}
+		.btns {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			margin-top: 36px;
+			button {
+				width: 100%;
+			}
+		}
+	}
+}
