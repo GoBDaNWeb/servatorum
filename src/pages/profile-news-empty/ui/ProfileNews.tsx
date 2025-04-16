@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
+import { ProfileEmpty } from '@/widgets/profile-empty/ui/ProfileEmpty';
 import { ProfileWrapper } from '@/widgets/profile-wrapper';
 
-import { Button, NewsIcon, Tab, TabList, TabPanel, Tabs } from '@/shared/ui';
+import { NewsIcon, Tab, TabList, TabPanel, Tabs } from '@/shared/ui';
 
 import { crumbs } from '../config';
 
@@ -10,6 +11,7 @@ import s from './profile-news.module.scss';
 
 export const ProfileNewsEmpty = () => {
 	const [activeTab, setActiveTab] = useState(0);
+
 	return (
 		<ProfileWrapper crumbs={crumbs} title={'Новости'} className={s.profileNews}>
 			<Tabs className={s.tabsContent} value={activeTab} onChange={setActiveTab}>
@@ -20,30 +22,21 @@ export const ProfileNewsEmpty = () => {
 					</TabList>
 				</div>
 				<div className={s.tabPannelWrapper}>
-					{/* <ListFilters className={s.profileFilters} /> */}
 					<TabPanel index={0} className={s.tabPanel}>
-						<div className={s.blockWrapperAlert}>
-							<div className={s.icon}>
-								<NewsIcon />
-							</div>
-							<p className={s.title}>Пока ничего нет</p>
-							<p className={s.descr}>У вас нет подписок на новости</p>
-							<Button variant='primary' size='s'>
-								Подписаться
-							</Button>
-						</div>
+						<ProfileEmpty
+							icon={<NewsIcon />}
+							title='Пока ничего нет'
+							descr='У вас нет подписок на новости'
+							btnText='Подписаться'
+						/>
 					</TabPanel>
 					<TabPanel index={1} className={s.tabPanel}>
-						<div className={s.blockWrapperAlert}>
-							<div className={s.icon}>
-								<NewsIcon />
-							</div>
-							<p className={s.title}>Пока ничего нет</p>
-							<p className={s.descr}>У вас нет подписок на новости</p>
-							<Button variant='primary' size='s'>
-								Подписаться
-							</Button>
-						</div>
+						<ProfileEmpty
+							icon={<NewsIcon />}
+							title='Пока ничего нет'
+							descr='У вас нет подписок на новости'
+							btnText='Подписаться'
+						/>
 					</TabPanel>
 				</div>
 			</Tabs>

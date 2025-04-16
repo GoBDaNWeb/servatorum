@@ -33,6 +33,7 @@ interface ICollectingCard {
 	donationInfo?: ReactElement;
 	openDonationModal?: () => void;
 	type?: 'row' | 'default';
+	isFavourites?: boolean;
 }
 
 export const CollectingCard: FC<ICollectingCard> = ({
@@ -53,7 +54,8 @@ export const CollectingCard: FC<ICollectingCard> = ({
 	buttonText = 'Помочь',
 	donationInfo,
 	openDonationModal,
-	type = 'default'
+	type = 'default',
+	isFavourites
 }) => {
 	const [swiper, setSwiper] = useState<SwiperType>();
 	const pagination = useRef<HTMLDivElement>(null);
@@ -71,18 +73,24 @@ export const CollectingCard: FC<ICollectingCard> = ({
 		}
 	}, [swiper]);
 
-	const collectingCardClass = clsx(
-		s.collectingCard,
-		'collection-card',
-		type,
-		s[size],
-		s[type],
-		className
-	);
-	const badgeClass = clsx(s.badge, s[badgeColor]);
+	const classes = {
+		collectingCardClass: clsx(
+			s.collectingCard,
+			'collection-card',
+			type,
+			s[size],
+			s[type],
+			className
+		),
+		badgeClass: clsx(s.badge, s[badgeColor]),
+		swiperClass: clsx(s.collectingSwiper, 'collection-swiper'),
+		favorButtonClass: clsx(s.favorButton, {
+			[s.favor]: isFavourites
+		})
+	};
 
 	return (
-		<div className={collectingCardClass} onMouseLeave={() => handleSetActiveSlide(0)}>
+		<div className={classes.collectingCardClass} onMouseLeave={() => handleSetActiveSlide(0)}>
 			{userImg && userName ? (
 				<div className={s.collectingCardTop}>
 					<div className={s.user}>
@@ -99,7 +107,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							</Button>
 						) : null}
 
-						<Button variant='clear'>
+						<Button variant='clear' className={classes.favorButtonClass}>
 							<StarIcon />
 						</Button>
 					</div>
@@ -108,7 +116,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 
 			<div className={s.collectingCardCenter}>
 				<div className={s.collectingCardCenterInfo}>
-					<Badge className={badgeClass}>{badge}</Badge>
+					<Badge className={classes.badgeClass}>{badge}</Badge>
 					{isPopular ? (
 						<Badge color='green' size='m' className={s.popular}>
 							Популярный сбор
@@ -129,7 +137,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							el: pagination.current,
 							clickable: true
 						}}
-						className='collection-swiper'
+						className={classes.swiperClass}
 					>
 						{imgs.map((img, index) => (
 							<SwiperSlide key={index} className={s.slide}>

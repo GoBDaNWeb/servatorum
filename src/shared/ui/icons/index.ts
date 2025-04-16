@@ -24,3 +24,5 @@ export { SupportIcon } from './SupportIcon';
 export { PlusIcon } from './PlusIcon';
 export { CirclePlusIcon } from './CirclePlusIcon';
 export { WebIcon } from './WebIcon';
+export { AlbumIcon } from './AlbumIcon';
+export { HomeIcon } from './HomeIcon';

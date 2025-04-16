@@ -14,6 +14,7 @@ interface IFondCardAlert {
 	badges: string[];
 	img: string;
 	href: string;
+	isFavourites?: boolean;
 }
 
 export const FondCard: FC<IFondCardAlert> = ({
@@ -22,12 +23,18 @@ export const FondCard: FC<IFondCardAlert> = ({
 	badges,
 	img,
 	className,
-	href
+	href,
+	isFavourites
 }) => {
-	const fondCardClass = clsx(s.fondCard, className);
+	const classes = {
+		fondCardClass: clsx(s.fondCard, className),
+		favorButtonClass: clsx(s.favorButton, {
+			[s.favor]: isFavourites
+		})
+	};
 
 	return (
-		<NavLink to={href} className={fondCardClass}>
+		<NavLink to={href} className={classes.fondCardClass}>
 			<img src={img} alt='fond' />
 			<div className={s.fondCardContent}>
 				<div className={s.fondCardTop}>
@@ -37,7 +44,7 @@ export const FondCard: FC<IFondCardAlert> = ({
 							{statusBadge}
 						</Badge>
 					</div>
-					<Button variant='clear' className={s.favorButton}>
+					<Button variant='clear' className={classes.favorButtonClass}>
 						<StarIcon />
 					</Button>
 				</div>

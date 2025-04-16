@@ -14,5 +14,7 @@ export const routes = [
 	{ title: 'Профиль - Уведомления', href: PATH_PAGE.profileNotifications },
 	{ title: 'Профиль - Уведомления (пустые)', href: PATH_PAGE.profileNotificationsEmpty },
 	{ title: 'Профиль - Новости', href: PATH_PAGE.profileNews },
-	{ title: 'Профиль - Новости (пустые)', href: PATH_PAGE.profileNewsEmpty }
+	{ title: 'Профиль - Новости (пустые)', href: PATH_PAGE.profileNewsEmpty },
+	{ title: 'Профиль - Избранное', href: PATH_PAGE.profileFavourites },
+	{ title: 'Профиль - Избранное (пустые)', href: PATH_PAGE.profileFavouritesEmpty }
 ];

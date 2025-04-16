@@ -27,7 +27,7 @@ const links = [
 	{ href: PATH_PAGE.profileNotifications, icon: <NotificationIcon />, title: 'Уведомления' },
 	{ href: PATH_PAGE.profileNews, icon: <NewsIcon />, title: 'Новости' },
 	{ href: PATH_PAGE.home, icon: <WalletIcon />, title: 'Подписки', count: '96' },
-	{ href: PATH_PAGE.home, icon: <RatingIcon />, title: 'Избранное', count: '43' },
+	{ href: PATH_PAGE.profileFavourites, icon: <RatingIcon />, title: 'Избранное', count: '43' },
 	{ href: PATH_PAGE.home, icon: <PieIcon />, title: 'История пожертвований', count: '5' },
 	{ href: PATH_PAGE.home, icon: <ClockIcon />, title: 'История заказов', count: '128' },
 	{ href: PATH_PAGE.home, icon: <CardIcon />, title: 'Мои карты', count: '4' },

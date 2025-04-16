@@ -1,0 +1,53 @@
+.profileFavourites {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	.tabsContent {
+		margin-top: 20px;
+		height: 100%;
+
+		.tabWrapper {
+			max-width: 343px;
+		}
+	}
+
+	.tabPannelWrapper {
+		margin-top: 20px;
+		height: 100%;
+
+		.profileFilters {
+			box-shadow: none;
+			padding: 0;
+		}
+		.tabPanel {
+			width: 100%;
+			height: 100%;
+
+			.sortWrapper {
+				display: flex;
+				gap: 20px;
+				align-items: center;
+				margin-bottom: 20px;
+				& > p {
+					@include text_2_14_r;
+					color: var(--txt-gray-color2);
+				}
+				.sortList {
+					display: flex;
+					align-items: center;
+					gap: 4px;
+				}
+			}
+			.list {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				.fond {
+					padding: 20px;
+					border: 1px solid var(--line-color);
+					border-radius: 24px;
+				}
+			}
+		}
+	}
+}

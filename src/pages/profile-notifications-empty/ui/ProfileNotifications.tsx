@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { ProfileEmpty } from '@/widgets/profile-empty';
+
 import { NotificationCard } from '@/entities/notification-card';
 
 import { Crumbs, NotificationIcon, Pagination } from '@/shared/ui';
@@ -31,13 +33,11 @@ export const ProfileNotificationsEmpty = () => {
 						))}
 					</div>
 				) : (
-					<div className={s.notificationsAlert}>
-						<div className={s.icon}>
-							<NotificationIcon />
-						</div>
-						<p className={s.title}>Пока ничего нет</p>
-						<p className={s.descr}>Тут буду храниться важные уведомления</p>
-					</div>
+					<ProfileEmpty
+						icon={<NotificationIcon />}
+						title='Пока ничего нет'
+						descr='Тут буду храниться важные уведомления'
+					/>
 				)}
 			</div>
 			{notifications.length ? (

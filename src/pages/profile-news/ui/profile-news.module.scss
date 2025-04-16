@@ -1,6 +1,10 @@
 .profileNews {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 	.tabsContent {
 		margin-top: 20px;
+		height: 100%;
 		.tabWrapper {
 			max-width: 343px;
 		}

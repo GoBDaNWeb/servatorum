@@ -11,6 +11,8 @@ import { Fond } from '@/pages/fond/ui/Fond';
 import { Fonds } from '@/pages/fonds';
 import { Home } from '@/pages/home';
 import { Navigation } from '@/pages/navigation';
+import { ProfileFavourites } from '@/pages/profile-favourites';
+import { ProfileFavouritesEmpty } from '@/pages/profile-favourites-empty';
 import { ProfileNews } from '@/pages/profile-news';
 import { ProfileNewsEmpty } from '@/pages/profile-news-empty';
 import { ProfileNotifications } from '@/pages/profile-notifications';
@@ -102,6 +104,14 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.profileSubscriptions,
 					element: <ProfileSubscriptions />
+				},
+				{
+					path: PATH_PAGE.profileFavourites,
+					element: <ProfileFavourites />
+				},
+				{
+					path: PATH_PAGE.profileFavouritesEmpty,
+					element: <ProfileFavouritesEmpty />
 				}
 			]
 		}

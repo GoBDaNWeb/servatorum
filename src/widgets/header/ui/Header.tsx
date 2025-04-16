@@ -7,7 +7,6 @@ import clsx from 'clsx';
 import { setOpenMenu } from '@/entities/mobile-menu';
 
 import { PATH_PAGE } from '@/shared/config';
-import { handleScroll } from '@/shared/lib';
 import { Button, Input, Logo, useModal } from '@/shared/ui';
 
 import s from './header.module.scss';
@@ -45,14 +44,16 @@ export const Header = () => {
 		}
 	}, []);
 
-	const headerClass = clsx(s.header, {
-		[s.active]: active
-	});
-	const headerInnerClass = clsx(s.headerInner, 'container');
+	const classes = {
+		headerClass: clsx(s.header, {
+			[s.active]: active
+		}),
+		headerInnerClass: clsx(s.headerInner, 'container')
+	};
 
 	return (
-		<header className={headerClass} id='header'>
-			<div className={headerInnerClass}>
+		<header className={classes.headerClass} id='header'>
+			<div className={classes.headerInnerClass}>
 				<Logo />
 				<div className={s.headerFeature}>
 					<Input placeholder='Поиск' prefIcon='/images/icons/search.svg' />

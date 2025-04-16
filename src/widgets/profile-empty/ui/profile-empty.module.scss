@@ -1,0 +1,37 @@
+.profileEmpty {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	.icon {
+		width: 56px;
+		height: 56px;
+		border-radius: 999px;
+		background: var(--gray-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			width: 24px;
+			height: 24px;
+			path {
+				fill: var(--purple-color);
+			}
+		}
+	}
+	.title {
+		margin-top: 16px;
+		@include title_3_16_m;
+		text-align: center;
+	}
+	.descr {
+		margin-top: 4px;
+		@include text_2_14_r;
+		color: var(--txt-gray-color2);
+		margin-bottom: 16px;
+	}
+	button {
+		padding: 0 48px !important;
+	}
+}

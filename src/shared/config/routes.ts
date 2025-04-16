@@ -6,15 +6,17 @@ export const PATH_PAGE = {
 	fond: '/fond/:id',
 	fondNews: '/fond/:id/news',
 	company: '/company/:id',
+	services: '/services',
 	profile: '/profile',
 	profileSettings: '/profile',
 	profileNotifications: '/profile/notifications',
 	profileNews: '/profile/news',
 	profileSubscriptions: '/profile/subscriptions',
-	services: '/services',
+	profileFavourites: '/profile/favourites',
 
 	// TODO - временные страницы, потом удалить
 	navigation: '/navigation',
 	profileNotificationsEmpty: '/profile/notifications-empty',
-	profileNewsEmpty: '/profile/news-empty'
+	profileNewsEmpty: '/profile/news-empty',
+	profileFavouritesEmpty: '/profile/favourites-empty'
 };
