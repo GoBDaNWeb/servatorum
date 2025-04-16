@@ -1,0 +1,97 @@
+.profileHistory {
+	.sort {
+		margin-top: 20px;
+	}
+	.expensesWrapper {
+		background: var(--purple-back-color);
+		border-radius: 16px;
+		padding: 16px;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		.icon {
+			width: 40px;
+			height: 40px;
+			border-radius: 999px;
+			background: var(--purple-color);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			svg {
+				width: 24px;
+				height: 24px;
+				path {
+					fill: var(--white-color);
+				}
+			}
+		}
+		.title {
+			@include title_3_16_m;
+			span {
+				color: var(--purple-color);
+				@include title_2_20_m;
+			}
+		}
+	}
+	.list {
+		margin-top: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 36px;
+		.row {
+			display: grid;
+			grid-template-columns: 170px 1fr;
+			gap: 30px;
+			.dateBlock {
+				p {
+					@include text_2_14_r;
+					color: var(--txt-gray-color2);
+				}
+			}
+			.fondsList {
+				display: flex;
+				flex-direction: column;
+				.historyCard {
+					padding: 16px 0;
+					gap: 20px;
+					display: grid;
+					grid-template-columns: 209px 258px 128px 85px;
+					&:first-child {
+						padding-top: 0;
+						border-bottom: 1px solid var(--line-color);
+					}
+					// &:last-child {
+					// 	padding-bottom: 0;
+					// }
+					.author {
+						display: flex;
+						align-items: center;
+						gap: 16px;
+						.image {
+							min-width: 40px;
+							min-height: 40px;
+							max-width: 40px;
+							max-height: 40px;
+							border-radius: 999px;
+						}
+						.title {
+							@include link_14_m;
+						}
+					}
+					.descr {
+						@include text_2_14_r;
+					}
+					.card {
+						color: var(--txt-gray-color2);
+						@include button_2_14_r;
+					}
+					.sum {
+						text-align: right;
+						@include title_4_14_m;
+						color: var(--danger-color);
+					}
+				}
+			}
+		}
+	}
+}

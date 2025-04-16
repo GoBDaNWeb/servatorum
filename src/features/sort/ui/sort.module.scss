@@ -1,0 +1,15 @@
+.sortWrapper {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	margin-bottom: 20px;
+	& > p {
+		@include text_2_14_r;
+		color: var(--txt-gray-color2);
+	}
+	.sortList {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+}

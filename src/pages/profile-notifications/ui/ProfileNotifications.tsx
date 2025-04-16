@@ -1,3 +1,4 @@
+import { ProfileEmpty } from '@/widgets/profile-empty';
 import { ProfileWrapper } from '@/widgets/profile-wrapper';
 
 import { NotificationCard } from '@/entities/notification-card';
@@ -29,13 +30,11 @@ export const ProfileNotifications = () => {
 					))}
 				</div>
 			) : (
-				<div className={s.notificationsAlert}>
-					<div className={s.icon}>
-						<NotificationIcon />
-					</div>
-					<p className={s.title}>Пока ничего нет</p>
-					<p className={s.text}>Тут буду храниться важные уведомления</p>
-				</div>
+				<ProfileEmpty
+					icon={<NotificationIcon />}
+					title='Пока ничего нет'
+					descr='Тут буду храниться важные уведомления'
+				/>
 			)}
 		</ProfileWrapper>
 	);

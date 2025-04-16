@@ -13,10 +13,12 @@ export const PATH_PAGE = {
 	profileNews: '/profile/news',
 	profileSubscriptions: '/profile/subscriptions',
 	profileFavourites: '/profile/favourites',
+	profileHistory: '/profile/history',
 
 	// TODO - временные страницы, потом удалить
 	navigation: '/navigation',
 	profileNotificationsEmpty: '/profile/notifications-empty',
 	profileNewsEmpty: '/profile/news-empty',
-	profileFavouritesEmpty: '/profile/favourites-empty'
+	profileFavouritesEmpty: '/profile/favourites-empty',
+	profileHistoryEmpty: '/profile/history-empty'
 };

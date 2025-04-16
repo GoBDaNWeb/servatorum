@@ -13,6 +13,7 @@ import { Home } from '@/pages/home';
 import { Navigation } from '@/pages/navigation';
 import { ProfileFavourites } from '@/pages/profile-favourites';
 import { ProfileFavouritesEmpty } from '@/pages/profile-favourites-empty';
+import { ProfileHistory } from '@/pages/profile-history';
 import { ProfileNews } from '@/pages/profile-news';
 import { ProfileNewsEmpty } from '@/pages/profile-news-empty';
 import { ProfileNotifications } from '@/pages/profile-notifications';
@@ -112,6 +113,10 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.profileFavouritesEmpty,
 					element: <ProfileFavouritesEmpty />
+				},
+				{
+					path: PATH_PAGE.profileHistory,
+					element: <ProfileHistory />
 				}
 			]
 		}

@@ -3,13 +3,14 @@ import { useState } from 'react';
 import { ProfileWrapper } from '@/widgets/profile-wrapper';
 
 import { DonationInfo } from '@/features/donation-info';
+import { Sort } from '@/features/sort';
 
 import { CollectingCard } from '@/entities/collecting-card';
 import { FondCard } from '@/entities/fond-card';
 
 import { PATH_PAGE } from '@/shared/config';
 import { cropLink } from '@/shared/lib';
-import { Chip, Tab, TabList, TabPanel, Tabs, useModal } from '@/shared/ui';
+import { Tab, TabList, TabPanel, Tabs, useModal } from '@/shared/ui';
 
 import { badges, crumbs, sortList } from '../config';
 
@@ -36,23 +37,11 @@ export const ProfileFavourites = () => {
 				</div>
 				<div className={s.tabPannelWrapper}>
 					<TabPanel index={0} className={s.tabPanel}>
-						<div className={s.sortWrapper}>
-							<p>Сортировать:</p>
-							<div className={s.sortList}>
-								{sortList.map(chip => (
-									<Chip
-										type='radio'
-										name='sort'
-										value={chip}
-										checked={selectedSort === chip}
-										onChange={setSelectedSort}
-										size='s'
-									>
-										{chip}
-									</Chip>
-								))}
-							</div>
-						</div>
+						<Sort
+							sortList={sortList}
+							selectedSort={selectedSort}
+							setSelectedSort={setSelectedSort}
+						/>
 						<div className={s.list}>
 							{[...new Array(3)].map((_, index) => (
 								//TODO: убрать key={index} когда будет апи

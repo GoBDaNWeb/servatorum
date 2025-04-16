@@ -7,14 +7,13 @@ import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 import { MobileMenu } from '@/widgets/mobile-menu';
 import { Modals } from '@/widgets/modals';
-import { ProfileSidebar } from '@/widgets/profile-sidebar';
 
 import { PATH_PAGE } from '@/shared/config';
 import { BackOutlineArrow, Button } from '@/shared/ui';
 
-import s from './profile-layout.module.scss';
+import s from './main-layout.module.scss';
 
-export const ProfileLayout = () => {
+export const MainLayout = () => {
 	const [hidden, setHidden] = useState(false);
 	const navigate = useNavigate();
 
@@ -25,17 +24,11 @@ export const ProfileLayout = () => {
 	const hiddenBtnClass = clsx(s.navLink, {
 		[s.hidden]: hidden
 	});
-
 	return (
 		<>
 			<Header />
 			<MobileMenu />
-			<main className={s.profilePage}>
-				<div className={clsx(s.profile, 'container')}>
-					<Outlet />
-					<ProfileSidebar />
-				</div>
-			</main>
+			<Outlet />
 			<div className={hiddenBtnClass}>
 				<Button variant='clear' onClick={handleHiddenBtn} className={s.openBtn}>
 					<BackOutlineArrow />
@@ -50,7 +43,6 @@ export const ProfileLayout = () => {
 					</Button>
 				</div>
 			</div>
-
 			<Footer />
 			<Modals />
 		</>

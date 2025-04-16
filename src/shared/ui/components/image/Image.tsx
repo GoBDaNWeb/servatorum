@@ -14,7 +14,7 @@ interface IImage {
 }
 
 export const Image: FC<IImage> = ({
-	paddingBottom = '100%',
+	paddingBottom = '0',
 	src,
 	alt,
 	className,

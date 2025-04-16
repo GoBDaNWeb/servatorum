@@ -9,5 +9,11 @@
 	}
 	.swiper-wrapper {
 		position: absolute;
+		.swiper-slide {
+			opacity: 0;
+			&.swiper-slide-active {
+				opacity: 1;
+			}
+		}
 	}
 }

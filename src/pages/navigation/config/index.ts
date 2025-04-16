@@ -16,5 +16,7 @@ export const routes = [
 	{ title: 'Профиль - Новости', href: PATH_PAGE.profileNews },
 	{ title: 'Профиль - Новости (пустые)', href: PATH_PAGE.profileNewsEmpty },
 	{ title: 'Профиль - Избранное', href: PATH_PAGE.profileFavourites },
-	{ title: 'Профиль - Избранное (пустые)', href: PATH_PAGE.profileFavouritesEmpty }
+	{ title: 'Профиль - Избранное (пустые)', href: PATH_PAGE.profileFavouritesEmpty },
+	{ title: 'Профиль - История пожертвований', href: PATH_PAGE.profileHistory },
+	{ title: 'Профиль - Подписки', href: PATH_PAGE.profileSubscriptions }
 ];
