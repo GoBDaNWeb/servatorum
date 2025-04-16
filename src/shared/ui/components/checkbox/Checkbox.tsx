@@ -14,6 +14,7 @@ interface ICheckbox {
 	title?: string;
 	onChange?: () => void;
 	children?: ReactNode;
+	isChecked?: boolean;
 }
 
 export const Checkbox: FC<ICheckbox> = ({
@@ -25,7 +26,8 @@ export const Checkbox: FC<ICheckbox> = ({
 	icon1,
 	icon2,
 	title,
-	children
+	children,
+	isChecked
 }) => {
 	const [currentSelectCheckbox, setCurrentSelectChecbox] = useState(0);
 
@@ -65,7 +67,7 @@ export const Checkbox: FC<ICheckbox> = ({
 					<p>{children}</p>
 				</label>
 			) : (
-				<input className={s.defaultCheckbox} type='checkbox' name={name} />
+				<input className={s.defaultCheckbox} checked={isChecked} type='checkbox' name={name} />
 			)}
 		</>
 	);

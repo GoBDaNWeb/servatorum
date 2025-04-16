@@ -14,6 +14,7 @@ import { BackOutlineArrow, Button } from '@/shared/ui';
 import s from './main-layout.module.scss';
 
 export const MainLayout = () => {
+	// TODO: временная кнопка удалить потом
 	const [hidden, setHidden] = useState(false);
 	const navigate = useNavigate();
 

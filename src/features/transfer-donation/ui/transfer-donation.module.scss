@@ -1,0 +1,89 @@
+.transferDonation {
+	width: 100%;
+	.title {
+		@include headline_32_m;
+	}
+	.user {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 28px;
+
+		.image {
+			width: 40px;
+			height: 40px;
+		}
+		.userInfo {
+			display: flex;
+			flex-direction: column;
+			p {
+				@include text_1_16_r;
+			}
+			span {
+				@include text_2_14_r;
+				color: var(--txt-gray-color);
+			}
+		}
+	}
+	.descrWrapper {
+		margin-top: 28px;
+		span {
+			color: var(--purple-color);
+			@include title_4_14_m;
+		}
+		p {
+			@include text_2_14_r;
+			margin-top: 6px;
+		}
+	}
+	.inputs {
+		margin-top: 28px;
+		margin-bottom: 28px;
+		.chips {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+			margin-top: 10px;
+			& > label {
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	}
+	.directionBtn {
+		border-bottom: 1px solid var(--gray-color);
+	}
+	.policy {
+		margin-top: 28px;
+		@include text_2_14_r;
+		a {
+			color: var(--purple-color);
+		}
+	}
+	.anonim {
+		margin-top: 28px;
+		margin-bottom: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			span {
+				@include text_2_14_r;
+				color: var(--txt-gray-color2);
+			}
+			p {
+				@include text_1_16_r;
+			}
+		}
+	}
+	.paymentBtn {
+		margin-top: 28px;
+		width: 100%;
+	}
+	.cancelBtn {
+		margin: 30px auto 0;
+	}
+}

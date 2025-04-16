@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -8,16 +8,22 @@ import { TransferDonation } from '@/features/transfer-donation';
 
 import { BackOutlineArrow, Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
-import { CardDonation } from './card-donation';
-import s from './donation-modal.module.scss';
-import { SuccessDonation } from './success-donation';
+import { CancelSubscribe } from './cancel-subscribe';
+// import { CardDonation } from './card-donation';
+import s from './change-subscribe-modal.module.scss';
+import { SuccessSubscribe } from './success-subscribe';
 
-export const DonationModal = () => {
+// import { SuccessDonation } from './success-donation';
+// import { TransferDonation } from './transfer-donation';
+
+export const ChangeSubscribeModal = () => {
 	const [step, setStep] = useState(0);
 	const [isSelectPaymentMethod, setSelectPaymentMethod] = useState(false);
+	const [isCancelSubscribe, setCancelSubscribe] = useState(false);
 	const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'card' | 'sberpay'>('card');
 	const [priceValue, setPriceValue] = useState('350');
-	const { close, currentModal } = useModal();
+
+	const { close, currentModal, isOpen } = useModal();
 
 	const handleChangePaymentMethod = (method: 'card' | 'sberpay') => {
 		setSelectPaymentMethod(false);
@@ -40,8 +46,9 @@ export const DonationModal = () => {
 
 	const handleChangeStep = (type: 'prev' | 'next') => {
 		if (type === 'prev') {
-			if (isSelectPaymentMethod) {
+			if (isSelectPaymentMethod || isCancelSubscribe) {
 				setSelectPaymentMethod(false);
+				setCancelSubscribe(false);
 			} else {
 				setStep(prevStep => {
 					return prevStep - 1;
@@ -59,23 +66,44 @@ export const DonationModal = () => {
 		setSelectPaymentMethod(true);
 	};
 
+	const handleOpenCancelSubscribe = () => {
+		setCancelSubscribe(true);
+	};
+
+	useEffect(() => {
+		setTimeout(() => {
+			setStep(0);
+			setPriceValue('350');
+			setSelectPaymentMethod(false);
+			setCancelSubscribe(false);
+		}, 300);
+	}, [currentModal]);
+
 	const donationSteps = [
 		<TransferDonation
 			openSelectPaymentMethod={handleOpenSelectPaymentMethod}
 			nextStep={() => handleChangeStep('next')}
-			title='Разовый перевод'
 			paymentMethod={selectedPaymentMethod}
 			price={priceValue}
 			setPriceValue={setPriceValue}
-			hasPolicy
+			title='Изменить подписку'
+			hasAuthor
+			hasAnonim
+			hasCancelBtn
+			onClickCancelBtn={handleOpenCancelSubscribe}
 		/>,
-		<CardDonation nextStep={() => handleChangeStep('next')} price={priceValue} />,
-		<SuccessDonation handleCloseModal={handleCloseModal} />
+		<SuccessSubscribe priceValue={priceValue} />
+		// <CardDonation nextStep={() => handleChangeStep('next')} price={priceValue} />,
+		// <SuccessDonation handleCloseModal={handleCloseModal} />
 		// <ErrorDonation handleRepeatPayment={handleRepeatPayment} />
 	];
+
+	const contentTopCondition =
+		(step !== 0 && step !== donationSteps.length - 1) || isSelectPaymentMethod || isCancelSubscribe;
+
 	const contentTop = (
 		<>
-			{(step !== 0 && step !== donationSteps.length - 1) || isSelectPaymentMethod ? (
+			{contentTopCondition ? (
 				<Button className={clsx(s.backBtn, 'backBtn')} onClick={() => handleChangeStep('prev')}>
 					<BackOutlineArrow />
 				</Button>
@@ -89,12 +117,14 @@ export const DonationModal = () => {
 
 	return (
 		<Modal
-			isOpen={currentModal === 'donation'}
+			isOpen={isOpen('change-subscribe')}
 			close={handleCloseModal}
 			className={s.donationModal}
 			contentTop={contentTop}
 		>
-			{isSelectPaymentMethod ? (
+			{isCancelSubscribe ? (
+				<CancelSubscribe />
+			) : isSelectPaymentMethod ? (
 				<PaymentMethod
 					changePaymentMethod={handleChangePaymentMethod}
 					paymentMethod={selectedPaymentMethod}

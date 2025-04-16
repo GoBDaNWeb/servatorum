@@ -25,7 +25,7 @@ export const CompanyMainInfo = () => {
 	};
 
 	const handleOpenLeaveReviewModal = () => {
-		open('leave-modal');
+		open('leave-review');
 	};
 
 	return (

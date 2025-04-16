@@ -17,6 +17,10 @@
 	&.hidden {
 		transform: translateX(90%);
 		padding-left: 50px;
+		opacity: 0.3;
+		&:hover {
+			opacity: 1;
+		}
 		.openBtn {
 			opacity: 1;
 			pointer-events: all;

@@ -1,3 +1,4 @@
+import { ChangeSubscribeModal } from '@/features/change-subscribe-modal';
 import { DeleteAccountModal } from '@/features/delete-account-modal';
 import { DocumentsModal } from '@/features/documents-modal';
 import { DonationModal } from '@/features/donation-modal';
@@ -20,6 +21,7 @@ export const Modals = () => {
 			<NewsModal />
 			<ServiceModal />
 			<LeaveReviewModal />
+			<ChangeSubscribeModal />
 		</>
 	);
 };

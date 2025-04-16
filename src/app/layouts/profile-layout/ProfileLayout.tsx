@@ -15,6 +15,7 @@ import { BackOutlineArrow, Button } from '@/shared/ui';
 import s from './profile-layout.module.scss';
 
 export const ProfileLayout = () => {
+	// TODO: временная кнопка удалить потом
 	const [hidden, setHidden] = useState(false);
 	const navigate = useNavigate();
 

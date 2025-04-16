@@ -4,6 +4,30 @@
 	justify-content: space-between;
 	padding: 8px 0;
 	border-top: 1px solid var(--line-color);
+	&.configurable {
+		display: grid;
+		grid-template-columns: 44px 283px 1fr 128px;
+		.subscribeInfo {
+			margin-right: 81px;
+			margin-left: 20px;
+		}
+		.content {
+			margin-right: 39px;
+		}
+		.changeBtn {
+			padding: 0 31px !important;
+		}
+		&.disable {
+			.content {
+				.card {
+					color: var(--txt-gray-color2);
+				}
+				.price {
+					color: var(--txt-gray-color2);
+				}
+			}
+		}
+	}
 	.subscribeInfo {
 		display: flex;
 		align-items: center;
@@ -24,6 +48,30 @@
 				@include caption_2_12_r;
 				color: var(--txt-gray-color2);
 			}
+		}
+	}
+	.content {
+		display: grid;
+		grid-template-columns: 120px 100px 120px;
+		align-items: center;
+		justify-content: flex-end;
+		.date {
+			@include button_2_14_r;
+			margin-right: 18px;
+		}
+		.card {
+			display: flex;
+			align-items: center;
+			gap: 4px;
+			@include text_2_14_r;
+			margin-right: 48px;
+			img {
+				width: 20px;
+				height: 12px;
+			}
+		}
+		.price {
+			@include title_3_16_m;
 		}
 	}
 }

@@ -1,0 +1,20 @@
+.cancelSubscribe {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	img {
+		width: 182px;
+		height: 200px;
+		margin-bottom: 32px;
+	}
+	.title {
+		@include headline_32_m;
+		text-align: center;
+	}
+	.descr {
+		margin-top: 8px;
+		@include text_1_16_r;
+	}
+}

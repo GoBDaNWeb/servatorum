@@ -1,0 +1,73 @@
+.successSubscribe {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	img {
+		width: 170px;
+		height: 170px;
+	}
+	.title {
+		margin-top: 32px;
+		text-align: center;
+		@include title_2_20_m;
+		margin-bottom: 8px;
+	}
+	.descr {
+		@include text_2_14_r;
+		text-align: center;
+		a {
+			color: var(--purple-color);
+		}
+	}
+	.fond {
+		margin-top: 24px;
+		border-top: 1px solid var(--line-color);
+		border-bottom: 1px solid var(--line-color);
+		padding: 16px 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		.user {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			img {
+				width: 40px;
+				height: 40px;
+				border-radius: 999px;
+			}
+			.userInfo {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 4px;
+				.name {
+					@include title_4_14_m;
+				}
+				.descr {
+					@include caption_2_12_r;
+					color: var(--txt-gray-color2);
+				}
+			}
+		}
+		.info {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			.price {
+				@include title_4_14_m;
+			}
+			.date {
+				@include caption_2_12_r;
+				color: var(--txt-gray-color2);
+			}
+		}
+	}
+	.closeBtn {
+		width: 100%;
+		margin-top: 24px;
+		margin-bottom: 24px;
+	}
+}

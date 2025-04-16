@@ -36,7 +36,7 @@ export const LeaveReviewModal = () => {
 	);
 
 	return (
-		<Modal close={close} isOpen={isOpen('leave-modal')} contentTop={contentTop}>
+		<Modal close={close} isOpen={isOpen('leave-review')} contentTop={contentTop}>
 			{leaveReviewSteps[step]}
 		</Modal>
 	);
