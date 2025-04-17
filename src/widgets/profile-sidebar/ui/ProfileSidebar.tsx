@@ -31,7 +31,7 @@ const links = [
 	{ href: PATH_PAGE.profileHistory, icon: <PieIcon />, title: 'История пожертвований', count: '5' },
 	{ href: PATH_PAGE.home, icon: <ClockIcon />, title: 'История заказов', count: '128' },
 	{ href: PATH_PAGE.profileCards, icon: <CardIcon />, title: 'Мои карты', count: '4' },
-	{ href: PATH_PAGE.home, icon: <OrdersIcon />, title: 'Мои заявки', count: '1' },
+	{ href: PATH_PAGE.profileRequests, icon: <OrdersIcon />, title: 'Мои заявки', count: '1' },
 	{ href: PATH_PAGE.home, icon: <HandsIcon />, title: 'Заявки на сбор' },
 	{ href: PATH_PAGE.home, icon: <DocumentIcon />, title: 'Документы' }
 ];

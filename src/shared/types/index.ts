@@ -10,7 +10,8 @@ export type ModalName =
 	| 'leave-review'
 	| 'change-subscribe'
 	| 'delete-card'
-	| 'new-card';
+	| 'new-card'
+	| 'details';
 export type ModalProps = {
 	title?: string;
 	data?: any;

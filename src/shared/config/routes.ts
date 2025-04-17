@@ -15,6 +15,7 @@ export const PATH_PAGE = {
 	profileFavourites: '/profile/favourites',
 	profileHistory: '/profile/history',
 	profileCards: '/profile/cards',
+	profileRequests: '/profile/requests',
 
 	// TODO - временные страницы, потом удалить
 	navigation: '/navigation',

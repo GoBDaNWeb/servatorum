@@ -72,4 +72,21 @@
 		background: var(--gold-color);
 		color: var(--white-color);
 	}
+	&.clear {
+		background: none;
+		@include text_2_14_r;
+		padding: 0;
+		&.purple {
+			color: var(--purple-color);
+		}
+		&.green {
+			color: var(--green-color);
+		}
+		&.red {
+			color: var(--danger-color);
+		}
+		&.gray {
+			color: var(--dark-color);
+		}
+	}
 }

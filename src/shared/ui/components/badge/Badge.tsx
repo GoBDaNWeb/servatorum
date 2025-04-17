@@ -7,8 +7,8 @@ import s from './badge.module.scss';
 interface IBadge {
 	className?: string;
 	size?: 's' | 'm' | 'l' | 'xl' | 'xxl';
-	color?: 'gray' | 'white' | 'purple' | 'alert' | 'green' | 'gold';
-	variant?: 'default' | 'alert' | 'outline';
+	color?: 'gray' | 'white' | 'purple' | 'alert' | 'green' | 'gold' | 'red';
+	variant?: 'default' | 'alert' | 'outline' | 'clear';
 }
 
 export const Badge: FC<PropsWithChildren<IBadge>> = ({

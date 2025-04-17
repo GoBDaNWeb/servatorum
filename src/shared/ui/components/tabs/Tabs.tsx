@@ -88,7 +88,7 @@ interface ITab {
 }
 
 export const Tab: FC<ITab> = ({ children, className }) => {
-	return <span className={clsx(className)}>{children}</span>;
+	return <p className={clsx(className)}>{children}</p>;
 };
 
 interface ITabPanel {

@@ -9,6 +9,7 @@ export const Fancybox = (props: {
 	delegate?: string;
 	options?: Partial<FancyboxOptionsType>;
 	className?: string;
+	onMouseLeave?: () => void;
 }) => {
 	const containerRef = useRef(null);
 
@@ -27,7 +28,12 @@ export const Fancybox = (props: {
 	});
 
 	return (
-		<div style={{ height: '100%' }} ref={containerRef} className={props.className}>
+		<div
+			style={{ height: '100%' }}
+			ref={containerRef}
+			className={props.className}
+			onMouseLeave={props.onMouseLeave}
+		>
 			{props.children}
 		</div>
 	);

@@ -1,6 +1,7 @@
 import { ChangeSubscribeModal } from '@/features/change-subscribe-modal';
 import { DeleteAccountModal } from '@/features/delete-account-modal';
 import { DeleteCardModal } from '@/features/delete-card-modal';
+import { DetailsModal } from '@/features/details-modal';
 import { DocumentsModal } from '@/features/documents-modal';
 import { DonationModal } from '@/features/donation-modal';
 import { LeaveReviewModal } from '@/features/leave-review-modal';
@@ -26,6 +27,7 @@ export const Modals = () => {
 			<ChangeSubscribeModal />
 			<DeleteCardModal />
 			<NewCardModal />
+			<DetailsModal />
 		</>
 	);
 };

@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { DonationInfo } from '@/features/donation-info';
 
 import { CollectingCard } from '@/entities/collecting-card';
-import { RequetsCard } from '@/entities/request-card';
+import { RequestAlertCard } from '@/entities/request-alert-card';
 
 import { Image, useModal } from '@/shared/ui';
 
@@ -24,7 +24,7 @@ export const About = () => {
 			<div className={s.aboutContent}>
 				<div className={s.imageBlock}>
 					<Image paddingBottom='65%' src='/images/home/about/bg.jpg' alt='bg' />
-					<RequetsCard
+					<RequestAlertCard
 						order='Заявка №2424255'
 						title='Лапы Надежды: Вместе за защиту бездомных котов'
 						date='21.07.2023'

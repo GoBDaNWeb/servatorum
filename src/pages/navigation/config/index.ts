@@ -19,5 +19,6 @@ export const routes = [
 	{ title: 'Профиль - Избранное (пустые)', href: PATH_PAGE.profileFavouritesEmpty },
 	{ title: 'Профиль - История пожертвований', href: PATH_PAGE.profileHistory },
 	{ title: 'Профиль - Подписки', href: PATH_PAGE.profileSubscriptions },
-	{ title: 'Профиль - Мои карты', href: PATH_PAGE.profileCards }
+	{ title: 'Профиль - Мои карты', href: PATH_PAGE.profileCards },
+	{ title: 'Профиль - Мои заявки', href: PATH_PAGE.profileRequests }
 ];

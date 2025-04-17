@@ -1,1 +1,1 @@
-export { RequetsCard } from './ui/RequestCard';
+export { RequestCard } from './ui/RequestCard';
