@@ -13,7 +13,8 @@ export type ModalName =
 	| 'new-card'
 	| 'details'
 	| 'create-organization'
-	| 'change-account';
+	| 'change-account'
+	| 'report';
 export type ModalProps = {
 	title?: string;
 	data?: any;

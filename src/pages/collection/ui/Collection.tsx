@@ -23,6 +23,9 @@ export const Collection = () => {
 	const handleOpenDonationModal = () => {
 		open('donation');
 	};
+	const handleOpenReportModal = () => {
+		open('report');
+	};
 
 	return (
 		<main className={s.collectionPage}>
@@ -42,6 +45,9 @@ export const Collection = () => {
 								</div>
 								Смотреть документы
 								<NextOutlineArrow />
+							</Button>
+							<Button className={s.reportBtn} variant='text' onClick={handleOpenReportModal}>
+								Пожаловаться на сбор
 							</Button>
 						</div>
 					</div>

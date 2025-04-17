@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import s from './textarea.module.scss';
 
-interface ITeaxtarea {
+interface ITextarea {
 	placeholder: string;
 	height?: number;
 }
 
-export const Teaxtarea: FC<ITeaxtarea> = ({ placeholder, height = 100 }) => {
+export const Textarea: FC<ITextarea> = ({ placeholder, height = 100 }) => {
 	return (
 		<textarea
 			placeholder={placeholder}

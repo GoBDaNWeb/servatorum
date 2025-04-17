@@ -34,6 +34,10 @@ export const NewsModal = () => {
 		handleCloseModal();
 		open('donation');
 	};
+	const handleOpenReportModal = () => {
+		handleCloseModal();
+		open('report');
+	};
 
 	useEffect(() => {
 		if (swiper && pagination.current && swiper.pagination) {
@@ -205,6 +209,9 @@ export const NewsModal = () => {
 				donationInfo={<DonationInfo />}
 				openDonationModal={handleOpenDonationModal}
 			/>
+			<Button className={s.reportBtn} variant='text' onClick={handleOpenReportModal}>
+				Пожаловаться на новость
+			</Button>
 		</Modal>
 	);
 };

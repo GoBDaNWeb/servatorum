@@ -10,6 +10,7 @@ import { LeaveReviewModal } from '@/features/leave-review-modal';
 import { NewCardModal } from '@/features/new-card-modal';
 import { NewsModal } from '@/features/news-modal';
 import { RegisterModal } from '@/features/register-modal';
+import { ReportModal } from '@/features/report-modal';
 import { ServiceModal } from '@/features/service-modal';
 import { SubscribeModal } from '@/features/subscribe-modal';
 import { SupportFondModal } from '@/features/support-fond-modal';
@@ -32,6 +33,7 @@ export const Modals = () => {
 			<DetailsModal />
 			<ChangeAccountModal />
 			<CreateOrganizationModal />
+			<ReportModal />
 		</>
 	);
 };

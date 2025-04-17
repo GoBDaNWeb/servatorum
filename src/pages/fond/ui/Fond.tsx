@@ -29,6 +29,9 @@ export const Fond = () => {
 	const handleOpenSupportFondModal = () => {
 		open('support-fond');
 	};
+	const handleOpenReportModal = () => {
+		open('report');
+	};
 
 	return (
 		<main className={s.fondPage}>
@@ -45,6 +48,9 @@ export const Fond = () => {
 								</div>
 								Отчётность
 								<NextOutlineArrow />
+							</Button>
+							<Button className={s.reportBtn} variant='text' onClick={handleOpenReportModal}>
+								Пожаловаться на фонд
 							</Button>
 						</div>
 					</div>

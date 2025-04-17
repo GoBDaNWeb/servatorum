@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-import { Button, StarIcon, Teaxtarea, useModal } from '@/shared/ui';
+import { Button, StarIcon, Textarea, useModal } from '@/shared/ui';
 
 import s from './review-form.module.scss';
 
@@ -58,7 +58,7 @@ export const ReviewForm: FC<IReviewForm> = ({ nextStep }) => {
 				<p className={s.formTitle}>
 					Опишите плюсы и минусы <span>*</span>
 				</p>
-				<Teaxtarea placeholder='Напишите' height={328} />
+				<Textarea placeholder='Напишите' height={328} />
 				<Button variant='primary' size='s' onClick={nextStep}>
 					Опубликовать
 				</Button>
