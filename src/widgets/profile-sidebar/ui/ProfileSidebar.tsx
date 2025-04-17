@@ -70,7 +70,7 @@ export const ProfileSidebar = () => {
 							</div>
 							<p>Поддержка</p>
 						</NavLink>
-						<NavLink to={PATH_PAGE.home} className={s.sidebarLink}>
+						<NavLink to={PATH_PAGE.profileOrganization} className={s.sidebarLink}>
 							<div className={s.icon}>
 								<PlusIcon />
 							</div>

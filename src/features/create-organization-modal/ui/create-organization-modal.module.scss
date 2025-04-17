@@ -1,0 +1,12 @@
+.createOrganizationModal {
+	.content {
+		width: 100%;
+		.title {
+			@include headline_32_m;
+		}
+		.typeList {
+			margin-top: 28px;
+			width: 100%;
+		}
+	}
+}

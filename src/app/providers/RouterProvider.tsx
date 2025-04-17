@@ -19,6 +19,7 @@ import { ProfileNews } from '@/pages/profile-news';
 import { ProfileNewsEmpty } from '@/pages/profile-news-empty';
 import { ProfileNotifications } from '@/pages/profile-notifications';
 import { ProfileNotificationsEmpty } from '@/pages/profile-notifications-empty';
+import { ProfileOrganization } from '@/pages/profile-organization';
 import { ProfileRequests } from '@/pages/profile-requests';
 import { ProfileSettings } from '@/pages/profile-settings';
 import { ProfileSubscriptions } from '@/pages/profile-subscriptions';
@@ -127,6 +128,10 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.profileRequests,
 					element: <ProfileRequests />
+				},
+				{
+					path: PATH_PAGE.profileOrganization,
+					element: <ProfileOrganization />
 				}
 			]
 		}

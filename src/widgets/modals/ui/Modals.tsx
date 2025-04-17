@@ -1,4 +1,6 @@
+import { ChangeAccountModal } from '@/features/change-account-modal';
 import { ChangeSubscribeModal } from '@/features/change-subscribe-modal';
+import { CreateOrganizationModal } from '@/features/create-organization-modal';
 import { DeleteAccountModal } from '@/features/delete-account-modal';
 import { DeleteCardModal } from '@/features/delete-card-modal';
 import { DetailsModal } from '@/features/details-modal';
@@ -28,6 +30,8 @@ export const Modals = () => {
 			<DeleteCardModal />
 			<NewCardModal />
 			<DetailsModal />
+			<ChangeAccountModal />
+			<CreateOrganizationModal />
 		</>
 	);
 };

@@ -20,5 +20,6 @@ export const routes = [
 	{ title: 'Профиль - История пожертвований', href: PATH_PAGE.profileHistory },
 	{ title: 'Профиль - Подписки', href: PATH_PAGE.profileSubscriptions },
 	{ title: 'Профиль - Мои карты', href: PATH_PAGE.profileCards },
-	{ title: 'Профиль - Мои заявки', href: PATH_PAGE.profileRequests }
+	{ title: 'Профиль - Мои заявки', href: PATH_PAGE.profileRequests },
+	{ title: 'Профиль - Организации', href: PATH_PAGE.profileOrganization }
 ];

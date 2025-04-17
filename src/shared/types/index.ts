@@ -11,7 +11,9 @@ export type ModalName =
 	| 'change-subscribe'
 	| 'delete-card'
 	| 'new-card'
-	| 'details';
+	| 'details'
+	| 'create-organization'
+	| 'change-account';
 export type ModalProps = {
 	title?: string;
 	data?: any;
