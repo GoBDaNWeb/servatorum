@@ -8,7 +8,7 @@ interface IBadge {
 	className?: string;
 	size?: 's' | 'm' | 'l' | 'xl' | 'xxl';
 	color?: 'gray' | 'white' | 'purple' | 'alert' | 'green' | 'gold' | 'red';
-	variant?: 'default' | 'alert' | 'outline' | 'clear';
+	variant?: 'default' | 'alert' | 'outline' | 'clear' | 'secondary';
 }
 
 export const Badge: FC<PropsWithChildren<IBadge>> = ({

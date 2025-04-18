@@ -92,4 +92,18 @@
 			color: var(--gold-color);
 		}
 	}
+	&.secondary {
+		background: none;
+		@include text_2_14_r;
+		padding: 0 8px;
+		gap: 5px;
+		img {
+			width: 13px;
+			height: 13px;
+		}
+		&.green {
+			color: var(--green-color);
+			background: var(--gray-color);
+		}
+	}
 }
