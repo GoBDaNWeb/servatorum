@@ -1,0 +1,58 @@
+.fileItem {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.content {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		.icon {
+			width: 36px;
+			height: 36px;
+			border-radius: 10px;
+			background: var(--purple-back-color);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			svg {
+				width: 22px;
+				height: 22px;
+			}
+		}
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+			.title {
+				@include text_2_14_r;
+			}
+			.date {
+				@include caption_2_12_r;
+				color: var(--txt-gray-color2);
+			}
+		}
+	}
+	.removeFile {
+		padding: 0;
+		min-width: 18px;
+		min-height: 18px;
+		max-width: 18px;
+		max-height: 18px;
+		border-radius: 999px;
+		background: var(--txt-gray-color2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: var(--trs-300);
+		&:hover {
+			background: var(--purple-hover-color);
+		}
+		svg {
+			width: 8px;
+			height: 8px;
+			path {
+				stroke: var(--white-color);
+			}
+		}
+	}
+}

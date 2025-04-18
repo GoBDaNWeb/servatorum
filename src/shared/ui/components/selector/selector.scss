@@ -1,0 +1,104 @@
+.select__menu {
+	box-shadow: var(--shadow) !important;
+	border-radius: 12px !important;
+	margin-top: 0 !important;
+	.select__option {
+		cursor: pointer;
+		transition: var(--trs-300);
+		@include text_1_16_r;
+		&:hover {
+			color: var(--purple-hover-color);
+		}
+		&.select__option--is-selected {
+			background: none;
+			color: var(--purple-color);
+		}
+		&.select__option--is-focused {
+			background: none;
+		}
+	}
+}
+
+.select.error {
+	.select__control.select__control--is-focused {
+		.select__value-container {
+			.select__placeholder {
+				color: var(--gray-text-color);
+			}
+		}
+	}
+
+	.select__control {
+		border-color: var(--error-color);
+		background: var(--error-bg-color);
+		.select__value-container {
+			.select__placeholder {
+				color: var(--gray-light-color);
+			}
+		}
+	}
+}
+
+.select .select__control.select__control--is-focused {
+	// border-color: var(--emerald-color);
+	// background: var(--emerald-bg-color);
+	outline: none;
+	box-shadow: none;
+}
+
+.select__control.select__control--menu-is-open {
+	// border-color: var(--emerald-color);
+	// background: var(--emerald-bg-color);
+	// outline: none;
+	// box-shadow: none;
+	.select__value-container {
+		.select__single-value {
+			color: var(--emerald-color);
+		}
+	}
+}
+
+.select__control {
+	height: 48px !important;
+	border: none !important;
+	transition: var(--trs-300) !important;
+	background: var(--gray-color) !important;
+	border-radius: 16px !important;
+	cursor: pointer !important;
+	&:hover {
+		border-color: var(--emerald-color);
+	}
+	// .select__value-container.select__value-container--has-value
+	//     // margin-left: 58px
+	.select__value-container {
+		padding: 0;
+		margin-left: 24px;
+		.select__single-value {
+			@include text_1_16_r;
+		}
+		.select__placeholder {
+			@include text_1_16_r;
+		}
+	}
+
+	.select__indicators {
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		// left: 10px;
+		right: 16px;
+		.select__indicator-separator {
+			opacity: 0;
+		}
+		.select__clear-indicator {
+			cursor: pointer;
+		}
+		.select__indicator {
+			padding: 0;
+		}
+	}
+}

@@ -14,6 +14,7 @@ import { ReportModal } from '@/features/report-modal';
 import { ServiceModal } from '@/features/service-modal';
 import { SubscribeModal } from '@/features/subscribe-modal';
 import { SupportFondModal } from '@/features/support-fond-modal';
+import { SupportModal } from '@/features/support-modal';
 
 export const Modals = () => {
 	return (
@@ -34,6 +35,7 @@ export const Modals = () => {
 			<ChangeAccountModal />
 			<CreateOrganizationModal />
 			<ReportModal />
+			<SupportModal />
 		</>
 	);
 };

@@ -16,7 +16,8 @@ import {
 	RatingIcon,
 	SupportIcon,
 	UserIcon,
-	WalletIcon
+	WalletIcon,
+	useModal
 } from '@/shared/ui';
 import { HandsIcon } from '@/shared/ui/icons/HandsIcon';
 
@@ -38,6 +39,11 @@ const links = [
 
 export const ProfileSidebar = () => {
 	const { pathname } = useLocation();
+	const { open } = useModal();
+
+	const handleOpenSupportModal = () => {
+		open('support');
+	};
 
 	return (
 		<div className={s.profileSidebarWrapper}>
@@ -64,12 +70,12 @@ export const ProfileSidebar = () => {
 						))}
 					</nav>
 					<div className={s.profileSidebarFeatures}>
-						<NavLink to={PATH_PAGE.home} className={s.sidebarLink}>
+						<Button variant='clear' className={s.sidebarLink} onClick={handleOpenSupportModal}>
 							<div className={s.icon}>
 								<SupportIcon />
 							</div>
 							<p>Поддержка</p>
-						</NavLink>
+						</Button>
 						<NavLink to={PATH_PAGE.profileOrganization} className={s.sidebarLink}>
 							<div className={s.icon}>
 								<PlusIcon />
