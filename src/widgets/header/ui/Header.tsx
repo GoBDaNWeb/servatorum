@@ -31,8 +31,11 @@ export const Header = () => {
 		dispatch(setOpenMenu(true));
 	};
 
-	const handleOpernRegisterModal = () => {
+	const handleOpenRegisterModal = () => {
 		open('register');
+	};
+	const handleOpenCreateRequestModal = () => {
+		open('create-request');
 	};
 
 	useEffect(() => {
@@ -68,9 +71,11 @@ export const Header = () => {
 							Услуги
 						</Button>
 					</nav>
-					<Button variant='outline'>Попросить помощь</Button>
+					<Button variant='outline' onClick={handleOpenCreateRequestModal}>
+						Попросить помощь
+					</Button>
 
-					<Button variant='primary' className={s.authBtn} onClick={handleOpernRegisterModal}>
+					<Button variant='primary' className={s.authBtn} onClick={handleOpenRegisterModal}>
 						Войти
 					</Button>
 				</div>

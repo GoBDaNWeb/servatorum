@@ -40,15 +40,16 @@ export const SupportForm: FC<ISupportForm> = ({ nextStep }) => {
 					<UploadFile handleUploadFile={handleFileSelect} />
 				</div>
 				<div className={s.filesList}>
-					{files &&
-						files.map(file => (
-							<FileItem
-								key={file.id}
-								title={file.name}
-								date={file.uploadDate}
-								handleRemoveFile={() => handleRemoveFile(file.id)}
-							/>
-						))}
+					{files.length
+						? files.map(file => (
+								<FileItem
+									key={file.id}
+									title={file.name}
+									date={file.uploadDate}
+									handleRemoveFile={() => handleRemoveFile(file.id)}
+								/>
+							))
+						: null}
 				</div>
 			</div>
 			<Button variant='primary' className={s.sendBtn} onClick={nextStep}>

@@ -1,0 +1,1 @@
+export { RequestPhoto } from './RequestPhoto';

@@ -29,7 +29,7 @@ export const useFileUpload = (): UseFileUploadReturn => {
 		}));
 
 		setFiles(prev => [...prev, ...newFiles]);
-		event.target.value = ''; // Сбрасываем значение input для возможности повторной загрузки тех же файлов
+		event.target.value = '';
 	}, []);
 
 	const clearFiles = useCallback(() => setFiles([]), []);

@@ -17,3 +17,4 @@ export * from './tabs';
 export * from './textarea';
 export * from './selector';
 export * from './upload-file';
+export * from './uploaded-photo';

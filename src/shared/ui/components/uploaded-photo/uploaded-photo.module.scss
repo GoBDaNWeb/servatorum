@@ -1,0 +1,39 @@
+.uploadedPhoto {
+	position: relative;
+	padding-bottom: 100%;
+	border-radius: 12px;
+	overflow: hidden;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.removeFile {
+		padding: 0;
+		min-width: 18px;
+		min-height: 18px;
+		max-width: 18px;
+		max-height: 18px;
+		border-radius: 999px;
+		background: var(--txt-gray-color2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: var(--trs-300);
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		border: 1px solid var(--white-color);
+		&:hover {
+			background: var(--purple-hover-color);
+		}
+		svg {
+			width: 8px;
+			height: 8px;
+			path {
+				stroke: var(--white-color);
+			}
+		}
+	}
+}

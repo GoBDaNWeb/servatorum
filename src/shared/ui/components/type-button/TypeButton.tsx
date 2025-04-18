@@ -7,7 +7,7 @@ import { Button } from '../button';
 import s from './type-button.module.scss';
 
 interface ITypeButton {
-	img: string;
+	img?: string;
 	title: string;
 	subTitle?: string;
 	onClick: () => void;
@@ -29,7 +29,7 @@ export const TypeButton: FC<ITypeButton> = ({
 	return (
 		<Button className={typeBtnClass} variant='clear' onClick={onClick}>
 			<div className={s.typeBtnLeft}>
-				<img src={img} alt='fond' />
+				<img src={img || '/images/icons/empty.svg'} alt='fond' />
 				<div className={s.titleWrapper}>
 					{subTitle ? <span>{subTitle}</span> : null}
 					<p>{title}</p>

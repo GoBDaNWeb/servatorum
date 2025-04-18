@@ -15,7 +15,8 @@ export type ModalName =
 	| 'create-organization'
 	| 'change-account'
 	| 'report'
-	| 'support';
+	| 'support'
+	| 'create-request';
 export type ModalProps = {
 	title?: string;
 	data?: any;

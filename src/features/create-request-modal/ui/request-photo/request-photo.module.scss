@@ -1,0 +1,58 @@
+.requestPhoto {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	padding-top: 33px;
+	gap: 30px;
+	width: 100%;
+	.mainContent {
+		flex: 1;
+		.title {
+			@include headline_32_m;
+		}
+		.descr {
+			margin-top: 16px;
+			@include text_1_16_r;
+		}
+		.tabsContent {
+			margin-top: 16px;
+			.tabWrapper {
+				width: 220px;
+				.tabBtn {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: 8px;
+					&.active {
+						svg {
+							path {
+								fill: var(--purple-color);
+							}
+						}
+					}
+				}
+			}
+			.tabPannelWrapper {
+				margin-top: 24px;
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					gap: 14px;
+				}
+				.swiper {
+					margin: 0 -50px;
+					padding: 0 50px;
+				}
+			}
+		}
+	}
+	.btns {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		button {
+			width: 100%;
+		}
+	}
+}

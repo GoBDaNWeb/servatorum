@@ -7,6 +7,7 @@ import s from './checkbox.module.scss';
 interface ICheckbox {
 	isToggler?: boolean;
 	name: string;
+	className?: string;
 	value1?: string;
 	value2?: string;
 	icon1?: ReactElement;
@@ -15,6 +16,7 @@ interface ICheckbox {
 	onChange?: () => void;
 	children?: ReactNode;
 	isChecked?: boolean;
+	isRadio?: boolean;
 }
 
 export const Checkbox: FC<ICheckbox> = ({
@@ -27,7 +29,9 @@ export const Checkbox: FC<ICheckbox> = ({
 	icon2,
 	title,
 	children,
-	isChecked
+	isChecked,
+	className,
+	isRadio
 }) => {
 	const [currentSelectCheckbox, setCurrentSelectChecbox] = useState(0);
 
@@ -37,7 +41,11 @@ export const Checkbox: FC<ICheckbox> = ({
 		});
 	};
 
-	const togglerClass = clsx(s.toggler, { [s.rtl]: currentSelectCheckbox === 1 });
+	const classes = {
+		togglerClass: clsx(s.toggler, { [s.rtl]: currentSelectCheckbox === 1 }),
+		checkboxClass: clsx(s.checkboxLabel, className),
+		radioClass: clsx(s.radioWrapper, className)
+	};
 
 	return (
 		<>
@@ -51,7 +59,7 @@ export const Checkbox: FC<ICheckbox> = ({
 								{icon1} {value1}
 							</p>
 						</label>
-						<div className={togglerClass}></div>
+						<div className={classes.togglerClass}></div>
 						<label onClick={() => handleChangeCurrentSelectCheckbox(1)}>
 							<input type='radio' name={name} value={1} onChange={onChange} />
 							<p>
@@ -61,8 +69,16 @@ export const Checkbox: FC<ICheckbox> = ({
 						</label>
 					</div>
 				</div>
+			) : isRadio ? (
+				<label className={classes.radioClass}>
+					<input type='radio' name={name} defaultChecked={isChecked} />
+					<p>{children}</p>
+					<div className={s.icon}>
+						<img src='/images/icons/check-outline.svg' alt='check' />
+					</div>
+				</label>
 			) : children ? (
-				<label className={s.checkboxLabel}>
+				<label className={classes.checkboxClass}>
 					<input type='checkbox' name={name} />
 					<p>{children}</p>
 				</label>

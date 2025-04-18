@@ -26,3 +26,5 @@ export { CirclePlusIcon } from './CirclePlusIcon';
 export { WebIcon } from './WebIcon';
 export { AlbumIcon } from './AlbumIcon';
 export { HomeIcon } from './HomeIcon';
+export { CarouselIcon } from './CarouselIcon';
+export { GridIcon } from './GridIcon';
