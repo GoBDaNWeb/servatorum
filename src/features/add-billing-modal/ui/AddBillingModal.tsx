@@ -1,15 +1,33 @@
+import { useState } from 'react';
+
 import clsx from 'clsx';
 
-import { Button, CloseIcon, Input, Modal, useModal } from '@/shared/ui';
+import { Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
+import { AddBillingModalContent } from './add-billing-modal-content';
 import s from './add-billing-modal.module.scss';
+import { SuccessAddBilling } from './success-add-billing';
 
 export const AddBillingModal = () => {
+	const [step, setStep] = useState<number>(0);
+
 	const { close, isOpen } = useModal();
+
+	const handleChangeStep = () => {
+		setStep(prev => prev + 1);
+	};
 
 	const handleCloseModal = () => {
 		close();
+		setTimeout(() => {
+			setStep(0);
+		}, 300);
 	};
+
+	const modalContent = [
+		<AddBillingModalContent nextStep={handleChangeStep} />,
+		<SuccessAddBilling />
+	];
 
 	const contentTop = (
 		<>
@@ -26,22 +44,7 @@ export const AddBillingModal = () => {
 			className={s.AddBillingModal}
 			contentTop={contentTop}
 		>
-			<div className={s.content}>
-				<div className={s.textWrapper}>
-					<p className={s.title}>Добавить счёт</p>
-					<div className={s.inputs}>
-						<Input title='Название' req placeholder='Введите' />
-						<Input title='БИК' req placeholder='Введите' />
-						<Input title='К/с №' req placeholder='Введите' />
-						<Input title='Счет №' req placeholder='Введите' />
-					</div>
-				</div>
-				<div className={s.btns}>
-					<Button variant='primary' onClick={handleCloseModal}>
-						Добавить счёт
-					</Button>
-				</div>
-			</div>
+			{modalContent[step]}
 		</Modal>
 	);
 };

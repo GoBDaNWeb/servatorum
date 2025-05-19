@@ -28,3 +28,7 @@ export { AlbumIcon } from './AlbumIcon';
 export { HomeIcon } from './HomeIcon';
 export { CarouselIcon } from './CarouselIcon';
 export { GridIcon } from './GridIcon';
+export { CollectionsIcon } from './CollectionsIcon';
+export { PromotionIcon } from './PromotionIcon';
+export { ReportsIcons } from './ReportsIcons';
+export { RepresentativesIcon } from './RepresentativesIcon';
