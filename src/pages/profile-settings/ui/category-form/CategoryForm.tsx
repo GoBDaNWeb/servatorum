@@ -14,15 +14,21 @@ export const CategoryForm = () => {
 		);
 	};
 
+	const handleClearCategoryList = () => {
+		setSelectedCategory([]);
+	};
+
 	return (
 		<div className={s.dataBlock}>
 			<div className={s.titleBlock}>
 				<div className='sticky-block'>
 					<p className={s.title}>Сферы помощи</p>
-					<Button variant='clear' className={s.resetBtn}>
-						<CloseIcon />
-						Сбросить все
-					</Button>
+					{selectedCategory.length > 0 ? (
+						<Button variant='clear' className={s.resetBtn} onClick={handleClearCategoryList}>
+							<CloseIcon />
+							Сбросить все
+						</Button>
+					) : null}
 				</div>
 			</div>
 			<div className={s.chipsBlock}>

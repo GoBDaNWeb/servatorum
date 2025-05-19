@@ -1,0 +1,1 @@
+export { FondInfoForm } from './FondInfoForm';

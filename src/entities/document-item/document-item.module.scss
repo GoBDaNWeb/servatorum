@@ -1,0 +1,36 @@
+.documentItem {
+	.uploadFileWrapper {
+		display: grid;
+		grid-template-columns: 128px 1fr;
+		align-items: center;
+		gap: 24px;
+		&.single {
+			display: flex;
+			width: 100%;
+		}
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			.title {
+				@include text_2_14_r;
+			}
+			.descr {
+				color: var(--txt-gray-color2);
+				@include caption_3_10_r;
+			}
+		}
+	}
+	.filesList {
+		margin-top: 16px;
+		display: flex;
+		flex-direction: column;
+		.file {
+			padding: 11px 0;
+			border-top: 1px solid var(--line-color);
+			&:last-child {
+				border-bottom: 1px solid var(--line-color);
+			}
+		}
+	}
+}

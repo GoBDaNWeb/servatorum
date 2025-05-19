@@ -8,9 +8,11 @@ import { BackOutlineArrow, Button, CloseIcon, Modal, useModal } from '@/shared/u
 import { AreaRegister } from './area-register';
 import { CodeRegister } from './code-register';
 import { DirectionRegister } from './direction-register';
+import { FondDataRegister } from './fond-data-register';
 import { PhoneRegister } from './phone-register';
 import s from './register-modal.module.scss';
 import { SelectRegister } from './select-register';
+import { SuccessRegister } from './success-register';
 import { UserDataRegister } from './user-data-register';
 import { UserTypeRegister } from './user-type-regiter';
 
@@ -38,6 +40,8 @@ export const RegisterModal = () => {
 	};
 
 	const handleChangeStep = (type: 'prev' | 'next') => {
+		console.log(userType);
+
 		if (type === 'prev') {
 			setStep(prevStep => {
 				return prevStep - 1;
@@ -64,13 +68,22 @@ export const RegisterModal = () => {
 			setPhoneValue={setPhoneValue}
 		/>,
 		<CodeRegister nextStep={() => handleChangeStep('next')} phoneValue={phoneValue} />,
+
 		<UserTypeRegister nextStep={() => handleChangeStep('next')} setUserType={setUserType} />,
+
 		<DirectionRegister
 			nextStep={() => handleChangeStep('next')}
 			setUserDirection={setUserDirection}
 		/>,
-		<UserDataRegister nextStep={() => handleChangeStep('next')} phoneValue={phoneValue} />,
-		<AreaRegister closeModal={handleCloseModal} />
+		<>
+			{userType === 'fond' ? (
+				<FondDataRegister nextStep={() => handleChangeStep('next')} phoneValue={phoneValue} />
+			) : (
+				<UserDataRegister nextStep={() => handleChangeStep('next')} phoneValue={phoneValue} />
+			)}
+		</>,
+		<AreaRegister nextStep={() => handleChangeStep('next')} />,
+		<SuccessRegister closeModal={handleCloseModal} />
 	];
 
 	const contentTop = (

@@ -7,9 +7,10 @@ import s from './photo.module.scss';
 interface IPhoto {
 	className?: string;
 	size?: 'l' | 'm';
+	title?: string;
 }
 
-export const Photo: FC<IPhoto> = ({ className, size = 'l' }) => {
+export const Photo: FC<IPhoto> = ({ className, size = 'l', title = 'Изменить фото' }) => {
 	const photoClass = clsx(s.photo, className);
 	const imageWrapperClass = clsx(s.imageWrapper, s[size]);
 
@@ -18,7 +19,13 @@ export const Photo: FC<IPhoto> = ({ className, size = 'l' }) => {
 			<div className={imageWrapperClass}>
 				<img src='/images/photo.jpg' alt='photo' />
 			</div>
-			<p>Изменить фото</p>
+			<div className={s.textWrapper}>
+				<p className={s.title}>{title}</p>
+				<p className={s.descr}>
+					Рекомендуемый размер 56х56px <br />
+					Формат JPG, PNG, SVG
+				</p>
+			</div>
 			<input type='file' />
 		</label>
 	);

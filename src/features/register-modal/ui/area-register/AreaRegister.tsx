@@ -6,10 +6,10 @@ import { Button, Chip } from '@/shared/ui';
 import s from './area-register.module.scss';
 
 interface IAreaRegister {
-	closeModal: () => void;
+	nextStep: () => void;
 }
 
-export const AreaRegister: FC<IAreaRegister> = ({ closeModal }) => {
+export const AreaRegister: FC<IAreaRegister> = ({ nextStep }) => {
 	const [selectedAreas, setSelectedAreas] = useState<string[]>([]); // Для checkbox
 
 	const handleCheckboxChange = (value: string) => {
@@ -40,7 +40,7 @@ export const AreaRegister: FC<IAreaRegister> = ({ closeModal }) => {
 				</div>
 			</div>
 
-			<Button onClick={closeModal} variant='primary' className={s.submitBtn}>
+			<Button onClick={nextStep} variant='primary' className={s.submitBtn}>
 				Продолжить
 			</Button>
 		</div>

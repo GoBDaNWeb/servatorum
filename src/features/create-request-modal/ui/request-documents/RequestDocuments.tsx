@@ -1,51 +1,14 @@
 import { FC } from 'react';
 
-import { FileItem } from '@/entities/file-item';
+import { DocumentItem } from '@/entities/document-item';
 
-import { useFileUpload } from '@/shared/lib';
-import { Button, DocumentIcon, UploadFile } from '@/shared/ui';
+import { Button, DocumentIcon } from '@/shared/ui';
 
 import s from './request-documents.module.scss';
 
 interface IRequestDocuments {
 	nextStep: () => void;
 }
-interface DocumentItem {
-	title: string;
-	descr?: string;
-}
-
-const DocumentItem: FC<DocumentItem> = ({ title, descr }) => {
-	const { files, handleFileSelect, removeFile } = useFileUpload();
-
-	const handleRemoveFile = (id: string) => {
-		removeFile(id);
-	};
-	return (
-		<div className={s.documentItem}>
-			<div className={s.uploadFileWrapper}>
-				<div className={s.text}>
-					<p className={s.title}>{title}</p>
-					{descr && <p className={s.descr}>{descr}</p>}
-				</div>
-				<UploadFile handleUploadFile={handleFileSelect} />
-			</div>
-			{files.length ? (
-				<div className={s.filesList}>
-					{files.map(file => (
-						<FileItem
-							key={file.id}
-							title={file.name}
-							date={file.uploadDate}
-							handleRemoveFile={() => handleRemoveFile(file.id)}
-							className={s.file}
-						/>
-					))}
-				</div>
-			) : null}
-		</div>
-	);
-};
 
 export const RequestDocuments: FC<IRequestDocuments> = ({ nextStep }) => {
 	return (

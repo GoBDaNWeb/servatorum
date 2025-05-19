@@ -1,0 +1,29 @@
+.successRegister {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+	.textWrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	img {
+		width: 64px;
+		height: 64px;
+		margin-bottom: 48px;
+	}
+	.title {
+		@include headline_32_m;
+		text-align: center;
+	}
+	.descr {
+		margin-top: 12px;
+		@include text_2_14_r;
+		text-align: center;
+	}
+	button {
+		width: 100%;
+	}
+}

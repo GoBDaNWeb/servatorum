@@ -17,6 +17,7 @@ export const useAirDatePicker = ({ setValue }: IAirDatePicker) => {
 			const datepicker = new AirDatepicker(datepickerRef.current, {
 				dateFormat: 'dd.MM.yyyy',
 				autoClose: true,
+				// inline: true,
 				onSelect: data => {
 					setValue('date', data.formattedDate);
 				}

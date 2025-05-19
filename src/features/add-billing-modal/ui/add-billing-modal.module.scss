@@ -1,0 +1,28 @@
+.AddBillingModal {
+	.content {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.title {
+			@include headline_32_m;
+			margin-bottom: 28px;
+		}
+
+		.inputs {
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+		}
+		.btns {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 100%;
+			button {
+				width: 100%;
+			}
+		}
+	}
+}

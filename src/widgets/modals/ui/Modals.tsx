@@ -1,3 +1,5 @@
+import { AddBillingModal } from '@/features/add-billing-modal';
+import { BillingInfoModal } from '@/features/billing-info-modal';
 import { ChangeAccountModal } from '@/features/change-account-modal';
 import { ChangeSubscribeModal } from '@/features/change-subscribe-modal';
 import { CreateOrganizationModal } from '@/features/create-organization-modal';
@@ -38,6 +40,8 @@ export const Modals = () => {
 			<ReportModal />
 			<SupportModal />
 			<CreateRequestModal />
+			<BillingInfoModal />
+			<AddBillingModal />
 		</>
 	);
 };

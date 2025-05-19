@@ -1,0 +1,44 @@
+@import './mixins';
+
+.air-datepicker-body--day-name {
+	color: var(--purple-disabled-color);
+	@include caption_3_10_r;
+}
+.air-datepicker--pointer {
+	display: none;
+}
+.air-datepicker {
+	border-radius: 20px;
+	border: none;
+	box-shadow: var(--shadow);
+}
+.air-datepicker-cell.-day- {
+	@include text_2_14_r;
+}
+
+.air-datepicker-cell.-day-.-focus- {
+	border-radius: 999px;
+	background: var(--purple-disabled-color);
+	color: var(--white-color);
+}
+.air-datepicker-cell.-day-.-current- {
+	color: var(--purple-color);
+	position: relative;
+	&:before {
+		content: '';
+		left: 0;
+		right: 0;
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		background: var(--purple-color);
+		border-radius: 999px;
+		bottom: 2px;
+		margin: auto;
+	}
+}
+.air-datepicker-cell.-day-.-selected- {
+	border-radius: 999px;
+	background: var(--purple-color);
+	color: var(--white-color);
+}

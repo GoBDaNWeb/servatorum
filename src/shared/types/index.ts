@@ -16,7 +16,9 @@ export type ModalName =
 	| 'change-account'
 	| 'report'
 	| 'support'
-	| 'create-request';
+	| 'create-request'
+	| 'billing-info'
+	| 'add-billing';
 export type ModalProps = {
 	title?: string;
 	data?: any;

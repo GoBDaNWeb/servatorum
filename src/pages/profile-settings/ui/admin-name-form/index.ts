@@ -1,0 +1,1 @@
+export { AdminNameForm } from './AdminNameForm';

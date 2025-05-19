@@ -34,11 +34,20 @@
 			// z-index: -1; /* Помещаем псевдоэлемент под изображение */
 		}
 	}
-
-	p {
-		color: var(--purple-color);
-		@include title_3_16_m;
+	.textWrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		.title {
+			color: var(--purple-color);
+			@include title_3_16_m;
+		}
+		.descr {
+			@include caption_2_12_r;
+			color: var(--txt-gray-color2);
+		}
 	}
+
 	input {
 		position: absolute;
 		width: 100%;
