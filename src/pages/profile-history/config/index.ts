@@ -1,5 +1,7 @@
 export const crumbs = [{ title: 'Профиль' }];
 export const sortList = ['Все время', 'Сегодня ', 'Вчера', 'Неделя', 'Месяц', '3 месяца'];
+export const sortListFonds = ['Сборы и фонды', 'Сборы ', 'Фонды'];
+export const sortListPayments = ['Переводы и подписки', 'Переводы ', 'Подписки'];
 export const donations = [
 	{
 		date: '30 сентября',

@@ -24,24 +24,6 @@
 		.sort {
 			margin-top: 16px;
 		}
-		.dateWrapper {
-			margin-top: 12px;
-			display: flex;
-			align-items: center;
-			gap: 56px;
-			p {
-				@include text_2_14_r;
-				color: var(--txt-gray-color2);
-			}
-			.dateList {
-				display: flex;
-				align-items: center;
-				gap: 15px;
-				.input {
-					max-width: 164px;
-				}
-			}
-		}
 	}
 	.list {
 		margin-top: 24px;

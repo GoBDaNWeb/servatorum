@@ -50,6 +50,7 @@
 	p {
 		@include text_1_16_r;
 		transition: var(--trs-300);
+		white-space: nowrap;
 	}
 	.iconWrapper {
 		width: 24px;

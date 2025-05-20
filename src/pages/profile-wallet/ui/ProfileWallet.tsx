@@ -3,10 +3,10 @@ import { FieldValues, useForm } from 'react-hook-form';
 
 import { ProfileWrapper } from '@/widgets/profile-wrapper';
 
+import { DateIntervalInputs } from '@/features/date-interval-inputs';
 import { Sort } from '@/features/sort';
 
-import { useAirDatePicker } from '@/shared/lib';
-import { BillingButton, BillingInfo, Button, Input, useModal } from '@/shared/ui';
+import { BillingButton, BillingInfo, Button, WalletIcon, useModal } from '@/shared/ui';
 
 import { crumbs, donations, sortList } from '../config';
 
@@ -21,8 +21,6 @@ export const ProfileWallet = () => {
 			toDate: ''
 		}
 	});
-	const datepickerFromRef = useAirDatePicker({ setValue, setValueLabel: 'fromDate' });
-	const datepickerToRef = useAirDatePicker({ setValue, setValueLabel: 'toDate' });
 
 	const handleOpenBillingInfoModal = () => {
 		open('add-billing');
@@ -42,7 +40,7 @@ export const ProfileWallet = () => {
 			className={s.profileWallet}
 			paginationCondition={donations.length > 0}
 		>
-			<BillingInfo />
+			<BillingInfo icon={<WalletIcon />} haveBtns title='Счёт фонда:' sum='11 044 161 ₽' />
 			<div className={s.billingCardsWrapper}>
 				<p className={s.title}>Счета и карты</p>
 				<div className={s.billingCardsList}>
@@ -63,34 +61,7 @@ export const ProfileWallet = () => {
 					setSelectedSort={setSelectedSort}
 					className={s.sort}
 				/>
-				<div className={s.dateWrapper}>
-					<p>Период:</p>
-					<div className={s.dateList}>
-						<Input
-							setValue={setValue}
-							isDate
-							placeholder='Введите'
-							inputRef={datepickerFromRef}
-							mask={Date}
-							min={new Date(1900, 0, 1)}
-							max={new Date(2026, 0, 1)}
-							icon={<img src='/images/icons/calendar.svg' alt='' />}
-							className={s.input}
-						/>
-						<div className={s.separator}>—</div>
-						<Input
-							setValue={setValue}
-							isDate
-							placeholder='Введите'
-							inputRef={datepickerToRef}
-							mask={Date}
-							min={new Date(1900, 0, 1)}
-							max={new Date(2026, 0, 1)}
-							icon={<img src='/images/icons/calendar.svg' alt='' />}
-							className={s.input}
-						/>
-					</div>
-				</div>
+				<DateIntervalInputs setValue={setValue} />
 				<div className={s.list}>
 					{donations.map((donation, index) => (
 						//TODO: убрать key={index} когда будет апи

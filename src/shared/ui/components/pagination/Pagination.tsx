@@ -12,13 +12,15 @@ interface PaginationProps {
 	totalPages: number;
 	onPageChange: (page: number) => void;
 	variant?: 'default' | 'inner';
+	className?: string;
 }
 
 export const Pagination: FC<PaginationProps> = ({
 	currentPage,
 	totalPages,
 	onPageChange,
-	variant = 'default'
+	variant = 'default',
+	className
 }) => {
 	const getPageNumbers = () => {
 		const pages: (number | string)[] = [];
@@ -42,7 +44,7 @@ export const Pagination: FC<PaginationProps> = ({
 		return pages;
 	};
 
-	const paginationClass = clsx(s.pagination, s[variant]);
+	const paginationClass = clsx(s.pagination, s[variant], className);
 
 	return (
 		<div className={paginationClass}>

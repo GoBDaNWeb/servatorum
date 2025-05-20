@@ -1,23 +1,23 @@
-import { AddBillingModal } from '@/features/add-billing-modal';
-import { BillingInfoModal } from '@/features/billing-info-modal';
-import { ChangeAccountModal } from '@/features/change-account-modal';
-import { ChangeSubscribeModal } from '@/features/change-subscribe-modal';
-import { CreateOrganizationModal } from '@/features/create-organization-modal';
-import { CreateRequestModal } from '@/features/create-request-modal';
-import { DeleteAccountModal } from '@/features/delete-account-modal';
-import { DeleteCardModal } from '@/features/delete-card-modal';
-import { DetailsModal } from '@/features/details-modal';
-import { DocumentsModal } from '@/features/documents-modal';
-import { DonationModal } from '@/features/donation-modal';
-import { LeaveReviewModal } from '@/features/leave-review-modal';
-import { NewCardModal } from '@/features/new-card-modal';
-import { NewsModal } from '@/features/news-modal';
-import { RegisterModal } from '@/features/register-modal';
-import { ReportModal } from '@/features/report-modal';
-import { ServiceModal } from '@/features/service-modal';
-import { SubscribeModal } from '@/features/subscribe-modal';
-import { SupportFondModal } from '@/features/support-fond-modal';
-import { SupportModal } from '@/features/support-modal';
+import { AddBillingModal } from '@/features/modals/add-billing-modal';
+import { BillingInfoModal } from '@/features/modals/billing-info-modal';
+import { ChangeAccountModal } from '@/features/modals/change-account-modal';
+import { ChangeSubscribeModal } from '@/features/modals/change-subscribe-modal';
+import { CreateOrganizationModal } from '@/features/modals/create-organization-modal';
+import { CreateRequestModal } from '@/features/modals/create-request-modal';
+import { DeleteAccountModal } from '@/features/modals/delete-account-modal';
+import { DeleteCardModal } from '@/features/modals/delete-card-modal';
+import { DetailsModal } from '@/features/modals/details-modal';
+import { DocumentsModal } from '@/features/modals/documents-modal';
+import { DonationModal } from '@/features/modals/donation-modal';
+import { LeaveReviewModal } from '@/features/modals/leave-review-modal';
+import { NewCardModal } from '@/features/modals/new-card-modal';
+import { NewsModal } from '@/features/modals/news-modal';
+import { RegisterModal } from '@/features/modals/register-modal';
+import { ReportModal } from '@/features/modals/report-modal';
+import { ServiceModal } from '@/features/modals/service-modal';
+import { SubscribeModal } from '@/features/modals/subscribe-modal';
+import { SupportFondModal } from '@/features/modals/support-fond-modal';
+import { SupportModal } from '@/features/modals/support-modal';
 
 export const Modals = () => {
 	return (

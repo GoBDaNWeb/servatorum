@@ -34,7 +34,12 @@ export const ProfileWrapper: FC<PropsWithChildren<IProfileWrapper>> = ({
 			</div>
 			<>
 				{paginationCondition ? (
-					<Pagination currentPage={1} totalPages={34} onPageChange={page => console.log(page)} />
+					<Pagination
+						className={s.pagination}
+						currentPage={1}
+						totalPages={34}
+						onPageChange={page => console.log(page)}
+					/>
 				) : null}
 			</>
 		</div>

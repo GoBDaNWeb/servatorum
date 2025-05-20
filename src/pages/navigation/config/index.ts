@@ -31,5 +31,6 @@ export const routes = [
 	{
 		title: 'Профиль - Кошелек',
 		href: `${PATH_PAGE.profileWallet}?=fond`
-	}
+	},
+	{ title: 'профиль - История поступлений', href: `${PATH_PAGE.profileHistory}?=fond` }
 ];

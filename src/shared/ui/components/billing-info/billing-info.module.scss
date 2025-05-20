@@ -28,6 +28,9 @@
 		}
 		.title {
 			@include title_3_16_m;
+			display: flex;
+			align-items: baseline;
+			gap: 6px;
 			span {
 				color: var(--purple-color);
 				@include title_2_20_m;
