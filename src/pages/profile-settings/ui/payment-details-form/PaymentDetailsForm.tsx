@@ -1,4 +1,4 @@
-import { Button, useModal } from '@/shared/ui';
+import { BillingButton, Button, useModal } from '@/shared/ui';
 
 import s from '../profile-settings.module.scss';
 
@@ -17,37 +17,9 @@ export const PaymentDetailsForm = () => {
 				</div>
 			</div>
 			<div className={s.inputsBlock}>
-				<Button
-					variant='clear'
-					className={s.paymentBtn}
-					onClick={() => handleOpenBillingInfoModal('billing-info')}
-				>
-					<div className={s.textWrapper}>
-						<div className={s.icon}>
-							<img src='/images/icons/rub.svg' alt='rub' />
-						</div>
-						<div className={s.text}>
-							<p className={s.type}>По умолчанию</p>
-							<p className={s.title}>Основной счет</p>
-						</div>
-					</div>
-					<img src='/images/icons/arrow-right-outline.svg' alt='arrow' />
-				</Button>
-				<Button
-					variant='clear'
-					className={s.paymentBtn}
-					onClick={() => handleOpenBillingInfoModal('billing-info')}
-				>
-					<div className={s.textWrapper}>
-						<div className={s.icon}>
-							<img src='/images/icons/rub.svg' alt='rub' />
-						</div>
-						<div className={s.text}>
-							<p className={s.title}>Запасной счет</p>
-						</div>
-					</div>
-					<img src='/images/icons/arrow-right-outline.svg' alt='arrow' />
-				</Button>
+				<BillingButton title='Основной счет' descr='По умолчанию' />
+				<BillingButton title='Запасной счет' />
+
 				<Button
 					variant='primary'
 					className={s.addBtn}

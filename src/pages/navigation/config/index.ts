@@ -11,11 +11,6 @@ export const routes = [
 	{ title: 'Компания', href: cropLink(PATH_PAGE.company, 10) },
 	{ title: 'Услуги', href: PATH_PAGE.services },
 	{ title: 'Профиль - Настойки профиля', href: PATH_PAGE.profileSettings },
-	{
-		title: 'Профиль - Настойки профиля (Фонд)',
-		href: `${PATH_PAGE.profileSettings}?=fond`,
-		query: 'fond'
-	},
 	{ title: 'Профиль - Уведомления', href: PATH_PAGE.profileNotifications },
 	{ title: 'Профиль - Уведомления (пустые)', href: PATH_PAGE.profileNotificationsEmpty },
 	{ title: 'Профиль - Новости', href: PATH_PAGE.profileNews },
@@ -27,5 +22,14 @@ export const routes = [
 	{ title: 'Профиль - Мои карты', href: PATH_PAGE.profileCards },
 	{ title: 'Профиль - Мои заявки', href: PATH_PAGE.profileRequests },
 	{ title: 'Профиль - Организации', href: PATH_PAGE.profileOrganization },
-	{ title: 'профиль - заявка на сбор', href: PATH_PAGE.requestCollection }
+	{ title: 'профиль - заявка на сбор', href: PATH_PAGE.requestCollection },
+
+	{
+		title: 'Профиль - Настойки профиля (Фонд)',
+		href: `${PATH_PAGE.profileSettings}?=fond`
+	},
+	{
+		title: 'Профиль - Кошелек',
+		href: `${PATH_PAGE.profileWallet}?=fond`
+	}
 ];

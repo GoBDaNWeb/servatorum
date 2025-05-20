@@ -1,0 +1,17 @@
+.crumbs {
+	a {
+		&:hover {
+			svg {
+				.semi-light {
+					fill: var(--purple-color);
+				}
+				.dark {
+					fill: var(--purple-hover-color);
+				}
+				.light {
+					fill: var(--purple-disabled-color);
+				}
+			}
+		}
+	}
+}

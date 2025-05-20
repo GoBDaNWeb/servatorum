@@ -17,6 +17,7 @@ export const PATH_PAGE = {
 	profileCards: '/profile/cards',
 	profileRequests: '/profile/requests',
 	profileOrganization: '/profile/organization',
+	profileWallet: '/profile/wallet',
 	requestCollection: '/request-collection',
 
 	// TODO - временные страницы, потом удалить

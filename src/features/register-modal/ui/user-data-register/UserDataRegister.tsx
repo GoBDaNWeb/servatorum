@@ -26,7 +26,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 			email: ''
 		}
 	});
-	const datepickerRef = useAirDatePicker({ setValue });
+	const datepickerRef = useAirDatePicker({ setValue, setValueLabel: 'date' });
 
 	const onSubmit: SubmitHandler<FieldValues> = data => {
 		nextStep();

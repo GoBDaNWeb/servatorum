@@ -42,7 +42,7 @@ const profileLinks = [
 ];
 const fondLinks = [
 	{ href: `${PATH_PAGE.profileSettings}?=fond`, icon: <UserIcon />, title: 'Настройки профиля' },
-	{ href: PATH_PAGE.profileSubscriptions, icon: <WalletIcon />, title: 'Кошелек' },
+	{ href: `${PATH_PAGE.profileWallet}?=fond`, icon: <WalletIcon />, title: 'Кошелек' },
 	{ href: PATH_PAGE.profileHistory, icon: <PieIcon />, title: 'История поступлений' },
 	{ href: PATH_PAGE.profileNews, icon: <NewsIcon />, title: 'Новости' },
 	{ href: PATH_PAGE.home, icon: <ClockIcon />, title: 'История заказов', count: '128' },

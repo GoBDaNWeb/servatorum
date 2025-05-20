@@ -8,6 +8,7 @@ import { PATH_PAGE } from '@/shared/config';
 import { LogoGray } from '../../icons';
 
 import s from './crumbs.module.scss';
+import './crumbs.scss';
 
 interface ICumbs {
 	links: {
@@ -17,7 +18,7 @@ interface ICumbs {
 }
 
 export const Crumbs: FC<ICumbs> = ({ links }) => {
-	const crumbsClass = clsx(s.crumbs);
+	const crumbsClass = clsx(s.crumbs, 'crumbs');
 
 	return (
 		<div className={crumbsClass}>

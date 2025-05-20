@@ -7,26 +7,28 @@ import 'air-datepicker/air-datepicker.css';
 
 interface IAirDatePicker {
 	setValue: UseFormSetValue<FieldValues>;
+	setValueLabel: string;
 }
 
-export const useAirDatePicker = ({ setValue }: IAirDatePicker) => {
-	const datepickerRef = useRef(null);
+export const useAirDatePicker = ({ setValue, setValueLabel }: IAirDatePicker) => {
+	const datepickerRef = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
-		if (datepickerRef?.current) {
-			const datepicker = new AirDatepicker(datepickerRef.current, {
-				dateFormat: 'dd.MM.yyyy',
-				autoClose: true,
-				// inline: true,
-				onSelect: data => {
-					setValue('date', data.formattedDate);
-				}
-			});
-			return () => {
-				datepicker.destroy();
-			};
-		}
-	}, []);
+		if (!datepickerRef.current || !setValue) return;
+
+		const datepicker = new AirDatepicker(datepickerRef.current, {
+			dateFormat: 'dd.MM.yyyy',
+			autoClose: true,
+			// inline: true,
+			onSelect: data => {
+				setValue(setValueLabel, data.formattedDate);
+			}
+		});
+
+		return () => {
+			datepicker.destroy();
+		};
+	}, [setValue, setValueLabel]);
 
 	return datepickerRef;
 };

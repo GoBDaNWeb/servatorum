@@ -26,7 +26,9 @@ export const Input = IMaskMixin(({ inputRef, className, clear, req, prefIcon, ic
 			) : null}
 			<label className={s.input}>
 				{prefIcon ? <img src={prefIcon as string} alt='icon' /> : null}
+
 				<input {...props} ref={inputRef as React.Ref<HTMLInputElement>} />
+
 				{clear ? (
 					<Button onClick={clear as () => void} className={s.clearBtn} variant='clear'>
 						<ClearIcon />

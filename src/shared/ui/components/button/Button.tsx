@@ -75,11 +75,11 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 		return (
 			<button
 				disabled={isDisabled}
-				className={buttonClass}
 				ref={ref as Ref<HTMLButtonElement>}
 				onClick={onClick}
 				onMouseEnter={onMouseEnter}
 				type={type}
+				className={buttonClass}
 			>
 				{children}
 			</button>

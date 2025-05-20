@@ -12,7 +12,7 @@ interface IPersonalInfoForm {
 }
 
 export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) => {
-	const datepickerRef = useAirDatePicker({ setValue });
+	const datepickerRef = useAirDatePicker({ setValue, setValueLabel: 'date' });
 
 	return (
 		<div className={s.dataBlock}>

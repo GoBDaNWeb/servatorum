@@ -23,6 +23,7 @@ import { ProfileOrganization } from '@/pages/profile-organization';
 import { ProfileRequests } from '@/pages/profile-requests';
 import { ProfileSettings } from '@/pages/profile-settings';
 import { ProfileSubscriptions } from '@/pages/profile-subscriptions';
+import { ProfileWallet } from '@/pages/profile-wallet';
 import { RequestCollection } from '@/pages/request-collection';
 import { Services } from '@/pages/services';
 
@@ -137,6 +138,10 @@ export const Router = () => {
 				{
 					path: PATH_PAGE.profileOrganization,
 					element: <ProfileOrganization />
+				},
+				{
+					path: PATH_PAGE.profileWallet,
+					element: <ProfileWallet />
 				}
 			]
 		}
