@@ -6,7 +6,7 @@ import { ProfileWrapper } from '@/widgets/profile-wrapper';
 import { Sort } from '@/features/sort';
 
 import { useAirDatePicker } from '@/shared/lib';
-import { BillingButton, BillingInfo, Button, Image, Input, useModal } from '@/shared/ui';
+import { BillingButton, BillingInfo, Button, Input, useModal } from '@/shared/ui';
 
 import { crumbs, donations, sortList } from '../config';
 
@@ -15,7 +15,7 @@ import s from './profile-wallet.module.scss';
 export const ProfileWallet = () => {
 	const { open } = useModal();
 	const [selectedSort, setSelectedSort] = useState(sortList[0]);
-	const { watch, setValue, handleSubmit, control } = useForm<FieldValues>({
+	const { watch, setValue } = useForm<FieldValues>({
 		defaultValues: {
 			fromDate: '',
 			toDate: ''
