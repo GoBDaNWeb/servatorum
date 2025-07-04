@@ -2,7 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { ISpehe } from '../types';
 
-const API_URL = import.meta.env.VITE_API_BASE_URL;
+// const API_URL = import.meta.env.VITE_API_BASE_URL;
+const API_URL = 'http://217.171.146.249:8000';
 const API_SPHERE_URL = `${API_URL}/sphere/`;
 
 export const spheresAPI = createApi({

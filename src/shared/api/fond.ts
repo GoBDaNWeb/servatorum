@@ -2,7 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { IFond } from '../types';
 
-const API_URL = import.meta.env.VITE_API_BASE_URL;
+// const API_URL = import.meta.env.VITE_API_BASE_URL;
+const API_URL = 'http://217.171.146.249:8000';
 
 export const fondAPI = createApi({
 	reducerPath: 'fondAPI',
