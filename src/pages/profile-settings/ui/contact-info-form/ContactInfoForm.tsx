@@ -27,7 +27,7 @@ export const ContactInfoForm: FC<IContactInfoForm> = ({ control }) => {
 						render={({ field: { value, onChange } }) => {
 							return (
 								<Input
-									mask={/^[A-Za-zА-Яа-яЁё]*$/}
+									mask={/^.*$/}
 									placeholder='Введите'
 									req
 									value={value}

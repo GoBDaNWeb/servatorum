@@ -33,7 +33,7 @@ export const FondCardAlert: FC<IFondCardAlert> = ({
 						<p>{title}</p>
 					</div>
 				</div>
-				<Button variant='clear'>
+				<Button variant='clear' ariaLabel='Добавить в избранное'>
 					<StarIcon />
 				</Button>
 			</div>

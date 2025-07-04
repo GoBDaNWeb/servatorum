@@ -97,7 +97,13 @@ export const Checkbox: FC<ICheckbox> = ({
 					<p>{children}</p>
 				</label>
 			) : (
-				<input className={s.defaultCheckbox} checked={isChecked} type='checkbox' name={name} />
+				<input
+					className={s.defaultCheckbox}
+					checked={isChecked}
+					type='checkbox'
+					name={name}
+					aria-label='Переключатель'
+				/>
 			)}
 		</>
 	);

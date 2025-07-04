@@ -40,6 +40,7 @@ interface IButton {
 	onMouseEnter?: () => void;
 	isDisabled?: boolean;
 	type?: 'button' | 'submit';
+	ariaLabel?: string;
 }
 
 type ButtonProps = AnchorButtonProps | RegularButtonProps;
@@ -56,7 +57,8 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 			onClick,
 			onMouseEnter,
 			isDisabled = false,
-			type = 'button'
+			type = 'button',
+			ariaLabel
 		},
 		ref
 	) => {
@@ -66,7 +68,12 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 
 		if (isLink) {
 			return (
-				<a className={buttonClass} href={href} ref={ref as Ref<HTMLAnchorElement>}>
+				<a
+					className={buttonClass}
+					href={href}
+					ref={ref as Ref<HTMLAnchorElement>}
+					aria-label={ariaLabel}
+				>
 					{children}
 				</a>
 			);
@@ -80,6 +87,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 				onMouseEnter={onMouseEnter}
 				type={type}
 				className={buttonClass}
+				aria-label={ariaLabel}
 			>
 				{children}
 			</button>

@@ -102,12 +102,16 @@ export const CollectingCard: FC<ICollectingCard> = ({
 					</div>
 					<div className={s.features}>
 						{hasLink ? (
-							<Button variant='clear'>
+							<Button variant='clear' ariaLabel='Скопировать ссылку'>
 								<LinkIcon />
 							</Button>
 						) : null}
 
-						<Button variant='clear' className={classes.favorButtonClass}>
+						<Button
+							variant='clear'
+							className={classes.favorButtonClass}
+							ariaLabel='Добавить в избранное'
+						>
 							<StarIcon />
 						</Button>
 					</div>
@@ -153,6 +157,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 								onMouseEnter={() => handleSetActiveSlide(index)}
 								data-fancybox='collecting'
 								href={img}
+								aria-label='посмотреть фото'
 							></a>
 						))}
 					</div>
@@ -163,7 +168,7 @@ export const CollectingCard: FC<ICollectingCard> = ({
 					<p className={s.title}>{cropText(title, 52)}</p>
 				</NavLink>
 				<div className={s.bottomContent}>
-					<NavLink to={cropLink(PATH_PAGE.collection, 10)}>
+					<NavLink to={cropLink(PATH_PAGE.collection, 10)} aria-label='Ссылка на сбор'>
 						{total && sum ? <>{donationInfo}</> : null}
 					</NavLink>
 

@@ -51,7 +51,7 @@ export const NewsCard: FC<INewsCard> = ({ img, isOwn, isDraft }) => {
 							<span>999</span>
 						</div>
 						{!isDraft ? (
-							<Button variant='clear' className={s.linkBtn}>
+							<Button variant='clear' className={s.linkBtn} ariaLabel='Скопировать ссылку'>
 								<LinkIcon />
 							</Button>
 						) : (

@@ -23,3 +23,4 @@ export * from './billing-info';
 export * from './user-dropdown';
 export * from './user-menu';
 export * from './upload-photo';
+export * from './skeleton';

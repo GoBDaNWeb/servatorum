@@ -27,6 +27,10 @@
 			display: flex;
 			flex-wrap: wrap;
 			gap: 4px;
+			.areaSkeleton {
+				height: 40px;
+				border-radius: var(--radius-s);
+			}
 		}
 	}
 

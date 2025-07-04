@@ -67,7 +67,6 @@ export const FondDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 	const handleCreateFond = async (data: FieldValues) => {
 		try {
 			const { data: fondData } = await createFond(data);
-			console.log('fondData', fondData);
 
 			if (fondData) {
 				nextStep();

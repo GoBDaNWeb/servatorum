@@ -34,7 +34,7 @@ export const FondCard: FC<IFondCardAlert> = ({
 	};
 
 	return (
-		<NavLink to={href} className={classes.fondCardClass}>
+		<NavLink to={href} className={classes.fondCardClass} aria-label='Ссылка на фонд'>
 			<img src={img} alt='fond' />
 			<div className={s.fondCardContent}>
 				<div className={s.fondCardTop}>
@@ -44,7 +44,11 @@ export const FondCard: FC<IFondCardAlert> = ({
 							{statusBadge}
 						</Badge>
 					</div>
-					<Button variant='clear' className={classes.favorButtonClass}>
+					<Button
+						variant='clear'
+						className={classes.favorButtonClass}
+						ariaLabel='Добавить в избранное'
+					>
 						<StarIcon />
 					</Button>
 				</div>

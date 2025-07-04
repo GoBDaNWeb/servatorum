@@ -6,7 +6,7 @@ import { setUser } from '@/entities/user';
 import { useCreateUserMutation, useGetSpheresQuery } from '@/shared/api';
 import { convertDate } from '@/shared/lib';
 import { IUser } from '@/shared/types';
-import { Button, Chip, handleCheckboxChange } from '@/shared/ui';
+import { Button, Chip, Skeleton, handleCheckboxChange } from '@/shared/ui';
 
 import s from './area-register.module.scss';
 
@@ -53,9 +53,9 @@ export const AreaRegister: FC<IAreaRegister> = ({ nextStep, user }) => {
 			</p>
 
 			<div className={s.chipListWrapper}>
-				{!isLoading && data && (
-					<div className={s.chipList}>
-						{data.map(chip => (
+				<div className={s.chipList}>
+					{!isLoading && data ? (
+						data.map(chip => (
 							<Chip
 								type='checkbox'
 								name='filters'
@@ -66,9 +66,16 @@ export const AreaRegister: FC<IAreaRegister> = ({ nextStep, user }) => {
 							>
 								{chip.name}
 							</Chip>
-						))}
-					</div>
-				)}
+						))
+					) : (
+						<>
+							{[...new Array(15)].map((_, index) => {
+								const width = Math.floor(Math.random() * 101) + 50; // 50-150
+								return <Skeleton key={index} classname={s.areaSkeleton} style={{ width }} />;
+							})}
+						</>
+					)}
+				</div>
 			</div>
 
 			<Button onClick={handleCreateUser} variant='primary' className={s.submitBtn}>

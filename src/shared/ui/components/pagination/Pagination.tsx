@@ -52,6 +52,7 @@ export const Pagination: FC<PaginationProps> = ({
 				className={s.navBtn}
 				isDisabled={currentPage === 1}
 				onClick={() => onPageChange(currentPage - 1)}
+				ariaLabel='Кнопка пагинации назад'
 			>
 				<BackOutlineArrow />
 			</Button>
@@ -72,6 +73,7 @@ export const Pagination: FC<PaginationProps> = ({
 				className={s.navBtn}
 				isDisabled={currentPage === totalPages}
 				onClick={() => onPageChange(currentPage + 1)}
+				ariaLabel='Кнопка пагинации вперед'
 			>
 				<NextOutlineArrow />
 			</Button>

@@ -70,7 +70,7 @@
 			}
 		}
 		.textBlock {
-			h5 {
+			.title {
 				color: var(--purple-color);
 				@include headline_32_m;
 				@media (max-width: $tab) {

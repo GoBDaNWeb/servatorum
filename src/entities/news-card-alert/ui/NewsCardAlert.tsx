@@ -42,7 +42,7 @@ export const NewsCardAlert: FC<INewsCard> = ({
 						<img src='/images/icons/eye.svg' alt='eye' />
 						<span>{views}</span>
 					</div>
-					<Button variant='clear' className={s.linkBtn}>
+					<Button variant='clear' className={s.linkBtn} ariaLabel='Скопировать ссылку'>
 						<LinkIcon />
 					</Button>
 				</div>

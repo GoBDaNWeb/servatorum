@@ -13,10 +13,10 @@ export const Footer = () => {
 				<div className={s.footerTop}>
 					<Logo />
 					<div className={s.links}>
-						<Button variant='secondary' isLink href='#' size='l'>
+						<Button variant='secondary' isLink href='#' size='l' ariaLabel='Скачать с AppStore'>
 							<img src='/images/icons/app-store.svg' alt='' />
 						</Button>
-						<Button variant='secondary' isLink href='#' size='l'>
+						<Button variant='secondary' isLink href='#' size='l' ariaLabel='Скачать с GooglePlay'>
 							<img src='/images/icons/google-store.svg' alt='' />
 						</Button>
 					</div>
@@ -31,7 +31,7 @@ export const Footer = () => {
 							<img src='/images/icons/cat.png' alt='' />
 							<p>Памагити построить прекрасное будущее вместе с Servatorum! </p>
 						</div>
-						<a href='#' target='_blank'>
+						<a href='https://paradigma-digital.ru/' target='_blank'>
 							<ParadigmaIcon />
 							Разработка сайта – Paradigma
 						</a>

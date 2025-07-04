@@ -26,11 +26,11 @@ export const ServiceCard: FC<IServiceCard> = ({ hasAuthor }) => {
 						</div>
 					</div>
 					<div className={s.features}>
-						<Button variant='clear'>
+						<Button variant='clear' ariaLabel='Скопировать ссылку'>
 							<LinkIcon />
 						</Button>
 
-						<Button variant='clear'>
+						<Button variant='clear' ariaLabel='Добавить в избранное'>
 							<StarIcon />
 						</Button>
 					</div>
@@ -51,7 +51,7 @@ export const ServiceCard: FC<IServiceCard> = ({ hasAuthor }) => {
 			<div className={s.content}>
 				<div className={s.top}>
 					<p className={s.price}>10 000 ₽</p>
-					<Button variant='clear' className={s.favorBtn}>
+					<Button variant='clear' className={s.favorBtn} ariaLabel='Добавить в избранное'>
 						<StarIcon />
 					</Button>
 				</div>

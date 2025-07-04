@@ -1,0 +1,11 @@
+.skeleton {
+	box-shadow: 0 -200px 100px -120px var(--line-color) inset;
+	animation: skeleton 3s infinite alternate;
+}
+
+@keyframes skeleton {
+	50% {
+		background: var(--line-color);
+		box-shadow: 0 -200px 100px -100px var(--txt-gray-color) inset;
+	}
+}

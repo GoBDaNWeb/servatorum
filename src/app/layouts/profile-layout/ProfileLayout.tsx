@@ -37,7 +37,12 @@ export const ProfileLayout = () => {
 				</div>
 			</main>
 			<div className={hiddenBtnClass}>
-				<Button variant='clear' onClick={handleHiddenBtn} className={s.openBtn}>
+				<Button
+					variant='clear'
+					onClick={handleHiddenBtn}
+					className={s.openBtn}
+					ariaLabel='развернуть'
+				>
 					<BackOutlineArrow />
 				</Button>
 				<p>Временная кнопка для более удобного перехода на страницу навигации</p>

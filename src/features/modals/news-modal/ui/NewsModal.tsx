@@ -121,7 +121,7 @@ export const NewsModal = () => {
 							<img src='/images/icons/eye.svg' alt='eye' />
 							<span>999</span>
 						</div>
-						<Button variant='clear' className={s.linkBtn}>
+						<Button variant='clear' className={s.linkBtn} ariaLabel='Скопировать ссылку'>
 							<LinkIcon />
 						</Button>
 					</div>

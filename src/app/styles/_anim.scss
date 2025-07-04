@@ -1,0 +1,6 @@
+@keyframes skeleton {
+	50% {
+		background: var(--txt-gray-color2);
+		box-shadow: 0 -200px 100px -100px var(--txt-gray-color) inset;
+	}
+}
