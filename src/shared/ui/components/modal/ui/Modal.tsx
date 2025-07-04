@@ -4,8 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import clsx from 'clsx';
 
 import { useLockedBody } from '@/shared/lib';
-
-import { Portal } from '../portal';
+import { Portal } from '@/shared/ui';
 
 import s from './modal.module.scss';
 import './modal.scss';

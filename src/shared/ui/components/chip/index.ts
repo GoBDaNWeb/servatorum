@@ -1,1 +1,2 @@
-export { Chip } from './Chip';
+export { Chip } from './ui/Chip';
+export * from './lib';

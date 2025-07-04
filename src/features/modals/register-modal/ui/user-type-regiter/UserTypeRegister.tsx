@@ -6,7 +6,7 @@ import s from './user-type-register.module.scss';
 
 interface IUserTypeRegister {
 	nextStep: () => void;
-	setUserType: (value: string) => void;
+	setUserType: (value: '' | 'user' | 'fond' | 'company') => void;
 }
 
 export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep, setUserType }) => {
@@ -25,16 +25,16 @@ export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep, setUserType 
 					img='/images/icons/user-icon.svg'
 					onClick={() => handleSetUserType('user')}
 				/>
-				<TypeButton
+				{/* <TypeButton
 					title='Фонд'
 					img='/images/icons/fond-icon.svg'
 					onClick={() => handleSetUserType('fond')}
-				/>
-				<TypeButton
+				/> */}
+				{/* <TypeButton
 					title='Компания'
 					img='/images/icons/company-icon.svg'
 					onClick={() => handleSetUserType('company')}
-				/>
+				/> */}
 			</div>
 		</div>
 	);

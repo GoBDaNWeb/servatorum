@@ -19,4 +19,8 @@ export const chips = [
 	'Сообщество волонтеров',
 	'Мероприятия фондов'
 ];
-export const sortChipList = ['По умолчанию', 'По началу', 'По окончанию'];
+export const sortChipList = [
+	{ id: 0, name: 'По умолчанию' },
+	{ id: 1, name: 'По началу' },
+	{ id: 2, name: 'По окончанию' }
+];

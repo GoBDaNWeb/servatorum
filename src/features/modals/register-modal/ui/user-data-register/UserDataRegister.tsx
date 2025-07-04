@@ -1,57 +1,80 @@
-import { FC, useEffect, useState } from 'react';
-import { Controller, FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { FC, useEffect } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
-import { useAirDatePicker } from '@/shared/lib';
-import { Button, Checkbox, FemaleIcon, Input, MaleIcon, Photo } from '@/shared/ui';
+import { formatPhone, useAirDatePicker } from '@/shared/lib';
+import { type TypeUserSchema, userSchema } from '@/shared/schemas';
+import { IUser, UserDirection } from '@/shared/types';
+import { Button, Checkbox, FemaleIcon, Input, MaleIcon, useUploadPhoto } from '@/shared/ui';
 
 import s from './user-data-register.module.scss';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 
 interface IUserDataRegister {
 	nextStep: () => void;
 	phoneValue: string;
+	userDirection: UserDirection;
+	setUser: (user: IUser) => void;
 }
 
-export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }) => {
-	const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
-
-	const { watch, setValue, handleSubmit, control } = useForm<FieldValues>({
+export const UserDataRegister: FC<IUserDataRegister> = ({
+	nextStep,
+	userDirection,
+	phoneValue,
+	setUser
+}) => {
+	const {
+		setValue,
+		handleSubmit,
+		control,
+		formState: { isValid }
+	} = useForm<TypeUserSchema>({
+		resolver: zodResolver(userSchema),
 		defaultValues: {
-			firstName: '',
-			middleName: '',
-			lastName: '',
-			address: '',
-			gender: '0',
-			date: '',
-			phone: phoneValue,
-			email: ''
+			first_name: '',
+			surname: '',
+			last_name: '',
+			city: '',
+			gender: 'Мужской',
+			date_of_birth: '',
+			phone: formatPhone(phoneValue, false),
+			email: '',
+			role: userDirection,
+			profile_picture: ''
 		}
 	});
-	const datepickerRef = useAirDatePicker({ setValue, setValueLabel: 'date' });
 
-	const onSubmit: SubmitHandler<FieldValues> = data => {
-		nextStep();
-		console.log(data);
+	const { imageUrl } = useUploadPhoto();
+
+	useEffect(() => {
+		setValue('profile_picture', imageUrl);
+	}, [imageUrl]);
+
+	const { datepickerRef, closeDatepicker } = useAirDatePicker({
+		setValue,
+		setValueLabel: 'date_of_birth'
+	});
+
+	const onSubmit: SubmitHandler<TypeUserSchema> = async data => {
+		try {
+			setUser({ ...data, spheres: [] });
+			nextStep();
+		} catch (e) {
+			console.error('Ошибка при регистрации:', e);
+		}
 	};
 
-	const handleClearAddress = () => {
-		setValue('address', '');
+	const handleClearCity = () => {
+		setValue('city', '');
 	};
 
 	useEffect(() => {
-		const { unsubscribe } = watch(value => {
-			const emptyValues = Object.values(value).filter(val => {
-				return val.length === 0;
-			});
-			if (emptyValues) {
-				if (!emptyValues.length) {
-					setButtonIsDisabled(false);
-				} else {
-					setButtonIsDisabled(true);
-				}
-			}
-		});
-		return () => unsubscribe();
-	}, [watch]);
+		const modalWrapper = document.querySelector('.modal-content-wrapper');
+		modalWrapper?.addEventListener('scroll', closeDatepicker);
+		return () => {
+			modalWrapper?.removeEventListener('scroll', closeDatepicker);
+		};
+	}, []);
 
 	return (
 		<div className={s.userDataRegister}>
@@ -61,7 +84,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 					<div className={s.inputsCol}>
 						<Controller
 							control={control}
-							name='lastName'
+							name='last_name'
 							rules={{ required: true }}
 							render={({ field: { onChange } }) => {
 								return (
@@ -77,7 +100,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 						/>
 						<Controller
 							control={control}
-							name='firstName'
+							name='first_name'
 							rules={{ required: true }}
 							render={({ field: { onChange } }) => {
 								return (
@@ -93,7 +116,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 						/>
 						<Controller
 							control={control}
-							name='middleName'
+							name='surname'
 							rules={{ required: true }}
 							render={({ field: { onChange } }) => {
 								return (
@@ -111,9 +134,10 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 					<div className={s.inputsRow}>
 						<Controller
 							control={control}
-							name='date'
+							name='date_of_birth'
 							rules={{ required: true }}
 							render={({ field: { onChange, value } }) => {
+								console.log('value', value);
 								return (
 									<Input
 										placeholder='Введите'
@@ -152,18 +176,18 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 					</div>
 					<Controller
 						control={control}
-						name='address'
+						name='city'
 						rules={{ required: true }}
 						render={({ field: { value, onChange } }) => {
 							return (
 								<Input
-									mask={/^[A-Za-zА-Яа-яЁё]*$/}
+									mask={/^.*$/}
 									placeholder='Введите'
 									title='Адрес регистрации'
 									req
 									value={value}
 									onAccept={(value: string) => onChange(value)}
-									clear={handleClearAddress}
+									clear={handleClearCity}
 								/>
 							);
 						}}
@@ -181,7 +205,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 												title='Номер телефона'
 												req
 												value={value}
-												onAccept={(value: string) => onChange(value)}
+												onAccept={(value: string) => onChange(formatPhone(value, false))}
 												mask='+{7} (000) 000-00-00'
 												placeholder='+7'
 											/>
@@ -195,9 +219,9 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 								При изменении на новый номер будет отправлен код подтверждения
 							</p>
 						</div>
-						<Checkbox name='phoneCheck'>
+						{/* <Checkbox name='phoneCheck'>
 							Можно использовать для связи администрации со мной
-						</Checkbox>
+						</Checkbox> */}
 					</div>
 					<div className={s.inputHintWrapper}>
 						<div className={s.inputHint}>
@@ -226,24 +250,19 @@ export const UserDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 							</p>
 						</div>
 
-						<Checkbox name='phoneCheck'>
-							<p className={s.checboxDescr}>Можно использовать для связи администрации со мной</p>
-						</Checkbox>
+						{/* <Checkbox name='phoneCheck'>
+							Можно использовать для связи администрации со мной
+						</Checkbox> */}
 					</div>
 				</div>
-				<Photo className={s.photoSelect} />
-				<Checkbox name='phoneCheck'>
-					Я соглашаюсь на обработку{' '}
+				{/* <UploadPhoto className={s.photoSelect} onChange={handleUploadImage} /> */}
+				{/* <Checkbox name='phoneCheck'>
+					Я соглашаюсь на обработку
 					<a href='#' target='_blank'>
 						Персональных данных
 					</a>
-				</Checkbox>
-				<Button
-					type='submit'
-					variant='primary'
-					className={s.submitBtn}
-					isDisabled={buttonIsDisabled}
-				>
+				</Checkbox> */}
+				<Button type='submit' variant='primary' className={s.submitBtn} isDisabled={!isValid}>
 					Продолжить
 				</Button>
 			</form>

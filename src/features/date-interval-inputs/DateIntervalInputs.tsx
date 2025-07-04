@@ -10,8 +10,14 @@ interface IDateIntervalInputs {
 	setValue: UseFormSetValue<FieldValues>;
 }
 export const DateIntervalInputs: FC<IDateIntervalInputs> = ({ setValue }) => {
-	const datepickerFromRef = useAirDatePicker({ setValue, setValueLabel: 'fromDate' });
-	const datepickerToRef = useAirDatePicker({ setValue, setValueLabel: 'toDate' });
+	const { datepickerRef: datepickerFromRef } = useAirDatePicker({
+		setValue,
+		setValueLabel: 'fromDate'
+	});
+	const { datepickerRef: datepickerToRef } = useAirDatePicker({
+		setValue,
+		setValueLabel: 'toDate'
+	});
 
 	return (
 		<div className={s.dateWrapper}>

@@ -16,6 +16,10 @@
 			height: 100%;
 			object-fit: cover;
 			border-radius: 999px; /* Делаем элемент круглым */
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
 		}
 		&:before {
 			content: '';

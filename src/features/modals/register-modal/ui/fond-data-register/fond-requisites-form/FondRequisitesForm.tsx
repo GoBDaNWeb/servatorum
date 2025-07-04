@@ -14,7 +14,7 @@ export const FondRequisitesForm: FC<IFondRequisitesForm> = ({ control }) => {
 		<div className={s.dataBlock}>
 			<p>Реквизиты фонда</p>
 			<div className={s.inputsCol}>
-				<Controller
+				{/* <Controller
 					control={control}
 					name='accountName'
 					rules={{ required: true }}
@@ -28,7 +28,7 @@ export const FondRequisitesForm: FC<IFondRequisitesForm> = ({ control }) => {
 							/>
 						);
 					}}
-				/>
+				/> */}
 				<Controller
 					control={control}
 					name='inn'
@@ -45,7 +45,7 @@ export const FondRequisitesForm: FC<IFondRequisitesForm> = ({ control }) => {
 						);
 					}}
 				/>
-				<Controller
+				{/* <Controller
 					control={control}
 					name='kpp'
 					rules={{ required: true }}
@@ -60,10 +60,10 @@ export const FondRequisitesForm: FC<IFondRequisitesForm> = ({ control }) => {
 							/>
 						);
 					}}
-				/>
+				/> */}
 				<Controller
 					control={control}
-					name='accountNumber'
+					name='cor_account'
 					rules={{ required: true }}
 					render={({ field: { onChange } }) => {
 						return (
@@ -77,7 +77,7 @@ export const FondRequisitesForm: FC<IFondRequisitesForm> = ({ control }) => {
 						);
 					}}
 				/>
-				<Controller
+				{/* <Controller
 					control={control}
 					name='ks'
 					rules={{ required: true }}
@@ -92,7 +92,7 @@ export const FondRequisitesForm: FC<IFondRequisitesForm> = ({ control }) => {
 							/>
 						);
 					}}
-				/>
+				/> */}
 				<Controller
 					control={control}
 					name='bik'
@@ -111,7 +111,23 @@ export const FondRequisitesForm: FC<IFondRequisitesForm> = ({ control }) => {
 				/>
 				<Controller
 					control={control}
-					name='legalAddress'
+					name='address'
+					rules={{ required: true }}
+					render={({ field: { onChange } }) => {
+						return (
+							<Input
+								mask={/^.*$/}
+								placeholder='Введите'
+								title='Адрес'
+								req
+								onAccept={(value: string) => onChange(value)}
+							/>
+						);
+					}}
+				/>
+				<Controller
+					control={control}
+					name='address_reg'
 					rules={{ required: true }}
 					render={({ field: { onChange } }) => {
 						return (

@@ -5,13 +5,30 @@ import { badges } from '@/pages/home/config';
 import { FondCardAlert } from '@/entities/fond-card-alert';
 import { NewsCardAlert } from '@/entities/news-card-alert';
 
-import { Button, Image } from '@/shared/ui';
+import { useTypedSelector } from '@/shared/lib';
+import { Button, Image, useModal } from '@/shared/ui';
 
 import s from './hero.module.scss';
 
 const heroClass = clsx(s.hero, 'container');
 
 export const Hero = () => {
+	const { open } = useModal();
+
+	const { userData } = useTypedSelector(store => store.user);
+
+	const handleOpenRegisterModal = () => {
+		open('register');
+	};
+
+	const handleOpenCreateRequestModal = () => {
+		if (userData) {
+			open('create-request');
+		} else {
+			open('register');
+		}
+	};
+
 	return (
 		<div className={heroClass}>
 			<div className={s.textBlock}>
@@ -23,10 +40,10 @@ export const Hero = () => {
 					<li>хочет заявить о себе</li>
 				</ul>
 				<div className={s.btns}>
-					<Button variant='primary' size='m'>
+					<Button variant='primary' size='m' onClick={handleOpenRegisterModal}>
 						Начать помогать
 					</Button>
-					<Button variant='secondary' size='m'>
+					<Button variant='secondary' size='m' onClick={handleOpenCreateRequestModal}>
 						Попросить помощь
 					</Button>
 				</div>

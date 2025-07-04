@@ -1,0 +1,1 @@
+export { FondNews } from './FondNews';

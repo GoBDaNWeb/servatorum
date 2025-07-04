@@ -1,0 +1,22 @@
+.contentTopWrapper {
+	.progressLine {
+		background: var(--gray-color);
+		width: 100%;
+		max-width: 390px;
+		height: 4px;
+		position: absolute;
+		top: 42px;
+		left: 0;
+		right: 0;
+		margin: auto;
+		.line {
+			background: var(--gradient-color);
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			transition: var(--trs-300);
+		}
+	}
+}

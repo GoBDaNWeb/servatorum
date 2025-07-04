@@ -25,5 +25,7 @@ export const PATH_PAGE = {
 	profileNotificationsEmpty: '/profile/notifications-empty',
 	profileNewsEmpty: '/profile/news-empty',
 	profileFavouritesEmpty: '/profile/favourites-empty',
-	profileHistoryEmpty: '/profile/history-empty'
+	profileHistoryEmpty: '/profile/history-empty',
+
+	temporary: '#'
 };

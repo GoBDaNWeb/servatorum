@@ -1,5 +1,7 @@
 import { FC, useRef } from 'react';
 
+import { useRequestCodeMutation } from '@/shared/api';
+import { formatPhone } from '@/shared/lib';
 import { Button, Input } from '@/shared/ui';
 
 import s from './phone-register.module.scss';
@@ -10,13 +12,21 @@ interface IPhoneRegister {
 	phoneValue: string;
 }
 export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep, phoneValue, setPhoneValue }) => {
+	const [requestCode] = useRequestCodeMutation();
+
 	const inputRef = useRef(null);
+
+	const handleRequestCode = () => {
+		requestCode({ phone: formatPhone(phoneValue) });
+	};
+
 	const handlePhoneValue = (value: string) => {
 		setPhoneValue(value);
 	};
 
 	const handleNextStep = () => {
 		nextStep();
+		handleRequestCode();
 	};
 
 	return (

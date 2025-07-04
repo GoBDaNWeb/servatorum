@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 
 import clsx from 'clsx';
 
@@ -8,9 +9,21 @@ interface IPhoto {
 	className?: string;
 	size?: 'l' | 'm';
 	title?: string;
+	id?: string;
+	required?: boolean;
+	register?: UseFormRegister<FieldValues>;
+	onChange?: any;
+	value?: any;
 }
 
-export const Photo: FC<IPhoto> = ({ className, size = 'l', title = 'Изменить фото' }) => {
+export const Photo: FC<IPhoto> = ({
+	className,
+	size = 'l',
+	title = 'Изменить фото',
+
+	onChange,
+	value
+}) => {
 	const photoClass = clsx(s.photo, className);
 	const imageWrapperClass = clsx(s.imageWrapper, s[size]);
 
@@ -26,7 +39,7 @@ export const Photo: FC<IPhoto> = ({ className, size = 'l', title = 'Измени
 					Формат JPG, PNG, SVG
 				</p>
 			</div>
-			<input type='file' />
+			<input type='file' onChange={onChange} value={value} />
 		</label>
 	);
 };

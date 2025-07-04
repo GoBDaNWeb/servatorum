@@ -22,7 +22,7 @@ export const ContactInfoForm: FC<IContactInfoForm> = ({ control }) => {
 					<p>Адрес регистрации</p>
 					<Controller
 						control={control}
-						name='address'
+						name='city'
 						rules={{ required: true }}
 						render={({ field: { value, onChange } }) => {
 							return (

@@ -20,3 +20,6 @@ export * from './upload-file';
 export * from './uploaded-photo';
 export * from './billing-button';
 export * from './billing-info';
+export * from './user-dropdown';
+export * from './user-menu';
+export * from './upload-photo';

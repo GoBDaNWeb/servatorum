@@ -2,6 +2,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import clsx from 'clsx';
 
+import { convertDate, useTypedSelector } from '@/shared/lib';
 import { Button, CloseIcon, useModal } from '@/shared/ui';
 
 import { AdminNameForm } from '../admin-name-form';
@@ -12,19 +13,31 @@ import { FondContactsForm } from '../fond-contacts-form';
 import { FondInfoForm } from '../fond-info-form';
 import { FondRequisitesForm } from '../fond-requisites-form';
 import { NotificationsForm } from '../notifications-form';
-import { PasswordForm } from '../password-form';
 import { PaymentDetailsForm } from '../payment-details-form';
 import { PersonalInfoForm } from '../personal-info-form';
 import s from '../profile-settings.module.scss';
 
 export const SettingsForm = () => {
+	const { userData } = useTypedSelector(store => store.user);
+
+	if (!userData) return null;
+
 	const { open } = useModal();
-	const { handleSubmit, control, setValue } = useForm<FieldValues>({
+	const {
+		handleSubmit,
+		control,
+		setValue
+		// formState: { isDirty }
+	} = useForm<FieldValues>({
 		defaultValues: {
-			lastName: 'Елизарова',
-			firstName: 'Светлана',
-			middleName: 'Сергеевна',
-			date: '13.07.1993'
+			last_name: userData.last_name,
+			first_name: userData.first_name,
+			surname: userData.surname,
+			date_of_birth: convertDate(userData.date_of_birth, false),
+			city: userData.city,
+			phone: userData.phone,
+			email: userData.email,
+			gender: userData.gender
 		}
 	});
 
@@ -52,8 +65,8 @@ export const SettingsForm = () => {
 					<PersonalInfoForm control={control} setValue={setValue} />
 					<ContactInfoForm control={control} />
 					<NotificationsForm />
-					<PasswordForm control={control} />
-					<CategoryForm />
+					{/* <PasswordForm control={control} /> */}
+					{userData.spheres.length > 0 ? <CategoryForm /> : null}
 				</>
 			)}
 

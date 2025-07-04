@@ -1,0 +1,44 @@
+.userDropdown {
+	position: relative;
+	.user {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		.image {
+			width: 36px;
+			height: 36px;
+		}
+		span {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			color: var(--purple-color);
+			@include button_1_16_r;
+			svg {
+				height: 6px;
+				width: 10px;
+			}
+		}
+	}
+	.dropdown {
+		position: absolute;
+		right: 0;
+		transition: var(--trs-300);
+		transform: translateY(-50px);
+		pointer-events: none;
+		opacity: 0;
+		padding-top: 10px;
+
+		.userMenu {
+			padding-top: 0;
+			width: 312px;
+		}
+	}
+	&.active {
+		.dropdown {
+			opacity: 1;
+			transform: translateY(0);
+			pointer-events: all;
+		}
+	}
+}

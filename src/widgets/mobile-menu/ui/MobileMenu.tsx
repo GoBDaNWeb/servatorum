@@ -12,7 +12,7 @@ import s from './mobile-menu.module.scss';
 export const MobileMenu = () => {
 	const dispatch = useDispatch();
 
-	const { isOpen } = useTypedSelector(stroe => stroe.mobileMenu);
+	const { isOpen } = useTypedSelector(store => store.mobileMenu);
 	useLockedBody(isOpen);
 
 	const handleCloseMobileMenu = () => {

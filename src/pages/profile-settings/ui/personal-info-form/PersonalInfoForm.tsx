@@ -12,7 +12,7 @@ interface IPersonalInfoForm {
 }
 
 export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) => {
-	const datepickerRef = useAirDatePicker({ setValue, setValueLabel: 'date' });
+	const { datepickerRef } = useAirDatePicker({ setValue, setValueLabel: 'date' });
 
 	return (
 		<div className={s.dataBlock}>
@@ -27,7 +27,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 					<p>Фамилия</p>
 					<Controller
 						control={control}
-						name='lastName'
+						name='last_name'
 						rules={{ required: true }}
 						render={({ field: { onChange, value } }) => {
 							return (
@@ -46,7 +46,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 					<p>Имя</p>
 					<Controller
 						control={control}
-						name='firstName'
+						name='first_name'
 						rules={{ required: true }}
 						render={({ field: { onChange, value } }) => {
 							return (
@@ -65,7 +65,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 					<p>Отчество</p>
 					<Controller
 						control={control}
-						name='middleName'
+						name='surname'
 						rules={{ required: true }}
 						render={({ field: { onChange, value } }) => {
 							return (
@@ -87,12 +87,13 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 							control={control}
 							name='gender'
 							rules={{ required: true }}
-							render={({ field: { onChange } }) => {
+							render={({ field: { value, onChange } }) => {
 								return (
 									<Checkbox
 										name='gender'
 										value1='Мужской'
 										value2='Женский'
+										value={value}
 										icon1={<MaleIcon />}
 										icon2={<FemaleIcon />}
 										isToggler
@@ -108,7 +109,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 					<div className={s.dateInput}>
 						<Controller
 							control={control}
-							name='date'
+							name='date_of_birth'
 							rules={{ required: true }}
 							render={({ field: { onChange, value } }) => {
 								return (

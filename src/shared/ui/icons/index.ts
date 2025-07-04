@@ -32,3 +32,4 @@ export { CollectionsIcon } from './CollectionsIcon';
 export { PromotionIcon } from './PromotionIcon';
 export { ReportsIcons } from './ReportsIcons';
 export { RepresentativesIcon } from './RepresentativesIcon';
+export { DropdownArrow } from './DropdownArrow';

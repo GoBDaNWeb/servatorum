@@ -2,10 +2,18 @@ import { FC, useState } from 'react';
 
 import clsx from 'clsx';
 
+import { useGetSpheresQuery } from '@/shared/api';
 import { sortChipList } from '@/shared/config';
-import { Button, Chip, CloseIcon, Input } from '@/shared/ui';
+import {
+	Button,
+	Chip,
+	CloseIcon,
+	Input,
+	handleCheckboxChange,
+	handleSingleCheckboxChange
+} from '@/shared/ui';
 
-import { chips, chipsTime } from '../config';
+import { chipsTime } from '../config';
 
 import s from './list-filters.module.scss';
 
@@ -14,18 +22,14 @@ interface IListFilters {
 }
 
 export const ListFilters: FC<IListFilters> = ({ className }) => {
-	const [selectedSort, setSelectedSort] = useState(sortChipList[0]);
-	const [selectedTime, setSelectedTime] = useState(chipsTime[0]);
-	const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
+	const [selectedSort, setSelectedSort] = useState<number>(sortChipList[0].id);
+	const [selectedTime, setSelectedTime] = useState<number>(chipsTime[0].id);
+	const [selectedAreas, setSelectedAreas] = useState<number[]>([]);
 
-	const handleCategoryChange = (value: string) => {
-		setSelectedCategory(prev =>
-			prev.includes(value) ? prev.filter(item => item !== value) : [...prev, value]
-		);
-	};
+	const { data, isLoading } = useGetSpheresQuery();
 
 	const handleClearCategory = () => {
-		setSelectedCategory([]);
+		setSelectedAreas([]);
 	};
 
 	const listFiltersClass = clsx(s.listFilters, className);
@@ -41,15 +45,14 @@ export const ListFilters: FC<IListFilters> = ({ className }) => {
 				<div className={s.chipList}>
 					{sortChipList.map(chip => (
 						<Chip
-							type='radio'
-							name='sort'
-							key={chip}
-							value={chip}
-							checked={selectedSort === chip}
-							onChange={setSelectedSort}
-							size='s'
+							type='checkbox'
+							name='filters'
+							key={chip.id}
+							value={chip.id}
+							checked={selectedSort === chip.id}
+							onChange={value => handleSingleCheckboxChange(setSelectedSort, value as number)}
 						>
-							{chip}
+							{chip.name}
 						</Chip>
 					))}
 				</div>
@@ -57,19 +60,22 @@ export const ListFilters: FC<IListFilters> = ({ className }) => {
 			<div className={s.listFiltersItem}>
 				<p>Категория</p>
 				<div className={s.chipList}>
-					{chips.map(chip => (
-						<Chip
-							type='checkbox'
-							name='filters'
-							key={chip}
-							value={chip}
-							checked={selectedCategory.includes(chip)}
-							onChange={handleCategoryChange}
-							size='s'
-						>
-							{chip}
-						</Chip>
-					))}
+					{!isLoading && data && (
+						<div className={s.chipList}>
+							{data.map(chip => (
+								<Chip
+									type='checkbox'
+									name='filters'
+									key={chip.id}
+									value={chip.id}
+									checked={selectedAreas.includes(chip.id)}
+									onChange={value => handleCheckboxChange(setSelectedAreas, value as number)}
+								>
+									{chip.name}
+								</Chip>
+							))}
+						</div>
+					)}
 					<Button size='xs' variant='primary'>
 						Ещё 96
 					</Button>
@@ -84,15 +90,14 @@ export const ListFilters: FC<IListFilters> = ({ className }) => {
 				<div className={s.chipList}>
 					{chipsTime.map(chip => (
 						<Chip
-							type='radio'
-							name='sort'
-							key={chip}
-							value={chip}
-							checked={selectedTime === chip}
-							onChange={setSelectedTime}
-							size='s'
+							type='checkbox'
+							name='filters'
+							key={chip.id}
+							value={chip.id}
+							checked={selectedTime === chip.id}
+							onChange={value => handleSingleCheckboxChange(setSelectedTime, value as number)}
 						>
-							{chip}
+							{chip.name}
 						</Chip>
 					))}
 				</div>

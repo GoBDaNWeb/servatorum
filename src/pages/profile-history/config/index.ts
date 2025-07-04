@@ -1,7 +1,22 @@
 export const crumbs = [{ title: 'Профиль' }];
-export const sortList = ['Все время', 'Сегодня ', 'Вчера', 'Неделя', 'Месяц', '3 месяца'];
-export const sortListFonds = ['Сборы и фонды', 'Сборы ', 'Фонды'];
-export const sortListPayments = ['Переводы и подписки', 'Переводы ', 'Подписки'];
+export const sortList = [
+	{ id: 0, name: 'Все время' },
+	{ id: 0, name: 'Сегодня ' },
+	{ id: 0, name: 'Вчера' },
+	{ id: 0, name: 'Неделя' },
+	{ id: 0, name: 'Месяц' },
+	{ id: 0, name: '3 месяца' }
+];
+export const sortListFonds = [
+	{ id: 2, name: 'Сборы и фонды' },
+	{ id: 2, name: 'Сборы ' },
+	{ id: 2, name: 'Фонды' }
+];
+export const sortListPayments = [
+	{ id: 0, name: 'Переводы и подписки' },
+	{ id: 1, name: 'Переводы ' },
+	{ id: 2, name: 'Подписки' }
+];
 export const donations = [
 	{
 		date: '30 сентября',

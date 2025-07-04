@@ -2,6 +2,7 @@ import { AddBillingModal } from '@/features/modals/add-billing-modal';
 import { BillingInfoModal } from '@/features/modals/billing-info-modal';
 import { ChangeAccountModal } from '@/features/modals/change-account-modal';
 import { ChangeSubscribeModal } from '@/features/modals/change-subscribe-modal';
+import { CreateNewsModal } from '@/features/modals/create-news-modal';
 import { CreateOrganizationModal } from '@/features/modals/create-organization-modal';
 import { CreateRequestModal } from '@/features/modals/create-request-modal';
 import { DeleteAccountModal } from '@/features/modals/delete-account-modal';
@@ -42,6 +43,7 @@ export const Modals = () => {
 			<CreateRequestModal />
 			<BillingInfoModal />
 			<AddBillingModal />
+			<CreateNewsModal />
 		</>
 	);
 };

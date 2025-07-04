@@ -5,7 +5,12 @@ export const crumbs = [
 	{ title: 'Кошелёк' }
 ];
 
-export const sortList = ['Все', 'Переводы ', 'Вывод средств', 'Пожертвования'];
+export const sortList = [
+	{ id: 0, name: 'Все' },
+	{ id: 1, name: 'Переводы ' },
+	{ id: 2, name: 'Вывод средств' },
+	{ id: 3, name: 'Пожертвования' }
+];
 export const donations = [
 	{
 		date: 'Сегодня',

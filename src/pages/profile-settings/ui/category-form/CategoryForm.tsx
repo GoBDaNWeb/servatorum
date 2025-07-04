@@ -1,21 +1,20 @@
 import { useState } from 'react';
 
-import { Button, Chip, CloseIcon } from '@/shared/ui';
+import { useTypedSelector } from '@/shared/lib';
+import { ISpehe } from '@/shared/types';
+import { Button, Chip, CloseIcon, handleCheckboxChange } from '@/shared/ui';
 
-import { chips } from '../../config';
 import s from '../profile-settings.module.scss';
 
 export const CategoryForm = () => {
-	const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
+	const [selectedAreas, setSelectedAreas] = useState<number[]>([]);
 
-	const handleCategoryChange = (value: string) => {
-		setSelectedCategory(prev =>
-			prev.includes(value) ? prev.filter(item => item !== value) : [...prev, value]
-		);
-	};
+	const { userData } = useTypedSelector(store => store.user);
+
+	if (!userData) return null;
 
 	const handleClearCategoryList = () => {
-		setSelectedCategory([]);
+		setSelectedAreas([]);
 	};
 
 	return (
@@ -23,7 +22,7 @@ export const CategoryForm = () => {
 			<div className={s.titleBlock}>
 				<div className='sticky-block'>
 					<p className={s.title}>Сферы помощи</p>
-					{selectedCategory.length > 0 ? (
+					{selectedAreas.length > 0 ? (
 						<Button variant='clear' className={s.resetBtn} onClick={handleClearCategoryList}>
 							<CloseIcon />
 							Сбросить все
@@ -32,21 +31,26 @@ export const CategoryForm = () => {
 				</div>
 			</div>
 			<div className={s.chipsBlock}>
-				<div className={s.chipsList}>
-					{chips.map(chip => (
-						<Chip
-							type='checkbox'
-							name='filters'
-							key={chip}
-							value={chip}
-							checked={selectedCategory.includes(chip)}
-							onChange={handleCategoryChange}
-							size='s'
-						>
-							{chip}
-						</Chip>
-					))}
-				</div>
+				{userData.spheres.length > 0 ? (
+					<div className={s.chipsList}>
+						{
+							// @ts-ignore
+							userData.spheres.map((chip: ISpehe) => (
+								<Chip
+									type='checkbox'
+									name='filters'
+									key={chip.id}
+									value={chip.id}
+									checked={selectedAreas.includes(chip.id)}
+									onChange={value => handleCheckboxChange(setSelectedAreas, value as number)}
+								>
+									{chip.name}
+								</Chip>
+							))
+						}
+					</div>
+				) : null}
+
 				<Button variant='primary' size='xs'>
 					Показать все
 				</Button>

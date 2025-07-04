@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useRoutes } from 'react-router-dom';
+import { Navigate, useLocation, useRoutes } from 'react-router-dom';
 
 import { MainLayout, ProfileLayout } from '@/app/layouts';
 
@@ -28,9 +28,12 @@ import { RequestCollection } from '@/pages/request-collection';
 import { Services } from '@/pages/services';
 
 import { PATH_PAGE } from '@/shared/config';
+import { useTypedSelector } from '@/shared/lib';
 
 export const Router = () => {
 	const location = useLocation();
+	const { userData } = useTypedSelector(store => store.user);
+	const { fondData } = useTypedSelector(store => store.fond);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -89,7 +92,7 @@ export const Router = () => {
 			]
 		},
 		{
-			element: <ProfileLayout />,
+			element: userData || fondData ? <ProfileLayout /> : <Navigate to={PATH_PAGE.home} replace />,
 			children: [
 				{
 					path: PATH_PAGE.profileSettings,

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@/shared/lib';
 import { ModalName, ModalProps } from '@/shared/types';
 
-import { closeModal, openModal, updateModalProps } from './model.slice';
+import { closeModal, openModal, updateModalProps } from '../model';
 
 export const useModal = () => {
 	const dispatch = useDispatch();

@@ -17,6 +17,7 @@ interface ICheckbox {
 	children?: ReactNode;
 	isChecked?: boolean;
 	isRadio?: boolean;
+	value?: 'Мужской' | 'Женский';
 }
 
 export const Checkbox: FC<ICheckbox> = ({
@@ -31,9 +32,10 @@ export const Checkbox: FC<ICheckbox> = ({
 	children,
 	isChecked,
 	className,
-	isRadio
+	isRadio,
+	value = 'Мужской'
 }) => {
-	const [currentSelectCheckbox, setCurrentSelectChecbox] = useState(0);
+	const [currentSelectCheckbox, setCurrentSelectChecbox] = useState(value === 'Мужской' ? 0 : 1);
 
 	const handleChangeCurrentSelectCheckbox = (index: number) => {
 		setCurrentSelectChecbox(() => {
@@ -54,14 +56,26 @@ export const Checkbox: FC<ICheckbox> = ({
 					{title ? <p className={s.title}>{title}</p> : null}
 					<div className={s.checkboxToggler}>
 						<label onClick={() => handleChangeCurrentSelectCheckbox(0)}>
-							<input type='radio' name={name} value={0} defaultChecked onChange={onChange} />
+							<input
+								type='radio'
+								name={name}
+								value={value1}
+								defaultChecked={value === 'Мужской'}
+								onChange={onChange}
+							/>
 							<p>
 								{icon1} {value1}
 							</p>
 						</label>
 						<div className={classes.togglerClass}></div>
 						<label onClick={() => handleChangeCurrentSelectCheckbox(1)}>
-							<input type='radio' name={name} value={1} onChange={onChange} />
+							<input
+								type='radio'
+								name={name}
+								value={value2}
+								defaultChecked={value === 'Женский'}
+								onChange={onChange}
+							/>
 							<p>
 								{icon2}
 								{value2}

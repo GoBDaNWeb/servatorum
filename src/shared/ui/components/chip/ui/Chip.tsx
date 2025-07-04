@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { CheckIcon } from '../../icons';
+import { CheckIcon } from '@/shared/ui';
 
 import s from './chip.module.scss';
 
@@ -11,8 +11,8 @@ interface IChip {
 	name: string;
 	type?: 'checkbox' | 'radio';
 	checked?: boolean;
-	onChange: (value: string) => void;
-	value: string;
+	onChange: (value: number | string) => void;
+	value: number | string;
 	size?: 'm' | 's';
 	variant?: 'outline' | 'fill';
 }

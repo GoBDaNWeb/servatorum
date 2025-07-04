@@ -14,7 +14,7 @@ import s from './profile-wallet.module.scss';
 
 export const ProfileWallet = () => {
 	const { open } = useModal();
-	const [selectedSort, setSelectedSort] = useState(sortList[0]);
+	const [selectedSort, setSelectedSort] = useState(sortList[0].id);
 	const { watch, setValue } = useForm<FieldValues>({
 		defaultValues: {
 			fromDate: '',

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 
+import { formatPhone } from '@/shared/lib';
 import { Input } from '@/shared/ui';
 
 import s from '../fond-data-register.module.scss';
@@ -24,7 +25,7 @@ export const FondContactsForm: FC<IFondContactsForm> = ({ control }) => {
 								title='Номер телефона'
 								req
 								value={value}
-								onAccept={(value: string) => onChange(value)}
+								onAccept={(value: string) => onChange(formatPhone(value, false))}
 								mask='+{7} (000) 000-00-00'
 								placeholder='+7'
 							/>
@@ -32,6 +33,23 @@ export const FondContactsForm: FC<IFondContactsForm> = ({ control }) => {
 					}}
 				/>
 				<Controller
+					control={control}
+					name='phone_helpdesk'
+					rules={{ required: true }}
+					render={({ field: { value, onChange } }) => {
+						return (
+							<Input
+								title='Номер телефона поддержки'
+								req
+								value={value}
+								onAccept={(value: string) => onChange(formatPhone(value, false))}
+								mask='+{7} (000) 000-00-00'
+								placeholder='+7'
+							/>
+						);
+					}}
+				/>
+				{/* <Controller
 					control={control}
 					name='email'
 					rules={{ required: true }}
@@ -64,7 +82,7 @@ export const FondContactsForm: FC<IFondContactsForm> = ({ control }) => {
 							/>
 						);
 					}}
-				/>
+				/> */}
 			</div>
 		</div>
 	);

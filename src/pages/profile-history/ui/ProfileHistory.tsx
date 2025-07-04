@@ -16,8 +16,8 @@ import s from './profile-history.module.scss';
 export const ProfileHistory = () => {
 	const { search } = useLocation();
 
-	const [selectedSort, setSelectedSort] = useState(search ? sortListFonds[0] : sortList[0]);
-	const [selectedSortSecond, setSelectedSortSecond] = useState(sortListPayments[0]);
+	const [selectedSort, setSelectedSort] = useState(search ? sortListFonds[0].id : sortList[0].id);
+	const [selectedSortSecond, setSelectedSortSecond] = useState(sortListPayments[0].id);
 
 	const { watch, setValue } = useForm<FieldValues>({
 		defaultValues: {

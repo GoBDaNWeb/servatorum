@@ -11,4 +11,8 @@ export const badges = [
 	'Гуманитарная помощь',
 	'Животные'
 ];
-export const sortList = ['По умолчанию', 'По началу ', 'По окончанию'];
+export const sortList = [
+	{ id: 0, name: 'По умолчанию' },
+	{ id: 1, name: 'По началу ' },
+	{ id: 2, name: 'По окончанию' }
+];

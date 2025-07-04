@@ -1,5 +1,9 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
+import { usePhoneAuth } from '@/features/auth';
+
+import { useRequestCodeMutation } from '@/shared/api';
+import { formatPhone } from '@/shared/lib';
 import { Button, Input } from '@/shared/ui';
 
 import s from './code-register.module.scss';
@@ -7,16 +11,22 @@ import s from './code-register.module.scss';
 interface ICodeRegister {
 	nextStep: () => void;
 	phoneValue: string;
+	closeModal: () => void;
 }
 
-export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue }) => {
+export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue, closeModal }) => {
 	const [code, setCode] = useState(['', '', '', '']);
 	const [timer, setTimer] = useState(0);
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
+	const [requestCode] = useRequestCodeMutation();
+
+	const { verify } = usePhoneAuth(formatPhone(phoneValue), code.join(''), closeModal, nextStep);
+
 	const inputRefs = useRef<(HTMLInputElement | null)[]>(Array(4).fill(null));
 
 	const handleResendCode = () => {
+		requestCode({ phone: formatPhone(phoneValue) });
 		setIsButtonDisabled(true);
 		setTimer(59);
 	};
@@ -43,8 +53,6 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue }) => {
 		}
 	};
 
-	// const formattedPhone = `+${phone[0]} (${phone.slice(1, 4)}) ${phone.slice(4, 7)}-${phone.slice(7, 9)}-${phone.slice(9)}`;
-
 	useEffect(() => {
 		if (timer > 0) {
 			const interval = setInterval(() => {
@@ -65,9 +73,9 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue }) => {
 			return item.length > 0;
 		});
 		if (filledCode.length === 4) {
-			nextStep();
+			verify();
 		}
-	}, [code, nextStep]);
+	}, [code]);
 
 	return (
 		<div className={s.codeRegister}>

@@ -15,10 +15,7 @@ export const RequestInfo: FC<IRequestInfo> = ({ nextStep }) => {
 				<p className={s.title}>Информация о сборе</p>
 				<p className={s.subTitle}>Расскажите о проблеме</p>
 				<div className={s.inputWrapper}>
-					<p className={s.title}>
-						Название <span>*</span>
-					</p>
-					<Input placeholder='Введите' />
+					<Input placeholder='Введите' title='Название' req />
 					<p className={s.descr}>Краткое описание того каким должно быть название сбора</p>
 				</div>
 				<div className={s.inputWrapper}>

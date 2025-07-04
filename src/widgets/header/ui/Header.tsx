@@ -7,7 +7,8 @@ import clsx from 'clsx';
 import { setOpenMenu } from '@/entities/mobile-menu';
 
 import { PATH_PAGE } from '@/shared/config';
-import { Button, Input, Logo, useModal } from '@/shared/ui';
+import { useTypedSelector } from '@/shared/lib';
+import { Button, Input, Logo, UserDropdown, useModal } from '@/shared/ui';
 
 import s from './header.module.scss';
 
@@ -16,6 +17,9 @@ export const Header = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const { open } = useModal();
+
+	const { userData } = useTypedSelector(store => store.user);
+	const { fondData } = useTypedSelector(store => store.fond);
 
 	const controlNavbar = () => {
 		if (typeof window !== 'undefined') {
@@ -35,7 +39,11 @@ export const Header = () => {
 		open('register');
 	};
 	const handleOpenCreateRequestModal = () => {
-		open('create-request');
+		if (userData) {
+			open('create-request');
+		} else {
+			open('register');
+		}
 	};
 
 	useEffect(() => {
@@ -74,10 +82,13 @@ export const Header = () => {
 					<Button variant='outline' onClick={handleOpenCreateRequestModal}>
 						Попросить помощь
 					</Button>
-
-					<Button variant='primary' className={s.authBtn} onClick={handleOpenRegisterModal}>
-						Войти
-					</Button>
+					{userData || fondData ? (
+						<UserDropdown />
+					) : (
+						<Button variant='primary' className={s.authBtn} onClick={handleOpenRegisterModal}>
+							Войти
+						</Button>
+					)}
 				</div>
 
 				<div className={s.mobileBtns}>

@@ -18,7 +18,7 @@ import s from './profile-favourites.module.scss';
 
 export const ProfileFavourites = () => {
 	const [activeTab, setActiveTab] = useState(0);
-	const [selectedSort, setSelectedSort] = useState(sortList[0]);
+	const [selectedSort, setSelectedSort] = useState(sortList[0].id);
 
 	const { open } = useModal();
 

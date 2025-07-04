@@ -1,0 +1,1 @@
+export { UserNews } from './UserNews';

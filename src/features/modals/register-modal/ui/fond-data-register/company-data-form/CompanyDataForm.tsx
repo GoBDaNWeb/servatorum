@@ -15,12 +15,12 @@ export const CompanyDataForm: FC<ICompanyDataForm> = ({ control }) => {
 			<p>Данные компании</p>
 			<Controller
 				control={control}
-				name='fondName'
+				name='name'
 				rules={{ required: true }}
 				render={({ field: { onChange } }) => {
 					return (
 						<Input
-							mask={/^[A-Za-zА-Яа-яЁё]*$/}
+							mask={/^.*$/}
 							placeholder='Введите'
 							title='Наименование компании'
 							req
@@ -33,7 +33,7 @@ export const CompanyDataForm: FC<ICompanyDataForm> = ({ control }) => {
 				<p>Информация о фонде</p>
 				<Controller
 					control={control}
-					name='fondInfo'
+					name='description'
 					rules={{ required: true }}
 					render={({ field: { onChange } }) => {
 						return <Textarea placeholder='Введите' onChange={onChange} />;

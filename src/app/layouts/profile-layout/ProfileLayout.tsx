@@ -7,10 +7,9 @@ import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 import { MobileMenu } from '@/widgets/mobile-menu';
 import { Modals } from '@/widgets/modals';
-import { ProfileSidebar } from '@/widgets/profile-sidebar';
 
 import { PATH_PAGE } from '@/shared/config';
-import { BackOutlineArrow, Button } from '@/shared/ui';
+import { BackOutlineArrow, Button, UserMenu } from '@/shared/ui';
 
 import s from './profile-layout.module.scss';
 
@@ -34,7 +33,7 @@ export const ProfileLayout = () => {
 			<main className={s.profilePage}>
 				<div className={clsx(s.profile, 'container')}>
 					<Outlet />
-					<ProfileSidebar />
+					<UserMenu />
 				</div>
 			</main>
 			<div className={hiddenBtnClass}>

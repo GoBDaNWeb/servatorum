@@ -87,4 +87,10 @@
 			}
 		}
 	}
+	&.own {
+		.contentWrapper {
+			margin-top: 0;
+			grid-template-columns: 0.5fr 1fr;
+		}
+	}
 }
