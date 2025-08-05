@@ -1,16 +1,17 @@
 import { FC } from 'react';
 
+import { UserType } from '@/shared/types';
 import { TypeButton } from '@/shared/ui';
 
 import s from './user-type-register.module.scss';
 
 interface IUserTypeRegister {
 	nextStep: () => void;
-	setUserType: (value: '' | 'user' | 'fond' | 'company') => void;
+	setUserType: (value: UserType) => void;
 }
 
 export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep, setUserType }) => {
-	const handleSetUserType = (type: 'user' | 'fond' | 'company') => {
+	const handleSetUserType = (type: UserType) => {
 		setUserType(type);
 		nextStep();
 	};
@@ -25,16 +26,16 @@ export const UserTypeRegister: FC<IUserTypeRegister> = ({ nextStep, setUserType 
 					img='/images/icons/user-icon.svg'
 					onClick={() => handleSetUserType('user')}
 				/>
-				{/* <TypeButton
+				<TypeButton
 					title='Фонд'
 					img='/images/icons/fond-icon.svg'
 					onClick={() => handleSetUserType('fond')}
-				/> */}
-				{/* <TypeButton
+				/>
+				<TypeButton
 					title='Компания'
 					img='/images/icons/company-icon.svg'
 					onClick={() => handleSetUserType('company')}
-				/> */}
+				/>
 			</div>
 		</div>
 	);

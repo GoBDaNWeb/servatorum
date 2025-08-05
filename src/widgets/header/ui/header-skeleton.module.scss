@@ -1,0 +1,72 @@
+.header {
+	padding-top: 16px;
+	padding-bottom: 16px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: var(--z-header);
+	background: var(--white-color);
+
+	transition:
+		background var(--trs-300),
+		box-shadow var(--trs-300);
+	@media (max-width: $tab) {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	&.active {
+		background: var(--white-color);
+		box-shadow: var(--shadow);
+	}
+	.headerInner {
+		display: flex;
+		align-items: center;
+		gap: 148px;
+		@media (max-width: $desktop-sm) {
+			gap: 48px;
+		}
+		@media (max-width: $tab) {
+			justify-content: space-between;
+		}
+		.headerFeature {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			flex: 1;
+			label {
+				max-width: 248px;
+			}
+			.search {
+				width: 248px;
+				height: 48px;
+				border-radius: 15px;
+			}
+		}
+		.navigation {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 4px;
+			@media (max-width: $tab) {
+				display: none;
+			}
+			.navBtn {
+				width: 100px;
+				height: 48px;
+				border-radius: 12px;
+			}
+		}
+		.featureBtn {
+			width: 198px;
+			height: 48px;
+			border-radius: 12px;
+		}
+		.featureUserBtn {
+			width: 148px;
+			height: 48px;
+			border-radius: 12px;
+		}
+	}
+}

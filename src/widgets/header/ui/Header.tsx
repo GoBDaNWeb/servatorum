@@ -8,8 +8,9 @@ import { setOpenMenu } from '@/entities/mobile-menu';
 
 import { PATH_PAGE } from '@/shared/config';
 import { useTypedSelector } from '@/shared/lib';
-import { Button, Input, Logo, UserDropdown, useModal } from '@/shared/ui';
+import { Button, Input, Logo, Skeleton, UserDropdown, useModal } from '@/shared/ui';
 
+import { HeaderSkeleton } from './HeaderSkeleton';
 import s from './header.module.scss';
 
 export const Header = () => {
@@ -18,7 +19,9 @@ export const Header = () => {
 	const navigate = useNavigate();
 	const { open } = useModal();
 
-	const { userData } = useTypedSelector(store => store.user);
+	const token = localStorage.getItem('access_token');
+
+	const { userData, isAuthenticated, isLoading } = useTypedSelector(store => store.user);
 	const { fondData } = useTypedSelector(store => store.fond);
 
 	const controlNavbar = () => {
@@ -62,6 +65,10 @@ export const Header = () => {
 		headerInnerClass: clsx(s.headerInner, 'container')
 	};
 
+	// if (isLoading) {
+	// 	return <HeaderSkeleton />;
+	// }
+
 	return (
 		<header className={classes.headerClass} id='header'>
 			<div className={classes.headerInnerClass}>
@@ -82,12 +89,18 @@ export const Header = () => {
 					<Button variant='outline' onClick={handleOpenCreateRequestModal}>
 						Попросить помощь
 					</Button>
-					{userData || fondData ? (
-						<UserDropdown />
+					{isLoading ? (
+						<Skeleton className={s.userFeatureBtn} />
 					) : (
-						<Button variant='primary' className={s.authBtn} onClick={handleOpenRegisterModal}>
-							Войти
-						</Button>
+						<>
+							{isAuthenticated ? (
+								<UserDropdown />
+							) : (
+								<Button variant='primary' className={s.authBtn} onClick={handleOpenRegisterModal}>
+									Войти
+								</Button>
+							)}{' '}
+						</>
 					)}
 				</div>
 

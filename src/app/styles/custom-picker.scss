@@ -19,6 +19,23 @@
 	@include text_2_14_r;
 }
 
+.air-datepicker-cell.-month-.-selected-,
+.air-datepicker-cell.-year-.-selected- {
+	background: none;
+}
+
+.air-datepicker-cell.-month-.-selected-,
+.air-datepicker-cell.-year-.-selected-,
+.air-datepicker-cell.-year-.-current-,
+.air-datepicker-cell.-month-.-current- {
+	&:before {
+		display: none;
+	}
+}
+.air-datepicker-cell.-month-.-selected-,
+.air-datepicker-cell.-year-.-selected-,
+.air-datepicker-cell.-year-.-current-,
+.air-datepicker-cell.-month-.-current-,
 .air-datepicker-cell.-day-.-current- {
 	color: var(--purple-color);
 	position: relative;
@@ -36,6 +53,9 @@
 		margin: auto;
 	}
 }
+
+.air-datepicker-cell.-year-.-focus-,
+.air-datepicker-cell.-month-.-focus-,
 .air-datepicker-cell.-day-.-focus- {
 	border-radius: 999px;
 	background: var(--purple-disabled-color);

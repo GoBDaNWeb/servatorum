@@ -48,6 +48,11 @@
 				display: none;
 			}
 		}
+		.userFeatureBtn {
+			width: 148px;
+			height: 48px;
+			border-radius: 12px;
+		}
 		.authBtn {
 			padding: 0 51px;
 			@media (max-width: $tab) {

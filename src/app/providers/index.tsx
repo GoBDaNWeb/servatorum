@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { mainStore } from '../stores';
 
+import { AuthProvider } from './AuthProvider';
 import { Router } from './RouterProvider';
 
 export const Provider = () => {
@@ -15,8 +16,10 @@ export const Provider = () => {
 					v7_startTransition: true
 				}}
 			>
-				<Router />
-				<ToastContainer />
+				<AuthProvider>
+					<Router />
+					<ToastContainer />
+				</AuthProvider>
 			</BrowserRouter>
 		</StoreProvider>
 	);

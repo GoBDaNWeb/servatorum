@@ -1,1 +1,10 @@
-export { setUser, default as userReducer } from './user.slice';
+export {
+	setUser,
+	setUserInitialized,
+	setUserLoading,
+	logout,
+	setProviderLoading,
+	setTempUser,
+	authWithProvider,
+	default as userReducer
+} from './user.slice';

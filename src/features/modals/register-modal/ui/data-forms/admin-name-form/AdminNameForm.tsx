@@ -3,7 +3,7 @@ import { Control, Controller, FieldValues } from 'react-hook-form';
 
 import { Input } from '@/shared/ui';
 
-import s from '../fond-data-register.module.scss';
+import s from '../data-forms.module.scss';
 
 interface IAdminNameForm {
 	control: Control<FieldValues>;
@@ -16,7 +16,7 @@ export const AdminNameForm: FC<IAdminNameForm> = ({ control }) => {
 			<div className={s.inputsCol}>
 				<Controller
 					control={control}
-					name='lastName'
+					name='administrator_surname'
 					rules={{ required: true }}
 					render={({ field: { onChange } }) => {
 						return (
@@ -32,7 +32,7 @@ export const AdminNameForm: FC<IAdminNameForm> = ({ control }) => {
 				/>
 				<Controller
 					control={control}
-					name='firstName'
+					name='administrator_name'
 					rules={{ required: true }}
 					render={({ field: { onChange } }) => {
 						return (
@@ -48,7 +48,7 @@ export const AdminNameForm: FC<IAdminNameForm> = ({ control }) => {
 				/>
 				<Controller
 					control={control}
-					name='middleName'
+					name='administrator_lastname'
 					rules={{ required: true }}
 					render={({ field: { onChange } }) => {
 						return (

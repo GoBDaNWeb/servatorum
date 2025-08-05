@@ -6,3 +6,4 @@ export { formatPhone } from './formatPhone';
 export { convertDate } from './converDate';
 export { notify } from './notify';
 export { defaultUserData } from './defaultUserData';
+export { decodeJWT } from './jwt';

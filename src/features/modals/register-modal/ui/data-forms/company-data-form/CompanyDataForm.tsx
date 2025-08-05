@@ -3,7 +3,7 @@ import { Control, Controller, FieldValues } from 'react-hook-form';
 
 import { Input, Textarea } from '@/shared/ui';
 
-import s from '../fond-data-register.module.scss';
+import s from '../data-forms.module.scss';
 
 interface ICompanyDataForm {
 	control: Control<FieldValues>;

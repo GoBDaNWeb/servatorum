@@ -29,11 +29,15 @@ import { Services } from '@/pages/services';
 
 import { PATH_PAGE } from '@/shared/config';
 import { useTypedSelector } from '@/shared/lib';
+import { Loader } from '@/shared/ui';
 
 export const Router = () => {
 	const location = useLocation();
-	const { userData } = useTypedSelector(store => store.user);
+	const { userData, isAuthenticated, isLoading, isInitialized } = useTypedSelector(
+		store => store.user
+	);
 	const { fondData } = useTypedSelector(store => store.fond);
+	const token = localStorage.getItem('access_token');
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -92,7 +96,13 @@ export const Router = () => {
 			]
 		},
 		{
-			element: userData || fondData ? <ProfileLayout /> : <Navigate to={PATH_PAGE.home} replace />,
+			element: !isInitialized ? (
+				<Loader />
+			) : isAuthenticated ? (
+				<ProfileLayout />
+			) : (
+				<Navigate to={PATH_PAGE.home} replace />
+			),
 			children: [
 				{
 					path: PATH_PAGE.profileSettings,

@@ -149,7 +149,8 @@ export const CollectingCard: FC<ICollectingCard> = ({
 							</SwiperSlide>
 						))}
 					</Swiper>
-					<div ref={pagination} className={s.pagination}></div>
+					{imgs.length > 1 ? <div ref={pagination} className={s.pagination}></div> : null}
+
 					<div className={s.hideLines}>
 						{imgs.map((img, index) => (
 							<a

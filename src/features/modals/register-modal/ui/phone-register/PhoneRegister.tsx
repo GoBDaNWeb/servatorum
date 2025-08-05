@@ -1,7 +1,10 @@
-import { FC, useRef } from 'react';
+import { FC, useRef, useState } from 'react';
+
+import { ProviderAuthButton } from '@/features/auth';
 
 import { useRequestCodeMutation } from '@/shared/api';
 import { formatPhone } from '@/shared/lib';
+import { notify } from '@/shared/lib';
 import { Button, Input } from '@/shared/ui';
 
 import s from './phone-register.module.scss';
@@ -11,22 +14,33 @@ interface IPhoneRegister {
 	setPhoneValue: (value: string) => void;
 	phoneValue: string;
 }
+
 export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep, phoneValue, setPhoneValue }) => {
+	const [isLoading, setIsLoading] = useState(false);
+
 	const [requestCode] = useRequestCodeMutation();
 
 	const inputRef = useRef(null);
-
-	const handleRequestCode = () => {
-		requestCode({ phone: formatPhone(phoneValue) });
-	};
 
 	const handlePhoneValue = (value: string) => {
 		setPhoneValue(value);
 	};
 
-	const handleNextStep = () => {
-		nextStep();
-		handleRequestCode();
+	const handleNextStep = async () => {
+		setIsLoading(true);
+		try {
+			const data = await requestCode({ phone: formatPhone(phoneValue, false) });
+			if (data.error) {
+				notify('Произошла ошибка', 'error');
+			} else {
+				nextStep();
+			}
+		} catch (e) {
+			notify('Ошибка сети', 'error');
+			console.error('error', e);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -44,8 +58,12 @@ export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep, phoneValue, setPho
 					clear={() => handlePhoneValue('')}
 				/>
 
-				<Button onClick={handleNextStep} isDisabled={phoneValue.length < 18} variant='primary'>
-					Получить код
+				<Button
+					onClick={handleNextStep}
+					isDisabled={phoneValue.length < 18 || isLoading}
+					variant='primary'
+				>
+					{isLoading ? 'Загрузка' : 'Получить код'}
 				</Button>
 			</div>
 			<div className={s.phoneRegisterBottom}>
@@ -55,12 +73,12 @@ export const PhoneRegister: FC<IPhoneRegister> = ({ nextStep, phoneValue, setPho
 					через социальные сети
 				</p>
 				<div className={s.socials}>
-					<Button>
+					<ProviderAuthButton provider='vk'>
 						<img src='/images/icons/vk.svg' alt='vk' />
-					</Button>
-					<Button>
+					</ProviderAuthButton>
+					<ProviderAuthButton provider='ya'>
 						<img src='/images/icons/yandex.svg' alt='yandex' />
-					</Button>
+					</ProviderAuthButton>
 				</div>
 			</div>
 		</div>

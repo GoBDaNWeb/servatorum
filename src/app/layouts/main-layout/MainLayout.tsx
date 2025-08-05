@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
+import { HeaderSkeleton } from '@/widgets/header/ui/HeaderSkeleton';
 import { MobileMenu } from '@/widgets/mobile-menu';
 import { Modals } from '@/widgets/modals';
 

@@ -4,7 +4,7 @@ import { Control, Controller, FieldValues } from 'react-hook-form';
 import { formatPhone } from '@/shared/lib';
 import { Input } from '@/shared/ui';
 
-import s from '../fond-data-register.module.scss';
+import s from '../data-forms.module.scss';
 
 interface IFondContactsForm {
 	control: Control<FieldValues>;
@@ -32,7 +32,7 @@ export const FondContactsForm: FC<IFondContactsForm> = ({ control }) => {
 						);
 					}}
 				/>
-				<Controller
+				{/* <Controller
 					control={control}
 					name='phone_helpdesk'
 					rules={{ required: true }}
@@ -48,7 +48,7 @@ export const FondContactsForm: FC<IFondContactsForm> = ({ control }) => {
 							/>
 						);
 					}}
-				/>
+				/> */}
 				{/* <Controller
 					control={control}
 					name='email'

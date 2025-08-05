@@ -24,6 +24,7 @@ import {
 	RatingIcon,
 	ReportsIcons,
 	RepresentativesIcon,
+	Skeleton,
 	SupportIcon,
 	UserIcon,
 	WalletIcon,
@@ -79,7 +80,7 @@ export const UserMenu: FC<IUserMenu> = ({ className }) => {
 
 	const handleUserExit = () => {
 		navigate(PATH_PAGE.home);
-		localStorage.removeItem('accessToken');
+		localStorage.removeItem('access_token');
 		dispath(setUser(null));
 	};
 
@@ -95,12 +96,15 @@ export const UserMenu: FC<IUserMenu> = ({ className }) => {
 								'Благотворительный фонд защиты животных «Гав»'
 							) : (
 								<>
-									{userData ? userData.first_name : 'Елизарова'}{' '}
-									{userData ? userData.first_name : 'Светлана'}
+									{userData ? userData.last_name : <Skeleton className={s.nameSkeleton} />}{' '}
+									{userData ? userData.first_name : <Skeleton className={s.nameSkeleton} />}
 								</>
 							)}
 						</p>
-						<p className={s.id}>ID: {userData ? userData.id : '354542'}</p>
+						<p className={s.id}>
+							{/* ID: <Skeleton className={s.idSkeleton} /> */}
+							ID: {userData ? userData.id : <Skeleton className={s.idSkeleton} />}
+						</p>
 					</div>
 					<nav className={s.userNavigation}>
 						{search.length

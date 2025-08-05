@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
-import { formatPhone, useAirDatePicker } from '@/shared/lib';
+import { formatPhone, useAirDatePicker, useTypedSelector } from '@/shared/lib';
 import { type TypeUserSchema, userSchema } from '@/shared/schemas';
 import { IUser, UserDirection } from '@/shared/types';
 import { Button, Checkbox, FemaleIcon, Input, MaleIcon, useUploadPhoto } from '@/shared/ui';
@@ -23,6 +23,8 @@ export const UserDataRegister: FC<IUserDataRegister> = ({
 	phoneValue,
 	setUser
 }) => {
+	const { tempUser } = useTypedSelector(store => store.user);
+
 	const {
 		setValue,
 		handleSubmit,
@@ -31,19 +33,18 @@ export const UserDataRegister: FC<IUserDataRegister> = ({
 	} = useForm<TypeUserSchema>({
 		resolver: zodResolver(userSchema),
 		defaultValues: {
-			first_name: '',
+			first_name: tempUser?.first_name ? tempUser.first_name : '',
 			surname: '',
-			last_name: '',
+			last_name: tempUser?.last_name ? tempUser.last_name : '',
 			city: '',
-			gender: 'Мужской',
+			gender: tempUser?.gender ? tempUser.gender : 'Мужской',
 			date_of_birth: '',
-			phone: formatPhone(phoneValue, false),
-			email: '',
+			phone: tempUser?.phone ? formatPhone(tempUser.phone, false) : formatPhone(phoneValue, false),
+			email: tempUser?.email ? tempUser.email : '',
 			role: userDirection,
 			profile_picture: ''
 		}
 	});
-
 	const { imageUrl } = useUploadPhoto();
 
 	useEffect(() => {
@@ -57,6 +58,7 @@ export const UserDataRegister: FC<IUserDataRegister> = ({
 
 	const onSubmit: SubmitHandler<TypeUserSchema> = async data => {
 		try {
+			console.log('data', data);
 			setUser({ ...data, spheres: [] });
 			nextStep();
 		} catch (e) {
@@ -86,13 +88,14 @@ export const UserDataRegister: FC<IUserDataRegister> = ({
 							control={control}
 							name='last_name'
 							rules={{ required: true }}
-							render={({ field: { onChange } }) => {
+							render={({ field: { onChange, value } }) => {
 								return (
 									<Input
 										mask={/^[A-Za-zА-Яа-яЁё]*$/}
 										placeholder='Введите'
 										title='Фамилия'
 										req
+										value={value}
 										onAccept={(value: string) => onChange(value)}
 									/>
 								);
@@ -102,13 +105,14 @@ export const UserDataRegister: FC<IUserDataRegister> = ({
 							control={control}
 							name='first_name'
 							rules={{ required: true }}
-							render={({ field: { onChange } }) => {
+							render={({ field: { onChange, value } }) => {
 								return (
 									<Input
 										mask={/^[A-Za-zА-Яа-яЁё]*$/}
 										placeholder='Введите'
 										title='Имя'
 										req
+										value={value}
 										onAccept={(value: string) => onChange(value)}
 									/>
 								);
@@ -137,7 +141,6 @@ export const UserDataRegister: FC<IUserDataRegister> = ({
 							name='date_of_birth'
 							rules={{ required: true }}
 							render={({ field: { onChange, value } }) => {
-								console.log('value', value);
 								return (
 									<Input
 										placeholder='Введите'

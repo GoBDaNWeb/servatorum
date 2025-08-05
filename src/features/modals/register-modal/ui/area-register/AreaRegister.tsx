@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setUser } from '@/entities/user';
+import { setTempUser, setUser } from '@/entities/user';
 
 import { useCreateUserMutation, useGetSpheresQuery } from '@/shared/api';
 import { convertDate } from '@/shared/lib';
@@ -12,10 +12,11 @@ import s from './area-register.module.scss';
 
 interface IAreaRegister {
 	nextStep: () => void;
+	closeModal: () => void;
 	user: IUser;
 }
 
-export const AreaRegister: FC<IAreaRegister> = ({ nextStep, user }) => {
+export const AreaRegister: FC<IAreaRegister> = ({ nextStep, user, closeModal }) => {
 	const [selectedAreas, setSelectedAreas] = useState<number[]>([]);
 
 	const [createUser] = useCreateUserMutation();
@@ -35,9 +36,19 @@ export const AreaRegister: FC<IAreaRegister> = ({ nextStep, user }) => {
 				date_of_birth: converderDate,
 				password: 'test_temporary_password'
 			});
+
 			if (userData && userData.user) {
 				nextStep();
 				handleSetUser(userData.user);
+				dispatch(setTempUser(null));
+				closeModal();
+
+				if (userData.access_token) {
+					localStorage.setItem('access_token', userData.access_token);
+				}
+				if (userData.refresh_token) {
+					localStorage.setItem('refresh_token', userData.refresh_token);
+				}
 			} else {
 			}
 		} catch (e) {
@@ -71,7 +82,7 @@ export const AreaRegister: FC<IAreaRegister> = ({ nextStep, user }) => {
 						<>
 							{[...new Array(15)].map((_, index) => {
 								const width = Math.floor(Math.random() * 101) + 50; // 50-150
-								return <Skeleton key={index} classname={s.areaSkeleton} style={{ width }} />;
+								return <Skeleton key={index} className={s.areaSkeleton} style={{ width }} />;
 							})}
 						</>
 					)}

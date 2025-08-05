@@ -12,7 +12,7 @@ interface IPersonalInfoForm {
 }
 
 export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) => {
-	const { datepickerRef } = useAirDatePicker({ setValue, setValueLabel: 'date' });
+	const { datepickerRef } = useAirDatePicker({ setValue, setValueLabel: 'date_of_birth' });
 
 	return (
 		<div className={s.dataBlock}>
@@ -37,6 +37,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 									placeholder='Введите'
 									req
 									onAccept={(value: string) => onChange(value)}
+									onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
 								/>
 							);
 						}}
@@ -56,6 +57,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 									placeholder='Введите'
 									req
 									onAccept={(value: string) => onChange(value)}
+									onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
 								/>
 							);
 						}}
@@ -75,6 +77,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 									placeholder='Введите'
 									req
 									onAccept={(value: string) => onChange(value)}
+									onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
 								/>
 							);
 						}}
@@ -118,6 +121,7 @@ export const PersonalInfoForm: FC<IPersonalInfoForm> = ({ control, setValue }) =
 										req
 										value={value}
 										onAccept={(value: string) => onChange(value)}
+										onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
 										mask={Date}
 										inputRef={datepickerRef}
 										min={new Date(1900, 0, 1)}

@@ -3,14 +3,14 @@ import { FC, useEffect, useRef, useState } from 'react';
 import { usePhoneAuth } from '@/features/auth';
 
 import { useRequestCodeMutation } from '@/shared/api';
-import { formatPhone } from '@/shared/lib';
+import { formatPhone, notify, useTypedSelector } from '@/shared/lib';
 import { Button, Input } from '@/shared/ui';
 
 import s from './code-register.module.scss';
 
 interface ICodeRegister {
 	nextStep: () => void;
-	phoneValue: string;
+	phoneValue?: string;
 	closeModal: () => void;
 }
 
@@ -18,15 +18,47 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue, closeMod
 	const [code, setCode] = useState(['', '', '', '']);
 	const [timer, setTimer] = useState(0);
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+	const { tempUser, isProviderAuth } = useTypedSelector(store => store.user);
 
 	const [requestCode] = useRequestCodeMutation();
 
-	const { verify } = usePhoneAuth(formatPhone(phoneValue), code.join(''), closeModal, nextStep);
+	// Получаем номер телефона с fallback на phoneValue
+	const getPhoneNumber = () => {
+		if (phoneValue) {
+			return formatPhone(phoneValue, false);
+		}
+		if (tempUser?.phone) {
+			return formatPhone(tempUser.phone, false);
+		}
+		return '';
+	};
+
+	const handleNextStep = async () => {
+		try {
+			const phoneNumber = getPhoneNumber();
+			if (!phoneNumber) {
+				notify('Номер телефона не найден', 'error');
+				return;
+			}
+			const data = await requestCode({ phone: phoneNumber });
+			console.log('data', data);
+		} catch (e) {
+			notify('Ошибка сети', 'error');
+			console.error('error', e);
+		}
+	};
+
+	const { verify } = usePhoneAuth(getPhoneNumber(), code.join(''), closeModal, nextStep);
 
 	const inputRefs = useRef<(HTMLInputElement | null)[]>(Array(4).fill(null));
 
 	const handleResendCode = () => {
-		requestCode({ phone: formatPhone(phoneValue) });
+		const phoneNumber = getPhoneNumber();
+		if (!phoneNumber) {
+			notify('Номер телефона не найден', 'error');
+			return;
+		}
+		requestCode({ phone: phoneNumber });
 		setIsButtonDisabled(true);
 		setTimer(59);
 	};
@@ -65,6 +97,10 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue, closeMod
 	}, [timer]);
 
 	useEffect(() => {
+		handleNextStep();
+	}, [isProviderAuth]);
+
+	useEffect(() => {
 		inputRefs.current[0]?.focus();
 	}, []);
 
@@ -81,7 +117,7 @@ export const CodeRegister: FC<ICodeRegister> = ({ nextStep, phoneValue, closeMod
 		<div className={s.codeRegister}>
 			<img src='/images/icons/logo.svg' alt='logo' />
 			<p className={s.title}>Код отправлен на номер</p>
-			<p className={s.phone}>{phoneValue}</p>
+			<p className={s.phone}>{phoneValue ? phoneValue : tempUser?.phone}</p>
 			<p className={s.subtitle}>СМС-код</p>
 
 			<div className={s.codeInputs}>

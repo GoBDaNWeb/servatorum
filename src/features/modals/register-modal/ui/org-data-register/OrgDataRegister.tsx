@@ -1,78 +1,72 @@
 import { FC } from 'react';
 // import { FC, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 
-import { setFond } from '@/entities/fond';
-
-import { useCreateFondMutation } from '@/shared/api/fond';
+// import { useDispatch } from 'react-redux';
+// import { setFond } from '@/entities/fond';
+// import { useCreateFondMutation } from '@/shared/api/fond';
 import { formatPhone } from '@/shared/lib';
-import { IFond } from '@/shared/types';
+// import { IFond } from '@/shared/types';
 // import { Button, Checkbox, Photo } from '@/shared/ui';
 import { Button } from '@/shared/ui';
 
+import {
+	AdminNameForm,
+	CompanyDataForm,
+	FondContactsForm,
+	FondRequisitesForm
+} from '../data-forms';
+
 // import { AdminNameForm } from './admin-name-form';
-import { CompanyDataForm } from './company-data-form';
-import { FondContactsForm } from './fond-contacts-form';
-import s from './fond-data-register.module.scss';
-import { FondRequisitesForm } from './fond-requisites-form';
+import s from './org-data-register.module.scss';
 
 interface IUserDataRegister {
 	nextStep: () => void;
 	phoneValue: string;
+	title: string;
 }
 
-export const FondDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }) => {
+// export const OrgDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue, title }) => {
+export const OrgDataRegister: FC<IUserDataRegister> = ({ phoneValue, title }) => {
 	// const [buttonIsDisabled, setButtonIsDisabled] = useState(false);
 
-	const [createFond] = useCreateFondMutation();
-	const dispatch = useDispatch();
+	// const [createFond] = useCreateFondMutation();
+	// const dispatch = useDispatch();
 
 	const { handleSubmit, control } = useForm<FieldValues>({
 		defaultValues: {
-			// firstName: '',
-			// middleName: '',
-			// lastName: '',
-			// fondName: '',
-			// fondInfo: '',
-			// accountName: '',
-			// inn: '',
-			// kpp: '',
-			// accountNumber: '',
-			// ks: '',
-			// bik: '',
-			// legalAddress: '',
-			// phone: phoneValue,
-			// email: '',
-			// site: ''
-
+			administrator_name: '',
+			administrator_surname: '',
+			administrator_lastname: '',
 			name: '',
 			description: '',
-			logo: '',
-			photo: '',
-			inn: '',
-			bik: '',
-			cor_account: '',
 			address: '',
-			address_reg: '',
 			phone: formatPhone(phoneValue, false),
-			phone_helpdesk: ''
+			email: '',
+			site: '',
+			logo: '',
+			inn: '',
+			kpp: '',
+			account_name: '',
+			bank_account: '',
+			cor_account: '',
+			bik: ''
 		}
 	});
 
-	const handleSetFond = (fond: IFond) => {
-		dispatch(setFond(fond));
-	};
+	// const handleSetFond = (fond: IFond) => {
+	// 	dispatch(setFond(fond));
+	// };
 
 	const handleCreateFond = async (data: FieldValues) => {
 		try {
-			const { data: fondData } = await createFond(data);
-
-			if (fondData) {
-				nextStep();
-				handleSetFond(fondData);
-			} else {
-			}
+			// const { data: fondData } = await createFond(data);
+			console.log('data', data);
+			// if (fondData) {
+			// 	// nextStep();
+			// 	// handleSetFond(fondData);
+			// } else {
+			// }
 		} catch (e) {
 			console.error('Ошибка при регистрации', e);
 		}
@@ -103,11 +97,11 @@ export const FondDataRegister: FC<IUserDataRegister> = ({ nextStep, phoneValue }
 	// }, [watch]);
 
 	return (
-		<div className={s.fondDataRegister}>
-			<p className={s.title}>Данные фонда</p>
+		<div className={s.orgDataRegister}>
+			<p className={s.title}>{title}</p>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={s.inputs}>
-					{/* <AdminNameForm control={control} /> */}
+					<AdminNameForm control={control} />
 					<CompanyDataForm control={control} />
 					<FondRequisitesForm control={control} />
 					<FondContactsForm control={control} />

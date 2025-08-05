@@ -5,11 +5,11 @@ import clsx from 'clsx';
 import s from './skeleton.module.scss';
 
 interface ISkeleton {
-	classname: string;
+	className: string;
 	style?: CSSProperties;
 }
-export const Skeleton: FC<ISkeleton> = ({ classname, style }) => {
-	const skeletonClass = clsx(s.skeleton, classname);
+export const Skeleton: FC<ISkeleton> = ({ className, style }) => {
+	const skeletonClass = clsx(s.skeleton, className);
 
-	return <div className={skeletonClass} style={style}></div>;
+	return <span className={skeletonClass} style={style}></span>;
 };

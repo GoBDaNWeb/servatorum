@@ -32,7 +32,12 @@ export interface IModal {
 }
 
 export interface IUserStore {
+	tempUser?: Partial<IUser> | null;
 	userData?: IUser | null;
+	isLoading: boolean;
+	isAuthenticated: boolean;
+	isInitialized: boolean;
+	isProviderAuth: boolean;
 }
 export interface IFondStore {
 	fondData?: IFond | null;
@@ -65,8 +70,18 @@ export interface IUser {
 	email: string;
 	phone: string;
 	role: string;
-	spheres: number[];
+	spheres?: number[];
 }
+
+type Params = {
+	params: Partial<IUser>;
+};
+
+export interface IUpdateUserRequest {
+	id: number;
+	body: Params;
+}
+
 export interface IVerifyData {
 	user?: IUser;
 	access_token?: string;
@@ -86,6 +101,8 @@ export type VerifyRequest = {
 // }
 
 export type UserDirection = 'helping' | 'getting help' | '';
+
+export type UserType = 'user' | 'fond' | 'company' | '';
 
 export type Notify = 'error' | 'info' | 'success' | 'warning' | 'default';
 

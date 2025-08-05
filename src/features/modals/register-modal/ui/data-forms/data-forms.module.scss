@@ -1,0 +1,45 @@
+.inputsCol {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.inputsRow {
+	display: grid;
+	grid-template-columns: 160px 1fr;
+	gap: 20px;
+}
+.inputHintWrapper {
+	.inputHint {
+		display: grid;
+		grid-template-columns: 259px 1fr;
+		gap: 20px;
+		margin-bottom: 16px;
+		.success {
+			color: var(--green-color);
+			@include link_2_12_m;
+			margin-top: 8px;
+		}
+		.hint {
+			@include caption_2_12_r;
+			color: var(--txt-gray-color2);
+			margin-top: 24px;
+		}
+	}
+}
+
+.textAreaWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+}
+.dataBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	& > p {
+		@include title_3_16_m;
+	}
+}

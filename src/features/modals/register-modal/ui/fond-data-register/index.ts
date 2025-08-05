@@ -1,1 +1,0 @@
-export { FondDataRegister } from './FondDataRegister';

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 
+import { formatPhone } from '@/shared/lib';
 import { Checkbox, Input } from '@/shared/ui';
 
 import s from '../profile-settings.module.scss';
@@ -32,6 +33,7 @@ export const ContactInfoForm: FC<IContactInfoForm> = ({ control }) => {
 									req
 									value={value}
 									onAccept={(value: string) => onChange(value)}
+									onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
 								/>
 							);
 						}}
@@ -51,7 +53,10 @@ export const ContactInfoForm: FC<IContactInfoForm> = ({ control }) => {
 											<Input
 												req
 												value={value}
-												onAccept={(value: string) => onChange(value)}
+												onAccept={(value: string) => onChange(formatPhone(value, false))}
+												onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+													onChange(formatPhone(e.target.value, false))
+												}
 												mask='+{7} (000) 000-00-00'
 												placeholder='+7'
 											/>
@@ -65,9 +70,9 @@ export const ContactInfoForm: FC<IContactInfoForm> = ({ control }) => {
 								При изменении на новый номер будет отправлен код подтверждения
 							</p>
 						</div>
-						<Checkbox name='phoneCheck'>
+						{/* <Checkbox name='phoneCheck'>
 							Можно использовать для связи администрации со мной
-						</Checkbox>
+						</Checkbox> */}
 					</div>
 				</div>
 				<div className={s.inputWrapper}>
@@ -86,6 +91,9 @@ export const ContactInfoForm: FC<IContactInfoForm> = ({ control }) => {
 												req
 												value={value}
 												onAccept={(value: string) => onChange(value)}
+												onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+													onChange(e.target.value)
+												}
 												placeholder='Введите'
 											/>
 										);
@@ -93,13 +101,13 @@ export const ContactInfoForm: FC<IContactInfoForm> = ({ control }) => {
 								/>
 							</div>
 
-							<p className={s.hint}>
+							{/* <p className={s.hint}>
 								При изменении на новый номер будет отправлен код подтверждения
-							</p>
+							</p> */}
 						</div>
-						<Checkbox name='phoneCheck'>
+						{/* <Checkbox name='phoneCheck'>
 							Можно использовать для связи администрации со мной
-						</Checkbox>
+						</Checkbox> */}
 					</div>
 				</div>
 			</div>

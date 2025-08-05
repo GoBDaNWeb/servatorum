@@ -9,12 +9,28 @@
 			.name {
 				text-align: center;
 				@include title_2_20_m;
+				.nameSkeleton {
+					width: 90px;
+					height: 20px;
+					border-radius: 5px;
+					display: inline-block;
+				}
 			}
 			.id {
 				text-align: center;
 				margin-top: 6px;
 				color: var(--txt-gray-color2);
 				@include text_2_14_r;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 5px;
+				.idSkeleton {
+					width: 20px;
+					height: 20px;
+					border-radius: 5px;
+					display: inline-block;
+				}
 			}
 		}
 		.userNavigation {

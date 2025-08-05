@@ -24,3 +24,4 @@ export * from './user-dropdown';
 export * from './user-menu';
 export * from './upload-photo';
 export * from './skeleton';
+export * from './loader';

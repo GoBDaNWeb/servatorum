@@ -3,14 +3,18 @@ import { useDispatch } from 'react-redux';
 
 import clsx from 'clsx';
 
+import { setProviderLoading } from '@/entities/user';
+
+import { useTypedSelector } from '@/shared/lib';
 import { IUser, UserDirection } from '@/shared/types';
 import { BackOutlineArrow, Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
 import { AreaRegister } from './area-register';
 import { CodeRegister } from './code-register';
 import { DirectionRegister } from './direction-register';
-// import { FondDataRegister } from './fond-data-register';
+import { OrgDataRegister } from './org-data-register';
 import { PhoneRegister } from './phone-register';
+// import { FondDataRegister } from './fond-data-register';
 import s from './register-modal.module.scss';
 import { SelectRegister } from './select-register';
 import { SuccessRegister } from './success-register';
@@ -22,8 +26,9 @@ export const RegisterModal = () => {
 	const [userType, setUserType] = useState<'user' | 'fond' | 'company' | ''>('');
 	const [user, setUser] = useState<IUser | null>(null);
 	const [userDirection, setUserDirection] = useState<UserDirection>('');
-
 	const [step, setStep] = useState(0);
+
+	const { tempUser, isProviderAuth, isAuthenticated } = useTypedSelector(store => store.user);
 
 	const { close, currentModal } = useModal();
 
@@ -34,12 +39,14 @@ export const RegisterModal = () => {
 		setPhoneValue('');
 		setUserType('');
 		setUserDirection('');
+		dispatch(setProviderLoading(false));
 		setTimeout(() => {
 			setStep(0);
 		}, 300);
 	};
 
 	const handleChangeStep = (type: 'prev' | 'next', skip: boolean = false) => {
+		console.log('step', step);
 		if (type === 'prev') {
 			if (skip) {
 				setStep(prevStep => {
@@ -81,13 +88,27 @@ export const RegisterModal = () => {
 					setUser={setUser}
 				/>
 			)
+		},
+		{
+			type: 'fond',
+			component: (
+				<OrgDataRegister
+					nextStep={() => handleChangeStep('next', true)}
+					phoneValue={phoneValue}
+					title='Данные фонда'
+				/>
+			)
+		},
+		{
+			type: 'company',
+			component: (
+				<OrgDataRegister
+					nextStep={() => handleChangeStep('next', true)}
+					phoneValue={phoneValue}
+					title='Данные компании'
+				/>
+			)
 		}
-		// {
-		// 	type: 'fond',
-		// 	component: (
-		// 		<FondDataRegister nextStep={() => handleChangeStep('next', true)} phoneValue={phoneValue} />
-		// 	)
-		// }
 	];
 
 	const registerSteps = [
@@ -102,15 +123,32 @@ export const RegisterModal = () => {
 			closeModal={handleCloseModal}
 			phoneValue={phoneValue}
 		/>,
-
 		<UserTypeRegister nextStep={() => handleChangeStep('next')} setUserType={setUserType} />,
-
 		<DirectionRegister
 			nextStep={() => handleChangeStep('next')}
 			setUserDirection={setUserDirection}
 		/>,
 		userTypeRegister.find(item => item.type === userType)?.component,
-		<AreaRegister nextStep={() => handleChangeStep('next')} user={user as IUser} />,
+		<AreaRegister
+			nextStep={() => handleChangeStep('next')}
+			user={user as IUser}
+			closeModal={handleCloseModal}
+		/>,
+		<SuccessRegister closeModal={handleCloseModal} />
+	];
+	const registerProviderSteps = [
+		<CodeRegister nextStep={() => handleChangeStep('next')} closeModal={handleCloseModal} />,
+		<UserTypeRegister nextStep={() => handleChangeStep('next')} setUserType={setUserType} />,
+		<DirectionRegister
+			nextStep={() => handleChangeStep('next')}
+			setUserDirection={setUserDirection}
+		/>,
+		userTypeRegister.find(item => item.type === userType)?.component,
+		<AreaRegister
+			nextStep={() => handleChangeStep('next')}
+			user={user as IUser}
+			closeModal={handleCloseModal}
+		/>,
 		<SuccessRegister closeModal={handleCloseModal} />
 	];
 
@@ -121,7 +159,6 @@ export const RegisterModal = () => {
 					<BackOutlineArrow />
 				</Button>
 			) : null}
-
 			<Button className={clsx(s.closeBtn, 'closeBtn')} onClick={handleCloseModal}>
 				<CloseIcon />
 			</Button>
@@ -135,7 +172,9 @@ export const RegisterModal = () => {
 			close={handleCloseModal}
 			contentTop={contentTop}
 		>
-			{registerSteps[step]}
+			{tempUser && !isAuthenticated && isProviderAuth
+				? registerProviderSteps[step]
+				: registerSteps[step]}
 		</Modal>
 	);
 };

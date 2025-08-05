@@ -1,14 +1,31 @@
+import { useDispatch } from 'react-redux';
+
 import clsx from 'clsx';
 
+import { logout } from '@/entities/user';
+
+import { useDeleteUserMutation } from '@/shared/api/user';
+import { useTypedSelector } from '@/shared/lib';
 import { Button, CloseIcon, Modal, useModal } from '@/shared/ui';
 
 import s from './delete-account-modal.module.scss';
 
 export const DeleteAccountModal = () => {
 	const { close, currentModal } = useModal();
+	const { userData } = useTypedSelector(store => store.user);
+	const dispatch = useDispatch();
+
+	const [deleteUser] = useDeleteUserMutation();
 
 	const handleCloseModal = () => {
 		close();
+	};
+
+	const handleDeleteUser = async () => {
+		if (userData && userData?.id) {
+			await deleteUser(userData?.id);
+			dispatch(logout());
+		}
 	};
 
 	const contentTop = (
@@ -35,7 +52,7 @@ export const DeleteAccountModal = () => {
 						переводах будут удалены.
 					</p>
 				</div>
-				<div className={s.btns}>
+				<div className={s.btns} onClick={handleDeleteUser}>
 					<Button variant='alert' size='s'>
 						Удалить
 					</Button>

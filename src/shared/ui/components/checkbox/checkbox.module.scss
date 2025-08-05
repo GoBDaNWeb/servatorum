@@ -127,6 +127,7 @@
 	cursor: pointer;
 	transition: var(--trs-300);
 	margin: 0;
+
 	&:checked {
 		background: var(--green-color);
 		&:before {
