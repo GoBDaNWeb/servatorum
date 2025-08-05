@@ -10,13 +10,7 @@ import { setUser, setUserInitialized, setUserLoading } from '@/entities/user';
 import { useGetUserQuery } from '@/shared/api';
 import { decodeJWT } from '@/shared/lib';
 
-import * as VKID from '@vkid/sdk';
-
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-	VKID.Config.init({
-		app: 53997716,
-		redirectUrl: import.meta.env.VITE_API_REDIRECT_URL
-	});
 	const dispatch = useDispatch<AppDispatch>();
 
 	const token = localStorage.getItem('access_token');

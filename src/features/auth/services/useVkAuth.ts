@@ -5,6 +5,10 @@ import * as VKID from '@vkid/sdk';
 export const useVkAuth = () => {
 	const handleAuth = async () => {
 		try {
+			VKID.Config.init({
+				app: 53997716,
+				redirectUrl: import.meta.env.VITE_API_REDIRECT_URL
+			});
 			const { code, device_id } = queryString.parse(location.search);
 			if (code && device_id) {
 				if (typeof code !== 'string' || typeof device_id !== 'string') {
