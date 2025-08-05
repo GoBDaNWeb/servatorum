@@ -10,7 +10,6 @@ import { PATH_PAGE } from '@/shared/config';
 import { useTypedSelector } from '@/shared/lib';
 import { Button, Input, Logo, Skeleton, UserDropdown, useModal } from '@/shared/ui';
 
-import { HeaderSkeleton } from './HeaderSkeleton';
 import s from './header.module.scss';
 
 export const Header = () => {
@@ -19,10 +18,7 @@ export const Header = () => {
 	const navigate = useNavigate();
 	const { open } = useModal();
 
-	const token = localStorage.getItem('access_token');
-
 	const { userData, isAuthenticated, isLoading } = useTypedSelector(store => store.user);
-	const { fondData } = useTypedSelector(store => store.fond);
 
 	const controlNavbar = () => {
 		if (typeof window !== 'undefined') {

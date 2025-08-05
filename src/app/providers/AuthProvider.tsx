@@ -1,8 +1,6 @@
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import queryString from 'query-string';
-
 import { AppDispatch } from '@/app/stores';
 
 import { useVkAuth, useYandexAuthRTK } from '@/features/auth';
@@ -17,7 +15,7 @@ import * as VKID from '@vkid/sdk';
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 	VKID.Config.init({
 		app: 53997716,
-		redirectUrl: 'http://localhost'
+		redirectUrl: import.meta.env.VITE_API_REDIRECT_URL
 	});
 	const dispatch = useDispatch<AppDispatch>();
 

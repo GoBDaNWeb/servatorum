@@ -33,11 +33,7 @@ import { Loader } from '@/shared/ui';
 
 export const Router = () => {
 	const location = useLocation();
-	const { userData, isAuthenticated, isLoading, isInitialized } = useTypedSelector(
-		store => store.user
-	);
-	const { fondData } = useTypedSelector(store => store.fond);
-	const token = localStorage.getItem('access_token');
+	const { isAuthenticated, isInitialized } = useTypedSelector(store => store.user);
 
 	useEffect(() => {
 		setTimeout(() => {

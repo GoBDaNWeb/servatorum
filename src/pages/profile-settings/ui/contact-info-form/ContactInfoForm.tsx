@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 
 import { formatPhone } from '@/shared/lib';
-import { Checkbox, Input } from '@/shared/ui';
+import { Input } from '@/shared/ui';
 
 import s from '../profile-settings.module.scss';
 
